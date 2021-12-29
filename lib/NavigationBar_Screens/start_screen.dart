@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:login_signin/NavigationBar_Screens/leaderboard_screen.dart';
 import 'package:login_signin/NavigationBar_Screens/profilescreen.dart';
 import 'communicationscreen.dart';
 import 'homescreen.dart';
@@ -17,7 +18,9 @@ class _StartScreenState extends State<StartScreen> {
     HomeScreen(),
     ComunityScreen(),
     NotificationScreen(),
-    ProfileScreen()
+    LeaderBoard(),
+    ProfileScreen(),
+
   ];
 
   @override
@@ -56,10 +59,17 @@ class _StartScreenState extends State<StartScreen> {
           ),
           const BottomNavigationBarItem(
             icon: Icon(
+              Icons.leaderboard_outlined,
+            ),
+            label: 'Leaderboard',
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(
               Icons.account_circle_outlined,
             ),
             label: 'Profile',
           ),
+
         ],
       ),
       bottomSheet: buildBottomSheet(context),

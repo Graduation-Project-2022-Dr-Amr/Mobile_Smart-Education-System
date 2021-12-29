@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:login_signin/Screens/articale_screen.dart';
 import 'package:login_signin/Screens/course_screen.dart';
 import 'package:login_signin/shared/commponents.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -16,6 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   var scaffoldkey = GlobalKey<ScaffoldState>();
   PanelController pc = new PanelController();
   bool visible = true;
+
   @override
   Widget build(BuildContext context) {
     BorderRadiusGeometry radius = BorderRadius.only(
@@ -34,12 +36,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SvgPicture.asset(
-                        'assets/Logo.svg',
-                        fit: BoxFit.contain,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          SvgPicture.asset(
+                            'assets/Logo.svg',
+                            fit: BoxFit.contain,
+                          ),
+                        ],
                       ),
+                      Spacer(),
+                      IconButton(
+                        onPressed: (){},
+                        icon: Icon(Icons.account_circle_outlined),)
                     ],
                   ),
                   SizedBox(
@@ -141,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           separatorBuilder: (context, index) => Container(
                             height: 8,
                           ),
-                          itemCount: 4,
+                          itemCount: 2,
                         ),
                       ),
                     ],
@@ -263,6 +273,72 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ],
+        ),
+      );
+
+  Widget buildarticalitem(context, index) => Container(
+        height: MediaQuery.of(context).size.height * 0.0950323974082073,
+        width: MediaQuery.of(context).size.width * 0.9252336448598131,
+        decoration: BoxDecoration(
+          color: HexColor('FFFFFF'),
+          borderRadius: BorderRadius.circular(13),
+        ),
+        padding: EdgeInsets.all(20),
+        child: InkWell(
+          onTap: () {
+            navigateTo(context, ArticalScreen());
+          },
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image(
+                image: AssetImage('assets/articel1.png'),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '${articalvideos[index]['name']}',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      fontStyle: FontStyle.normal,
+                      color: HexColor('333333'),
+                    ),
+                  ),
+                  SizedBox(
+                    height:
+                        MediaQuery.of(context).size.height * 0.0043196544276458,
+                  ),
+                  Text(
+                    '${articalNames[index]['name']} ',
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w400,
+                      fontStyle: FontStyle.normal,
+                      color: HexColor('828282'),
+                    ),
+                  ),
+                  SizedBox(
+                    height:
+                        MediaQuery.of(context).size.height * 0.0043196544276458,
+                  ),
+                  Text(
+                    ':${articalDr[index]['name']}',
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w400,
+                      fontStyle: FontStyle.normal,
+                      color: HexColor('828282'),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       );
 }
