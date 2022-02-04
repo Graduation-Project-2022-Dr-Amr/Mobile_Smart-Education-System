@@ -73,7 +73,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               child: PageView.builder(
                 controller: boardController,
                 onPageChanged: (int index) {
-                  if (index == boarding.length - 1) {
+                  if (index == boarding.length-1) {
                     setState(() {
                       pageIndex = index;
                       isLast = false;

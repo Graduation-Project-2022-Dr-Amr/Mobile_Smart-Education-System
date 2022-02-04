@@ -57,16 +57,23 @@ List<Map> collegesNames = [
   {'name': 'Faculty of Arts'},
 ];
 List<Map> articalNames = [
-  {'name': 'Digital Communication '},
-  {'name': 'Computer Network'},
+  {'name': 'Digital\n Communication '},
+  {'name': 'Digital\n Communication '},
+  {'name': 'Digital\n Communication '},
   {'name': 'Artificial Intelligence'},
+  {'name': 'Artificial Intelligence'},
+];
+List<Map> artical2Names = [
+  {'name': 'Digital Communication '},
+  {'name': 'Digital Communication '},
+  {'name': 'Digital Communication '},
   {'name': 'Artificial Intelligence'},
   {'name': 'Artificial Intelligence'},
 ];
 List<Map> articalSvg = [
-  {'name': 'assets/1.png'},
-  {'name': 'assets/2.png'},
-  {'name': 'assets/3.png'},
+  {'name': 'assets/courseai.png'},
+  {'name': 'assets/courseai2.png'},
+  {'name': 'assets/courseai3.png'},
 ];
 List<Map> articalDr = [
   {'name': 'Dr/Amr Zamel'},

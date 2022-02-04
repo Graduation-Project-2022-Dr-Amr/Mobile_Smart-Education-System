@@ -20,7 +20,6 @@ class _StartScreenState extends State<StartScreen> {
     NotificationScreen(),
     LeaderBoard(),
     ProfileScreen(),
-
   ];
 
   @override
@@ -46,16 +45,16 @@ class _StartScreenState extends State<StartScreen> {
           ),
           const BottomNavigationBarItem(
             icon: Icon(
-              Icons.people,
+              Icons.menu_book,
               size: 24,
             ),
-            label: 'Community',
+            label: 'Courses',
           ),
           const BottomNavigationBarItem(
             icon: Icon(
-              Icons.notifications_active_outlined,
+              Icons.people,
             ),
-            label: 'Notification',
+            label: 'Community',
           ),
           const BottomNavigationBarItem(
             icon: Icon(
@@ -65,14 +64,12 @@ class _StartScreenState extends State<StartScreen> {
           ),
           const BottomNavigationBarItem(
             icon: Icon(
-              Icons.account_circle_outlined,
+              Icons.menu_outlined,
             ),
-            label: 'Profile',
+            label: 'More',
           ),
-
         ],
       ),
-      bottomSheet: buildBottomSheet(context),
     );
   }
 }
@@ -87,10 +84,6 @@ void show(BuildContext ctx) {
             },
             child: Container(
               decoration: BoxDecoration(
-                  // gradient: LinearGradient(
-                  //   colors: [HexColor('2F80ED'), HexColor('FFFFFF'),],
-                  //
-                  // ),
                   color: HexColor('0053CB'),
                   borderRadius:
                       BorderRadius.vertical(top: Radius.circular(24.5221))),
@@ -131,21 +124,3 @@ void show(BuildContext ctx) {
             ),
           ));
 }
-
-Widget buildBottomSheet(BuildContext ctx) => InkWell(
-      onTap: () {
-        show(ctx);
-      },
-      child: Container(
-        decoration: BoxDecoration(
-            // gradient: LinearGradient(
-            //   colors: [HexColor('2F80ED'), HexColor('FFFFFF'),],
-            //
-            // ),
-            color: HexColor('0053CB'),
-            borderRadius: BorderRadius.vertical(top: Radius.circular(24.5221))),
-        height: 10,
-        alignment: Alignment.center,
-
-      ),
-    );

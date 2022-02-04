@@ -27,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       key: scaffoldkey,
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: SafeArea(
@@ -47,44 +48,108 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                       Spacer(),
+                      Container(
+                        width: 24,
+                        height: 24,
+                        child: Positioned(
+                          top: 2,
+                          left: 3,
+                          child: SvgPicture.asset('assets/notification on.svg',
+                              semanticsLabel: 'vector'),
+                        ),
+                      ),
                       IconButton(
-                        onPressed: (){},
-                        icon: Icon(Icons.account_circle_outlined),)
+                        onPressed: () {},
+                        icon: Container(
+                            width: 32,
+                            height: 32,
+                            child: Stack(children: <Widget>[
+                              Positioned(
+                                  top: 0,
+                                  left: 0,
+                                  child: Container(
+                                      width: 32,
+                                      height: 32,
+                                      decoration: BoxDecoration(
+                                        color: Color.fromRGBO(0, 83, 203, 1),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.elliptical(32, 32)),
+                                      ))),
+                              Positioned(
+                                  top: 11,
+                                  left: 11,
+                                  child: Text(
+                                    'N',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Color.fromRGBO(255, 255, 255, 1),
+                                        fontFamily: 'SF Pro Display',
+                                        fontSize: 14,
+                                        letterSpacing: 0.10000000149011612,
+                                        fontWeight: FontWeight.normal,
+                                        height: 1),
+                                  )),
+                            ])),
+                      ),
+                      // IconButton(
+                      //   onPressed: (){},
+                      //   icon: Icon(Icons.account_circle_outlined),),
                     ],
                   ),
                   SizedBox(
                     height:
                         MediaQuery.of(context).size.height * 0.0259179265658747,
                   ),
-                  Text(
-                    'Courses',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontStyle: FontStyle.normal,
-                      fontWeight: FontWeight.w600,
-                      color: HexColor('0053CB'),
-                      //height: 21.48,
-                    ),
+                  Row(
+                    children: [
+                      Text(
+                        'Courses',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.w600,
+                          color: HexColor('0053CB'),
+                          //height: 21.48,
+                        ),
+                      ),
+                      Spacer(),
+                      InkWell(
+                        child: Container(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                'SEE ALL',
+                                textAlign: TextAlign.right,
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontStyle: FontStyle.normal,
+                                  fontWeight: FontWeight.w700,
+                                  color: HexColor('1964D1'),
+                                  fontFamily: 'SF Pro Display',
+                                ),
+                              ),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width *
+                                    0.014018691588785,
+                              ),
+                              SvgPicture.asset('assets/VectorSeeAll.svg',
+                                  semanticsLabel: 'vector'),
+                            ],
+                          ),
+                        ),
+                        onTap: () {},
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height:
-                        MediaQuery.of(context).size.height * 0.0086393088552916,
-                  ),
-                  Text(
-                    'Below are a list of courses provide from your university, you can\n drag to view all courses or click through to view the content',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontStyle: FontStyle.normal,
-                      fontWeight: FontWeight.w800,
-                      color: HexColor('828282'),
-                      //height: 21.48,
-                    ),
-                  ),
-                  SizedBox(
-                    height:
-                        MediaQuery.of(context).size.height * 0.0172786177105832,
+                        MediaQuery.of(context).size.height * 0.0205183585313175,
                   ),
                   SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
@@ -94,7 +159,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: ListView.separated(
                             shrinkWrap: true,
                             scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, index) => buildcourseitem(
+                            itemBuilder: (context, index) => testCourseItem(
                               context,
                               index,
                             ),
@@ -156,45 +221,112 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  // SlidingUpPanel(
-                  //   controller: pc,
-                  //   panel: Center(
-                  //     child: MaterialButton(
-                  //       child: Text('Show new panel'),
-                  //       onPressed: () {
-                  //         pc.close();
-                  //         visible = false;
-                  //         setState(() {});
-                  //         pc.open();
-                  //       },
-                  //     ),
-                  //   ),
-                  //   collapsed: Container(
-                  //     height: 500,
-                  //     decoration: BoxDecoration(
-                  //         color: Colors.lightGreen,
-                  //         borderRadius: radius
-                  //     ),
-                  //     child: Center(
-                  //       child: Text(
-                  //         "This is the collapsed Widget",
-                  //         style: TextStyle(color: Colors.white),
-                  //       ),
-                  //     ),
-                  //   ),
-                  //   body: Center(
-                  //     child: Text("This is the Widget behind the sliding panel"),
-                  //   ),
-                  //   borderRadius: radius,
-                  // ),
                 ],
               ),
             ),
           ),
         ),
       ),
+      bottomSheet: buildBottomSheet(context),
     );
   }
+
+  Widget testCourseItem(context, index) => InkWell(
+    onTap: (){
+      navigateTo(context, CourseScreen());
+
+    },
+    child: Container(
+          width: 178,
+          height: 317,
+          child: Stack(
+            children: <Widget>[
+              Positioned(
+                top: 48,
+                left: 0,
+                child: Container(
+                  width: 178,
+                  height: 269,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(16),
+                      topRight: Radius.circular(16),
+                      bottomLeft: Radius.circular(16),
+                      bottomRight: Radius.circular(16),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 83, 203, 0.05000000074505806),
+                        offset: Offset(6, 6),
+                        blurRadius: 8,
+                      ),
+                    ],
+                    color: Color.fromRGBO(255, 255, 255, 1),
+                    border: Border.all(
+                      color: Color.fromRGBO(232, 232, 232, 1),
+                      width: 1,
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 230,
+                left: 16,
+                child: Text(
+                  '${articalNames[index]['name']}',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: HexColor('0053CB'),
+                    fontFamily: 'SF Pro Display',
+                    fontSize: 16,
+                    fontStyle: FontStyle.normal,
+                    letterSpacing: 0.10000000149011612,
+                    fontWeight: FontWeight.w500,
+                    height: 1,
+                  ),
+                ),
+              ),
+              Positioned(
+                  top: 276,
+                  left: 16,
+                  child: Text(
+                    '${articalDr[index]['name']}',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: HexColor('575757'),
+                      fontFamily: 'SF Pro Display',
+                      fontSize: 14,
+                      fontStyle: FontStyle.normal,
+                      letterSpacing: 0.10000000149011612,
+                      fontWeight: FontWeight.w500,
+                      height: 1,
+                    ),
+                  )),
+              Positioned(
+                top: 0,
+                left: 16,
+                child: Container(
+                  width: 146,
+                  height: 214,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(8),
+                      topRight: Radius.circular(8),
+                      bottomLeft: Radius.circular(8),
+                      bottomRight: Radius.circular(8),
+                    ),
+                    color: Color.fromRGBO(166, 166, 166, 1),
+                    image: DecorationImage(
+                      image: AssetImage('${articalSvg[index]['name']}'),
+                      fit: BoxFit.fitWidth,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+  );
 
   Widget buildcourseitem(context, index) => InkWell(
         onTap: () {
@@ -314,7 +446,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         MediaQuery.of(context).size.height * 0.0043196544276458,
                   ),
                   Text(
-                    '${articalNames[index]['name']} ',
+                    '${artical2Names[index]['name']} ',
                     style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w400,
@@ -341,4 +473,57 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       );
+  Widget buildBottomSheet(context) => Container(
+    width: double.infinity,
+    height: 101,
+    decoration: BoxDecoration(
+      borderRadius : BorderRadius.only(
+        topLeft: Radius.circular(24.522144317626953),
+        topRight: Radius.circular(24.522144317626953),
+        bottomLeft: Radius.circular(0),
+        bottomRight: Radius.circular(0),
+      ),
+      color : Color.fromRGBO(0, 83, 203, 1),
+    ),
+    child: Container(
+      decoration: BoxDecoration(
+          color: HexColor('0053CB'),
+          borderRadius:
+          BorderRadius.vertical(top: Radius.circular(24.5221))),
+      height: MediaQuery.of(context).size.height * 0.1090712742980562,
+      alignment: Alignment.center,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width * 0.1869158878504673,
+            height: 2,
+            color: HexColor('C4E2FC'),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.0086393088552916,
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.0934579439252337,
+            height: 2,
+            color: HexColor('C4E2FC'),
+          ),
+          SizedBox(
+              height:
+              MediaQuery.of(context).size.height * 0.0259179265658747),
+          Text(
+            'CONTINUE STUDYING',
+            style: TextStyle(
+              fontSize: 12,
+              fontStyle: FontStyle.normal,
+              fontWeight: FontWeight.w700,
+              color: HexColor('FFFFFF'),
+              //height: 21.48,
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
 }
