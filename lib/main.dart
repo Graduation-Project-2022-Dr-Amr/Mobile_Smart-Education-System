@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login_signin/Screens/Onboarding/onboarding.dart';
+import 'package:login_signin/Screens/Questions/add_equation_screen.dart';
 import 'package:login_signin/data/api/dio_helper.dart';
 import 'package:login_signin/shared/network/Local%20Network/SharedPreferances/cashe_helper.dart';
 
@@ -18,6 +19,7 @@ void main() async {
 
   runApp(MyApp(isDark, isRtl));
 }
+
 class MyApp extends StatelessWidget {
   final bool? isDark;
   final bool? isRtl;
@@ -37,12 +39,12 @@ class MyApp extends StatelessWidget {
           theme: lightmode,
           darkTheme: darkmode,
           themeMode:
-          Mybloc.get(context).isDark ? ThemeMode.light : ThemeMode.dark,
+              Mybloc.get(context).isDark ? ThemeMode.light : ThemeMode.dark,
           home: Directionality(
               textDirection: Mybloc.get(context).isRtl
                   ? TextDirection.rtl
                   : TextDirection.ltr,
-              child: OnboardingScreen()),
+              child: AddQuestionScreen()),
         ),
       ),
     );
