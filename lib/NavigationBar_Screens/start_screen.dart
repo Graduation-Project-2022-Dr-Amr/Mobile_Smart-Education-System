@@ -24,6 +24,7 @@ class StartScreen extends StatelessWidget {
               },
               selectedItemColor: HexColor('2F80ED'),
               unselectedItemColor: HexColor('BDBDBD'),
+              type: BottomNavigationBarType.fixed,
               items: Mybloc.get(context).bottomItemsEnglish,
             ),
           );

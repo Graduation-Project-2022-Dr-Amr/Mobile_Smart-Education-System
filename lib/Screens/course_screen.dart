@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:smart_education/NavigationBar_Screens/homescreen.dart';
+import 'package:smart_education/NavigationBar_Screens/start_screen.dart';
 import 'package:smart_education/Screens/articale_screen.dart';
 import 'package:smart_education/shared/commponents.dart';
-
 
 class CourseScreen extends StatefulWidget {
   CourseScreen({Key? key}) : super(key: key);
@@ -56,7 +55,7 @@ class _CourseScreenState extends State<CourseScreen> {
                         children: [
                           IconButton(
                             onPressed: () {
-                              navigateTo(context, HomeScreen());
+                              navigateTo(context, StartScreen());
                             },
                             icon: Icon(Icons.arrow_back),
                             color: HexColor('FFFFFF'),

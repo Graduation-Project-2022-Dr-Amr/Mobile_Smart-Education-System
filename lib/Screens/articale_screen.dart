@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:smart_education/NavigationBar_Screens/homescreen.dart';
+import 'package:smart_education/NavigationBar_Screens/start_screen.dart';
 import 'package:smart_education/shared/commponents.dart';
-
-import 'course_screen.dart';
 
 
 class ArticalScreen extends StatefulWidget {
@@ -39,7 +39,7 @@ class _ArticalScreenState extends State<ArticalScreen> {
                   children: [
                     IconButton(
                       onPressed: () {
-                        navigateTo(context, CourseScreen());
+                        navigateTo(context, StartScreen());
                       },
                       icon: Icon(Icons.arrow_back),
                       color: HexColor('FFFFFF'),
@@ -354,11 +354,10 @@ class _ArticalScreenState extends State<ArticalScreen> {
                     Text(
                       'Up Next',
                       style: TextStyle(
-                        color:HexColor('1964D1'),
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700,
-                        fontStyle: FontStyle.normal
-                      ),
+                          color: HexColor('1964D1'),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700,
+                          fontStyle: FontStyle.normal),
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height *
@@ -368,8 +367,7 @@ class _ArticalScreenState extends State<ArticalScreen> {
                       alignment: Alignment.centerLeft,
                       child: ListView.separated(
                         shrinkWrap: true,
-                        itemBuilder: (context, index) =>
-                            buildItem(context),
+                        itemBuilder: (context, index) => buildItem(context),
                         separatorBuilder: (context, index) => SizedBox(
                           height: MediaQuery.of(context).size.height *
                               0.0086393088552916,
@@ -380,7 +378,6 @@ class _ArticalScreenState extends State<ArticalScreen> {
                   ],
                 ),
               ),
-
             ],
           ),
         ),
@@ -388,140 +385,141 @@ class _ArticalScreenState extends State<ArticalScreen> {
     );
   }
 }
+
 Widget buildItem(context) => InkWell(
-  onTap: () {
-    navigateTo(context, ArticalScreen());
-  },
-  child: Container(
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(16),
-        topRight: Radius.circular(16),
-        bottomLeft: Radius.circular(16),
-        bottomRight: Radius.circular(16),
-      ),
-      boxShadow: [
-        BoxShadow(
-            color: Color.fromRGBO(0, 83, 203, 0.05000000074505806),
-            offset: Offset(6, 6),
-            blurRadius: 8)
-      ],
-      color: Color.fromRGBO(255, 255, 255, 1),
-    ),
-    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-    child: Padding(
-      padding: const EdgeInsets.only(left: 25),
-      child: Row(
-        children: <Widget>[
-          Container(
-              width: 97,
-              height: 72,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(8),
-                  topRight: Radius.circular(8),
-                  bottomLeft: Radius.circular(8),
-                  bottomRight: Radius.circular(8),
-                ),
-                color: Color.fromRGBO(0, 0, 0, 0.5),
-                image: DecorationImage(
-                    image: AssetImage('assets/articel2.png'),
-                    fit: BoxFit.fitWidth),
-              )),
-          SizedBox(
-              width:
-              MediaQuery.of(context).size.width * 0.0186915887850467),
-          Container(
-            child: Column(
-              children: <Widget>[
-                Text(
-                  'Introduction: What is AI?',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    color: HexColor('333333'),
-                    fontFamily: 'SF Pro Display',
-                    fontSize: 12,
-                    fontStyle: FontStyle.normal,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                    height: MediaQuery.of(context).size.height *
-                        0.0086393088552916),
-                Row(
+      onTap: () {
+        navigateTo(context, ArticalScreen());
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(16),
+            topRight: Radius.circular(16),
+            bottomLeft: Radius.circular(16),
+            bottomRight: Radius.circular(16),
+          ),
+          boxShadow: [
+            BoxShadow(
+                color: Color.fromRGBO(0, 83, 203, 0.05000000074505806),
+                offset: Offset(6, 6),
+                blurRadius: 8)
+          ],
+          color: Color.fromRGBO(255, 255, 255, 1),
+        ),
+        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 25),
+          child: Row(
+            children: <Widget>[
+              Container(
+                  width: 97,
+                  height: 72,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(8),
+                      topRight: Radius.circular(8),
+                      bottomLeft: Radius.circular(8),
+                      bottomRight: Radius.circular(8),
+                    ),
+                    color: Color.fromRGBO(0, 0, 0, 0.5),
+                    image: DecorationImage(
+                        image: AssetImage('assets/articel2.png'),
+                        fit: BoxFit.fitWidth),
+                  )),
+              SizedBox(
+                  width:
+                      MediaQuery.of(context).size.width * 0.0186915887850467),
+              Container(
+                child: Column(
                   children: <Widget>[
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.watch,
-                          size: 15,
-                        ),
-                        Text(
-                          '51m',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            color: HexColor('333333'),
-                            fontFamily: 'SF Pro Display',
-                            fontSize: 12,
-                            fontStyle: FontStyle.normal,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ],
+                    Text(
+                      'Introduction: What is AI?',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        color: HexColor('333333'),
+                        fontFamily: 'SF Pro Display',
+                        fontSize: 12,
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                     SizedBox(
-                        width: MediaQuery.of(context).size.width *
-                            0.0373831775700935),
+                        height: MediaQuery.of(context).size.height *
+                            0.0086393088552916),
                     Row(
-                      children: [
-                        Icon(
-                          Icons.quiz_outlined,
-                          size: 15,
+                      children: <Widget>[
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.watch,
+                              size: 15,
+                            ),
+                            Text(
+                              '51m',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                color: HexColor('333333'),
+                                fontFamily: 'SF Pro Display',
+                                fontSize: 12,
+                                fontStyle: FontStyle.normal,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
                         ),
-                        Text(
-                          '4',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              color: Color.fromRGBO(51, 51, 51, 1),
-                              fontFamily: 'SF Pro Display',
-                              fontSize: 12,
-                              letterSpacing:
-                              0 /*percentages not used in flutter. defaulting to zero*/,
-                              fontWeight: FontWeight.normal,
-                              height: 1),
+                        SizedBox(
+                            width: MediaQuery.of(context).size.width *
+                                0.0373831775700935),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.quiz_outlined,
+                              size: 15,
+                            ),
+                            Text(
+                              '4',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                  color: Color.fromRGBO(51, 51, 51, 1),
+                                  fontFamily: 'SF Pro Display',
+                                  fontSize: 12,
+                                  letterSpacing:
+                                      0 /*percentages not used in flutter. defaulting to zero*/,
+                                  fontWeight: FontWeight.normal,
+                                  height: 1),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                    SizedBox(
-                        width: MediaQuery.of(context).size.width *
-                            0.0373831775700935),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.bookmark_border_outlined,
-                          size: 15,
-                        ),
-                        Text(
-                          '2',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              color: Color.fromRGBO(51, 51, 51, 1),
-                              fontFamily: 'SF Pro Display',
-                              fontSize: 12,
-                              letterSpacing:
-                              0 /*percentages not used in flutter. defaulting to zero*/,
-                              fontWeight: FontWeight.normal,
-                              height: 1),
+                        SizedBox(
+                            width: MediaQuery.of(context).size.width *
+                                0.0373831775700935),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.bookmark_border_outlined,
+                              size: 15,
+                            ),
+                            Text(
+                              '2',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                  color: Color.fromRGBO(51, 51, 51, 1),
+                                  fontFamily: 'SF Pro Display',
+                                  fontSize: 12,
+                                  letterSpacing:
+                                      0 /*percentages not used in flutter. defaulting to zero*/,
+                                  fontWeight: FontWeight.normal,
+                                  height: 1),
+                            ),
+                          ],
                         ),
                       ],
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
-    ),
-  ),
-);
+    );

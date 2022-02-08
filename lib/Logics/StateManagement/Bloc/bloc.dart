@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smart_education/NavigationBar_Screens/communicationscreen.dart';
+import 'package:smart_education/NavigationBar_Screens/coursesscreen.dart';
 import 'package:smart_education/NavigationBar_Screens/homescreen.dart';
 import 'package:smart_education/NavigationBar_Screens/leaderboard_screen.dart';
-import 'package:smart_education/NavigationBar_Screens/notifactionscreen.dart';
+import 'package:smart_education/NavigationBar_Screens/communityscreen.dart';
 import 'package:smart_education/data/api/api_constants.dart';
 import 'package:smart_education/data/models/lessons.dart';
 import 'package:smart_education/data/repository/app_repository.dart';
@@ -33,8 +33,8 @@ class Mybloc extends Cubit<AppStates> {
 //تحط هنا الاسكرينات اللي عندك  في التطبيق عشان لو هتستخدمهم  في ال BottomNavigationBar
   List<Widget> screens = [
     HomeScreen(),
-    ComunityScreen(),
-    NotificationScreen(),
+    CoursesScreen(),
+    CommunityScreen(),
     LeaderBoard(),
     ProfileScreen(),
   ];

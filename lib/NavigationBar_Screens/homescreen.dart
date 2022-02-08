@@ -38,6 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
           fit: BoxFit.contain,
         ),
         backgroundColor: Colors.white,
+        elevation: 0,
         automaticallyImplyLeading: false,
         //leadingWidth: 0,
         titleSpacing: SizeConfig.getProportionateScreenWidth(17),
@@ -123,7 +124,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Spacer(),
-                    InkWell(
+                    GestureDetector(
+                      onTap: () {},
                       child: Container(
                         padding:
                             EdgeInsets.symmetric(horizontal: 0, vertical: 0),
@@ -150,13 +152,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                       ),
-                      onTap: () {},
                     ),
                   ],
                 ),
                 SizedBox(
-                  height:
-                      MediaQuery.of(context).size.height * 0.0205183585313175,
+                  height: SizeConfig.getProportionateScreenHeightLarge(16),
                 ),
                 Container(
                   height: SizeConfig.getProportionateScreenHeightLarge(317),
@@ -168,15 +168,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       index,
                     ),
                     separatorBuilder: (context, index) => SizedBox(
-                      width: MediaQuery.of(context).size.width *
-                          0.0186915887850467,
+                      width: SizeConfig.getProportionateScreenWidth(10),
                     ),
                     itemCount: coursesData.length,
                   ),
                 ),
                 SizedBox(
-                  height:
-                      MediaQuery.of(context).size.height * 0.0345572354211663,
+                  height: SizeConfig.getProportionateScreenHeightLarge(32),
                 ),
                 Text(
                   'Recommended',
@@ -189,8 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 SizedBox(
-                  height:
-                      MediaQuery.of(context).size.height * 0.0086393088552916,
+                  height: SizeConfig.getProportionateScreenHeightLarge(8),
                 ),
                 Text(
                   'based on your recent performance in quizzes, assignments — We\n highly recommend reviewing the materials below.',
@@ -203,8 +200,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 SizedBox(
-                  height:
-                      MediaQuery.of(context).size.height * 0.0259179265658747,
+                  height: SizeConfig.getProportionateScreenHeightLarge(24),
                 ),
                 Column(
                   children: [
@@ -215,7 +211,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemBuilder: (context, index) =>
                             buildarticalitem(context, index),
                         separatorBuilder: (context, index) => Container(
-                          height: 8,
+                          height:
+                              SizeConfig.getProportionateScreenHeightLarge(16),
                         ),
                         itemCount: 2,
                       ),
@@ -227,12 +224,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      bottomSheet: buildBottomSheet(context),
     );
   }
 
-
-  Widget testCourseItem(context, index) => InkWell(
+  Widget testCourseItem(context, index) => GestureDetector(
         onTap: () {
           navigateTo(context, CourseScreen());
         },
@@ -342,86 +337,6 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       );
 
-  Widget buildcourseitem(context, index) => InkWell(
-        onTap: () {
-          navigateTo(context, CourseScreen());
-        },
-        child: Row(
-          children: [
-            Card(
-              elevation: 5,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              child: Container(
-                padding: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 16),
-                width: MediaQuery.of(context).size.width * 0.3551401869158879,
-                child: Column(
-                  children: [
-                    Column(
-                      children: [
-                        Image(
-                          image:
-                              AssetImage('${coursesData[index]['imageURL']}'),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height *
-                              0.0086393088552916,
-                        ),
-                        Text(
-                          '${coursesData[index]['courseName']}',
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                            fontStyle: FontStyle.normal,
-                            color: HexColor('0053CB'),
-                          ),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height *
-                              0.0086393088552916,
-                        ),
-                        Text(
-                          '${coursesData[index]['doctorName']}',
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontWeight: FontWeight.w500,
-                            fontStyle: FontStyle.normal,
-                            color: HexColor('333333'),
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              '${articaltime[index]['name']}',
-                              style: TextStyle(
-                                fontSize: 10,
-                                fontWeight: FontWeight.w500,
-                                fontStyle: FontStyle.normal,
-                                color: HexColor('333333'),
-                              ),
-                            ),
-                            Text(
-                              '${articalassignment[index]['name']}',
-                              style: TextStyle(
-                                fontSize: 10,
-                                fontWeight: FontWeight.w500,
-                                fontStyle: FontStyle.normal,
-                                color: HexColor('333333'),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
 
   Widget buildarticalitem(context, index) => Container(
         height: MediaQuery.of(context).size.height * 0.0950323974082073,
@@ -431,7 +346,7 @@ class _HomeScreenState extends State<HomeScreen> {
           borderRadius: BorderRadius.circular(13),
         ),
         padding: EdgeInsets.all(20),
-        child: InkWell(
+        child: GestureDetector(
           onTap: () {
             navigateTo(context, ArticalScreen());
           },
@@ -442,7 +357,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 image: AssetImage('assets/articel1.png'),
               ),
               SizedBox(
-                width: 10,
+                width: SizeConfig.getProportionateScreenWidth(8),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -457,8 +372,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   SizedBox(
-                    height:
-                        MediaQuery.of(context).size.height * 0.0043196544276458,
+                    height: SizeConfig.getProportionateScreenHeightLarge(4),
                   ),
                   Text(
                     '${artical2Names[index]['name']} ',
@@ -468,10 +382,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontStyle: FontStyle.normal,
                       color: HexColor('828282'),
                     ),
-                  ),
-                  SizedBox(
-                    height:
-                        MediaQuery.of(context).size.height * 0.0043196544276458,
                   ),
                   Text(
                     ':${articalDr[index]['name']}',
@@ -544,13 +454,3 @@ class _HomeScreenState extends State<HomeScreen> {
       );
 }
 
-// class HomeScreen extends StatelessWidget {
-//    HomeScreen({Key? key}) : super(key: key);
-//   var scaffoldkey = GlobalKey<ScaffoldState>();
-//   PanelController pc = PanelController();
-//   bool visible = true;
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container();
-//   }
-// }
