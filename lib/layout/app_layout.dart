@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
-import 'package:smart_education/Screens/Joining%20University/search_for_colleges_screen.dart';
+import 'package:smart_education/Screens/Joining%20University/explore_all_cources_screeen.dart';
 import 'package:smart_education/shared/commponents.dart';
 
 class SmartEducation extends StatelessWidget {

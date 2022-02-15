@@ -17,7 +17,7 @@ class CoursesScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: HexColor('F9FBFC'),
       appBar: AppBar(
-        elevation: 0.5,
+        elevation: 0.2,
         backgroundColor: HexColor('FFFFFF'),
         title: SvgPicture.asset(
           'assets/Logo.svg',

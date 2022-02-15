@@ -6,8 +6,6 @@ import 'package:smart_education/shared/network/Local%20Network/SharedPreferances
 
 import 'Logics/StateManagement/Bloc/bloc.dart';
 import 'Logics/StateManagement/Bloc/bloc_states.dart';
-import 'shared/Modes/dark_mode.dart';
-import 'shared/Modes/light_mode.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

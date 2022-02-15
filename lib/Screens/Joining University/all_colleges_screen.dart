@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/NavigationBar_Screens/start_screen.dart';
 import 'package:smart_education/shared/commponents.dart';
+import 'package:smart_education/shared/constants/size_config.dart';
 
 
 class Colleges extends StatefulWidget {
@@ -27,6 +28,19 @@ class _CollegesState extends State<Colleges> {
       'body': 'Cairo, Cairo government, Egypt',
     },
     {
+      "id": 3,
+      "title": "cairo",
+      'body': 'Alexandria, Alexandria government, Egypt',
+    },
+    {
+      "id": 3,
+      "title": "cairo",
+      'body': 'Alexandria, Alexandria government, Egypt',
+    },   {
+      "id": 3,
+      "title": "cairo",
+      'body': 'Alexandria, Alexandria government, Egypt',
+    },   {
       "id": 3,
       "title": "cairo",
       'body': 'Alexandria, Alexandria government, Egypt',
@@ -61,76 +75,80 @@ class _CollegesState extends State<Colleges> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: SafeArea(
-          child: Column(
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width * 0.9252336448598131,
-                height: MediaQuery.of(context).size.height * 0.060475161987041,
-                child: TextFormField(
-                  onChanged: (value) => _runFilter(value),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Enter some words!';
-                    }
-                    return null;
-                  },
-                  keyboardType: TextInputType.text,
-                  style: TextStyle(fontSize: 20, color: Colors.blue),
-                  maxLines: 1,
-                  cursorColor: Color.fromRGBO(180, 26, 26, 1.0),
-                  textAlign: TextAlign.start,
-                  textInputAction: TextInputAction.done,
-                  decoration: InputDecoration(
-                    prefixIcon: Container(
-                      child: Icon(
-                        Icons.search,
-                        color: HexColor('0053CB'),
-                      ),
-                      height: MediaQuery.of(context).size.height * .0259179266,
-                      width: MediaQuery.of(context).size.width * .0259179266,
+      body: Container(
+        padding:  EdgeInsets.symmetric(
+          vertical: SizeConfig.getProportionateScreenHeight(61),
+          horizontal: SizeConfig.getProportionateScreenWidth(16),
+        ),
+        child: Column(
+          children: [
+            Container(
+              width: SizeConfig.getProportionateScreenWidth(396),
+              height:  SizeConfig.getProportionateScreenHeight(56),
+              child: TextFormField(
+                onChanged: (value) => _runFilter(value),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Enter some words!';
+                  }
+                  return null;
+                },
+                keyboardType: TextInputType.text,
+                style: TextStyle(fontSize: 20, color: Colors.blue),
+                maxLines: 1,
+                cursorColor: Color.fromRGBO(180, 26, 26, 1.0),
+                textAlign: TextAlign.start,
+                textInputAction: TextInputAction.done,
+                decoration: InputDecoration(
+                  prefixIcon: Container(
+                    child: Icon(
+                      Icons.search,
+                      color: HexColor('0053CB'),
                     ),
-                    hintText: 'Search',
-                    hintStyle: TextStyle(
-                      fontSize: 18,
-                      fontStyle: FontStyle.normal,
-                      fontWeight: FontWeight.w500,
-                      color: HexColor('C4E2FC'),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: HexColor('0053CB'),
-                      ),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.blue,
-                      ),
-                    ),
-                    disabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.green,
-                      ),
-                    ),
-                    focusColor: Colors.yellow,
+                    height: MediaQuery.of(context).size.height * .0259179266,
+                    width: MediaQuery.of(context).size.width * .0259179266,
                   ),
+                  hintText: 'Search',
+                  hintStyle: TextStyle(
+                    fontSize: 18,
+                    fontStyle: FontStyle.normal,
+                    fontWeight: FontWeight.w500,
+                    color: HexColor('C4E2FC'),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: HexColor('0053CB'),
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.blue,
+                    ),
+                  ),
+                  disabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.green,
+                    ),
+                  ),
+                  focusColor: Colors.yellow,
                 ),
               ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.0485961123,
-              ),
-              Expanded(
-                child: foundcollege.isNotEmpty
-                    ? ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: foundcollege.length,
-                        itemBuilder: (context, index) {
-                          return Container(
-                            height: 100,
-                            color: HexColor('FFFFFF'),
+            ),
+            SizedBox(
+                height:  SizeConfig.getProportionateScreenHeight(10),
+            ),
+            Expanded(
+              child: foundcollege.isNotEmpty
+                  ? ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: foundcollege.length,
+                      itemBuilder: (context, index) {
+                        return SingleChildScrollView(
+                          physics: BouncingScrollPhysics(),
+                          child: Container(
+                            color:HexColor('FFFFFF'),
                             child: Column(
                               children: [
                                 ListTile(
@@ -208,10 +226,7 @@ class _CollegesState extends State<Colleges> {
                                                   ],
                                                 ),
                                                 SizedBox(
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      0.0237580993520518,
+                                                  height: SizeConfig.getProportionateScreenHeight(22),
                                                 ),
                                                 Row(
                                                   children: [
@@ -230,10 +245,7 @@ class _CollegesState extends State<Colleges> {
                                                   ],
                                                 ),
                                                 SizedBox(
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      0.0431965442764579,
+                                                 height:SizeConfig.getProportionateScreenHeight(40),
                                                 ),
                                                 Row(
                                                   children: [
@@ -252,21 +264,14 @@ class _CollegesState extends State<Colleges> {
                                                   ],
                                                 ),
                                                 SizedBox(
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      0.0086393088552916,
+                                                  height:SizeConfig.getProportionateScreenHeight(8),
                                                 ),
                                                 Form(
                                                   child: Container(
-                                                    width: MediaQuery.of(context)
-                                                            .size
-                                                            .width *
-                                                        0.9252336448598131,
-                                                    height: MediaQuery.of(context)
-                                                            .size
-                                                            .height *
-                                                        0.060475161987041,
+                                                    width:SizeConfig.getProportionateScreenWidth(348),
+
+                                                    height:SizeConfig.getProportionateScreenHeight(56),
+
                                                     child: TextFormField(
                                                       validator: (value) {
                                                         if (value!.isEmpty|| value.length < 8) {
@@ -331,20 +336,13 @@ class _CollegesState extends State<Colleges> {
 
                                                 ),
                                                 SizedBox(
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      0.0259179265658747,
+                                                    height:SizeConfig.getProportionateScreenHeight(24),
+
                                                 ),
                                                 Container(
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      .060475162,
-                                                  width: MediaQuery.of(context)
-                                                          .size
-                                                          .width *
-                                                      .9252336449,
+                                                  height:SizeConfig.getProportionateScreenHeight(56),
+                                                  width:SizeConfig.getProportionateScreenWidth(348),
+
                                                   decoration: BoxDecoration(
                                                     boxShadow: [
                                                       BoxShadow(
@@ -380,10 +378,8 @@ class _CollegesState extends State<Colleges> {
                                                   ),
                                                 ),
                                                 SizedBox(
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      0.0172786177105832,
+                                                  height:SizeConfig.getProportionateScreenHeight(16),
+
                                                 ),
                                                 Row(
                                                   mainAxisAlignment:
@@ -404,10 +400,7 @@ class _CollegesState extends State<Colleges> {
                                                   ],
                                                 ),
                                                 SizedBox(
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      0.0345572354211663,
+                                                  height:SizeConfig.getProportionateScreenHeight(32),
                                                 ),
                                               ],
                                             );
@@ -425,15 +418,15 @@ class _CollegesState extends State<Colleges> {
                                 ),
                               ],
                             ),
-                          );
-                        })
-                    : const Text(
-                        'No results found',
-                        style: TextStyle(fontSize: 24),
-                      ),
-              ),
-            ],
-          ),
+                          ),
+                        );
+                      })
+                  : const Text(
+                      'No results found',
+                      style: TextStyle(fontSize: 24),
+                    ),
+            ),
+          ],
         ),
       ),
     );

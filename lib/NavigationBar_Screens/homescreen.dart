@@ -337,15 +337,19 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       );
 
-
   Widget buildarticalitem(context, index) => Container(
-        height: MediaQuery.of(context).size.height * 0.0950323974082073,
-        width: MediaQuery.of(context).size.width * 0.9252336448598131,
+        height: SizeConfig.getProportionateScreenHeightLarge(88),
+        width: SizeConfig.getProportionateScreenWidth(396),
         decoration: BoxDecoration(
           color: HexColor('FFFFFF'),
           borderRadius: BorderRadius.circular(13),
         ),
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.only(
+          left: SizeConfig.getProportionateScreenWidth(9),
+          right: SizeConfig.getProportionateScreenWidth(81),
+          top: SizeConfig.getProportionateScreenWidth(8),
+          bottom: SizeConfig.getProportionateScreenWidth(8),
+        ),
         child: GestureDetector(
           onTap: () {
             navigateTo(context, ArticalScreen());
@@ -355,44 +359,51 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Image(
                 image: AssetImage('assets/articel1.png'),
+                height: SizeConfig.getProportionateScreenHeightLarge(72),
+                width: SizeConfig.getProportionateScreenWidth(97),
               ),
               SizedBox(
                 width: SizeConfig.getProportionateScreenWidth(8),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '${articalvideos[index]['name']}',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      fontStyle: FontStyle.normal,
-                      color: HexColor('333333'),
+              Padding(
+                padding: EdgeInsets.only(
+                    top: SizeConfig.getProportionateScreenWidth(10.4),
+                    bottom: SizeConfig.getProportionateScreenWidth(8)),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '${articalvideos[index]['name']}',
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        fontStyle: FontStyle.normal,
+                        color: HexColor('333333'),
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: SizeConfig.getProportionateScreenHeightLarge(4),
-                  ),
-                  Text(
-                    '${artical2Names[index]['name']} ',
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.normal,
-                      color: HexColor('828282'),
+                    SizedBox(
+                      height: SizeConfig.getProportionateScreenHeightLarge(4),
                     ),
-                  ),
-                  Text(
-                    ':${articalDr[index]['name']}',
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.normal,
-                      color: HexColor('828282'),
+                    Text(
+                      '${artical2Names[index]['name']} ',
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.w400,
+                        fontStyle: FontStyle.normal,
+                        color: HexColor('828282'),
+                      ),
                     ),
-                  ),
-                ],
+                    Text(
+                      ':${articalDr[index]['name']}',
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.w400,
+                        fontStyle: FontStyle.normal,
+                        color: HexColor('828282'),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
@@ -453,4 +464,3 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       );
 }
-
