@@ -3,8 +3,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 
-class LeaderBoard extends StatelessWidget {
-  const LeaderBoard({Key? key}) : super(key: key);
+class LeaderBoard extends StatefulWidget {
+  LeaderBoard({Key? key}) : super(key: key);
+
+  @override
+  State<LeaderBoard> createState() => _LeaderBoardState();
+}
+
+class _LeaderBoardState extends State<LeaderBoard> {
+  int _activeIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -85,63 +92,81 @@ class LeaderBoard extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(8.0),
           child: Column(
-            children: [
-              Container(
-                height: SizeConfig.getProportionateScreenHeightLarge(36),
-                width: SizeConfig.getProportionateScreenWidth(78),
-                decoration: BoxDecoration(
-                    color: Colors.grey[300],
-                    borderRadius: BorderRadius.circular(25.0)),
-                child: TabBar(
-                  indicator: BoxDecoration(
-                      color: HexColor('2F80ED'),
-                      borderRadius: BorderRadius.circular(28.0)),
-                  labelColor: Colors.white,
-                  unselectedLabelColor: Colors.grey,
-                  tabs: [
-                    Tab(
-                      text: 'All',
-                    ),
-                    Tab(
-                      text: 'Artificial Intelligence',
-                    ),
-                    Tab(
-                      text: 'Digital Communication',
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                  child: TabBarView(
-                children: [
-                  Container(
-                    child: ListView.separated(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      itemBuilder: (context, index) => buildItem(
-                        context,
-                        index,
-                      ),
-                      separatorBuilder: (context, index) => SizedBox(
-                        height: SizeConfig.getProportionateScreenHeightLarge(8),
-                      ),
-                      itemCount: itemData.length,
-                    ),
-                  ),
-                  Center(
-                    child: Text("Artificial Intelligence Pages"),
-                  ),
-                  Center(
-                    child: Text("Digital Communication Pages"),
-                  ),
-                ],
-              ))
-            ],
+            children: [_buildTabs(), _buildContent()],
           ),
         ),
       ),
     );
   }
+
+  Widget _buildTabs() {
+    return Container(
+      height: 50,
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 3,
+          itemBuilder: (context, index) {
+            final isRtl = isRTL(context);
+            final _rightPadding = isRtl && index == 0 ? 12.0 : 4.0;
+            final _leftPadding = !isRtl && index == 0 ? 12.0 : 4.0;
+            return GestureDetector(
+              onTap: (() => setState(() => _activeIndex = index)),
+              child: Container(
+                margin: EdgeInsets.only(left: _leftPadding, right: _rightPadding, top: 8, bottom: 8),
+                child: Chip(
+                    label: Text(_getName(index), style: TextStyle(color: Colors.white)),
+                    backgroundColor: _activeIndex == index ? Colors.blueAccent : Colors.grey.shade400),
+              ),
+            );
+          }),
+    );
+  }
+
+  String _getName(int index) {
+    switch (index) {
+      case 0:
+        return 'All';
+      case 1:
+        return 'Artificial Inteligence';
+      case 2:
+        return 'Communications';
+
+      default:
+        return 'All';
+    }
+  }
+
+  Widget _buildContent() {
+    final widgets = [
+      Container(
+        child: ListView.separated(
+          shrinkWrap: true,
+          scrollDirection: Axis.vertical,
+          itemBuilder: (context, index) => buildItem(
+            context,
+            index,
+          ),
+          separatorBuilder: (context, index) => SizedBox(
+            height: SizeConfig.getProportionateScreenHeightLarge(8),
+          ),
+          itemCount: itemData.length,
+        ),
+      ),
+      Center(
+        child: Text("Artificial Intelligence Pages"),
+      ),
+      Center(
+        child: Text("Digital Communication Pages"),
+      ),
+    ];
+
+    return widgets[_activeIndex];
+  }
+}
+
+bool isRTL(BuildContext context) {
+  return Directionality.of(context) == TextDirection.rtl;
 }
 
 Widget buildItem(
@@ -173,7 +198,7 @@ Widget buildItem(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                 itemData[index]['name'],
+                  itemData[index]['name'],
                   style: TextStyle(
                     color: HexColor('#4F4F4F'),
                     fontWeight: FontWeight.w700,

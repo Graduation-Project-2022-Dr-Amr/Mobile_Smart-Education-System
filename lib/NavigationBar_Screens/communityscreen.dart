@@ -3,8 +3,17 @@ import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 
-class CommunityScreen extends StatelessWidget {
+import 'leaderboard_screen.dart';
+
+class CommunityScreen extends StatefulWidget {
   CommunityScreen({Key? key}) : super(key: key);
+
+  @override
+  State<CommunityScreen> createState() => _CommunityScreenState();
+}
+
+class _CommunityScreenState extends State<CommunityScreen> {
+  int _activeIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -85,55 +94,66 @@ class CommunityScreen extends StatelessWidget {
           padding: EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Container(
-                height: SizeConfig.getProportionateScreenHeightLarge(36),
-                width: SizeConfig.getProportionateScreenWidth(78),
-                decoration: BoxDecoration(
-                    color: Colors.grey[300],
-                    borderRadius: BorderRadius.circular(25.0)),
-                child: TabBar(
-                  indicator: BoxDecoration(
-                      color: HexColor('2F80ED'),
-                      borderRadius: BorderRadius.circular(28.0)),
-                  labelColor: Colors.white,
-                  unselectedLabelColor: Colors.grey,
-                  tabs: [
-                    Tab(
-                      text: 'Bot',
-                    ),
-                    Tab(
-                      text: 'Chats',
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                  child: TabBarView(
-                children: [
-                  Container(
-                    child: ListView.separated(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      itemBuilder: (context, index) => buildItem(
-                        context,
-                        index,
+              _buildTabs(),
+              _activeIndex == 0
+                  ? Container(
+                      child: ListView.separated(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        itemBuilder: (context, index) => buildItem(
+                          context,
+                          index,
+                        ),
+                        separatorBuilder: (context, index) => SizedBox(
+                          height: SizeConfig.getProportionateScreenHeightLarge(8),
+                        ),
+                        itemCount: 5,
                       ),
-                      separatorBuilder: (context, index) => SizedBox(
-                        height: SizeConfig.getProportionateScreenHeightLarge(8),
-                      ),
-                      itemCount: 5,
+                    )
+                  : Center(
+                      child: Text("Chat Pages"),
                     ),
-                  ),
-                  Center(
-                    child: Text("Chat Pages"),
-                  ),
-                ],
-              ))
             ],
           ),
         ),
       ),
     );
+  }
+
+  Widget _buildTabs() {
+    return Container(
+      height: 50,
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 2,
+          itemBuilder: (context, index) {
+            final isRtl = isRTL(context);
+            final _rightPadding = isRtl && index == 0 ? 12.0 : 4.0;
+            final _leftPadding = !isRtl && index == 0 ? 12.0 : 4.0;
+            return GestureDetector(
+              onTap: (() => setState(() => _activeIndex = index)),
+              child: Container(
+                margin: EdgeInsets.only(left: _leftPadding, right: _rightPadding, top: 8, bottom: 8),
+                child: Chip(
+                    label: Text(_getName(index), style: TextStyle(color: Colors.white)),
+                    backgroundColor: _activeIndex == index ? Colors.blueAccent : Colors.grey.shade400),
+              ),
+            );
+          }),
+    );
+  }
+
+  String _getName(int index) {
+    switch (index) {
+      case 0:
+        return 'Chat';
+      case 1:
+        return 'Bots';
+
+      default:
+        return 'Chat';
+    }
   }
 }
 
@@ -157,9 +177,6 @@ Widget buildItem(
       child: Text(
         'Lörem ipsum testbädd faning internet of\n things\n\nToday at 1:01 PM',
         style: TextStyle(
-            color: HexColor('FFFFFF'),
-            fontSize: 16,
-            fontWeight: FontWeight.w400,
-            fontStyle: FontStyle.normal),
+            color: HexColor('FFFFFF'), fontSize: 16, fontWeight: FontWeight.w400, fontStyle: FontStyle.normal),
       ),
     );
