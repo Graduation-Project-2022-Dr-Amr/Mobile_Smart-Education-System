@@ -3,6 +3,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/NavigationBar_Screens/start_screen.dart';
 import 'package:smart_education/Screens/articale_screen.dart';
 import 'package:smart_education/shared/commponents.dart';
+import 'package:smart_education/shared/constants/size_config.dart';
 
 class CourseScreen extends StatefulWidget {
   CourseScreen({Key? key}) : super(key: key);
@@ -28,8 +29,7 @@ class _CourseScreenState extends State<CourseScreen> {
               children: [
                 Container(
                   width: double.infinity,
-                  height:
-                      MediaQuery.of(context).size.height * 0.4892008639308855,
+                  height: MediaQuery.of(context).size.height * 0.4892008639308855,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(0),
@@ -39,10 +39,7 @@ class _CourseScreenState extends State<CourseScreen> {
                     ),
                     boxShadow: [
                       BoxShadow(
-                          color:
-                              Color.fromRGBO(0, 83, 203, 0.05000000074505806),
-                          offset: Offset(6, 6),
-                          blurRadius: 8)
+                          color: Color.fromRGBO(0, 83, 203, 0.05000000074505806), offset: Offset(6, 6), blurRadius: 8)
                     ],
                     color: Color.fromRGBO(0, 83, 203, 1),
                   ),
@@ -64,14 +61,11 @@ class _CourseScreenState extends State<CourseScreen> {
                         ],
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height *
-                            0.031317494600432,
+                        height: MediaQuery.of(context).size.height * 0.031317494600432,
                       ),
                       Container(
-                        width: MediaQuery.of(context).size.width *
-                            0.3037383177570093,
-                        height: MediaQuery.of(context).size.height *
-                            0.2051835853131749,
+                        width: MediaQuery.of(context).size.width * 0.3037383177570093,
+                        height: MediaQuery.of(context).size.height * 0.2051835853131749,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(8),
@@ -87,8 +81,7 @@ class _CourseScreenState extends State<CourseScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height *
-                            0.0259179265658747,
+                        height: MediaQuery.of(context).size.height * 0.0259179265658747,
                       ),
                       Text(
                         'Artificial Intelligence',
@@ -100,8 +93,7 @@ class _CourseScreenState extends State<CourseScreen> {
                             color: HexColor('FFFFFF')),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height *
-                            0.0086393088552916,
+                        height: MediaQuery.of(context).size.height * 0.0086393088552916,
                       ),
                       Text(
                         'Amr Zamel',
@@ -113,14 +105,11 @@ class _CourseScreenState extends State<CourseScreen> {
                             color: HexColor('FFFFFF')),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height *
-                            0.0259179265658747,
+                        height: MediaQuery.of(context).size.height * 0.0259179265658747,
                       ),
                       Container(
-                        width: MediaQuery.of(context).size.width *
-                            0.9252336448598131,
-                        height: MediaQuery.of(context).size.height *
-                            0.0799136069114471,
+                        width: MediaQuery.of(context).size.width * 0.9252336448598131,
+                        height: MediaQuery.of(context).size.height * 0.0799136069114471,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(15),
@@ -143,10 +132,8 @@ class _CourseScreenState extends State<CourseScreen> {
                                       color: HexColor('FFFFFF'),
                                     ),
                                     Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           'Length',
@@ -156,8 +143,7 @@ class _CourseScreenState extends State<CourseScreen> {
                                               fontFamily: 'SF Pro Display',
                                               fontSize: 10,
                                               fontStyle: FontStyle.normal,
-                                              letterSpacing:
-                                                  0.10000000149011612,
+                                              letterSpacing: 0.10000000149011612,
                                               fontWeight: FontWeight.w300,
                                               height: 1),
                                         ),
@@ -170,8 +156,7 @@ class _CourseScreenState extends State<CourseScreen> {
                                               fontFamily: 'SF Pro Display',
                                               fontSize: 14,
                                               fontStyle: FontStyle.normal,
-                                              letterSpacing:
-                                                  0.10000000149011612,
+                                              letterSpacing: 0.10000000149011612,
                                               fontWeight: FontWeight.w600,
                                               height: 1),
                                         ),
@@ -180,8 +165,7 @@ class _CourseScreenState extends State<CourseScreen> {
                                   ],
                                 ),
                                 SizedBox(
-                                  width: MediaQuery.of(context).size.width *
-                                      0.1191588785046729,
+                                  width: MediaQuery.of(context).size.width * 0.1191588785046729,
                                 ),
                                 Row(
                                   children: [
@@ -190,10 +174,8 @@ class _CourseScreenState extends State<CourseScreen> {
                                       color: HexColor('FFFFFF'),
                                     ),
                                     Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           'Quizzes',
@@ -203,8 +185,7 @@ class _CourseScreenState extends State<CourseScreen> {
                                               fontFamily: 'SF Pro Display',
                                               fontSize: 10,
                                               fontStyle: FontStyle.normal,
-                                              letterSpacing:
-                                                  0.10000000149011612,
+                                              letterSpacing: 0.10000000149011612,
                                               fontWeight: FontWeight.w300,
                                               height: 1),
                                         ),
@@ -217,8 +198,7 @@ class _CourseScreenState extends State<CourseScreen> {
                                               fontFamily: 'SF Pro Display',
                                               fontSize: 14,
                                               fontStyle: FontStyle.normal,
-                                              letterSpacing:
-                                                  0.10000000149011612,
+                                              letterSpacing: 0.10000000149011612,
                                               fontWeight: FontWeight.w600,
                                               height: 1),
                                         ),
@@ -227,8 +207,7 @@ class _CourseScreenState extends State<CourseScreen> {
                                   ],
                                 ),
                                 SizedBox(
-                                  width: MediaQuery.of(context).size.width *
-                                      0.1191588785046729,
+                                  width: MediaQuery.of(context).size.width * 0.1191588785046729,
                                 ),
                                 Row(
                                   children: [
@@ -237,10 +216,8 @@ class _CourseScreenState extends State<CourseScreen> {
                                       color: HexColor('FFFFFF'),
                                     ),
                                     Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           'Assignments',
@@ -250,8 +227,7 @@ class _CourseScreenState extends State<CourseScreen> {
                                               fontFamily: 'SF Pro Display',
                                               fontSize: 10,
                                               fontStyle: FontStyle.normal,
-                                              letterSpacing:
-                                                  0.10000000149011612,
+                                              letterSpacing: 0.10000000149011612,
                                               fontWeight: FontWeight.w300,
                                               height: 1),
                                         ),
@@ -264,8 +240,7 @@ class _CourseScreenState extends State<CourseScreen> {
                                               fontFamily: 'SF Pro Display',
                                               fontSize: 14,
                                               fontStyle: FontStyle.normal,
-                                              letterSpacing:
-                                                  0.10000000149011612,
+                                              letterSpacing: 0.10000000149011612,
                                               fontWeight: FontWeight.w600,
                                               height: 1),
                                         ),
@@ -284,8 +259,7 @@ class _CourseScreenState extends State<CourseScreen> {
                 Container(
                   padding: EdgeInsets.only(left: 15, top: 15),
                   width: double.infinity,
-                  height:
-                      MediaQuery.of(context).size.height * 0.10846652267818575,
+                  height: MediaQuery.of(context).size.height * 0.10846652267818575,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(0),
@@ -295,10 +269,7 @@ class _CourseScreenState extends State<CourseScreen> {
                     ),
                     boxShadow: [
                       BoxShadow(
-                          color:
-                              Color.fromRGBO(0, 83, 203, 0.05000000074505806),
-                          offset: Offset(6, 6),
-                          blurRadius: 8)
+                          color: Color.fromRGBO(0, 83, 203, 0.05000000074505806), offset: Offset(6, 6), blurRadius: 8)
                     ],
                     color: Color.fromRGBO(255, 255, 255, 1),
                     border: Border.all(
@@ -319,8 +290,7 @@ class _CourseScreenState extends State<CourseScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height *
-                            0.0172786177105832,
+                        height: MediaQuery.of(context).size.height * 0.0172786177105832,
                       ),
                       Text(
                         'Lörem ipsum askbränd tran fast plasiv SMM spening marknadsplatser robot\n retail dihet hören som content provider DALL·E, om podda om multi helix.\n Pongen heterosase logolog kaliga ansvarsfull app vånigt och orade\n spevengen epide. ',
@@ -335,8 +305,7 @@ class _CourseScreenState extends State<CourseScreen> {
                   ),
                 ),
                 SizedBox(
-                  height:
-                      MediaQuery.of(context).size.height * 0.0172786177105832,
+                  height: MediaQuery.of(context).size.height * 0.0172786177105832,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(24.0),
@@ -351,149 +320,66 @@ class _CourseScreenState extends State<CourseScreen> {
                   ),
                 ),
                 SizedBox(
-                  height:
-                      MediaQuery.of(context).size.height * 0.0169978401727862,
+                  height: MediaQuery.of(context).size.height * 0.0169978401727862,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 50),
+                  padding: const EdgeInsets.only(left: 10),
                   child: Column(
                     children: [
-                      // Stepper(
-                      //   controlsBuilder: (context,
-                      //       {onStepContinue, onStepCancel}) {
-                      //     return Container(
-                      //       child: Row(
-                      //         children: [
-                      //           Expanded(
-                      //             child: ElevatedButton(
-                      //               style: ButtonStyle(
-                      //                 backgroundColor:
-                      //                     MaterialStateProperty.all<Color>(
-                      //                         HexColor('0053CB')),
-                      //               ),
-                      //               onPressed: onStepContinue,
-                      //               child: Text(
-                      //                 'Next',
-                      //                 style: TextStyle(
-                      //                   color: HexColor('FFFFFF'),
-                      //                 ),
-                      //               ),
-                      //             ),
-                      //           ),
-                      //           const SizedBox(
-                      //             width: 10,
-                      //           ),
-                      //           if (currentStep > 0)
-                      //             Expanded(
-                      //               child: ElevatedButton(
-                      //                 style: ButtonStyle(
-                      //                   backgroundColor:
-                      //                       MaterialStateProperty.all<Color>(
-                      //                           HexColor('0053CB')),
-                      //                 ),
-                      //                 onPressed: onStepCancel,
-                      //                 child: Text(
-                      //                   'Back',
-                      //                   style: TextStyle(
-                      //                     color: HexColor('FFFFFF'),
-                      //                   ),
-                      //                 ),
-                      //               ),
-                      //             )
-                      //         ],
-                      //       ),
-                      //     );
-                      //   },
-                      //   currentStep: currentStep,
-                      //   onStepTapped: (int index) {
-                      //     setState(() {
-                      //       currentStep = index;
-                      //     });
-                      //   },
-                      //   onStepContinue: () {
-                      //     if (currentStep <= 0) {
-                      //       setState(() {
-                      //         currentStep += 1;
-                      //       });
-                      //     }
-                      //   },
-                      //   onStepCancel: () {
-                      //     if (currentStep > 0) {
-                      //       setState(() {
-                      //         currentStep -= 1;
-                      //       });
-                      //     }
-                      //   },
-                      //   steps: <Step>[
-                      //     Step(
-                      //       title: const Text('Introduction'),
-                      //       isActive: currentStep >= 0,
-                      //       state: currentStep == 0
-                      //           ? StepState.editing
-                      //           : StepState.complete,
-                      //       content: Container(
-                      //         alignment: Alignment.centerLeft,
-                      //         child: ListView.separated(
-                      //           shrinkWrap: true,
-                      //           itemBuilder: (context, index) =>
-                      //               buildItem(context),
-                      //           separatorBuilder: (context, index) => SizedBox(
-                      //             height: MediaQuery.of(context).size.height *
-                      //                 0.0086393088552916,
-                      //           ),
-                      //           itemCount: 2,
-                      //         ),
-                      //       ),
-                      //     ),
-                      //     Step(
-                      //       title: Text('Second unit '),
-                      //       isActive: currentStep >= 1,
-                      //       state: currentStep == 1
-                      //           ? StepState.editing
-                      //           : currentStep < 1
-                      //               ? StepState.disabled
-                      //               : StepState.complete,
-                      //       content: Container(
-                      //         alignment: Alignment.centerLeft,
-                      //         child: ListView.separated(
-                      //           shrinkWrap: true,
-                      //           itemBuilder: (context, index) =>
-                      //               buildItem(context),
-                      //           separatorBuilder: (context, index) => SizedBox(
-                      //             height: MediaQuery.of(context).size.height *
-                      //                 0.0086393088552916,
-                      //           ),
-                      //           itemCount: 2,
-                      //         ),
-                      //       ),
-                      //     ),
-                      //     Step(
-                      //       title: Text('Third unit '),
-                      //       isActive: currentStep >= 2,
-                      //       state: currentStep == 2
-                      //           ? StepState.editing
-                      //           : currentStep < 2
-                      //               ? StepState.disabled
-                      //               : StepState.complete,
-                      //       content: Container(
-                      //         alignment: Alignment.centerLeft,
-                      //         child: ListView.separated(
-                      //           shrinkWrap: true,
-                      //           itemBuilder: (context, index) =>
-                      //               buildItem(context),
-                      //           separatorBuilder: (context, index) => SizedBox(
-                      //             height: MediaQuery.of(context).size.height *
-                      //                 0.0086393088552916,
-                      //           ),
-                      //           itemCount: 2,
-                      //         ),
-                      //       ),
-                      //     ),
-                      //   ],
-                      // ),
+                      Stepper(
+                        currentStep: currentStep,
+                        onStepTapped: (int index) {
+                          setState(() {
+                            currentStep = index;
+                          });
+                        },
+                        controlsBuilder: (context, _) {
+                          return Container();
+                        },
+                        steps: [
+                          Step(
+                              title: Text('Lecture 1'),
+                              content: Column(
+                                children: <Widget>[
+                                  buildItem(context),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  buildItem(context),
+                                ],
+                              ),
+                              isActive: currentStep == 0,
+                              state: StepState.complete),
+                          Step(
+                              title: Text('Lecture 2'),
+                              content: Column(
+                                children: <Widget>[
+                                  buildItem(context),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  buildItem(context),
+                                ],
+                              ),
+                              isActive: currentStep == 1,
+                              state: StepState.complete),
+                          Step(
+                              title: Text('Lecture 3'),
+                              content: Column(
+                                children: <Widget>[
+                                  buildItem(context),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  buildItem(context),
+                                ],
+                              ),
+                              isActive: currentStep == 2,
+                              state: StepState.complete),
+                        ],
+                      ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height *
-                            0.0259179265658747,
+                        height: MediaQuery.of(context).size.height * 0.0259179265658747,
                       ),
                     ],
                   ),
@@ -520,10 +406,7 @@ Widget buildItem(context) => InkWell(
             bottomRight: Radius.circular(16),
           ),
           boxShadow: [
-            BoxShadow(
-                color: Color.fromRGBO(0, 83, 203, 0.05000000074505806),
-                offset: Offset(6, 6),
-                blurRadius: 8)
+            BoxShadow(color: Color.fromRGBO(0, 83, 203, 0.05000000074505806), offset: Offset(6, 6), blurRadius: 8)
           ],
           color: Color.fromRGBO(255, 255, 255, 1),
         ),
@@ -543,13 +426,9 @@ Widget buildItem(context) => InkWell(
                       bottomRight: Radius.circular(8),
                     ),
                     color: Color.fromRGBO(0, 0, 0, 0.5),
-                    image: DecorationImage(
-                        image: AssetImage('assets/hateme.png'),
-                        fit: BoxFit.fitWidth),
+                    image: DecorationImage(image: AssetImage('assets/hateme.png'), fit: BoxFit.fitWidth),
                   )),
-              SizedBox(
-                  width:
-                      MediaQuery.of(context).size.width * 0.0186915887850467),
+              SizedBox(width: MediaQuery.of(context).size.width * 0.0186915887850467),
               Container(
                 child: Column(
                   children: <Widget>[
@@ -564,9 +443,7 @@ Widget buildItem(context) => InkWell(
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    SizedBox(
-                        height: MediaQuery.of(context).size.height *
-                            0.0086393088552916),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.0086393088552916),
                     Row(
                       children: <Widget>[
                         Row(
@@ -588,9 +465,7 @@ Widget buildItem(context) => InkWell(
                             ),
                           ],
                         ),
-                        SizedBox(
-                            width: MediaQuery.of(context).size.width *
-                                0.0373831775700935),
+                        SizedBox(width: MediaQuery.of(context).size.width * 0.0373831775700935),
                         Row(
                           children: [
                             Icon(
@@ -604,16 +479,13 @@ Widget buildItem(context) => InkWell(
                                   color: Color.fromRGBO(51, 51, 51, 1),
                                   fontFamily: 'SF Pro Display',
                                   fontSize: 12,
-                                  letterSpacing:
-                                      0 /*percentages not used in flutter. defaulting to zero*/,
+                                  letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
                                   fontWeight: FontWeight.normal,
                                   height: 1),
                             ),
                           ],
                         ),
-                        SizedBox(
-                            width: MediaQuery.of(context).size.width *
-                                0.0373831775700935),
+                        SizedBox(width: MediaQuery.of(context).size.width * 0.0373831775700935),
                         Row(
                           children: [
                             Icon(
@@ -627,8 +499,7 @@ Widget buildItem(context) => InkWell(
                                   color: Color.fromRGBO(51, 51, 51, 1),
                                   fontFamily: 'SF Pro Display',
                                   fontSize: 12,
-                                  letterSpacing:
-                                      0 /*percentages not used in flutter. defaulting to zero*/,
+                                  letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
                                   fontWeight: FontWeight.normal,
                                   height: 1),
                             ),

@@ -102,8 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal: SizeConfig.getProportionateScreenWidth(16)),
+          padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(16)),
           child: SafeArea(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -127,8 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     GestureDetector(
                       onTap: () {},
                       child: Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                        padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
@@ -144,11 +142,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: MediaQuery.of(context).size.width *
-                                  0.014018691588785,
+                              width: MediaQuery.of(context).size.width * 0.014018691588785,
                             ),
-                            SvgPicture.asset('assets/VectorSeeAll.svg',
-                                semanticsLabel: 'vector'),
+                            SvgPicture.asset('assets/VectorSeeAll.svg', semanticsLabel: 'vector'),
                           ],
                         ),
                       ),
@@ -208,11 +204,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       decoration: BoxDecoration(),
                       child: ListView.separated(
                         shrinkWrap: true,
-                        itemBuilder: (context, index) =>
-                            buildarticalitem(context, index),
+                        itemBuilder: (context, index) => buildarticalitem(context, index),
                         separatorBuilder: (context, index) => Container(
-                          height:
-                              SizeConfig.getProportionateScreenHeightLarge(16),
+                          height: SizeConfig.getProportionateScreenHeightLarge(16),
                         ),
                         itemCount: 2,
                       ),
@@ -266,19 +260,16 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Positioned.directional(
                 textDirection: TextDirection.ltr,
-                width: SizeConfig.getProportionateScreenWidth(146),
+                start: 0,
+                end: 0,
                 top: SizeConfig.getProportionateScreenHeightLarge(230),
-                child: Row(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      coursesData[index]['courseName']
-                              .toString()
-                              .split(' ')[0] +
+                      coursesData[index]['courseName'].toString().split(' ')[0] +
                           '\n' +
-                          coursesData[index]['courseName']
-                              .toString()
-                              .split(' ')[1],
+                          coursesData[index]['courseName'].toString().split(' ')[1],
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: HexColor('0053CB'),
@@ -290,25 +281,21 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: 1,
                       ),
                     ),
+                    SizedBox(height: SizeConfig.getProportionateScreenHeightLarge(8)),
+                    Text(
+                      '${coursesData[index]['doctorName']}',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: HexColor('575757'),
+                        fontFamily: 'SF Pro Display',
+                        fontSize: 14,
+                        fontStyle: FontStyle.normal,
+                        letterSpacing: 0.10000000149011612,
+                        fontWeight: FontWeight.w500,
+                        height: 1,
+                      ),
+                    )
                   ],
-                ),
-              ),
-              Positioned.directional(
-                textDirection: TextDirection.ltr,
-                top: SizeConfig.getProportionateScreenHeightLarge(276),
-                width: SizeConfig.getProportionateScreenWidth(146),
-                child: Text(
-                  '${coursesData[index]['doctorName']}',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: HexColor('575757'),
-                    fontFamily: 'SF Pro Display',
-                    fontSize: 14,
-                    fontStyle: FontStyle.normal,
-                    letterSpacing: 0.10000000149011612,
-                    fontWeight: FontWeight.w500,
-                    height: 1,
-                  ),
                 ),
               ),
               Positioned(
@@ -424,9 +411,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         child: Container(
           decoration: BoxDecoration(
-              color: HexColor('0053CB'),
-              borderRadius:
-                  BorderRadius.vertical(top: Radius.circular(24.5221))),
+              color: HexColor('0053CB'), borderRadius: BorderRadius.vertical(top: Radius.circular(24.5221))),
           height: MediaQuery.of(context).size.height * 0.1090712742980562,
           alignment: Alignment.center,
           child: Column(
@@ -446,9 +431,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 2,
                 color: HexColor('C4E2FC'),
               ),
-              SizedBox(
-                  height:
-                      MediaQuery.of(context).size.height * 0.0259179265658747),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.0259179265658747),
               Text(
                 'CONTINUE STUDYING',
                 style: TextStyle(
