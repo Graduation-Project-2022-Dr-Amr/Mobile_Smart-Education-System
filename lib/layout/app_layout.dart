@@ -6,8 +6,6 @@ import 'package:smart_education/Screens/Joining%20University/explore_all_cources
 import 'package:smart_education/shared/commponents.dart';
 
 class SmartEducation extends StatelessWidget {
-  const SmartEducation({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<Mybloc, AppStates>(

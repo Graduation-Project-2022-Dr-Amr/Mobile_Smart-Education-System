@@ -395,7 +395,7 @@ class _CourseScreenState extends State<CourseScreen> {
 
 Widget buildItem(context) => InkWell(
       onTap: () {
-        navigateTo(context, ArticalScreen());
+      // navigateTo(context, StartScreen());
       },
       child: Container(
         decoration: BoxDecoration(

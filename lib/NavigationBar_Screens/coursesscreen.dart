@@ -99,7 +99,6 @@ class CoursesScreen extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.060475161987041,
               child: TextFormField(
                 onTap: () {
-                  navigateTo(context, Colleges());
                 },
                 validator: (value) {
                   if (value!.isEmpty) {

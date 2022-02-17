@@ -1,9 +1,14 @@
+import 'dart:io';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:smart_education/NavigationBar_Screens/homescreen.dart';
+import 'package:open_file/open_file.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:smart_education/NavigationBar_Screens/start_screen.dart';
 import 'package:smart_education/shared/commponents.dart';
-
+import 'package:chewie/chewie.dart';
+import 'package:smart_education/shared/constants/size_config.dart';
+import 'package:video_player/video_player.dart';
 
 class ArticalScreen extends StatefulWidget {
   const ArticalScreen({Key? key}) : super(key: key);
@@ -13,8 +18,70 @@ class ArticalScreen extends StatefulWidget {
 }
 
 class _ArticalScreenState extends State<ArticalScreen> {
+  VideoPlayerController? videoPlayerController;
+  ChewieController? chewieController;
+
+  @override
+  void initState() {
+    videoPlayerController = VideoPlayerController.network(
+        "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4")
+      ..addListener(() => setState(() {}))
+      // ..setLooping(false)
+      ..initialize().then((_) {
+        // videoPlayerController!.pause();
+        if (videoPlayerController != null) {
+          chewieController = ChewieController(
+              videoPlayerController: videoPlayerController!,
+              autoPlay: false,
+              looping: false,
+              errorBuilder: (ctx, error) {
+                return Container(
+                  margin: EdgeInsets.symmetric(horizontal: 15),
+                  alignment: Alignment.center,
+                  width: SizeConfig.screenWidth,
+                  height: 250,
+                  decoration: BoxDecoration(
+                      color: Theme.of(context).backgroundColor,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        style: BorderStyle.solid,
+                        width: 1,
+                        color: Colors.grey,
+                      )),
+                  child: Text('Text'),
+                );
+              }
+              // subtitle: Subtitles([
+              //   Subtitle(
+              //     index: 0,
+              //     start: Duration.zero,
+              //     end: const Duration(seconds: 10),
+              //     text: 'Hello from subtitles',
+              //   ),
+              //   Subtitle(
+              //     index: 1,
+              //     start: const Duration(seconds: 10),
+              //     end: const Duration(seconds: 20),
+              //     text: 'Whats up? 🙂',
+              //   ),
+              // ]),
+              // subtitleBuilder: (context, subtitle) => Container(
+              //   padding: const EdgeInsets.all(10.0),
+              //   child: Text(
+              //     subtitle,
+              //     style: const TextStyle(color: Colors.white),
+              //   ),
+              // ),
+              ); //..addListener(() => setState(() {}));
+        }
+      });
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -66,45 +133,33 @@ class _ArticalScreenState extends State<ArticalScreen> {
                   ],
                 ),
               ),
-              Container(
-                child: Stack(
-                  children: [
-                    Positioned(
-                      child: Container(
-                        width: double.infinity,
-                        height: MediaQuery.of(context).size.height *
-                            0.2580993520518359,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(4),
-                            topRight: Radius.circular(4),
-                            bottomLeft: Radius.circular(4),
-                            bottomRight: Radius.circular(4),
-                          ),
-                          color: Color.fromRGBO(196, 196, 196, 1),
-                        ),
-                        child: Image.asset(
-                          'assets/hateme.png',
-                          fit: BoxFit.cover,
-                        ),
+              SizedBox(height: 15),
+              videoPlayerController != null &&
+                      videoPlayerController!.value.isInitialized &&
+                      chewieController != null
+                  ? Container(
+                      height: SizeConfig.screenWidth / 16 * 9,
+                      width: SizeConfig.screenHeight / 16 * 9,
+                      child: Chewie(
+                        controller: chewieController!,
                       ),
+                    )
+                  : Container(
+                      margin: EdgeInsets.symmetric(horizontal: 15),
+                      alignment: Alignment.center,
+                      width: SizeConfig.screenWidth,
+                      height: 250,
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).backgroundColor,
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                            style: BorderStyle.solid,
+                            width: 1,
+                            color: Colors.grey,
+                          )),
+                      child: Text('Loadiing'),
                     ),
-                    Positioned(
-                      left: 250,
-                      top: 120,
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.play_arrow,
-                            color: HexColor('FFFFFF'),
-                            size: 50,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              SizedBox(height: 15),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.019438444924406,
               ),
@@ -127,13 +182,20 @@ class _ArticalScreenState extends State<ArticalScreen> {
                           0.019438444924406,
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      padding: EdgeInsets.symmetric(horizontal: 15),
                       child: SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
                           children: [
-                            InkWell(
-                              onTap: () {},
+                            GestureDetector(
+                              onTap: () {
+                                print(' Amir ');
+                                openFile(
+                                  url:
+                                      "https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf",
+                                  //fileName:"gg.jpg"
+                                );
+                              },
                               child: Column(
                                 children: [
                                   Container(
@@ -219,7 +281,9 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                   0.0747663551401869,
                             ),
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                //navigateTo(context,)
+                              },
                               child: Column(
                                 children: [
                                   Container(
@@ -383,6 +447,42 @@ class _ArticalScreenState extends State<ArticalScreen> {
         ),
       ),
     );
+  }
+
+  Future openFile({required String url, String? fileName}) async {
+    final name = fileName ?? url.split('/').last;
+    final file = await downloadFile(url, name);
+
+    if (file == null) return;
+
+    OpenFile.open(file.path);
+  }
+
+  /// download file into private folder not visible to user
+  Future<File?> downloadFile(String url, String name) async {
+    final appStorage = await getApplicationDocumentsDirectory();
+    final file = File("${appStorage.path}/$name");
+
+    try {
+      final response = await Dio().get(
+        url,
+        options: Options(
+          responseType: ResponseType.bytes,
+          followRedirects: false,
+          receiveTimeout: 0,
+        ),
+      );
+
+      final raf = file.openSync(mode: FileMode.write);
+      raf.writeFromSync(response.data);
+
+      await raf.close();
+
+      return file;
+    } catch (_) {
+      print('error');
+      return null;
+    }
   }
 }
 

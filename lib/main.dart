@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_education/Screens/Onboarding/onboarding.dart';
+import 'package:smart_education/Screens/articale_screen.dart';
 import 'package:smart_education/data/api/dio_helper.dart';
 import 'package:smart_education/shared/network/Local%20Network/SharedPreferances/cashe_helper.dart';
 

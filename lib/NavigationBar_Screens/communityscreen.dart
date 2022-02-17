@@ -105,7 +105,8 @@ class _CommunityScreenState extends State<CommunityScreen> {
                           index,
                         ),
                         separatorBuilder: (context, index) => SizedBox(
-                          height: SizeConfig.getProportionateScreenHeightLarge(8),
+                          height:
+                              SizeConfig.getProportionateScreenHeightLarge(8),
                         ),
                         itemCount: 5,
                       ),
@@ -134,10 +135,17 @@ class _CommunityScreenState extends State<CommunityScreen> {
             return GestureDetector(
               onTap: (() => setState(() => _activeIndex = index)),
               child: Container(
-                margin: EdgeInsets.only(left: _leftPadding, right: _rightPadding, top: 8, bottom: 8),
+                margin: EdgeInsets.only(
+                    left: _leftPadding,
+                    right: _rightPadding,
+                    top: 8,
+                    bottom: 8),
                 child: Chip(
-                    label: Text(_getName(index), style: TextStyle(color: Colors.white)),
-                    backgroundColor: _activeIndex == index ? Colors.blueAccent : Colors.grey.shade400),
+                    label: Text(_getName(index),
+                        style: TextStyle(color: Colors.white)),
+                    backgroundColor: _activeIndex == index
+                        ? Colors.blueAccent
+                        : Colors.grey.shade400),
               ),
             );
           }),
@@ -177,6 +185,9 @@ Widget buildItem(
       child: Text(
         'Lörem ipsum testbädd faning internet of\n things\n\nToday at 1:01 PM',
         style: TextStyle(
-            color: HexColor('FFFFFF'), fontSize: 16, fontWeight: FontWeight.w400, fontStyle: FontStyle.normal),
+            color: HexColor('FFFFFF'),
+            fontSize: 16,
+            fontWeight: FontWeight.w400,
+            fontStyle: FontStyle.normal),
       ),
     );
