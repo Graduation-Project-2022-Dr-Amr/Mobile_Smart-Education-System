@@ -11,7 +11,6 @@ import 'package:smart_education/shared/constants/size_config.dart';
 import 'package:video_player/video_player.dart';
 
 class ArticalScreen extends StatefulWidget {
-  const ArticalScreen({Key? key}) : super(key: key);
 
   @override
   _ArticalScreenState createState() => _ArticalScreenState();
@@ -20,6 +19,7 @@ class ArticalScreen extends StatefulWidget {
 class _ArticalScreenState extends State<ArticalScreen> {
   VideoPlayerController? videoPlayerController;
   ChewieController? chewieController;
+
 
   @override
   void initState() {
@@ -78,7 +78,12 @@ class _ArticalScreenState extends State<ArticalScreen> {
 
     super.initState();
   }
-
+  Map<String, bool?> lightSwitches = {
+    'Ans 1': false,
+    'Ans 2': false,
+    'Ans 3': false,
+    'Ans 4': false,
+  };
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -133,7 +138,7 @@ class _ArticalScreenState extends State<ArticalScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 15),
+
               videoPlayerController != null &&
                       videoPlayerController!.value.isInitialized &&
                       chewieController != null
@@ -282,7 +287,270 @@ class _ArticalScreenState extends State<ArticalScreen> {
                             ),
                             InkWell(
                               onTap: () {
-                                //navigateTo(context,)
+                                showDialog(
+                                    context: context,
+                                    builder: (innerContext) {
+                                      return AlertDialog(
+                                        actionsPadding:
+                                            EdgeInsetsDirectional.only(
+                                          start: 23,
+                                          end: 32,
+                                        ),
+                                        backgroundColor: HexColor('FFFFFF'),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        scrollable: true,
+                                        actions: [
+                                          Container(
+                                            child: Column(
+                                              children: [
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      'Questrion 1 out of 10',
+                                                      style: TextStyle(
+                                                        color:
+                                                            HexColor('1964D1'),
+                                                        fontSize: 12,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height: SizeConfig
+                                                      .getProportionateScreenHeight(
+                                                          8),
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      '*Choose the correct answer for all questions',
+                                                      style: TextStyle(
+                                                        color:
+                                                            HexColor('BDBDBD'),
+                                                        fontSize: 12,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height: SizeConfig
+                                                      .getProportionateScreenHeight(
+                                                          24),
+                                                ),
+                                                Text(
+                                                  '1: The video that introduced the idea of Hall of Fame and Hall '
+                                                  'of Shame interfaces included a few pieces of design wisdom.'
+                                                  ' Which of the following are true? (Select all that apply)',
+                                                  style: TextStyle(
+                                                    color: HexColor('333333'),
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w400,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: SizeConfig
+                                                      .getProportionateScreenHeight(
+                                                          56),
+                                                ),
+                                                Column(
+                                                  children: [
+                                                    CheckboxListTile(
+                                                      title: Text(
+                                                        'Written instructions in any user interface are a sign of bad design.',
+                                                        style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          color: lightSwitches[
+                                                                  'Ans 1']!
+                                                              ? HexColor(
+                                                                  '0053CB')
+                                                              : HexColor(
+                                                                  '333333'),
+                                                        ),
+                                                      ),
+                                                      value: lightSwitches[
+                                                          'Ans 1'],
+                                                      onChanged: (bool? value) {
+                                                        setState(() {
+                                                          lightSwitches[
+                                                              'Ans 1'] = value;
+                                                        });
+                                                      },
+                                                    ),
+                                                    CheckboxListTile(
+                                                      title: Text(
+                                                        'The design principle of Visibility is relevant for both computer interfaces and physical objects.',
+                                                        style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          color: lightSwitches[
+                                                                  'Ans 2']!
+                                                              ? HexColor(
+                                                                  '0053CB')
+                                                              : HexColor(
+                                                                  '333333'),
+                                                        ),
+                                                      ),
+                                                      value: lightSwitches[
+                                                          'Ans 2'],
+                                                      onChanged: (bool? value) {
+                                                        setState(() {
+                                                          lightSwitches[
+                                                              'Ans 2'] = value;
+                                                        });
+                                                      },
+                                                    ),
+                                                    CheckboxListTile(
+                                                      title: Text(
+                                                        'Responding to a user’s action with multiple types of subtle visual feedback is a good design strategy.',
+                                                        style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          color: lightSwitches[
+                                                                  'Ans 3']!
+                                                              ? HexColor(
+                                                                  '0053CB')
+                                                              : HexColor(
+                                                                  '333333'),
+                                                        ),
+                                                      ),
+                                                      value: lightSwitches[
+                                                          'Ans 3'],
+                                                      onChanged: (bool? value) {
+                                                        setState(() {
+                                                          lightSwitches[
+                                                              'Ans 3'] = value;
+                                                        });
+                                                      },
+                                                    ),
+                                                    CheckboxListTile(
+                                                      title: Text(
+                                                        'Simple things should be simple to use.',
+                                                        style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          color: lightSwitches[
+                                                                  'Ans 4']!
+                                                              ? HexColor(
+                                                                  '0053CB')
+                                                              : HexColor(
+                                                                  '333333'),
+                                                        ),
+                                                      ),
+                                                      value: lightSwitches[
+                                                          'Ans 4'],
+                                                      onChanged: (bool? value) {
+                                                        setState(() {
+                                                          lightSwitches[
+                                                              'Ans 4'] = value;
+                                                        });
+                                                      },
+                                                    ),
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height: SizeConfig
+                                                      .getProportionateScreenHeight(
+                                                          195),
+                                                ),
+                                                Divider(
+                                                  height: 2,
+                                                  color: HexColor('BDBDBD'),
+                                                ),
+                                                SizedBox(
+                                                  height: SizeConfig
+                                                      .getProportionateScreenHeight(
+                                                          32),
+                                                ),
+                                                Container(
+                                                  width: SizeConfig
+                                                      .getProportionateScreenWidth(
+                                                          316),
+                                                  height: SizeConfig
+                                                      .getProportionateScreenHeight(
+                                                          56),
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                    color: HexColor('FFFFFF'),
+                                                    border: Border.all(
+                                                      color: HexColor('0053CB'),
+                                                      width: 2,
+                                                      style: BorderStyle.solid,
+                                                    ),
+                                                  ),
+                                                  child: TextButton(
+                                                    onPressed: () {},
+                                                    child: Text(
+                                                      'Next Question',
+                                                      style: TextStyle(
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color: HexColor(
+                                                              '0053CB')),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: SizeConfig
+                                                      .getProportionateScreenHeight(
+                                                          15),
+                                                ),
+                                                Container(
+                                                  width: SizeConfig
+                                                      .getProportionateScreenWidth(
+                                                          316),
+                                                  height: SizeConfig
+                                                      .getProportionateScreenHeight(
+                                                          56),
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                    color: HexColor('FFFFFF'),
+                                                    // border: Border.all(
+                                                    //   color: HexColor('0053CB'),
+                                                    //   width: 2,
+                                                    //   style: BorderStyle.solid,
+                                                    // ),
+                                                  ),
+                                                  child: TextButton(
+                                                    onPressed: () {},
+                                                    child: Text(
+                                                      'Back',
+                                                      style: TextStyle(
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color:
+                                                            HexColor('0053CB'),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      );
+                                    });
                               },
                               child: Column(
                                 children: [
@@ -415,13 +683,16 @@ class _ArticalScreenState extends State<ArticalScreen> {
                       height: MediaQuery.of(context).size.height *
                           0.0259179265658747,
                     ),
-                    Text(
-                      'Up Next',
-                      style: TextStyle(
-                          color: HexColor('1964D1'),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w700,
-                          fontStyle: FontStyle.normal),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8),                      child: Text(
+                        'Up Next',
+                        style: TextStyle(
+                            color: HexColor('1964D1'),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                            fontStyle: FontStyle.normal,
+                        ),
+                      ),
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height *
