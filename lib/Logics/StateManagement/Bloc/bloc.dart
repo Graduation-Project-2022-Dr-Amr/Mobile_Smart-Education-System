@@ -148,6 +148,16 @@ class Mybloc extends Cubit<AppStates> {
     });
   }
 
+  void changeRole() {
+    isInstructor = !isInstructor;
+    emit(ChangeRoleColorState());
+  }
+
+  void changeCheckBox() {
+    isChecked = !isChecked;
+    emit(ChangeCheckBoxState());
+  }
+
   void setImageIfNull(List<Lesson> articles) {
     for (var article in articles) {
       article.urlToImage ??= noImage;
@@ -169,6 +179,7 @@ class Mybloc extends Cubit<AppStates> {
   void changeSuffexIcon() {
     isObsecure = !isObsecure;
     suffixIcon =
-    isObsecure ? Icons.remove_red_eye_outlined : Icons.visibility_off;
+        isObsecure ? Icons.remove_red_eye_outlined : Icons.visibility_off;
     emit(SuffixIconState());
-  }}
+  }
+}

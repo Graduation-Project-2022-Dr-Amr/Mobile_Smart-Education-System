@@ -101,17 +101,61 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+#  fonts:
+#    - family: SFPRODISPLAYBLACKITALIC
+#      fonts:
+#        - asset: assets/fonts/SFPRODISPLAYBLACKITALIC.ttf
+#          style: normal
+#          weight: 400
+#
+#    - family: SFPRODISPLAYBOLD
+#      fonts:
+#        - asset: assets/fonts/SFPRODISPLAYBOLD.ttf
+#          style: normal
+#          weight: 700
+#
+#    - family: SFPRODISPLAYHEAVYITALIC
+#      fonts:
+#        - asset: assets/fonts/SFPRODISPLAYHEAVYITALIC.ttf
+#          style: normal
+#          weight: 700
+#
+#    - family: SFPRODISPLAYLIGHTITALIC
+#      fonts:
+#        - asset: assets/fonts/SFPRODISPLAYLIGHTITALIC.ttf
+#          style: normal
+#          weight: 700
+#
+#    - family: SFPRODISPLAYMEDIUM
+#      fonts:
+#        - asset: assets/fonts/SFPRODISPLAYMEDIUM.ttf
+#          style: normal
+#          weight: 700
+#
+#    - family: SFPRODISPLAYREGULAR
+#      fonts:
+#        - asset: assets/fonts/SFPRODISPLAYREGULAR.ttf
+#          style: normal
+#          weight: 700
+#
+#    - family: SFPRODISPLAYSEMIBOLDITALIC
+#      fonts:
+#        - asset: assets/fonts/SFPRODISPLAYSEMIBOLDITALIC.ttf
+#          style: normal
+#          weight: 700
+#
+#    - family: SFPRODISPLAYTHINITALIC
+#      fonts:
+#        - asset: assets/fonts/SFPRODISPLAYTHINITALIC.ttf
+#          style: normal
+#          weight: 700
+#
+#    - family: SFPRODISPLAYULTRALIGHTITALIC
+#      fonts:
+#        - asset: assets/fonts/SFPRODISPLAYULTRALIGHTITALIC.ttf
+#          style: normal
+#          weight: 700
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

@@ -7,18 +7,16 @@ import 'package:smart_education/shared/commponents.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../shared/constants/my_colors.dart';
+
 class BoardingModel {
   final String title;
-  final String body1;
-  final String body2;
-  final String body3;
+  final String body;
   final String image;
 
   BoardingModel({
     required this.title,
-    required this.body1,
-    required this.body2,
-    required this.body3,
+    required this.body,
     required this.image,
   });
 }
@@ -36,23 +34,20 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   List<BoardingModel> boarding = [
     BoardingModel(
       title: 'Best Learning Exp.',
-      body1: 'No more frequent flaws, no boundaries \n',
-      body2: 'between the teacher and his students.',
-      body3: '',
+      body:
+          'No more frequent flaws, no boundaries\nbetween the teacher and his students.',
       image: 'assets/onboarding1.svg',
     ),
     BoardingModel(
       title: 'Perfect community',
-      body1: '“You will never walk alone” is what we worked \n',
-      body2: 'for in order to reduce the gap between \n',
-      body3: '  student and the teacher.',
+      body:
+          '“You will never walk alone” is what we worked\nfor in order to reduce the gap between\nstudent and the teacher.',
       image: 'assets/onboarding2.svg',
     ),
     BoardingModel(
       title: 'Join Now',
-      body1: 'No matter how complex your course content \n ',
-      body2: 'is , Smart-edu is smart enough to keep \n students ',
-      body3: 'focused on what they have to do.',
+      body:
+          'No matter how complex your course content\nis , Smart-edu is smart enough to keep\nstudents focused on what they have to do.',
       image: 'assets/onboarding3.svg',
     ),
   ];
@@ -61,19 +56,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-      ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(
-          vertical: SizeConfig.getProportionateScreenHeight(30),
-        ),
+      backgroundColor: HexColor('E5E5E5'),
+      body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           children: [
+            SizedBox(
+              height: SizeConfig.getProportionateScreenHeight(70),
+            ),
             //PageView buildBoarding
             Container(
-              height: SizeConfig.screenHeight * 0.5,
+              height: SizeConfig.getProportionateScreenHeight(558),
               child: PageView.builder(
                 controller: boardController,
                 onPageChanged: (int index) {
@@ -94,47 +87,27 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 itemCount: boarding.length,
               ),
             ),
-            SizedBox(
-              height: SizeConfig.getProportionateScreenHeight(45),
-            ),
             Row(
               children: [
-                if (pageIndex == 0)
-                  TextButton(
-                    style: ButtonStyle(
-                      foregroundColor:
-                          MaterialStateProperty.all(HexColor('E3F2FD')),
-                    ),
-                    onPressed: () {
-                      if (!isLast || isLast) {
-                        boardController.previousPage(
-                          duration: Duration(
-                            milliseconds: 750,
-                          ),
-                          curve: Curves.easeInOut,
-                        );
-                      }
-                    },
-                    child: Icon(Icons.arrow_back),
+                TextButton(
+                  style: ButtonStyle(
+                    foregroundColor: MaterialStateProperty.all(
+                        HexColor(pageIndex != 0 ? '0053CB' : 'e3f2fd')),
                   ),
-                if (pageIndex != 0)
-                  TextButton(
-                    style: ButtonStyle(
-                      foregroundColor:
-                          MaterialStateProperty.all(HexColor('0053CB')),
-                    ),
-                    onPressed: () {
-                      if (!isLast || isLast) {
-                        boardController.previousPage(
-                          duration: Duration(
-                            milliseconds: 750,
-                          ),
-                          curve: Curves.easeInOut,
-                        );
-                      }
-                    },
-                    child: Icon(Icons.arrow_back),
-                  ),
+                  onPressed: pageIndex != 0
+                      ? () {
+                          if (!isLast || isLast) {
+                            boardController.previousPage(
+                              duration: Duration(
+                                milliseconds: 750,
+                              ),
+                              curve: Curves.easeInOut,
+                            );
+                          }
+                        }
+                      : null,
+                  child: Icon(Icons.arrow_back),
+                ),
                 Spacer(),
                 SmoothPageIndicator(
                   controller: boardController,
@@ -149,55 +122,37 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   count: boarding.length,
                 ),
                 Spacer(),
-                if (pageIndex == 1 || pageIndex == 0)
-                  TextButton(
-                    style: ButtonStyle(
-                      foregroundColor:
-                          MaterialStateProperty.all(HexColor('0053CB')),
-                    ),
-                    onPressed: () {
-                      if (isLast) {
-                        navigateandFinish(context, LoginScreen());
-                      } else {
-                        boardController.nextPage(
-                          duration: Duration(
-                            milliseconds: 1000,
-                          ),
-                          curve: Curves.easeInOut,
-                        );
-                      }
-                    },
-                    child: Icon(Icons.arrow_forward),
+                TextButton(
+                  style: ButtonStyle(
+                    foregroundColor: MaterialStateProperty.all(
+                        HexColor(pageIndex != 2 ? '0053CB' : 'e3f2fd')),
                   ),
-                if (pageIndex == 2)
-                  TextButton(
-                    style: ButtonStyle(
-                      foregroundColor:
-                          MaterialStateProperty.all(HexColor('E3F2FD')),
-                    ),
-                    onPressed: () {
-                      if (isLast) {
-                      } else {
-                        boardController.nextPage(
-                          duration: Duration(
-                            milliseconds: 1000,
-                          ),
-                          curve: Curves.easeInOut,
-                        );
-                      }
-                    },
-                    child: Icon(Icons.arrow_forward),
-                  ),
+                  onPressed: pageIndex != 2
+                      ? () {
+                          if (isLast) {
+                            navigateandFinish(context, LoginScreen());
+                          } else {
+                            boardController.nextPage(
+                              duration: Duration(
+                                milliseconds: 1000,
+                              ),
+                              curve: Curves.easeInOut,
+                            );
+                          }
+                        }
+                      : null,
+                  child: Icon(Icons.arrow_forward),
+                ),
               ],
             ),
-            if (pageIndex != 2)
-              SizedBox(
-                height: SizeConfig.getProportionateScreenHeight(165),
-              ),
-            if (pageIndex == 2)
-              SizedBox(
-                height: SizeConfig.getProportionateScreenHeight(85),
-              ),
+            pageIndex != 2
+                ? SizedBox(
+                    height: SizeConfig.getProportionateScreenHeight(150),
+                  )
+                : SizedBox(
+                    height: SizeConfig.getProportionateScreenHeight(85),
+                  ),
+
             if (pageIndex != 2)
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12.0),
@@ -209,6 +164,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         children: [
                           Text(
                             'Skip',
+                            textScaleFactor: 1.0,
                             style: TextStyle(
                               fontStyle: FontStyle.normal,
                               color: HexColor('90CAF9'),
@@ -240,11 +196,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ),
                   ),
                   //396 56
-                  backgroundColor:
-                      MaterialStateProperty.all(HexColor('0053CB')),
+                  backgroundColor: MaterialStateProperty.all(HexColor('0053CB')),
                 ),
                 child: Text(
                   'Join Now — Create a new account',
+                  textScaleFactor: 1.0,
                   style: TextStyle(
                     color: HexColor('FFFFFF'),
                     fontSize: 18,
@@ -297,10 +253,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 Widget buildBoarding(BoardingModel model) => Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Expanded(
+        Container(
+          width: SizeConfig.screenWidth,
+          height: SizeConfig.getProportionateScreenHeight(346),
           child: SvgPicture.asset(
             model.image,
             fit: BoxFit.contain,
+            width: SizeConfig.screenWidth,
+            height: SizeConfig.getProportionateScreenHeight(346),
           ),
         ),
         SizedBox(
@@ -310,6 +270,7 @@ Widget buildBoarding(BoardingModel model) => Column(
           model.title,
           softWrap: true,
           maxLines: 2,
+          textScaleFactor: 1.0,
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 32,
@@ -320,40 +281,21 @@ Widget buildBoarding(BoardingModel model) => Column(
         SizedBox(
           height: SizeConfig.getProportionateScreenHeight(24),
         ),
-        RichText(
-          textAlign: TextAlign.center,
-          text: TextSpan(
-            children: <TextSpan>[
-              TextSpan(
-                text: model.body1,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontStyle: FontStyle.normal,
-                  color: HexColor('1E88E5'),
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              TextSpan(
-                text: model.body2,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontStyle: FontStyle.normal,
-                  color: HexColor('1E88E5'),
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              TextSpan(
-                text: model.body3,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontStyle: FontStyle.normal,
-                  color: HexColor('1E88E5'),
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-            ],
+        Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: SizeConfig.getProportionateScreenWidth(16)),
+          child: Text(
+            model.body,
+            textScaleFactor: 1.0,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 18,
+              fontStyle: FontStyle.normal,
+              color: HexColor('1E88E5'),
+              fontWeight: FontWeight.w400,
+            ),
           ),
-        ),
+        )
       ],
     );
 
