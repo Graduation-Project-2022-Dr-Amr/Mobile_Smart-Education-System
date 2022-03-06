@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -9,7 +8,8 @@ import 'package:smart_education/Screens/Authentication/Login/login_screen.dart';
 import 'package:smart_education/shared/commponents.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 
-import '../../text_form_field.dart';
+import '../../../shared/input_field_widget.dart';
+import '../../Joining University/explore_all_cources_screeen.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({Key? key}) : super(key: key);
@@ -27,6 +27,7 @@ class SignUpScreen extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
+            backgroundColor: Colors.white,
             body: SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.symmetric(
@@ -37,16 +38,13 @@ class SignUpScreen extends StatelessWidget {
                   children: [
                     SizedBox(
                         height: SizeConfig.getProportionateScreenHeight(50)),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SvgPicture.asset(
-                          'assets/Logo.svg',
-                          fit: BoxFit.contain,
-                          height: SizeConfig.getProportionateScreenHeight(62.3),
-                          width: SizeConfig.getProportionateScreenWidth(268.66),
-                        ),
-                      ],
+                    Center(
+                      child: SvgPicture.asset(
+                        'assets/Logo.svg',
+                        fit: BoxFit.contain,
+                        height: SizeConfig.getProportionateScreenHeight(62.3),
+                        width: SizeConfig.getProportionateScreenWidth(268.66),
+                      ),
                     ),
                     SizedBox(
                       height: SizeConfig.getProportionateScreenHeight(40.7),
@@ -108,17 +106,20 @@ class SignUpScreen extends StatelessWidget {
                           ),
                           buildColumn(text: "Password"),
                           InputFieldWidget(
-                            controller: passwordController,
-                            // onSubmit: (value) {
-                            //   if (value!.isEmpty || value.length < 8) {
-                            //     return 'Password is to short at least 8 !';
-                            //   }
-                            //   return null;
-                            // },
-                            keyboardType: TextInputType.text,
-                            hint: 'Enter your Password',
-                            fieldKey: "password",
-                          ),
+                              controller: passwordController,
+                              // onSubmit: (value) {
+                              //   if (value!.isEmpty || value.length < 8) {
+                              //     return 'Password is to short at least 8 !';
+                              //   }
+                              //   return null;
+                              // },
+                              keyboardType: TextInputType.text,
+                              hint: 'Enter your Password',
+                              fieldKey: "password",
+                              suffix: Mybloc.get(context).suffixIcon,
+                              suffixPressed: () {
+                                Mybloc.get(context).changeSuffexIcon();
+                              }),
                           SizedBox(
                             height: SizeConfig.getProportionateScreenHeight(8),
                           ),
@@ -154,16 +155,16 @@ class SignUpScreen extends StatelessWidget {
                                   context: context,
                                   role: "Instructor",
                                   isInstructor:
-                                      Mybloc.get(context).isInstructor),
+                                  Mybloc.get(context).isInstructor),
                               SizedBox(
                                 width:
-                                    SizeConfig.getProportionateScreenWidth(16),
+                                SizeConfig.getProportionateScreenWidth(16),
                               ),
                               buildExpanded(
-                                  context: context,
-                                  role: "Student",
-                                  isInstructor:
-                                      !Mybloc.get(context).isInstructor),
+                                context: context,
+                                role: "Student",
+                                isInstructor: !Mybloc.get(context).isInstructor,
+                              ),
                             ],
                           ),
                           SizedBox(
@@ -173,29 +174,19 @@ class SignUpScreen extends StatelessWidget {
                             children: [
                               SizedBox(
                                 height:
-                                    SizeConfig.getProportionateScreenHeight(24),
-                                child: Theme(
-                                  data: ThemeData(
-                                    unselectedWidgetColor: HexColor(
-                                      !Mybloc.get(context).isChecked
-                                          ? "0053CB"
-                                          : '0053CB',
-                                    ),
-                                  ),
-                                  child: Checkbox(
-                                    value: Mybloc.get(context).isChecked,
-                                    onChanged: (value) {
-                                      Mybloc.get(context).changeCheckBox();
-                                    },
-                                    checkColor: Colors.white,
-                                    activeColor: HexColor('0053CB'),
-                                  ),
+                                SizeConfig.getProportionateScreenHeight(24),
+                                child: Checkbox(
+                                  value: Mybloc.get(context).isChecked,
+                                  onChanged: (value) {
+                                    Mybloc.get(context).changeCheckBox();
+                                  },
+                                  checkColor: Colors.white,
+                                  activeColor: HexColor('0053CB'),
                                 ),
                               ),
                               SizedBox(
-                                width:
-                                    SizeConfig.getProportionateScreenWidth(15),
-                              ),
+                                  width: SizeConfig.getProportionateScreenWidth(
+                                      15)),
                               RichText(
                                 textAlign: TextAlign.center,
                                 text: TextSpan(
@@ -239,21 +230,23 @@ class SignUpScreen extends StatelessWidget {
                                   elevation: MaterialStateProperty.all(4),
                                   shadowColor: MaterialStateProperty.all(
                                       HexColor("0053CB").withOpacity(0.25))),
-                              child: Text("Create a new account",
-                                  textScaleFactor: 1.0,
-                                  style: TextStyle(
-                                    color: HexColor('FFFFFF'),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                    fontStyle: FontStyle.normal,
-                                  )),
+                              child: Text(
+                                "Create a new account",
+                                textScaleFactor: 1.0,
+                                style: TextStyle(
+                                  color: HexColor('FFFFFF'),
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FontStyle.normal,
+                                ),
+                              ),
                               onPressed: () {
-                                if (Mybloc.get(context).isChecked) {
-                                  navigateTo(context, LoginScreen());
-                                } else {
-                                  if (kDebugMode) {
-                                    print('Please check inputs');
-                                  }
+                                if (nameController.text.trim().isEmpty ||
+                                    nameController.text.trim().length < 3 ||
+                                    !Mybloc.get(context).isChecked) {
+                                  navigateTo(context, SearchScreen());
+
+                                  /// TODO: show snack bar => please enter a valid data
                                 }
                               },
                             ),
@@ -266,12 +259,7 @@ class SignUpScreen extends StatelessWidget {
                             children: [
                               MaterialButton(
                                 onPressed: () {
-                                  if (nameController.text.trim().isEmpty ||
-                                      nameController.text.trim().length < 3) {
-                                    /// TODO: show snack bar => please enter a valid data
-                                  } else {
-                                    navigateTo(context, LoginScreen());
-                                  }
+                                  navigateTo(context, LoginScreen());
                                 },
                                 child: RichText(
                                   textAlign: TextAlign.center,
@@ -314,11 +302,10 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 
-  Expanded buildExpanded({
-    required BuildContext context,
-    required String role,
-    required bool isInstructor,
-  }) {
+  Expanded buildExpanded(
+      {required BuildContext context,
+        required String role,
+        required bool isInstructor}) {
     return Expanded(
       child: GestureDetector(
         onTap: () {

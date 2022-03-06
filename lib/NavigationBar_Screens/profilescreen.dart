@@ -10,75 +10,8 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      appBar: AppBar(
-        title: SvgPicture.asset(
-          'assets/Logo.svg',
-          width: SizeConfig.getProportionateScreenWidth(113),
-          height: SizeConfig.getProportionateScreenHeightLarge(26.2),
-          fit: BoxFit.contain,
-        ),
-        backgroundColor: Colors.white,
-        elevation: 0,
-        automaticallyImplyLeading: false,
-        //leadingWidth: 0,
-        titleSpacing: SizeConfig.getProportionateScreenWidth(17),
-        //leading: Container(),
-        toolbarHeight: SizeConfig.getProportionateScreenHeightLarge(88),
-        actions: [
-          Container(
-            width: 24,
-            height: 24,
-            child: Positioned(
-              top: 2,
-              left: 3,
-              child: SvgPicture.asset(
-                'assets/notification on.svg',
-                semanticsLabel: 'vector',
-              ),
-            ),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Container(
-                width: 32,
-                height: 32,
-                child: Stack(children: <Widget>[
-                  Positioned(
-                    top: 0,
-                    left: 0,
-                    child: Container(
-                      width: 32,
-                      height: 32,
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(0, 83, 203, 1),
-                        borderRadius: BorderRadius.all(
-                          Radius.elliptical(
-                            32,
-                            32,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                      top: 11,
-                      left: 11,
-                      child: Text(
-                        'N',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color.fromRGBO(255, 255, 255, 1),
-                          fontFamily: 'SF Pro Display',
-                          fontSize: 14,
-                          letterSpacing: 0.10000000149011612,
-                          fontWeight: FontWeight.normal,
-                          height: 1,
-                        ),
-                      )),
-                ])),
-          ),
-        ],
-      ),
+      backgroundColor: Colors.white,
+
       body: Padding(
         padding: EdgeInsets.symmetric(
           vertical: SizeConfig.getProportionateScreenHeight(40),
@@ -93,10 +26,10 @@ class ProfileScreen extends StatelessWidget {
                     backgroundImage: AssetImage(
                       'assets/mahmoud.png',
                     ),
-                    maxRadius: 40,
+                    maxRadius: 26,
                   ),
                   SizedBox(
-                    width: SizeConfig.getProportionateScreenHeightLarge(16),
+                    width: SizeConfig.getProportionateScreenHeight(16),
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

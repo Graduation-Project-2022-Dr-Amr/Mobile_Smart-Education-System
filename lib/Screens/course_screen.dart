@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/NavigationBar_Screens/start_screen.dart';
-import 'package:smart_education/Screens/articale_screen.dart';
 import 'package:smart_education/shared/commponents.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 
@@ -18,6 +17,7 @@ class _CourseScreenState extends State<CourseScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return DefaultTabController(
       length: 4,
       child: Scaffold(
@@ -29,7 +29,7 @@ class _CourseScreenState extends State<CourseScreen> {
               children: [
                 Container(
                   width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.4892008639308855,
+                  height: SizeConfig.getProportionateScreenHeight(453),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(0),
@@ -39,7 +39,10 @@ class _CourseScreenState extends State<CourseScreen> {
                     ),
                     boxShadow: [
                       BoxShadow(
-                          color: Color.fromRGBO(0, 83, 203, 0.05000000074505806), offset: Offset(6, 6), blurRadius: 8)
+                        color: Color.fromRGBO(0, 83, 203, 0.05000000074505806),
+                        offset: Offset(6, 6),
+                        blurRadius: 8,
+                      )
                     ],
                     color: Color.fromRGBO(0, 83, 203, 1),
                   ),
@@ -61,17 +64,14 @@ class _CourseScreenState extends State<CourseScreen> {
                         ],
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.031317494600432,
+                        height: SizeConfig.getProportionateScreenHeight(15),
                       ),
                       Container(
-                        width: MediaQuery.of(context).size.width * 0.3037383177570093,
-                        height: MediaQuery.of(context).size.height * 0.2051835853131749,
+                        width: SizeConfig.getProportionateScreenWidth(130),
+                        height: SizeConfig.getProportionateScreenHeight(190),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(8),
-                            topRight: Radius.circular(8),
-                            bottomLeft: Radius.circular(8),
-                            bottomRight: Radius.circular(8),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(8),
                           ),
                           color: Color.fromRGBO(166, 166, 166, 1),
                           image: DecorationImage(
@@ -81,41 +81,42 @@ class _CourseScreenState extends State<CourseScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.0259179265658747,
+                        height: SizeConfig.getProportionateScreenHeight(24),
                       ),
                       Text(
                         'Artificial Intelligence',
+                        textScaleFactor: 1.0,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.w700,
-                            fontStyle: FontStyle.normal,
-                            color: HexColor('FFFFFF')),
+                          fontSize: 24,
+                          fontWeight: FontWeight.w700,
+                          fontStyle: FontStyle.normal,
+                          color: HexColor('FFFFFF'),
+                        ),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.0086393088552916,
+                        height: SizeConfig.getProportionateScreenHeight(8),
                       ),
                       Text(
                         'Amr Zamel',
+                        textScaleFactor: 1.0,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
-                            fontStyle: FontStyle.normal,
-                            color: HexColor('FFFFFF')),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700,
+                          fontStyle: FontStyle.normal,
+                          color: HexColor('FFFFFF'),
+                        ),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.0259179265658747,
+                        height: SizeConfig.getProportionateScreenHeight(24),
                       ),
                       Container(
-                        width: MediaQuery.of(context).size.width * 0.9252336448598131,
-                        height: MediaQuery.of(context).size.height * 0.0799136069114471,
+                        width: SizeConfig.getProportionateScreenWidth(396),
+                        height: SizeConfig.getProportionateScreenHeight(74),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(15),
-                            topRight: Radius.circular(15),
-                            bottomLeft: Radius.circular(15),
-                            bottomRight: Radius.circular(15),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15),
                           ),
                           color: Color.fromRGBO(25, 100, 209, 1),
                         ),
@@ -131,41 +132,55 @@ class _CourseScreenState extends State<CourseScreen> {
                                       Icons.watch,
                                       color: HexColor('FFFFFF'),
                                     ),
+                                    SizedBox(
+                                      width: SizeConfig
+                                          .getProportionateScreenWidth(9),
+                                    ),
                                     Column(
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           'Length',
+                                          textScaleFactor: 1.0,
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                               color: HexColor('FFFFFF'),
                                               fontFamily: 'SF Pro Display',
                                               fontSize: 10,
                                               fontStyle: FontStyle.normal,
-                                              letterSpacing: 0.10000000149011612,
+                                              letterSpacing:
+                                              0.10000000149011612,
                                               fontWeight: FontWeight.w300,
                                               height: 1),
                                         ),
-                                        SizedBox(height: 4),
+                                        SizedBox(
+                                            height: SizeConfig
+                                                .getProportionateScreenHeight(
+                                                4)),
                                         Text(
                                           '40h, 15m',
+                                          textScaleFactor: 1.0,
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
-                                              color: HexColor('FFFFFF'),
-                                              fontFamily: 'SF Pro Display',
-                                              fontSize: 14,
-                                              fontStyle: FontStyle.normal,
-                                              letterSpacing: 0.10000000149011612,
-                                              fontWeight: FontWeight.w600,
-                                              height: 1),
+                                            color: HexColor('FFFFFF'),
+                                            fontFamily: 'SF Pro Display',
+                                            fontSize: 14,
+                                            fontStyle: FontStyle.normal,
+                                            letterSpacing: 0.10000000149011612,
+                                            fontWeight: FontWeight.w600,
+                                            height: 1,
+                                          ),
                                         ),
                                       ],
                                     ),
                                   ],
                                 ),
                                 SizedBox(
-                                  width: MediaQuery.of(context).size.width * 0.1191588785046729,
+                                  width: SizeConfig.getProportionateScreenWidth(
+                                      51),
                                 ),
                                 Row(
                                   children: [
@@ -173,41 +188,50 @@ class _CourseScreenState extends State<CourseScreen> {
                                       Icons.quiz_outlined,
                                       color: HexColor('FFFFFF'),
                                     ),
+                                    SizedBox(
+                                      width: SizeConfig
+                                          .getProportionateScreenWidth(9),
+                                    ),
                                     Column(
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           'Quizzes',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
-                                              color: HexColor('FFFFFF'),
-                                              fontFamily: 'SF Pro Display',
-                                              fontSize: 10,
-                                              fontStyle: FontStyle.normal,
-                                              letterSpacing: 0.10000000149011612,
-                                              fontWeight: FontWeight.w300,
-                                              height: 1),
+                                            color: HexColor('FFFFFF'),
+                                            fontFamily: 'SF Pro Display',
+                                            fontSize: 10,
+                                            fontStyle: FontStyle.normal,
+                                            letterSpacing: 0.10000000149011612,
+                                            fontWeight: FontWeight.w300,
+                                            height: 1,
+                                          ),
                                         ),
                                         SizedBox(height: 4),
                                         Text(
                                           '10',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
-                                              color: HexColor('FFFFFF'),
-                                              fontFamily: 'SF Pro Display',
-                                              fontSize: 14,
-                                              fontStyle: FontStyle.normal,
-                                              letterSpacing: 0.10000000149011612,
-                                              fontWeight: FontWeight.w600,
-                                              height: 1),
+                                            color: HexColor('FFFFFF'),
+                                            fontFamily: 'SF Pro Display',
+                                            fontSize: 14,
+                                            fontStyle: FontStyle.normal,
+                                            letterSpacing: 0.10000000149011612,
+                                            fontWeight: FontWeight.w600,
+                                            height: 1,
+                                          ),
                                         ),
                                       ],
                                     ),
                                   ],
                                 ),
                                 SizedBox(
-                                  width: MediaQuery.of(context).size.width * 0.1191588785046729,
+                                  width: SizeConfig.getProportionateScreenWidth(
+                                      51),
                                 ),
                                 Row(
                                   children: [
@@ -215,9 +239,15 @@ class _CourseScreenState extends State<CourseScreen> {
                                       Icons.watch,
                                       color: HexColor('FFFFFF'),
                                     ),
+                                    SizedBox(
+                                      width: SizeConfig
+                                          .getProportionateScreenWidth(9),
+                                    ),
                                     Column(
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           'Assignments',
@@ -227,7 +257,8 @@ class _CourseScreenState extends State<CourseScreen> {
                                               fontFamily: 'SF Pro Display',
                                               fontSize: 10,
                                               fontStyle: FontStyle.normal,
-                                              letterSpacing: 0.10000000149011612,
+                                              letterSpacing:
+                                              0.10000000149011612,
                                               fontWeight: FontWeight.w300,
                                               height: 1),
                                         ),
@@ -240,7 +271,8 @@ class _CourseScreenState extends State<CourseScreen> {
                                               fontFamily: 'SF Pro Display',
                                               fontSize: 14,
                                               fontStyle: FontStyle.normal,
-                                              letterSpacing: 0.10000000149011612,
+                                              letterSpacing:
+                                              0.10000000149011612,
                                               fontWeight: FontWeight.w600,
                                               height: 1),
                                         ),
@@ -259,7 +291,7 @@ class _CourseScreenState extends State<CourseScreen> {
                 Container(
                   padding: EdgeInsets.only(left: 15, top: 15),
                   width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.10846652267818575,
+                  height: SizeConfig.getProportionateScreenHeight(151),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(0),
@@ -269,9 +301,13 @@ class _CourseScreenState extends State<CourseScreen> {
                     ),
                     boxShadow: [
                       BoxShadow(
-                          color: Color.fromRGBO(0, 83, 203, 0.05000000074505806), offset: Offset(6, 6), blurRadius: 8)
+                          color:
+                          Color.fromRGBO(0, 83, 203, 0.05000000074505806),
+                          offset: Offset(6, 6),
+                          blurRadius: 8)
                     ],
-                    color: Color.fromRGBO(255, 255, 255, 1),
+                    color: Colors.red,
+                    //color: Color.fromRGBO(255, 255, 255, 1),
                     border: Border.all(
                       color: Color.fromRGBO(232, 232, 232, 1),
                       width: 1,
@@ -282,6 +318,7 @@ class _CourseScreenState extends State<CourseScreen> {
                     children: [
                       Text(
                         'A breif',
+                        textScaleFactor: 1.0,
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
@@ -290,10 +327,11 @@ class _CourseScreenState extends State<CourseScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.0172786177105832,
+                        height: SizeConfig.getProportionateScreenHeight(16),
                       ),
                       Text(
                         'Lörem ipsum askbränd tran fast plasiv SMM spening marknadsplatser robot\n retail dihet hören som content provider DALL·E, om podda om multi helix.\n Pongen heterosase logolog kaliga ansvarsfull app vånigt och orade\n spevengen epide. ',
+                        textScaleFactor: 1.0,
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
@@ -305,12 +343,13 @@ class _CourseScreenState extends State<CourseScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.0172786177105832,
+                  height: SizeConfig.getProportionateScreenWidth(16),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(24.0),
+                  padding: EdgeInsets.all(24.0),
                   child: Text(
                     'Content',
+                    textScaleFactor: 1.0,
                     style: TextStyle(
                       fontSize: 18,
                       color: HexColor('0053CB'),
@@ -319,11 +358,9 @@ class _CourseScreenState extends State<CourseScreen> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.0169978401727862,
-                ),
+                SizedBox(height: SizeConfig.getProportionateScreenHeight(25)),
                 Padding(
-                  padding: const EdgeInsets.only(left: 10),
+                  padding: EdgeInsets.only(left: 10),
                   child: Column(
                     children: [
                       Stepper(
@@ -338,7 +375,7 @@ class _CourseScreenState extends State<CourseScreen> {
                         },
                         steps: [
                           Step(
-                              title: Text('Lecture 1'),
+                              title: Text('Introduction'),
                               content: Column(
                                 children: <Widget>[
                                   buildItem(context),
@@ -351,7 +388,7 @@ class _CourseScreenState extends State<CourseScreen> {
                               isActive: currentStep == 0,
                               state: StepState.complete),
                           Step(
-                              title: Text('Lecture 2'),
+                              title: Text('Second unit '),
                               content: Column(
                                 children: <Widget>[
                                   buildItem(context),
@@ -364,7 +401,20 @@ class _CourseScreenState extends State<CourseScreen> {
                               isActive: currentStep == 1,
                               state: StepState.complete),
                           Step(
-                              title: Text('Lecture 3'),
+                              title: Text('Third unit'),
+                              content: Column(
+                                children: <Widget>[
+                                  buildItem(context),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  buildItem(context),
+                                ],
+                              ),
+                              isActive: currentStep == 2,
+                              state: StepState.complete),
+                          Step(
+                              title: Text('Final unit'),
                               content: Column(
                                 children: <Widget>[
                                   buildItem(context),
@@ -379,7 +429,8 @@ class _CourseScreenState extends State<CourseScreen> {
                         ],
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.0259179265658747,
+                        height: MediaQuery.of(context).size.height *
+                            0.0259179265658747,
                       ),
                     ],
                   ),
@@ -394,124 +445,146 @@ class _CourseScreenState extends State<CourseScreen> {
 }
 
 Widget buildItem(context) => InkWell(
-      onTap: () {
-      // navigateTo(context, StartScreen());
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(16),
-            topRight: Radius.circular(16),
-            bottomLeft: Radius.circular(16),
-            bottomRight: Radius.circular(16),
+  onTap: () {
+    // navigateTo(context, StartScreen());
+  },
+  child: Container(
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.all(
+        Radius.circular(16),
+      ),
+      boxShadow: [
+        BoxShadow(
+          color: Color.fromRGBO(0, 83, 203, 0.05000000074505806),
+          offset: Offset(6, 6),
+          blurRadius: 8,
+        )
+      ],
+      color: Color.fromRGBO(255, 255, 255, 1),
+    ),
+    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+    child: Padding(
+      padding: EdgeInsets.only(left: 8),
+      child: Row(
+        children: <Widget>[
+          Container(
+            width: SizeConfig.getProportionateScreenWidth(79),
+            height: SizeConfig.getProportionateScreenHeight(72),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(8),
+              ),
+              color: Color.fromRGBO(0, 0, 0, 0.5),
+              image: DecorationImage(
+                image: AssetImage('assets/hateme.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
-          boxShadow: [
-            BoxShadow(color: Color.fromRGBO(0, 83, 203, 0.05000000074505806), offset: Offset(6, 6), blurRadius: 8)
-          ],
-          color: Color.fromRGBO(255, 255, 255, 1),
-        ),
-        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-        child: Padding(
-          padding: const EdgeInsets.only(left: 25),
-          child: Row(
-            children: <Widget>[
-              Container(
-                  width: 97,
-                  height: 72,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(8),
-                      topRight: Radius.circular(8),
-                      bottomLeft: Radius.circular(8),
-                      bottomRight: Radius.circular(8),
-                    ),
-                    color: Color.fromRGBO(0, 0, 0, 0.5),
-                    image: DecorationImage(image: AssetImage('assets/hateme.png'), fit: BoxFit.fitWidth),
-                  )),
-              SizedBox(width: MediaQuery.of(context).size.width * 0.0186915887850467),
-              Container(
-                child: Column(
+          SizedBox(
+            width: SizeConfig.getProportionateScreenWidth(8),
+          ),
+          Container(
+            child: Column(
+              children: <Widget>[
+                Text(
+                  'Introduction: What is AI ?',
+                  textScaleFactor: 1.0,
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    color: HexColor('333333'),
+                    // fontFamily: 'SF Pro Display',
+                    fontSize: 12,
+                    fontStyle: FontStyle.normal,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                SizedBox(
+                  height: SizeConfig.getProportionateScreenHeight(8),
+                ),
+                Row(
                   children: <Widget>[
-                    Text(
-                      'Introduction: What is AI?',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        color: HexColor('333333'),
-                        fontFamily: 'SF Pro Display',
-                        fontSize: 12,
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.0086393088552916),
                     Row(
-                      children: <Widget>[
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.watch,
-                              size: 15,
-                            ),
-                            Text(
-                              '51m',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                color: HexColor('333333'),
-                                fontFamily: 'SF Pro Display',
-                                fontSize: 12,
-                                fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ],
+                      children: [
+                        Icon(
+                          Icons.watch,
+                          size: 15,
                         ),
-                        SizedBox(width: MediaQuery.of(context).size.width * 0.0373831775700935),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.quiz_outlined,
-                              size: 15,
-                            ),
-                            Text(
-                              '4',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  color: Color.fromRGBO(51, 51, 51, 1),
-                                  fontFamily: 'SF Pro Display',
-                                  fontSize: 12,
-                                  letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
-                                  fontWeight: FontWeight.normal,
-                                  height: 1),
-                            ),
-                          ],
+                        SizedBox(
+                          width: SizeConfig.getProportionateScreenWidth(6.5),
                         ),
-                        SizedBox(width: MediaQuery.of(context).size.width * 0.0373831775700935),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.bookmark_border_outlined,
-                              size: 15,
-                            ),
-                            Text(
-                              '2',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  color: Color.fromRGBO(51, 51, 51, 1),
-                                  fontFamily: 'SF Pro Display',
-                                  fontSize: 12,
-                                  letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
-                                  fontWeight: FontWeight.normal,
-                                  height: 1),
-                            ),
-                          ],
+                        Text(
+                          '51m',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            color: HexColor('333333'),
+                            fontFamily: 'SF Pro Display',
+                            fontSize: 12,
+                            fontStyle: FontStyle.normal,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: SizeConfig.getProportionateScreenWidth(17),
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.quiz_outlined,
+                          size: 15,
+                        ),
+                        SizedBox(
+                          width: SizeConfig.getProportionateScreenWidth(6.5),
+                        ),
+                        Text(
+                          '4',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                              color: Color.fromRGBO(51, 51, 51, 1),
+                              fontFamily: 'SF Pro Display',
+                              fontSize: 12,
+                              letterSpacing:
+                              0 /*percentages not used in flutter. defaulting to zero*/,
+                              fontWeight: FontWeight.normal,
+                              height: 1),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: SizeConfig.getProportionateScreenWidth(17),
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.bookmark_border_outlined,
+                          size: 15,
+                        ),
+                        SizedBox(
+                          width: SizeConfig.getProportionateScreenWidth(6.5),
+                        ),
+                        Text(
+                          '2',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                              color: Color.fromRGBO(51, 51, 51, 1),
+                              fontFamily: 'SF Pro Display',
+                              fontSize: 12,
+                              letterSpacing:
+                              0 /*percentages not used in flutter. defaulting to zero*/,
+                              fontWeight: FontWeight.normal,
+                              height: 1),
                         ),
                       ],
                     ),
                   ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
+        ],
       ),
-    );
+    ),
+  ),
+);

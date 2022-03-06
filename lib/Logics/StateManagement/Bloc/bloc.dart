@@ -38,7 +38,10 @@ class Mybloc extends Cubit<AppStates> {
     LeaderBoard(),
     ProfileScreen(),
   ];
-
+  void changeCheckBox() {
+    isChecked = !isChecked;
+    emit(ChangeCheckBoxState());
+  }
   List<BottomNavigationBarItem> bottomItemsArabic = [
     BottomNavigationBarItem(
       icon: Icon(
@@ -122,6 +125,11 @@ class Mybloc extends Cubit<AppStates> {
     }
   }
 
+  void changeRole() {
+    isInstructor = !isInstructor;
+    emit(ChangeRoleState());
+  }
+
 //دي عشان لما تغير اتجاه البرنامج من اليمين للشمال
   void changeAppDirection({bool? fromShared}) {
     if (fromShared != null) {
@@ -148,16 +156,6 @@ class Mybloc extends Cubit<AppStates> {
     });
   }
 
-  void changeRole() {
-    isInstructor = !isInstructor;
-    emit(ChangeRoleColorState());
-  }
-
-  void changeCheckBox() {
-    isChecked = !isChecked;
-    emit(ChangeCheckBoxState());
-  }
-
   void setImageIfNull(List<Lesson> articles) {
     for (var article in articles) {
       article.urlToImage ??= noImage;
@@ -175,11 +173,15 @@ class Mybloc extends Cubit<AppStates> {
     selectedIndex = index;
     emit(AppBottomNavState());
   }
+  bool showPassword = false;
 
   void changeSuffexIcon() {
-    isObsecure = !isObsecure;
-    suffixIcon =
-        isObsecure ? Icons.remove_red_eye_outlined : Icons.visibility_off;
+    showPassword =! showPassword;
+    if(showPassword) {
+      suffixIcon = Icons.visibility_off;
+    } else
+      suffixIcon = Icons.visibility;
+    emit(SuffixIconState());
     emit(SuffixIconState());
   }
 }

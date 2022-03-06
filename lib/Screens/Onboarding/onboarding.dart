@@ -34,20 +34,18 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   List<BoardingModel> boarding = [
     BoardingModel(
       title: 'Best Learning Exp.',
-      body:
-          'No more frequent flaws, no boundaries\nbetween the teacher and his students.',
+      body: 'No more frequent flaws, no boundaries\nbetween the teacher and his students.',
+
       image: 'assets/onboarding1.svg',
     ),
     BoardingModel(
       title: 'Perfect community',
-      body:
-          '“You will never walk alone” is what we worked\nfor in order to reduce the gap between\nstudent and the teacher.',
+      body: '“You will never walk alone” is what we worked\nfor in order to reduce the gap between\nstudent and the teacher.',
       image: 'assets/onboarding2.svg',
     ),
     BoardingModel(
       title: 'Join Now',
-      body:
-          'No matter how complex your course content\nis , Smart-edu is smart enough to keep\nstudents focused on what they have to do.',
+      body: 'No matter how complex your course content\nis , Smart-edu is smart enough to keep\nstudents focused on what they have to do.',
       image: 'assets/onboarding3.svg',
     ),
   ];
@@ -56,9 +54,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      backgroundColor: HexColor('E5E5E5'),
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
         child: Column(
           children: [
             SizedBox(
@@ -91,23 +88,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               children: [
                 TextButton(
                   style: ButtonStyle(
-                    foregroundColor: MaterialStateProperty.all(
-                        HexColor(pageIndex != 0 ? '0053CB' : 'e3f2fd')),
+                    foregroundColor:
+                    MaterialStateProperty.all(HexColor(pageIndex != 0? '0053CB':'e3f2fd')),
                   ),
-                  onPressed: pageIndex != 0
-                      ? () {
-                          if (!isLast || isLast) {
-                            boardController.previousPage(
-                              duration: Duration(
-                                milliseconds: 750,
-                              ),
-                              curve: Curves.easeInOut,
-                            );
-                          }
-                        }
-                      : null,
+                  onPressed: pageIndex != 0?() {
+                    if (!isLast || isLast) {
+                      boardController.previousPage(
+                        duration: Duration(
+                          milliseconds: 750,
+                        ),
+                        curve: Curves.easeInOut,
+                      );
+                    }
+                  }:null,
                   child: Icon(Icons.arrow_back),
                 ),
+
                 Spacer(),
                 SmoothPageIndicator(
                   controller: boardController,
@@ -117,41 +113,40 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     dotHeight: 14,
                     dotWidth: 14,
                     spacing: 8,
-                    expansionFactor: 3,
+                    //expansionFactor: 3,
                   ),
                   count: boarding.length,
                 ),
                 Spacer(),
+
                 TextButton(
                   style: ButtonStyle(
-                    foregroundColor: MaterialStateProperty.all(
-                        HexColor(pageIndex != 2 ? '0053CB' : 'e3f2fd')),
+                    foregroundColor:
+                    MaterialStateProperty.all(HexColor(pageIndex != 2? '0053CB':'e3f2fd')),
                   ),
-                  onPressed: pageIndex != 2
-                      ? () {
-                          if (isLast) {
-                            navigateandFinish(context, LoginScreen());
-                          } else {
-                            boardController.nextPage(
-                              duration: Duration(
-                                milliseconds: 1000,
-                              ),
-                              curve: Curves.easeInOut,
-                            );
-                          }
-                        }
-                      : null,
+                  onPressed: pageIndex != 2? () {
+                    if (isLast) {
+                      navigateandFinish(context, LoginScreen());
+                    } else {
+                      boardController.nextPage(
+                        duration: Duration(
+                          milliseconds: 1000,
+                        ),
+                        curve: Curves.easeInOut,
+                      );
+                    }
+                  }:null,
                   child: Icon(Icons.arrow_forward),
                 ),
+
               ],
             ),
-            pageIndex != 2
-                ? SizedBox(
-                    height: SizeConfig.getProportionateScreenHeight(150),
-                  )
-                : SizedBox(
-                    height: SizeConfig.getProportionateScreenHeight(85),
-                  ),
+            pageIndex != 2?
+            SizedBox(
+              height: SizeConfig.getProportionateScreenHeight(150),
+            ):SizedBox(
+              height: SizeConfig.getProportionateScreenHeight(85),
+            ),
 
             if (pageIndex != 2)
               Padding(
@@ -177,7 +172,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                       style: ButtonStyle(
                         foregroundColor:
-                            MaterialStateProperty.all(HexColor('90CAF9')),
+                        MaterialStateProperty.all(HexColor('90CAF9')),
                       ),
                       onPressed: () {
                         navigateandFinish(context, LoginScreen());
@@ -196,7 +191,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ),
                   ),
                   //396 56
-                  backgroundColor: MaterialStateProperty.all(HexColor('0053CB')),
+                  backgroundColor:
+                  MaterialStateProperty.all(HexColor('0053CB')),
                 ),
                 child: Text(
                   'Join Now — Create a new account',
@@ -251,53 +247,52 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 }
 
 Widget buildBoarding(BoardingModel model) => Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Container(
-          width: SizeConfig.screenWidth,
-          height: SizeConfig.getProportionateScreenHeight(346),
-          child: SvgPicture.asset(
-            model.image,
-            fit: BoxFit.contain,
-            width: SizeConfig.screenWidth,
-            height: SizeConfig.getProportionateScreenHeight(346),
-          ),
+  crossAxisAlignment: CrossAxisAlignment.center,
+  children: [
+    Container(
+      width: SizeConfig.screenWidth,
+      height: SizeConfig.getProportionateScreenHeight(346),
+      child: SvgPicture.asset(
+        model.image,
+        fit: BoxFit.contain,
+        width: SizeConfig.screenWidth,
+        height: SizeConfig.getProportionateScreenHeight(346),
+      ),
+    ),
+    SizedBox(
+      height: SizeConfig.getProportionateScreenHeight(40),
+    ),
+    Text(
+      model.title,
+      softWrap: true,
+      maxLines: 2,
+      textScaleFactor: 1.0,
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        fontSize: 32,
+        fontWeight: FontWeight.w700,
+        color: HexColor('0053CB'),
+      ),
+    ),
+    SizedBox(
+      height: SizeConfig.getProportionateScreenHeight(24),
+    ),
+    Padding(
+      padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(16)),
+      child: Text(
+        model.body,
+        textScaleFactor: 1.0,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 18,
+          fontStyle: FontStyle.normal,
+          color: HexColor('1E88E5'),
+          fontWeight: FontWeight.w400,
         ),
-        SizedBox(
-          height: SizeConfig.getProportionateScreenHeight(40),
-        ),
-        Text(
-          model.title,
-          softWrap: true,
-          maxLines: 2,
-          textScaleFactor: 1.0,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 32,
-            fontWeight: FontWeight.w700,
-            color: HexColor('0053CB'),
-          ),
-        ),
-        SizedBox(
-          height: SizeConfig.getProportionateScreenHeight(24),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal: SizeConfig.getProportionateScreenWidth(16)),
-          child: Text(
-            model.body,
-            textScaleFactor: 1.0,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 18,
-              fontStyle: FontStyle.normal,
-              color: HexColor('1E88E5'),
-              fontWeight: FontWeight.w400,
-            ),
-          ),
-        )
-      ],
-    );
+      ),
+    )
+  ],
+);
 
 // class OnboardingScreen extends StatelessWidget {
 //   OnboardingScreen({Key? key}) : super(key: key);

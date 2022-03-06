@@ -64,8 +64,8 @@ class _QuizScreenState extends State<QuizScreen> {
               ),
               Text(
                 '1: The video that introduced the idea of Hall of Fame and Hall '
-                'of Shame interfaces included a few pieces of design wisdom.'
-                ' Which of the following are true? (Select all that apply)',
+                    'of Shame interfaces included a few pieces of design wisdom.'
+                    ' Which of the following are true? (Select all that apply)',
                 style: TextStyle(
                   color: HexColor('333333'),
                   fontSize: 16,

@@ -19,14 +19,16 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
+      backgroundColor: Colors.white,
+
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.symmetric(
-            vertical: SizeConfig.getProportionateScreenWidth(61),
-            horizontal: SizeConfig.getProportionateScreenWidth(16)
+              horizontal: SizeConfig.getProportionateScreenWidth(16)
           ),
           child: Column(
             children: [
+              SizedBox(height: SizeConfig.getProportionateScreenHeight(61)),
               Container(
                 width: SizeConfig.getProportionateScreenWidth(396),
                 height:
@@ -54,7 +56,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         color: HexColor('C4E2FC'),
                       ),
                       height:
-                          MediaQuery.of(context).size.height * .0259179266,
+                      MediaQuery.of(context).size.height * .0259179266,
                       width: MediaQuery.of(context).size.width * .0259179266,
                     ),
                     hintText: 'Search',
@@ -88,25 +90,26 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                 ),
               ),
+
               SizedBox(
                 height:
                 SizeConfig.getProportionateScreenHeight(46),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(
-                    'assets/onboarding1.svg',
-                    fit: BoxFit.contain,
-                  ),
-                ],
+
+              SvgPicture.asset(
+                'assets/Notebook.svg',
+                fit: BoxFit.contain,
+                width: SizeConfig.screenWidth,
+                height: SizeConfig.getProportionateScreenHeight(346),
               ),
               SizedBox(
                 height:
                 SizeConfig.getProportionateScreenHeight(24),
               ),
+
               Text(
                 'To get started, search for a school',
+                textScaleFactor: 1.0,
                 style: TextStyle(
                   fontSize: 18,
                   fontStyle: FontStyle.normal,
@@ -118,21 +121,23 @@ class _SearchScreenState extends State<SearchScreen> {
                 height:
                 SizeConfig.getProportionateScreenHeight(145),
               ),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
                     child: Container(
-                      height: 2,
+                      height: 1,
                       color: HexColor('C4E2FC'),
                     ),
                   ),
                   SizedBox(
                     width:
-                    SizeConfig.getProportionateScreenWidth(13),
+                    SizeConfig.getProportionateScreenWidth(14),
                   ),
                   Text(
                     'or simply',
+                    textScaleFactor: 1.0,
                     style: TextStyle(
                       fontStyle: FontStyle.normal,
                       fontSize: 14,
@@ -142,7 +147,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                   SizedBox(
                     width:
-                    SizeConfig.getProportionateScreenWidth(13),
+                    SizeConfig.getProportionateScreenWidth(14),
                   ),
                   Expanded(
                     child: Container(
@@ -154,7 +159,7 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
               SizedBox(
                 height:
-                SizeConfig.getProportionateScreenHeight(29),
+                SizeConfig.getProportionateScreenHeight(21),
               ),
               Container(
                 height:
@@ -176,6 +181,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
                 child: MaterialButton(
                   child: Text("Explore all courses ",
+                      textScaleFactor: 1.0,
                       style: TextStyle(
                           color: HexColor('0053CB'),
                           fontSize: 18,

@@ -1,23 +1,94 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
+
+import '../shared/constants/size_config.dart';
 
 class StartScreen extends StatelessWidget {
   StartScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return BlocProvider(
       create: (context) => Mybloc(),
       child: BlocConsumer<Mybloc, AppStates>(
         listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
+            backgroundColor: Colors.white,
+            appBar:AppBar(
+              title: SvgPicture.asset(
+                'assets/Logo.svg',
+                width: SizeConfig.getProportionateScreenWidth(113),
+                height: SizeConfig.getProportionateScreenHeight(26.2),
+                fit: BoxFit.contain,
+              ),
+              backgroundColor: Colors.white,
+              elevation: 4,
+              shadowColor: HexColor("0053CB").withOpacity(0.1),
+              automaticallyImplyLeading: false,
+              //leadingWidth: 0,
+              titleSpacing: SizeConfig.getProportionateScreenWidth(17),
+              //leading: Container(),
+              toolbarHeight: SizeConfig.getProportionateScreenHeight(88),
+              actions: [
+                SvgPicture.asset(
+                  'assets/notification on.svg',
+                  semanticsLabel: 'vector',
+                  width: SizeConfig.getProportionateScreenWidth(24),
+                  height: SizeConfig.getProportionateScreenWidth(24),
+                ),
+                SizedBox(width: SizeConfig.getProportionateScreenWidth(8)),
+                CircleAvatar(
+                  maxRadius: SizeConfig.getProportionateScreenWidth(16),
+                  minRadius: SizeConfig.getProportionateScreenWidth(16),
+                  child:Text("N",style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.white
+                  ),),
+                  backgroundColor: HexColor("0053CB"),
+                ),
+                SizedBox(width: SizeConfig.getProportionateScreenWidth(16)),
+
+                // IconButton(
+                //   onPressed: () {},
+                //   icon: Container(
+                //       width: 32,
+                //       height: 32,
+                //       child: Stack(children: <Widget>[
+                //         Positioned(
+                //           top: 0,
+                //           left: 0,
+                //           child:
+                //         ),
+                //         Positioned(
+                //             top: 11,
+                //             left: 11,
+                //             child: Text(
+                //               'N',
+                //               textAlign: TextAlign.center,
+                //               style: TextStyle(
+                //                 color: Color.fromRGBO(255, 255, 255, 1),
+                //                 fontFamily: 'SF Pro Display',
+                //                 fontSize: 14,
+                //                 letterSpacing: 0.10000000149011612,
+                //                 fontWeight: FontWeight.normal,
+                //                 height: 1,
+                //               ),
+                //             )),
+                //       ])),
+                // ),
+              ],
+            ),
             body:
-                Mybloc.get(context).screens[Mybloc.get(context).selectedIndex],
+            Mybloc.get(context).screens[Mybloc.get(context).selectedIndex],
             bottomNavigationBar: BottomNavigationBar(
+              unselectedFontSize: 12,
+              selectedFontSize: 12,
               currentIndex: Mybloc.get(context).selectedIndex,
               onTap: (index) {
                 Mybloc.get(context).changeBottomNavBar(index);

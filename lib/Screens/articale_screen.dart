@@ -26,7 +26,7 @@ class _ArticalScreenState extends State<ArticalScreen> {
     videoPlayerController = VideoPlayerController.network(
         "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4")
       ..addListener(() => setState(() {}))
-      // ..setLooping(false)
+    // ..setLooping(false)
       ..initialize().then((_) {
         // videoPlayerController!.pause();
         if (videoPlayerController != null) {
@@ -51,28 +51,28 @@ class _ArticalScreenState extends State<ArticalScreen> {
                   child: Text('Text'),
                 );
               }
-              // subtitle: Subtitles([
-              //   Subtitle(
-              //     index: 0,
-              //     start: Duration.zero,
-              //     end: const Duration(seconds: 10),
-              //     text: 'Hello from subtitles',
-              //   ),
-              //   Subtitle(
-              //     index: 1,
-              //     start: const Duration(seconds: 10),
-              //     end: const Duration(seconds: 20),
-              //     text: 'Whats up? 🙂',
-              //   ),
-              // ]),
-              // subtitleBuilder: (context, subtitle) => Container(
-              //   padding: const EdgeInsets.all(10.0),
-              //   child: Text(
-              //     subtitle,
-              //     style: const TextStyle(color: Colors.white),
-              //   ),
-              // ),
-              ); //..addListener(() => setState(() {}));
+            // subtitle: Subtitles([
+            //   Subtitle(
+            //     index: 0,
+            //     start: Duration.zero,
+            //     end: const Duration(seconds: 10),
+            //     text: 'Hello from subtitles',
+            //   ),
+            //   Subtitle(
+            //     index: 1,
+            //     start: const Duration(seconds: 10),
+            //     end: const Duration(seconds: 20),
+            //     text: 'Whats up? 🙂',
+            //   ),
+            // ]),
+            // subtitleBuilder: (context, subtitle) => Container(
+            //   padding: const EdgeInsets.all(10.0),
+            //   child: Text(
+            //     subtitle,
+            //     style: const TextStyle(color: Colors.white),
+            //   ),
+            // ),
+          ); //..addListener(() => setState(() {}));
         }
       });
 
@@ -140,30 +140,30 @@ class _ArticalScreenState extends State<ArticalScreen> {
               ),
 
               videoPlayerController != null &&
-                      videoPlayerController!.value.isInitialized &&
-                      chewieController != null
+                  videoPlayerController!.value.isInitialized &&
+                  chewieController != null
                   ? Container(
-                      height: SizeConfig.screenWidth / 16 * 9,
-                      width: SizeConfig.screenHeight / 16 * 9,
-                      child: Chewie(
-                        controller: chewieController!,
-                      ),
-                    )
+                height: SizeConfig.screenWidth / 16 * 9,
+                width: SizeConfig.screenHeight / 16 * 9,
+                child: Chewie(
+                  controller: chewieController!,
+                ),
+              )
                   : Container(
-                      margin: EdgeInsets.symmetric(horizontal: 15),
-                      alignment: Alignment.center,
-                      width: SizeConfig.screenWidth,
-                      height: 250,
-                      decoration: BoxDecoration(
-                          color: Theme.of(context).backgroundColor,
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                            style: BorderStyle.solid,
-                            width: 1,
-                            color: Colors.grey,
-                          )),
-                      child: Text('Loadiing'),
-                    ),
+                margin: EdgeInsets.symmetric(horizontal: 15),
+                alignment: Alignment.center,
+                width: SizeConfig.screenWidth,
+                height: 250,
+                decoration: BoxDecoration(
+                    color: Theme.of(context).backgroundColor,
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      style: BorderStyle.solid,
+                      width: 1,
+                      color: Colors.grey,
+                    )),
+                child: Text('Loadiing'),
+              ),
               SizedBox(height: 15),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.019438444924406,
@@ -197,7 +197,7 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                 print(' Amir ');
                                 openFile(
                                   url:
-                                      "https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf",
+                                  "https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf",
                                   //fileName:"gg.jpg"
                                 );
                               },
@@ -292,14 +292,14 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                     builder: (innerContext) {
                                       return AlertDialog(
                                         actionsPadding:
-                                            EdgeInsetsDirectional.only(
+                                        EdgeInsetsDirectional.only(
                                           start: 23,
                                           end: 32,
                                         ),
                                         backgroundColor: HexColor('FFFFFF'),
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
-                                              BorderRadius.circular(10),
+                                          BorderRadius.circular(10),
                                         ),
                                         scrollable: true,
                                         actions: [
@@ -308,16 +308,16 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                               children: [
                                                 Row(
                                                   mainAxisAlignment:
-                                                      MainAxisAlignment.start,
+                                                  MainAxisAlignment.start,
                                                   children: [
                                                     Text(
                                                       'Questrion 1 out of 10',
                                                       style: TextStyle(
                                                         color:
-                                                            HexColor('1964D1'),
+                                                        HexColor('1964D1'),
                                                         fontSize: 12,
                                                         fontWeight:
-                                                            FontWeight.w700,
+                                                        FontWeight.w700,
                                                       ),
                                                     ),
                                                   ],
@@ -325,20 +325,20 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                                 SizedBox(
                                                   height: SizeConfig
                                                       .getProportionateScreenHeight(
-                                                          8),
+                                                      8),
                                                 ),
                                                 Row(
                                                   mainAxisAlignment:
-                                                      MainAxisAlignment.start,
+                                                  MainAxisAlignment.start,
                                                   children: [
                                                     Text(
                                                       '*Choose the correct answer for all questions',
                                                       style: TextStyle(
                                                         color:
-                                                            HexColor('BDBDBD'),
+                                                        HexColor('BDBDBD'),
                                                         fontSize: 12,
                                                         fontWeight:
-                                                            FontWeight.w600,
+                                                        FontWeight.w600,
                                                       ),
                                                     ),
                                                   ],
@@ -346,12 +346,12 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                                 SizedBox(
                                                   height: SizeConfig
                                                       .getProportionateScreenHeight(
-                                                          24),
+                                                      24),
                                                 ),
                                                 Text(
                                                   '1: The video that introduced the idea of Hall of Fame and Hall '
-                                                  'of Shame interfaces included a few pieces of design wisdom.'
-                                                  ' Which of the following are true? (Select all that apply)',
+                                                      'of Shame interfaces included a few pieces of design wisdom.'
+                                                      ' Which of the following are true? (Select all that apply)',
                                                   style: TextStyle(
                                                     color: HexColor('333333'),
                                                     fontSize: 16,
@@ -361,7 +361,7 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                                 SizedBox(
                                                   height: SizeConfig
                                                       .getProportionateScreenHeight(
-                                                          56),
+                                                      56),
                                                 ),
                                                 Column(
                                                   children: [
@@ -371,21 +371,21 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                                         style: TextStyle(
                                                           fontSize: 16,
                                                           fontWeight:
-                                                              FontWeight.w600,
+                                                          FontWeight.w600,
                                                           color: lightSwitches[
-                                                                  'Ans 1']!
+                                                          'Ans 1']!
                                                               ? HexColor(
-                                                                  '0053CB')
+                                                              '0053CB')
                                                               : HexColor(
-                                                                  '333333'),
+                                                              '333333'),
                                                         ),
                                                       ),
                                                       value: lightSwitches[
-                                                          'Ans 1'],
+                                                      'Ans 1'],
                                                       onChanged: (bool? value) {
                                                         setState(() {
                                                           lightSwitches[
-                                                              'Ans 1'] = value;
+                                                          'Ans 1'] = value;
                                                         });
                                                       },
                                                     ),
@@ -395,21 +395,21 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                                         style: TextStyle(
                                                           fontSize: 16,
                                                           fontWeight:
-                                                              FontWeight.w600,
+                                                          FontWeight.w600,
                                                           color: lightSwitches[
-                                                                  'Ans 2']!
+                                                          'Ans 2']!
                                                               ? HexColor(
-                                                                  '0053CB')
+                                                              '0053CB')
                                                               : HexColor(
-                                                                  '333333'),
+                                                              '333333'),
                                                         ),
                                                       ),
                                                       value: lightSwitches[
-                                                          'Ans 2'],
+                                                      'Ans 2'],
                                                       onChanged: (bool? value) {
                                                         setState(() {
                                                           lightSwitches[
-                                                              'Ans 2'] = value;
+                                                          'Ans 2'] = value;
                                                         });
                                                       },
                                                     ),
@@ -419,21 +419,21 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                                         style: TextStyle(
                                                           fontSize: 16,
                                                           fontWeight:
-                                                              FontWeight.w600,
+                                                          FontWeight.w600,
                                                           color: lightSwitches[
-                                                                  'Ans 3']!
+                                                          'Ans 3']!
                                                               ? HexColor(
-                                                                  '0053CB')
+                                                              '0053CB')
                                                               : HexColor(
-                                                                  '333333'),
+                                                              '333333'),
                                                         ),
                                                       ),
                                                       value: lightSwitches[
-                                                          'Ans 3'],
+                                                      'Ans 3'],
                                                       onChanged: (bool? value) {
                                                         setState(() {
                                                           lightSwitches[
-                                                              'Ans 3'] = value;
+                                                          'Ans 3'] = value;
                                                         });
                                                       },
                                                     ),
@@ -443,21 +443,21 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                                         style: TextStyle(
                                                           fontSize: 16,
                                                           fontWeight:
-                                                              FontWeight.w600,
+                                                          FontWeight.w600,
                                                           color: lightSwitches[
-                                                                  'Ans 4']!
+                                                          'Ans 4']!
                                                               ? HexColor(
-                                                                  '0053CB')
+                                                              '0053CB')
                                                               : HexColor(
-                                                                  '333333'),
+                                                              '333333'),
                                                         ),
                                                       ),
                                                       value: lightSwitches[
-                                                          'Ans 4'],
+                                                      'Ans 4'],
                                                       onChanged: (bool? value) {
                                                         setState(() {
                                                           lightSwitches[
-                                                              'Ans 4'] = value;
+                                                          'Ans 4'] = value;
                                                         });
                                                       },
                                                     ),
@@ -466,7 +466,7 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                                 SizedBox(
                                                   height: SizeConfig
                                                       .getProportionateScreenHeight(
-                                                          195),
+                                                      195),
                                                 ),
                                                 Divider(
                                                   height: 2,
@@ -475,19 +475,19 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                                 SizedBox(
                                                   height: SizeConfig
                                                       .getProportionateScreenHeight(
-                                                          32),
+                                                      32),
                                                 ),
                                                 Container(
                                                   width: SizeConfig
                                                       .getProportionateScreenWidth(
-                                                          316),
+                                                      316),
                                                   height: SizeConfig
                                                       .getProportionateScreenHeight(
-                                                          56),
+                                                      56),
                                                   decoration: BoxDecoration(
                                                     borderRadius:
-                                                        BorderRadius.circular(
-                                                            8),
+                                                    BorderRadius.circular(
+                                                        8),
                                                     color: HexColor('FFFFFF'),
                                                     border: Border.all(
                                                       color: HexColor('0053CB'),
@@ -502,7 +502,7 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                                       style: TextStyle(
                                                           fontSize: 18,
                                                           fontWeight:
-                                                              FontWeight.w500,
+                                                          FontWeight.w500,
                                                           color: HexColor(
                                                               '0053CB')),
                                                     ),
@@ -511,19 +511,19 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                                 SizedBox(
                                                   height: SizeConfig
                                                       .getProportionateScreenHeight(
-                                                          15),
+                                                      15),
                                                 ),
                                                 Container(
                                                   width: SizeConfig
                                                       .getProportionateScreenWidth(
-                                                          316),
+                                                      316),
                                                   height: SizeConfig
                                                       .getProportionateScreenHeight(
-                                                          56),
+                                                      56),
                                                   decoration: BoxDecoration(
                                                     borderRadius:
-                                                        BorderRadius.circular(
-                                                            8),
+                                                    BorderRadius.circular(
+                                                        8),
                                                     color: HexColor('FFFFFF'),
                                                     // border: Border.all(
                                                     //   color: HexColor('0053CB'),
@@ -538,9 +538,9 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                                       style: TextStyle(
                                                         fontSize: 18,
                                                         fontWeight:
-                                                            FontWeight.w500,
+                                                        FontWeight.w500,
                                                         color:
-                                                            HexColor('0053CB'),
+                                                        HexColor('0053CB'),
                                                       ),
                                                     ),
                                                   ),
@@ -685,14 +685,14 @@ class _ArticalScreenState extends State<ArticalScreen> {
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 8),                      child: Text(
-                        'Up Next',
-                        style: TextStyle(
-                            color: HexColor('1964D1'),
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
-                            fontStyle: FontStyle.normal,
-                        ),
+                      'Up Next',
+                      style: TextStyle(
+                        color: HexColor('1964D1'),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
+                        fontStyle: FontStyle.normal,
                       ),
+                    ),
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height *
@@ -758,139 +758,147 @@ class _ArticalScreenState extends State<ArticalScreen> {
 }
 
 Widget buildItem(context) => InkWell(
-      onTap: () {
-        navigateTo(context, ArticalScreen());
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(16),
-            topRight: Radius.circular(16),
-            bottomLeft: Radius.circular(16),
-            bottomRight: Radius.circular(16),
+  onTap: () {
+    // navigateTo(context, StartScreen());
+  },
+  child: Container(
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.all(
+        Radius.circular(16),
+      ),
+      boxShadow: [
+        BoxShadow(
+          color: Color.fromRGBO(0, 83, 203, 0.05000000074505806),
+          offset: Offset(6, 6),
+          blurRadius: 8,
+        )
+      ],
+      color: Color.fromRGBO(255, 255, 255, 1),
+    ),
+    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+    child: Padding(
+      padding: EdgeInsets.only(left: 8),
+      child: Row(
+        children: <Widget>[
+          Container(
+            width: SizeConfig.getProportionateScreenWidth(79),
+            height: SizeConfig.getProportionateScreenHeight(72),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(8),
+              ),
+              color: Color.fromRGBO(0, 0, 0, 0.5),
+              image: DecorationImage(
+                image: AssetImage('assets/hateme.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
-          boxShadow: [
-            BoxShadow(
-                color: Color.fromRGBO(0, 83, 203, 0.05000000074505806),
-                offset: Offset(6, 6),
-                blurRadius: 8)
-          ],
-          color: Color.fromRGBO(255, 255, 255, 1),
-        ),
-        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-        child: Padding(
-          padding: const EdgeInsets.only(left: 25),
-          child: Row(
-            children: <Widget>[
-              Container(
-                  width: 97,
-                  height: 72,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(8),
-                      topRight: Radius.circular(8),
-                      bottomLeft: Radius.circular(8),
-                      bottomRight: Radius.circular(8),
-                    ),
-                    color: Color.fromRGBO(0, 0, 0, 0.5),
-                    image: DecorationImage(
-                        image: AssetImage('assets/articel2.png'),
-                        fit: BoxFit.fitWidth),
-                  )),
-              SizedBox(
-                  width:
-                      MediaQuery.of(context).size.width * 0.0186915887850467),
-              Container(
-                child: Column(
+          SizedBox(
+            width: SizeConfig.getProportionateScreenWidth(8),
+          ),
+          Container(
+            child: Column(
+              children: <Widget>[
+                Text(
+                  'Introduction: What is AI ?',
+                  textScaleFactor: 1.0,
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    color: HexColor('333333'),
+                    // fontFamily: 'SF Pro Display',
+                    fontSize: 12,
+                    fontStyle: FontStyle.normal,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                SizedBox(
+                  height: SizeConfig.getProportionateScreenHeight(8),
+                ),
+                Row(
                   children: <Widget>[
-                    Text(
-                      'Introduction: What is AI?',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        color: HexColor('333333'),
-                        fontFamily: 'SF Pro Display',
-                        fontSize: 12,
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.w600,
-                      ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.watch,
+                          size: 15,
+                        ),
+                        SizedBox(
+                          width: SizeConfig.getProportionateScreenWidth(6.5),
+                        ),
+                        Text(
+                          '51m',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            color: HexColor('333333'),
+                            fontFamily: 'SF Pro Display',
+                            fontSize: 12,
+                            fontStyle: FontStyle.normal,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
                     ),
                     SizedBox(
-                        height: MediaQuery.of(context).size.height *
-                            0.0086393088552916),
+                      width: SizeConfig.getProportionateScreenWidth(17),
+                    ),
                     Row(
-                      children: <Widget>[
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.watch,
-                              size: 15,
-                            ),
-                            Text(
-                              '51m',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                color: HexColor('333333'),
-                                fontFamily: 'SF Pro Display',
-                                fontSize: 12,
-                                fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ],
+                      children: [
+                        Icon(
+                          Icons.quiz_outlined,
+                          size: 15,
                         ),
                         SizedBox(
-                            width: MediaQuery.of(context).size.width *
-                                0.0373831775700935),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.quiz_outlined,
-                              size: 15,
-                            ),
-                            Text(
-                              '4',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  color: Color.fromRGBO(51, 51, 51, 1),
-                                  fontFamily: 'SF Pro Display',
-                                  fontSize: 12,
-                                  letterSpacing:
-                                      0 /*percentages not used in flutter. defaulting to zero*/,
-                                  fontWeight: FontWeight.normal,
-                                  height: 1),
-                            ),
-                          ],
+                          width: SizeConfig.getProportionateScreenWidth(6.5),
+                        ),
+                        Text(
+                          '4',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                              color: Color.fromRGBO(51, 51, 51, 1),
+                              fontFamily: 'SF Pro Display',
+                              fontSize: 12,
+                              letterSpacing:
+                              0 /*percentages not used in flutter. defaulting to zero*/,
+                              fontWeight: FontWeight.normal,
+                              height: 1),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: SizeConfig.getProportionateScreenWidth(17),
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.bookmark_border_outlined,
+                          size: 15,
                         ),
                         SizedBox(
-                            width: MediaQuery.of(context).size.width *
-                                0.0373831775700935),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.bookmark_border_outlined,
-                              size: 15,
-                            ),
-                            Text(
-                              '2',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  color: Color.fromRGBO(51, 51, 51, 1),
-                                  fontFamily: 'SF Pro Display',
-                                  fontSize: 12,
-                                  letterSpacing:
-                                      0 /*percentages not used in flutter. defaulting to zero*/,
-                                  fontWeight: FontWeight.normal,
-                                  height: 1),
-                            ),
-                          ],
+                          width: SizeConfig.getProportionateScreenWidth(6.5),
+                        ),
+                        Text(
+                          '2',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                              color: Color.fromRGBO(51, 51, 51, 1),
+                              fontFamily: 'SF Pro Display',
+                              fontSize: 12,
+                              letterSpacing:
+                              0 /*percentages not used in flutter. defaulting to zero*/,
+                              fontWeight: FontWeight.normal,
+                              height: 1),
                         ),
                       ],
                     ),
                   ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
+        ],
       ),
-    );
+    ),
+  ),
+);
+

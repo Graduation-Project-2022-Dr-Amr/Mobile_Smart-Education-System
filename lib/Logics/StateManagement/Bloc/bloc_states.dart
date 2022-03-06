@@ -1,12 +1,12 @@
 abstract class AppStates {}
 
 class AppInitialState extends AppStates {}
+class ChangeRoleState extends AppStates {}
+class ChangeCheckBoxState extends AppStates {}
 
 class AppChangeModeState extends AppStates {}
 
 class AppChangeDirectionState extends AppStates {}
-class ChangeRoleColorState extends AppStates {}
-class ChangeCheckBoxState extends AppStates {}
 
 class AppBottomNavState extends AppStates {}
 
