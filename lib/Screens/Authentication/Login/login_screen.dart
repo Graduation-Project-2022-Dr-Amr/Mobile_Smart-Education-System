@@ -6,6 +6,7 @@ import 'package:smart_education/Logics/StateManagement/Bloc/bloc.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
 import 'package:smart_education/Screens/Authentication/Signin/sign_screen.dart';
 import 'package:smart_education/Screens/Joining%20University/explore_all_cources_screeen.dart';
+import 'package:smart_education/data/api/auth/auth_api.dart';
 import 'package:smart_education/shared/commponents.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 
@@ -16,6 +17,9 @@ class LoginScreen extends StatelessWidget {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   var formKey = GlobalKey<FormState>();
+
+  AuthApi api = AuthApi();
+
 
   @override
   Widget build(BuildContext context) {
@@ -132,6 +136,7 @@ class LoginScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               child: MaterialButton(
+
                                 child: Text(
                                   "Login",
                                   style: TextStyle(
@@ -142,12 +147,16 @@ class LoginScreen extends StatelessWidget {
                                   ),
                                 ),
                                 onPressed: () {
-                                  if (passwordController.text.trim().isEmpty ||
-                                      passwordController.text.trim().length < 3) {
-                                    navigateTo(context, SearchScreen());
+                                  _onLogin(context);
 
-                                    /// TODO: show snack bar => please enter a valid data
-                                  }
+                                  // if (passwordController.text.trim().isEmpty ||
+                                  //     passwordController.text.trim().length < 3) {
+                                  //
+                                  //
+                                  //   _onLogin(context);
+                                  //
+                                  //   /// TODO: show snack bar => please enter a valid data
+                                  // }
                                 },
                               ),
                             ),
@@ -197,6 +206,25 @@ class LoginScreen extends StatelessWidget {
             );
           }),
     );
+  }
+  // TODO: reminder to be moved to Bloc repository.
+  void _onLogin(BuildContext context) async {
+    final loginData = LoginData(emailController.text, passwordController.text);
+    try {
+      final response = await api.login(loginData);
+      print(response.toString());
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(response.toString()),
+          duration: Duration(seconds: 2),
+        ),
+      );
+      // navigateTo(context, SearchScreen());
+
+    } catch (err) {
+      print(err);
+    }
+
   }
 
   Column buildColumn({required String text}) {

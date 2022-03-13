@@ -10,7 +10,6 @@ import 'Logics/StateManagement/Bloc/bloc_states.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  DioHelper.init();
   await CashHelper.init();
   bool? isDark = CashHelper.getBool(key: 'isDark');
   bool? isRtl = CashHelper.getBoolRtl(key: 'isRtl');
