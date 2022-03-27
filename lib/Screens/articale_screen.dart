@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:open_file/open_file.dart';
@@ -36,10 +37,10 @@ class _ArticalScreenState extends State<ArticalScreen> {
               looping: false,
               errorBuilder: (ctx, error) {
                 return Container(
-                  margin: EdgeInsets.symmetric(horizontal: 15),
+                  margin: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(15)),
                   alignment: Alignment.center,
                   width: SizeConfig.screenWidth,
-                  height: 250,
+                  height: SizeConfig.getProportionateScreenHeight(239),
                   decoration: BoxDecoration(
                       color: Theme.of(context).backgroundColor,
                       borderRadius: BorderRadius.circular(10),
@@ -88,633 +89,603 @@ class _ArticalScreenState extends State<ArticalScreen> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: HexColor("0053CB"),
+        leading: IconButton(
+          onPressed: () {
+            navigateTo(context, StartScreen());
+          },
+          icon: Icon(Icons.arrow_back),
+          color: Colors.white,
+          iconSize: SizeConfig.getProportionateScreenWidth(24),
+        ),
+        toolbarHeight: 70,
+        title: Text(
+          'Artificial Intelligence',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.w700,
+            fontStyle: FontStyle.normal,
+            color: HexColor('FFFFFF'),
+          ),
+        ),
+        centerTitle: true,
+      ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
-        child: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.0950323974082073,
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                        color: Color.fromRGBO(0, 83, 203, 0.10000000149011612),
-                        offset: Offset(0, -2),
-                        blurRadius: 20)
-                  ],
-                  color: Color.fromRGBO(0, 83, 203, 1),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        navigateTo(context, StartScreen());
-                      },
-                      icon: Icon(Icons.arrow_back),
-                      color: HexColor('FFFFFF'),
-                      iconSize: 30,
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width *
-                          0.1996915887850467,
-                    ),
-                    Container(
-                      //width:MediaQuery.of(context).size.width*0.8130841121495327,
-                      //height: MediaQuery.of(context).size.height*0.031317494600432,
-                      child: Text(
-                        'Artificial Intelligence',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w700,
-                          fontStyle: FontStyle.normal,
-                          color: HexColor('FFFFFF'),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            videoPlayerController != null &&
+                videoPlayerController!.value.isInitialized &&
+                chewieController != null
+                ? Container(
+              height: SizeConfig.screenWidth / 16 * 9,
+              width: SizeConfig.screenHeight / 16 * 9,
+              child: Chewie(
+                controller: chewieController!,
               ),
-
-              videoPlayerController != null &&
-                  videoPlayerController!.value.isInitialized &&
-                  chewieController != null
-                  ? Container(
-                height: SizeConfig.screenWidth / 16 * 9,
-                width: SizeConfig.screenHeight / 16 * 9,
-                child: Chewie(
-                  controller: chewieController!,
-                ),
-              )
-                  : Container(
-                margin: EdgeInsets.symmetric(horizontal: 15),
-                alignment: Alignment.center,
-                width: SizeConfig.screenWidth,
-                height: 250,
-                decoration: BoxDecoration(
-                    color: Theme.of(context).backgroundColor,
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      style: BorderStyle.solid,
-                      width: 1,
-                      color: Colors.grey,
-                    )),
-                child: Text('Loadiing'),
-              ),
-              SizedBox(height: 15),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.019438444924406,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Introduction: What is AI?',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        fontStyle: FontStyle.normal,
-                        color: HexColor('333333'),
-                      ),
+            )
+                : Container(
+              margin: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(15)).copyWith(top: SizeConfig.getProportionateScreenWidth(15)),
+              alignment: Alignment.center,
+              width: SizeConfig.screenWidth,
+              height: SizeConfig.getProportionateScreenHeight(224),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    style: BorderStyle.solid,
+                    width: 1,
+                    color: Colors.grey,
+                  )),
+              child: Text('Loading .. ',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+            ),
+            SizedBox(height: SizeConfig.getProportionateScreenHeight(18)),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(16)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Introduction: What is AI?',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      fontStyle: FontStyle.normal,
+                      color: HexColor('333333'),
                     ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height *
-                          0.019438444924406,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 15),
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                print(' Amir ');
-                                openFile(
-                                  url:
-                                  "https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf",
-                                  //fileName:"gg.jpg"
-                                );
-                              },
-                              child: Column(
-                                children: [
-                                  Container(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.1168224299065421,
-                                    height: MediaQuery.of(context).size.height *
-                                        0.0539956803455724,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(11),
-                                        topRight: Radius.circular(11),
-                                        bottomLeft: Radius.circular(11),
-                                        bottomRight: Radius.circular(11),
+                  ),
+                  SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: SizeConfig.getProportionateScreenWidth(16)),
+                      child: Row(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              // print(' Amir ');
+                              openFile(
+                                url:
+                                "https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf",
+                                //fileName:"gg.jpg"
+                              );
+                            },
+                            child: Column(
+                              children: [
+                                Container(
+                                  width: MediaQuery.of(context).size.width *
+                                      0.1168224299065421,
+                                  height: MediaQuery.of(context).size.height *
+                                      0.0539956803455724,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(11),
+                                      topRight: Radius.circular(11),
+                                      bottomLeft: Radius.circular(11),
+                                      bottomRight: Radius.circular(11),
+                                    ),
+                                    color: Color.fromRGBO(25, 100, 209, 1),
+                                  ),
+                                  child: Icon(
+                                    Icons.menu_book,
+                                    color: HexColor('FFFFFF'),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: MediaQuery.of(context).size.height *
+                                      0.0086393088552916,
+                                ),
+                                Text(
+                                  'Professeur\n     word',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontStyle: FontStyle.normal,
+                                    fontWeight: FontWeight.w500,
+                                    color: HexColor('333333'),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width *
+                                0.0747663551401869,
+                          ),
+                          InkWell(
+                            onTap: () {},
+                            child: Column(
+                              children: [
+                                Container(
+                                  width: MediaQuery.of(context).size.width *
+                                      0.1168224299065421,
+                                  height: MediaQuery.of(context).size.height *
+                                      0.0539956803455724,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(11),
+                                      topRight: Radius.circular(11),
+                                      bottomLeft: Radius.circular(11),
+                                      bottomRight: Radius.circular(11),
+                                    ),
+                                    color: Color.fromRGBO(25, 100, 209, 1),
+                                  ),
+                                  child: Icon(
+                                    Icons.menu_book,
+                                    color: HexColor('FFFFFF'),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: MediaQuery.of(context).size.height *
+                                      0.0086393088552916,
+                                ),
+                                Text(
+                                  'Discussion\n    ',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontStyle: FontStyle.normal,
+                                    fontWeight: FontWeight.w500,
+                                    color: HexColor('333333'),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width *
+                                0.0747663551401869,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              showDialog(
+                                  context: context,
+                                  builder: (innerContext) {
+                                    return AlertDialog(
+                                      actionsPadding:
+                                      EdgeInsetsDirectional.only(
+                                        start: 23,
+                                        end: 32,
                                       ),
-                                      color: Color.fromRGBO(25, 100, 209, 1),
-                                    ),
-                                    child: Icon(
-                                      Icons.menu_book,
-                                      color: HexColor('FFFFFF'),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.0086393088552916,
-                                  ),
-                                  Text(
-                                    'Professeur\n     word',
-                                    style: TextStyle(
-                                      fontSize: 10,
-                                      fontStyle: FontStyle.normal,
-                                      fontWeight: FontWeight.w500,
-                                      color: HexColor('333333'),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width *
-                                  0.0747663551401869,
-                            ),
-                            InkWell(
-                              onTap: () {},
-                              child: Column(
-                                children: [
-                                  Container(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.1168224299065421,
-                                    height: MediaQuery.of(context).size.height *
-                                        0.0539956803455724,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(11),
-                                        topRight: Radius.circular(11),
-                                        bottomLeft: Radius.circular(11),
-                                        bottomRight: Radius.circular(11),
+                                      backgroundColor: HexColor('FFFFFF'),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                        BorderRadius.circular(10),
                                       ),
-                                      color: Color.fromRGBO(25, 100, 209, 1),
-                                    ),
-                                    child: Icon(
-                                      Icons.menu_book,
-                                      color: HexColor('FFFFFF'),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.0086393088552916,
-                                  ),
-                                  Text(
-                                    'Discussion\n    ',
-                                    style: TextStyle(
-                                      fontSize: 10,
-                                      fontStyle: FontStyle.normal,
-                                      fontWeight: FontWeight.w500,
-                                      color: HexColor('333333'),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width *
-                                  0.0747663551401869,
-                            ),
-                            InkWell(
-                              onTap: () {
-                                showDialog(
-                                    context: context,
-                                    builder: (innerContext) {
-                                      return AlertDialog(
-                                        actionsPadding:
-                                        EdgeInsetsDirectional.only(
-                                          start: 23,
-                                          end: 32,
-                                        ),
-                                        backgroundColor: HexColor('FFFFFF'),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                          BorderRadius.circular(10),
-                                        ),
-                                        scrollable: true,
-                                        actions: [
-                                          Container(
-                                            child: Column(
-                                              children: [
-                                                Row(
-                                                  mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      'Questrion 1 out of 10',
-                                                      style: TextStyle(
-                                                        color:
-                                                        HexColor('1964D1'),
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                        FontWeight.w700,
-                                                      ),
+                                      scrollable: true,
+                                      actions: [
+                                        Container(
+                                          child: Column(
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    'Questrion 1 out of 10',
+                                                    style: TextStyle(
+                                                      color:
+                                                      HexColor('1964D1'),
+                                                      fontSize: 12,
+                                                      fontWeight:
+                                                      FontWeight.w700,
                                                     ),
-                                                  ],
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                height: SizeConfig
+                                                    .getProportionateScreenHeight(
+                                                    8),
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    '*Choose the correct answer for all questions',
+                                                    style: TextStyle(
+                                                      color:
+                                                      HexColor('BDBDBD'),
+                                                      fontSize: 12,
+                                                      fontWeight:
+                                                      FontWeight.w600,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                height: SizeConfig
+                                                    .getProportionateScreenHeight(
+                                                    24),
+                                              ),
+                                              Text(
+                                                '1: The video that introduced the idea of Hall of Fame and Hall '
+                                                    'of Shame interfaces included a few pieces of design wisdom.'
+                                                    ' Which of the following are true? (Select all that apply)',
+                                                style: TextStyle(
+                                                  color: HexColor('333333'),
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w400,
                                                 ),
-                                                SizedBox(
-                                                  height: SizeConfig
-                                                      .getProportionateScreenHeight(
-                                                      8),
-                                                ),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      '*Choose the correct answer for all questions',
+                                              ),
+                                              SizedBox(
+                                                height: SizeConfig
+                                                    .getProportionateScreenHeight(
+                                                    56),
+                                              ),
+                                              Column(
+                                                children: [
+                                                  CheckboxListTile(
+                                                    title: Text(
+                                                      'Written instructions in any user interface are a sign of bad design.',
                                                       style: TextStyle(
-                                                        color:
-                                                        HexColor('BDBDBD'),
-                                                        fontSize: 12,
+                                                        fontSize: 16,
                                                         fontWeight:
                                                         FontWeight.w600,
+                                                        color: lightSwitches[
+                                                        'Ans 1']!
+                                                            ? HexColor(
+                                                            '0053CB')
+                                                            : HexColor(
+                                                            '333333'),
                                                       ),
                                                     ),
-                                                  ],
-                                                ),
-                                                SizedBox(
-                                                  height: SizeConfig
-                                                      .getProportionateScreenHeight(
-                                                      24),
-                                                ),
-                                                Text(
-                                                  '1: The video that introduced the idea of Hall of Fame and Hall '
-                                                      'of Shame interfaces included a few pieces of design wisdom.'
-                                                      ' Which of the following are true? (Select all that apply)',
-                                                  style: TextStyle(
-                                                    color: HexColor('333333'),
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.w400,
+                                                    value: lightSwitches[
+                                                    'Ans 1'],
+                                                    onChanged: (bool? value) {
+                                                      setState(() {
+                                                        lightSwitches[
+                                                        'Ans 1'] = value;
+                                                      });
+                                                    },
                                                   ),
-                                                ),
-                                                SizedBox(
-                                                  height: SizeConfig
-                                                      .getProportionateScreenHeight(
-                                                      56),
-                                                ),
-                                                Column(
-                                                  children: [
-                                                    CheckboxListTile(
-                                                      title: Text(
-                                                        'Written instructions in any user interface are a sign of bad design.',
-                                                        style: TextStyle(
-                                                          fontSize: 16,
-                                                          fontWeight:
-                                                          FontWeight.w600,
-                                                          color: lightSwitches[
-                                                          'Ans 1']!
-                                                              ? HexColor(
-                                                              '0053CB')
-                                                              : HexColor(
-                                                              '333333'),
-                                                        ),
-                                                      ),
-                                                      value: lightSwitches[
-                                                      'Ans 1'],
-                                                      onChanged: (bool? value) {
-                                                        setState(() {
-                                                          lightSwitches[
-                                                          'Ans 1'] = value;
-                                                        });
-                                                      },
-                                                    ),
-                                                    CheckboxListTile(
-                                                      title: Text(
-                                                        'The design principle of Visibility is relevant for both computer interfaces and physical objects.',
-                                                        style: TextStyle(
-                                                          fontSize: 16,
-                                                          fontWeight:
-                                                          FontWeight.w600,
-                                                          color: lightSwitches[
-                                                          'Ans 2']!
-                                                              ? HexColor(
-                                                              '0053CB')
-                                                              : HexColor(
-                                                              '333333'),
-                                                        ),
-                                                      ),
-                                                      value: lightSwitches[
-                                                      'Ans 2'],
-                                                      onChanged: (bool? value) {
-                                                        setState(() {
-                                                          lightSwitches[
-                                                          'Ans 2'] = value;
-                                                        });
-                                                      },
-                                                    ),
-                                                    CheckboxListTile(
-                                                      title: Text(
-                                                        'Responding to a user’s action with multiple types of subtle visual feedback is a good design strategy.',
-                                                        style: TextStyle(
-                                                          fontSize: 16,
-                                                          fontWeight:
-                                                          FontWeight.w600,
-                                                          color: lightSwitches[
-                                                          'Ans 3']!
-                                                              ? HexColor(
-                                                              '0053CB')
-                                                              : HexColor(
-                                                              '333333'),
-                                                        ),
-                                                      ),
-                                                      value: lightSwitches[
-                                                      'Ans 3'],
-                                                      onChanged: (bool? value) {
-                                                        setState(() {
-                                                          lightSwitches[
-                                                          'Ans 3'] = value;
-                                                        });
-                                                      },
-                                                    ),
-                                                    CheckboxListTile(
-                                                      title: Text(
-                                                        'Simple things should be simple to use.',
-                                                        style: TextStyle(
-                                                          fontSize: 16,
-                                                          fontWeight:
-                                                          FontWeight.w600,
-                                                          color: lightSwitches[
-                                                          'Ans 4']!
-                                                              ? HexColor(
-                                                              '0053CB')
-                                                              : HexColor(
-                                                              '333333'),
-                                                        ),
-                                                      ),
-                                                      value: lightSwitches[
-                                                      'Ans 4'],
-                                                      onChanged: (bool? value) {
-                                                        setState(() {
-                                                          lightSwitches[
-                                                          'Ans 4'] = value;
-                                                        });
-                                                      },
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(
-                                                  height: SizeConfig
-                                                      .getProportionateScreenHeight(
-                                                      195),
-                                                ),
-                                                Divider(
-                                                  height: 2,
-                                                  color: HexColor('BDBDBD'),
-                                                ),
-                                                SizedBox(
-                                                  height: SizeConfig
-                                                      .getProportionateScreenHeight(
-                                                      32),
-                                                ),
-                                                Container(
-                                                  width: SizeConfig
-                                                      .getProportionateScreenWidth(
-                                                      316),
-                                                  height: SizeConfig
-                                                      .getProportionateScreenHeight(
-                                                      56),
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                    BorderRadius.circular(
-                                                        8),
-                                                    color: HexColor('FFFFFF'),
-                                                    border: Border.all(
-                                                      color: HexColor('0053CB'),
-                                                      width: 2,
-                                                      style: BorderStyle.solid,
-                                                    ),
-                                                  ),
-                                                  child: TextButton(
-                                                    onPressed: () {},
-                                                    child: Text(
-                                                      'Next Question',
+                                                  CheckboxListTile(
+                                                    title: Text(
+                                                      'The design principle of Visibility is relevant for both computer interfaces and physical objects.',
                                                       style: TextStyle(
-                                                          fontSize: 18,
-                                                          fontWeight:
-                                                          FontWeight.w500,
-                                                          color: HexColor(
-                                                              '0053CB')),
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                        FontWeight.w600,
+                                                        color: lightSwitches[
+                                                        'Ans 2']!
+                                                            ? HexColor(
+                                                            '0053CB')
+                                                            : HexColor(
+                                                            '333333'),
+                                                      ),
                                                     ),
+                                                    value: lightSwitches[
+                                                    'Ans 2'],
+                                                    onChanged: (bool? value) {
+                                                      setState(() {
+                                                        lightSwitches[
+                                                        'Ans 2'] = value;
+                                                      });
+                                                    },
                                                   ),
-                                                ),
-                                                SizedBox(
-                                                  height: SizeConfig
-                                                      .getProportionateScreenHeight(
-                                                      15),
-                                                ),
-                                                Container(
-                                                  width: SizeConfig
-                                                      .getProportionateScreenWidth(
-                                                      316),
-                                                  height: SizeConfig
-                                                      .getProportionateScreenHeight(
-                                                      56),
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                    BorderRadius.circular(
-                                                        8),
-                                                    color: HexColor('FFFFFF'),
-                                                    // border: Border.all(
-                                                    //   color: HexColor('0053CB'),
-                                                    //   width: 2,
-                                                    //   style: BorderStyle.solid,
-                                                    // ),
-                                                  ),
-                                                  child: TextButton(
-                                                    onPressed: () {},
-                                                    child: Text(
-                                                      'Back',
+                                                  CheckboxListTile(
+                                                    title: Text(
+                                                      'Responding to a user’s action with multiple types of subtle visual feedback is a good design strategy.',
                                                       style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                        FontWeight.w600,
+                                                        color: lightSwitches[
+                                                        'Ans 3']!
+                                                            ? HexColor(
+                                                            '0053CB')
+                                                            : HexColor(
+                                                            '333333'),
+                                                      ),
+                                                    ),
+                                                    value: lightSwitches[
+                                                    'Ans 3'],
+                                                    onChanged: (bool? value) {
+                                                      setState(() {
+                                                        lightSwitches[
+                                                        'Ans 3'] = value;
+                                                      });
+                                                    },
+                                                  ),
+                                                  CheckboxListTile(
+                                                    title: Text(
+                                                      'Simple things should be simple to use.',
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                        FontWeight.w600,
+                                                        color: lightSwitches[
+                                                        'Ans 4']!
+                                                            ? HexColor(
+                                                            '0053CB')
+                                                            : HexColor(
+                                                            '333333'),
+                                                      ),
+                                                    ),
+                                                    value: lightSwitches[
+                                                    'Ans 4'],
+                                                    onChanged: (bool? value) {
+                                                      setState(() {
+                                                        lightSwitches[
+                                                        'Ans 4'] = value;
+                                                      });
+                                                    },
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                height: SizeConfig
+                                                    .getProportionateScreenHeight(
+                                                    195),
+                                              ),
+                                              Divider(
+                                                height: 2,
+                                                color: HexColor('BDBDBD'),
+                                              ),
+                                              SizedBox(
+                                                height: SizeConfig
+                                                    .getProportionateScreenHeight(
+                                                    32),
+                                              ),
+                                              Container(
+                                                width: SizeConfig
+                                                    .getProportionateScreenWidth(
+                                                    316),
+                                                height: SizeConfig
+                                                    .getProportionateScreenHeight(
+                                                    56),
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                  BorderRadius.circular(
+                                                      8),
+                                                  color: HexColor('FFFFFF'),
+                                                  border: Border.all(
+                                                    color: HexColor('0053CB'),
+                                                    width: 2,
+                                                    style: BorderStyle.solid,
+                                                  ),
+                                                ),
+                                                child: TextButton(
+                                                  onPressed: () {},
+                                                  child: Text(
+                                                    'Next Question',
+                                                    style: TextStyle(
                                                         fontSize: 18,
                                                         fontWeight:
                                                         FontWeight.w500,
-                                                        color:
-                                                        HexColor('0053CB'),
-                                                      ),
+                                                        color: HexColor(
+                                                            '0053CB')),
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: SizeConfig
+                                                    .getProportionateScreenHeight(
+                                                    15),
+                                              ),
+                                              Container(
+                                                width: SizeConfig
+                                                    .getProportionateScreenWidth(
+                                                    316),
+                                                height: SizeConfig
+                                                    .getProportionateScreenHeight(
+                                                    56),
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                  BorderRadius.circular(
+                                                      8),
+                                                  color: HexColor('FFFFFF'),
+                                                  // border: Border.all(
+                                                  //   color: HexColor('0053CB'),
+                                                  //   width: 2,
+                                                  //   style: BorderStyle.solid,
+                                                  // ),
+                                                ),
+                                                child: TextButton(
+                                                  onPressed: () {},
+                                                  child: Text(
+                                                    'Back',
+                                                    style: TextStyle(
+                                                      fontSize: 18,
+                                                      fontWeight:
+                                                      FontWeight.w500,
+                                                      color:
+                                                      HexColor('0053CB'),
                                                     ),
                                                   ),
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                            ],
                                           ),
-                                        ],
-                                      );
-                                    });
-                              },
-                              child: Column(
-                                children: [
-                                  Container(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.1168224299065421,
-                                    height: MediaQuery.of(context).size.height *
-                                        0.0539956803455724,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(11),
-                                        topRight: Radius.circular(11),
-                                        bottomLeft: Radius.circular(11),
-                                        bottomRight: Radius.circular(11),
-                                      ),
-                                      color: Color.fromRGBO(25, 100, 209, 1),
+                                        ),
+                                      ],
+                                    );
+                                  });
+                            },
+                            child: Column(
+                              children: [
+                                Container(
+                                  width: MediaQuery.of(context).size.width *
+                                      0.1168224299065421,
+                                  height: MediaQuery.of(context).size.height *
+                                      0.0539956803455724,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(11),
+                                      topRight: Radius.circular(11),
+                                      bottomLeft: Radius.circular(11),
+                                      bottomRight: Radius.circular(11),
                                     ),
-                                    child: Icon(
-                                      Icons.menu_book,
-                                      color: HexColor('FFFFFF'),
-                                    ),
+                                    color: Color.fromRGBO(25, 100, 209, 1),
                                   ),
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.0086393088552916,
+                                  child: Icon(
+                                    Icons.menu_book,
+                                    color: HexColor('FFFFFF'),
                                   ),
-                                  Text(
-                                    'Quizzes\n     ',
-                                    style: TextStyle(
-                                      fontSize: 10,
-                                      fontStyle: FontStyle.normal,
-                                      fontWeight: FontWeight.w500,
-                                      color: HexColor('333333'),
-                                    ),
+                                ),
+                                SizedBox(
+                                  height: MediaQuery.of(context).size.height *
+                                      0.0086393088552916,
+                                ),
+                                Text(
+                                  'Quizzes\n     ',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontStyle: FontStyle.normal,
+                                    fontWeight: FontWeight.w500,
+                                    color: HexColor('333333'),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width *
-                                  0.0747663551401869,
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width *
+                                0.0747663551401869,
+                          ),
+                          InkWell(
+                            onTap: () {},
+                            child: Column(
+                              children: [
+                                Container(
+                                  width: MediaQuery.of(context).size.width *
+                                      0.1168224299065421,
+                                  height: MediaQuery.of(context).size.height *
+                                      0.0539956803455724,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(11),
+                                      topRight: Radius.circular(11),
+                                      bottomLeft: Radius.circular(11),
+                                      bottomRight: Radius.circular(11),
+                                    ),
+                                    color: Color.fromRGBO(25, 100, 209, 1),
+                                  ),
+                                  child: Icon(
+                                    Icons.menu_book,
+                                    color: HexColor('FFFFFF'),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: MediaQuery.of(context).size.height *
+                                      0.0086393088552916,
+                                ),
+                                Text(
+                                  'Assignments\n     ',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontStyle: FontStyle.normal,
+                                    fontWeight: FontWeight.w500,
+                                    color: HexColor('333333'),
+                                  ),
+                                ),
+                              ],
                             ),
-                            InkWell(
-                              onTap: () {},
-                              child: Column(
-                                children: [
-                                  Container(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.1168224299065421,
-                                    height: MediaQuery.of(context).size.height *
-                                        0.0539956803455724,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(11),
-                                        topRight: Radius.circular(11),
-                                        bottomLeft: Radius.circular(11),
-                                        bottomRight: Radius.circular(11),
-                                      ),
-                                      color: Color.fromRGBO(25, 100, 209, 1),
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width *
+                                0.0747663551401869,
+                          ),
+                          InkWell(
+                            onTap: () {},
+                            child: Column(
+                              children: [
+                                Container(
+                                  width: MediaQuery.of(context).size.width *
+                                      0.1168224299065421,
+                                  height: MediaQuery.of(context).size.height *
+                                      0.0539956803455724,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(11),
+                                      topRight: Radius.circular(11),
+                                      bottomLeft: Radius.circular(11),
+                                      bottomRight: Radius.circular(11),
                                     ),
-                                    child: Icon(
-                                      Icons.menu_book,
-                                      color: HexColor('FFFFFF'),
-                                    ),
+                                    color: Color.fromRGBO(25, 100, 209, 1),
                                   ),
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.0086393088552916,
+                                  child: Icon(
+                                    Icons.menu_book,
+                                    color: HexColor('FFFFFF'),
                                   ),
-                                  Text(
-                                    'Assignments\n     ',
-                                    style: TextStyle(
-                                      fontSize: 10,
-                                      fontStyle: FontStyle.normal,
-                                      fontWeight: FontWeight.w500,
-                                      color: HexColor('333333'),
-                                    ),
+                                ),
+                                SizedBox(
+                                  height: MediaQuery.of(context).size.height *
+                                      0.0086393088552916,
+                                ),
+                                Text(
+                                  'Download\n     ',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontStyle: FontStyle.normal,
+                                    fontWeight: FontWeight.w500,
+                                    color: HexColor('333333'),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width *
-                                  0.0747663551401869,
-                            ),
-                            InkWell(
-                              onTap: () {},
-                              child: Column(
-                                children: [
-                                  Container(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.1168224299065421,
-                                    height: MediaQuery.of(context).size.height *
-                                        0.0539956803455724,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(11),
-                                        topRight: Radius.circular(11),
-                                        bottomLeft: Radius.circular(11),
-                                        bottomRight: Radius.circular(11),
-                                      ),
-                                      color: Color.fromRGBO(25, 100, 209, 1),
-                                    ),
-                                    child: Icon(
-                                      Icons.menu_book,
-                                      color: HexColor('FFFFFF'),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.0086393088552916,
-                                  ),
-                                  Text(
-                                    'Download\n     ',
-                                    style: TextStyle(
-                                      fontSize: 10,
-                                      fontStyle: FontStyle.normal,
-                                      fontWeight: FontWeight.w500,
-                                      color: HexColor('333333'),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height *
-                          0.0259179265658747,
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height *
+                        0.0259179265658747,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8),                      child: Text(
+                    'Up Next',
+                    style: TextStyle(
+                      color: HexColor('1964D1'),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                      fontStyle: FontStyle.normal,
                     ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 8),                      child: Text(
-                      'Up Next',
-                      style: TextStyle(
-                        color: HexColor('1964D1'),
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700,
-                        fontStyle: FontStyle.normal,
+                  ),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height *
+                        0.0259179265658747,
+                  ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: ListView.separated(
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) => buildItem(context),
+                      separatorBuilder: (context, index) => SizedBox(
+                        height: MediaQuery.of(context).size.height *
+                            0.0086393088552916,
                       ),
+                      itemCount: 2,
                     ),
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height *
-                          0.0259179265658747,
-                    ),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: ListView.separated(
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) => buildItem(context),
-                        separatorBuilder: (context, index) => SizedBox(
-                          height: MediaQuery.of(context).size.height *
-                              0.0086393088552916,
-                        ),
-                        itemCount: 2,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -1,9 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smart_education/data/Models/userModel.dart';
+import 'package:smart_education/data/Models/student_register_model.dart';
 import 'package:smart_education/data/api/dio_helper.dart';
 import 'package:smart_education/data/api/endPoints.dart';
-
 import 'bloc_states.dart';
 
 class AuthBloc extends Cubit<AppStates> {
@@ -15,6 +15,7 @@ class AuthBloc extends Cubit<AppStates> {
 
   bool isChecked = false;
   IconData suffixIcon = Icons.remove_red_eye_outlined;
+
   void changeSuffexIcon() {
     showPassword = !showPassword;
     if (showPassword) {
@@ -30,73 +31,76 @@ class AuthBloc extends Cubit<AppStates> {
     isInstructor = !isInstructor;
     emit(ChangeRoleState());
   }
+
   void changeCheckBox() {
     isChecked = !isChecked;
     emit(ChangeCheckBoxState());
   }
-  UserModel? userModel;
-
-  void LoginMethod({
-    required String username,
-    required String password,
-  }) {
-    emit(LoginLoadingState());
-    DioHelper.postData(
-      url: LOGIN,
-      token: TOKEN,
-      data: {
-        'username': username,
-        'password': password,
-      },
-    ).then((value) {
-      userModel = UserModel.fromJson(value.data);
-      print('============User Information===========');
-      print('User Id is =>>${value.data['user_id']}');
-      print('User Token is =>> ${value.data['token']}');
-      print('=======================================');
-      emit(LoginSuccessState(userModel!));
-    }).catchError((error) {
-      emit(LoginErrorState());
-      print('=======================================');
-      print('Error in LOGIN METHOD method${error.toString()}');
-      print('=======================================');
-    });
-  }
 
 
+  // void LoginMethod({
+  //   required String username,
+  //   required String password,
+  // }) {
+  //   emit(LoginLoadingState());
+  //   DioHelper.postData(
+  //     url: LOGIN,
+  //     token: TOKEN,
+  //     data: {
+  //       'username': username,
+  //       'password': password,
+  //     },
+  //   ).then((value) {
+  //     user = UserModel.fromJson(value.data);
+  //     print('============User Information===========');
+  //     print('User Id is =>>${value.data['user_id']}');
+  //     print('User Token is =>> ${value.data['token']}');
+  //     print('=======================================');
+  //     emit(LoginSuccessState(user!));
+  //   }).catchError((error) {
+  //     emit(LoginErrorState());
+  //     print('=======================================');
+  //     print('Error in LOGIN METHOD method${error.toString()}');
+  //     print('=======================================');
+  //   });
+  // }
 
+  //////////////////////////////////////////////////////////////////////////////
+  StudentRegisterModel? registerModel;
   void RegisterMethod({
     required String username,
     required String email,
     required String password,
     required String confirm_password,
-    required bool is_student,
   }) {
     emit(SignUpLoadingState());
     DioHelper.postData(
-      url: REGISTER,
-      token: TOKEN,
+      url: StudentREGISTER,
       data: {
         'username': username,
         'email': email,
         'password': password,
         'password2': confirm_password,
-        'is_student': is_student
       },
     ).then((value) {
-      userModel = UserModel.fromJson(value.data);
-      print('============User Information===========');
-      print('User Email is =>>${value.data['email']}');
-      print('User Check  is =>> ${value.data['is_student']}');
-      print('User Account State  is =>> ${value.data['message'].toString()}');
-      print('User Token  is =>> ${value.data['token'].toString()}');
-      print('=======================================');
-      emit(SignUpSuccessState(userModel!));
+      registerModel = StudentRegisterModel.fromJson(value.data);
+      if (kDebugMode) {
+        print('============User Information=================================');
+        print('User Name  is =>> ${registerModel!.user!.username}');
+        print('User Email is =>>${registerModel!.user!.email}');
+        print('User Account State  is =>> ${registerModel!.user!.isStudent}');
+        print('=============================================================');
+      }
+      emit(SignUpSuccessState(registerModel!));
     }).catchError((error) {
       emit(SignUpErrorState());
-      print('=======================================');
-      print('Error in REGISTER METHOD method${error.toString()}');
-      print('=======================================');
+      if (kDebugMode) {
+        print('=======================================');
+        print('Error in REGISTER METHOD method${error.toString()}');
+        print('=======================================');
+      }
     });
   }
+
+////////////////////////////////////////////////////////////////////////////////
 }

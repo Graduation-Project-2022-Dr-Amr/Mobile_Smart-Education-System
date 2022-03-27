@@ -27,15 +27,15 @@ class LoginScreen extends StatelessWidget {
       child: BlocConsumer<AuthBloc, AppStates>(
         listener: (context, state) {
           if (state is LoginSuccessState) {
-            CacheHelper.saveData(
-              key: 'token',
-              value: state.loginUserModel.token,
-            ).then(
-              (value) {
-                TOKEN = state.loginUserModel.token;
-                navigateandFinish(context, SearchScreen());
-              },
-            );
+            // CacheHelper.saveData(
+            //   key: 'token',
+            //   value: state.loginUserModel.token,
+            // ).then(
+            //   (value) {
+            //     TOKEN = state.loginUserModel.token;
+            //     navigateandFinish(context, SearchScreen());
+            //   },
+            // );
           }
         },
         builder: (context, state) {
@@ -153,10 +153,10 @@ class LoginScreen extends StatelessWidget {
                               ),
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
-                                  AuthBloc.get(context).LoginMethod(
-                                    username: emailController.text,
-                                    password: passwordController.text,
-                                  );
+                                  // AuthBloc.get(context).LoginMethod(
+                                  //   username: emailController.text,
+                                  //   password: passwordController.text,
+                                  // );
                                   TOKEN = CacheHelper.getData('token');
                                 }
                               },

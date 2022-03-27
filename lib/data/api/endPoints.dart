@@ -1,10 +1,4 @@
 String? TOKEN = '';
 
 const LOGIN = '/login/';
-const REGISTER = '/signup/student/';
-
-
-
-
-
-
+const StudentREGISTER = 'signup/student/';
