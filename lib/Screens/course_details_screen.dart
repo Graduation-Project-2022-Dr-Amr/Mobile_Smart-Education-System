@@ -209,7 +209,7 @@ class CourseScreen extends StatelessWidget {
                             ),
                             ClipRRect(
                               child: Image.asset(
-                                'assets/course1.png',
+                                'assets/images/course1.png',
                                 width:
                                     SizeConfig.getProportionateScreenWidth(130),
                                 height: SizeConfig.getProportionateScreenHeight(
@@ -473,7 +473,7 @@ Widget buildItem({context, chapter, required Video video}) => InkWell(
                   ),
                   color: Color.fromRGBO(0, 0, 0, 0.5),
                   image: DecorationImage(
-                      image: AssetImage('assets/hateme.png'),
+                      image: AssetImage('assets/images/hateme.png'),
                       fit: BoxFit.fitWidth),
                 )),
             SizedBox(

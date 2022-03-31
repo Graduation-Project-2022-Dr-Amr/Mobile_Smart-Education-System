@@ -24,10 +24,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    // BorderRadiusGeometry radius = BorderRadius.only(
-    //   topLeft: Radius.circular(24.0),
-    //   topRight: Radius.circular(24.0),
-    // );
     return Scaffold(
       backgroundColor: Colors.white,
       key: scaffoldkey,
@@ -272,7 +268,7 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image(
-            image: AssetImage('assets/articel1.png'),
+            image: AssetImage('assets/images/articel1.png'),
             height: SizeConfig.getProportionateScreenHeight(72),
             width: SizeConfig.getProportionateScreenWidth(97),
           ),

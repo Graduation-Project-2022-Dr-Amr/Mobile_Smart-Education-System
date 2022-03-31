@@ -27,15 +27,15 @@ class LoginScreen extends StatelessWidget {
       child: BlocConsumer<AuthBloc, AppStates>(
         listener: (context, state) {
           if (state is LoginSuccessState) {
-            // CacheHelper.saveData(
-            //   key: 'token',
-            //   value: state.loginUserModel.token,
-            // ).then(
-            //   (value) {
-            //     TOKEN = state.loginUserModel.token;
-            //     navigateandFinish(context, SearchScreen());
-            //   },
-            // );
+            CacheHelper.saveData(
+              key: 'token',
+              value: state.loginUserModel.token,
+            ).then(
+              (value) {
+                TOKEN = state.loginUserModel.token;
+                navigateandFinish(context, StartScreen());
+              },
+            );
           }
         },
         builder: (context, state) {
@@ -53,7 +53,7 @@ class LoginScreen extends StatelessWidget {
                         height: SizeConfig.getProportionateScreenHeight(50)),
                     Center(
                       child: SvgPicture.asset(
-                        'assets/Logo.svg',
+                        'assets/images/Logo.svg',
                         fit: BoxFit.contain,
                         height: SizeConfig.getProportionateScreenHeight(62.3),
                         width: SizeConfig.getProportionateScreenWidth(268.66),

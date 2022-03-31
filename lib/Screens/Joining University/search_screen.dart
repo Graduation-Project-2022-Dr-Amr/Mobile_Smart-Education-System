@@ -97,7 +97,7 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
 
               SvgPicture.asset(
-                'assets/Notebook.svg',
+                'assets/images/Notebook.svg',
                 fit: BoxFit.contain,
                 width: SizeConfig.screenWidth,
                 height: SizeConfig.getProportionateScreenHeight(346),

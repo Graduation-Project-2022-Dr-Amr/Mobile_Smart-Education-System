@@ -23,7 +23,7 @@ class _ArticalScreenState extends State<ArticalScreen> {
   @override
   void initState() {
     videoPlayerController = VideoPlayerController.network(
-        "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4")
+        "https://flutter.github.io/assets-for-api-docs/assets/images/videos/butterfly.mp4")
       ..addListener(() => setState(() {}))
       // ..setLooping(false)
       ..initialize().then((_) {
@@ -762,7 +762,7 @@ Widget buildItem(context) => InkWell(
                   ),
                   color: Color.fromRGBO(0, 0, 0, 0.5),
                   image: DecorationImage(
-                    image: AssetImage('assets/hateme.png'),
+                    image: AssetImage('assets/images/hateme.png'),
                     fit: BoxFit.cover,
                   ),
                 ),

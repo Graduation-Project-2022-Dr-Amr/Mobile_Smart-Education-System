@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smart_education/NavigationBar_Screens/courses_screen.dart';
 import 'package:smart_education/NavigationBar_Screens/home_screen.dart';
 import 'package:smart_education/NavigationBar_Screens/leaderboard_screen.dart';
@@ -71,35 +72,23 @@ class Mybloc extends Cubit<AppStates> {
 
   List<BottomNavigationBarItem> bottomItemsEnglish = [
     BottomNavigationBarItem(
-      icon: Icon(
-        Icons.home,
-        size: 24,
-      ),
+      icon: SvgPicture.asset('assets/images/home.svg'),
       label: 'Home',
     ),
     BottomNavigationBarItem(
-      icon: Icon(
-        Icons.menu_book,
-        size: 24,
-      ),
+      icon: SvgPicture.asset('assets/images/course.svg'),
       label: 'Courses',
     ),
     BottomNavigationBarItem(
-      icon: Icon(
-        Icons.people,
-      ),
+      icon: SvgPicture.asset('assets/images/chat.svg'),
       label: 'Community',
     ),
     BottomNavigationBarItem(
-      icon: Icon(
-        Icons.leaderboard_outlined,
-      ),
+      icon: SvgPicture.asset('assets/images/leader.svg'),
       label: 'Leaderboard',
     ),
     BottomNavigationBarItem(
-      icon: Icon(
-        Icons.menu_outlined,
-      ),
+      icon: SvgPicture.asset('assets/images/more.svg'),
       label: 'More',
     ),
   ];

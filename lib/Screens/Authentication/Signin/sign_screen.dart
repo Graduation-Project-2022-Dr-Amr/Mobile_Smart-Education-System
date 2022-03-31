@@ -52,7 +52,7 @@ class SignUpScreen extends StatelessWidget {
                         height: SizeConfig.getProportionateScreenHeight(50)),
                     Center(
                       child: SvgPicture.asset(
-                        'assets/Logo.svg',
+                        'assets/images/Logo.svg',
                         fit: BoxFit.contain,
                         height: SizeConfig.getProportionateScreenHeight(62.3),
                         width: SizeConfig.getProportionateScreenWidth(268.66),

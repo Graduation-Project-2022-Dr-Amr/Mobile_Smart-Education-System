@@ -18,63 +18,12 @@ class StartScreen extends StatelessWidget {
       child: BlocConsumer<Mybloc, AppStates>(
         listener: (context, state) {},
         builder: (context, state) {
-          List<BottomNavigationBarItem> bottomItemsEnglish = [
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/home3.svg',
-                //width: SizeConfig.getProportionateScreenWidth(113),
-                //height: SizeConfig.getProportionateScreenHeight(26.2),
-                //fit: BoxFit.contain,
-                color: Mybloc.get(context).selectedIndex == 0? HexColor('2F80ED'):HexColor('BDBDBD'),
-              ),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/book open.svg',
-                //width: SizeConfig.getProportionateScreenWidth(113),
-                //height: SizeConfig.getProportionateScreenHeight(26.2),
-                //fit: BoxFit.contain,
-                color: Mybloc.get(context).selectedIndex == 1? HexColor('2F80ED'):HexColor('BDBDBD'),
-              ),
-              label: 'Courses',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/circle.svg',
-                //width: SizeConfig.getProportionateScreenWidth(113),
-                //height: SizeConfig.getProportionateScreenHeight(26.2),
-                //fit: BoxFit.contain,
-                color: Mybloc.get(context).selectedIndex == 2? HexColor('2F80ED'):HexColor('BDBDBD'),
-              ),
-              label: 'Community',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/award.svg',
-                //width: SizeConfig.getProportionateScreenWidth(113),
-                //height: SizeConfig.getProportionateScreenHeight(26.2),
-                //fit: BoxFit.contain,
-                color: Mybloc.get(context).selectedIndex == 3? HexColor('2F80ED'):HexColor('BDBDBD'),
-              ),
-              label: 'Leaderboard',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/menu.svg',
-                //width: SizeConfig.getProportionateScreenWidth(113),
-                //height: SizeConfig.getProportionateScreenHeight(26.2),
-                //fit: BoxFit.contain,
-                color: Mybloc.get(context).selectedIndex == 4? HexColor('2F80ED'):HexColor('BDBDBD'),
-              ),
-              label: 'More',
-            ),
-          ];
+
           return Scaffold(
             backgroundColor: Colors.white,
             appBar:AppBar(
               title: SvgPicture.asset(
-                'assets/Logo.svg',
+                'assets/images/Logo.svg',
                 width: SizeConfig.getProportionateScreenWidth(113),
                 height: SizeConfig.getProportionateScreenHeight(26.2),
                 fit: BoxFit.contain,
@@ -89,7 +38,7 @@ class StartScreen extends StatelessWidget {
               toolbarHeight: SizeConfig.getProportionateScreenHeight(88),
               actions: [
                 SvgPicture.asset(
-                  'assets/notification on.svg',
+                  'assets/images/notification on.svg',
                   semanticsLabel: 'vector',
                   width: SizeConfig.getProportionateScreenWidth(24),
                   height: SizeConfig.getProportionateScreenWidth(24),
@@ -105,35 +54,6 @@ class StartScreen extends StatelessWidget {
                   backgroundColor: HexColor("0053CB"),
                 ),
                 SizedBox(width: SizeConfig.getProportionateScreenWidth(16)),
-
-                // IconButton(
-                //   onPressed: () {},
-                //   icon: Container(
-                //       width: 32,
-                //       height: 32,
-                //       child: Stack(children: <Widget>[
-                //         Positioned(
-                //           top: 0,
-                //           left: 0,
-                //           child:
-                //         ),
-                //         Positioned(
-                //             top: 11,
-                //             left: 11,
-                //             child: Text(
-                //               'N',
-                //               textAlign: TextAlign.center,
-                //               style: TextStyle(
-                //                 color: Color.fromRGBO(255, 255, 255, 1),
-                //                 fontFamily: 'SF Pro Display',
-                //                 fontSize: 14,
-                //                 letterSpacing: 0.10000000149011612,
-                //                 fontWeight: FontWeight.normal,
-                //                 height: 1,
-                //               ),
-                //             )),
-                //       ])),
-                // ),
               ],
             ),
             body:
@@ -149,7 +69,7 @@ class StartScreen extends StatelessWidget {
               selectedItemColor: HexColor('2F80ED'),
               unselectedItemColor: HexColor('BDBDBD'),
               type: BottomNavigationBarType.fixed,
-              items: bottomItemsEnglish,//Mybloc.get(context).bottomItemsEnglish,
+              items: Mybloc.get(context).bottomItemsEnglish,//Mybloc.get(context).bottomItemsEnglish,
             ),
           );
         },

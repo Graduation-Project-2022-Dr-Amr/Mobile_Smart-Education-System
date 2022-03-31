@@ -10,32 +10,32 @@ List<Map> coursesData = [
   {
     'courseName': 'Artificial Intelligence',
     'doctorName': 'Dr/Amr Zamel',
-    'imageURL': 'assets/course1.png',
+    'imageURL': 'assets/images/course1.png',
   },
   {
     'courseName': 'Digital Communication',
     'doctorName': 'Dr/Amr Zamel',
-    'imageURL': 'assets/course1.png',
+    'imageURL': 'assets/images/course1.png',
   },
   {
     'courseName': 'Digital Communication',
     'doctorName': 'Dr/Amr Zamel',
-    'imageURL': 'assets/course2.png',
+    'imageURL': 'assets/images/course2.png',
   },
   {
     'courseName': 'Digital Communication',
     'doctorName': 'Dr/Amr Zamel',
-    'imageURL': 'assets/course3.png',
+    'imageURL': 'assets/images/course3.png',
   },
   {
     'courseName': 'Digital Communication',
     'doctorName': 'Dr/Amr Zamel',
-    'imageURL': 'assets/course1.png',
+    'imageURL': 'assets/images/course1.png',
   },
   {
     'courseName': 'Digital Communication',
     'doctorName': 'Dr/Amr Zamel',
-    'imageURL': 'assets/course2.png',
+    'imageURL': 'assets/images/course2.png',
   },
 ];
 List<Map> collegesNames = [
@@ -60,9 +60,9 @@ List<Map> artical2Names = [
   {'name': 'Artificial Intelligence'},
 ];
 List<Map> articalSvg = [
-  {'name': 'assets/course1.png'},
-  {'name': 'assets/course2.png'},
-  {'name': 'assets/course3.png'},
+  {'name': 'assets/images/course1.png'},
+  {'name': 'assets/images/course2.png'},
+  {'name': 'assets/images/course3.png'},
 ];
 List<Map> articalDr = [
   {'name': 'Dr/Amr Zamel'},
