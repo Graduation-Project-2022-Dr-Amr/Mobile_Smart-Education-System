@@ -21,7 +21,7 @@ class StartScreen extends StatelessWidget {
           List<BottomNavigationBarItem> bottomItemsEnglish = [
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                'assets/home2.svg',
+                'assets/home3.svg',
                 //width: SizeConfig.getProportionateScreenWidth(113),
                 //height: SizeConfig.getProportionateScreenHeight(26.2),
                 //fit: BoxFit.contain,

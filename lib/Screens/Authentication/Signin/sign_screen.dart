@@ -5,13 +5,12 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/auth_bloc.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
 import 'package:smart_education/Screens/Authentication/Login/login_screen.dart';
-import 'package:smart_education/data/api/endPoints.dart';
 import 'package:smart_education/shared/commponents.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
-
-import '../../../data/api/cacheHelper.dart';
+import '../../../API/api/cacheHelper.dart';
+import '../../../API/api/endPoints.dart';
 import '../../../shared/input_field_widget.dart';
-import '../../Joining University/explore_all_cources_screeen.dart';
+import '../../Joining University/search_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({Key? key}) : super(key: key);
@@ -283,7 +282,7 @@ class SignUpScreen extends StatelessWidget {
                                     !AuthBloc.get(context).isChecked ||
                                     passwordController.text ==
                                         passwordConfirmController.text) {
-                                  AuthBloc.get(context).RegisterMethod(
+                                  AuthBloc.get(context).registerMethod(
                                     username: nameController.text,
                                     email: emailController.text,
                                     password: passwordController.text,

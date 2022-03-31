@@ -7,7 +7,7 @@ class LogOutModel {
   LogOutModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
-    data = json['data'] != null ?  LogOutData.fromJson(json['data']) : null;
+    data = json['API'] != null ?  LogOutData.fromJson(json['API']) : null;
   }
 }
 

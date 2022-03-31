@@ -21,12 +21,10 @@ class DioHelper {
   static Future<Response> getData({
     required String url,
     Map<String, dynamic>? query,
-    String lang = 'en',
     String? token,
     Map<String, dynamic>? data,
   }) async {
     dio.options.headers = {
-      'lang': lang,
       'Content-Type': 'application/json',
       'Authorization': 'Token $token'
     };
@@ -36,16 +34,15 @@ class DioHelper {
     );
   }
 
-  static Future<Response> postData(
-      {required String url,
-      Map<String, dynamic>? query,
-      Map<String, dynamic>? data,
-      String lang = 'en',
-      String? token}) async {
+  static Future<Response> postData({
+    required String url,
+    Map<String, dynamic>? query,
+    Map<String, dynamic>? data,
+    String? token,
+  }) async {
     dio.options.headers = {
-      'lang': lang,
       'Content-Type': 'application/json',
-      'Authorization': 'Token $token'
+      'Authorization': 'Token e8a41a1227f88dbbe80750ab22ec246777fbe4d9'
     };
     return await dio.post(
       url,
@@ -56,14 +53,12 @@ class DioHelper {
 
   static Future<Response> putData(
       {required String url,
-      Map<String, dynamic>? query,
-      Map<String, dynamic>? data,
-      String lang = 'en',
-      String? token}) async {
+        Map<String, dynamic>? query,
+        Map<String, dynamic>? data,
+        String? token}) async {
     dio.options.headers = {
-      'lang': lang,
       'Content-Type': 'application/json',
-      'Authorization': 'Token $token'
+      'Authorization': 'Token {{admin_token}}'
     };
     return await dio.put(
       url,

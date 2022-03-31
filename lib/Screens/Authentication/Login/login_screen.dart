@@ -5,17 +5,16 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/auth_bloc.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
 import 'package:smart_education/Screens/Authentication/Signin/sign_screen.dart';
-import 'package:smart_education/Screens/Joining%20University/explore_all_cources_screeen.dart';
-import 'package:smart_education/data/api/endPoints.dart';
 import 'package:smart_education/shared/commponents.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 
-import '../../../data/api/cacheHelper.dart';
+import '../../../API/api/cacheHelper.dart';
+import '../../../API/api/endPoints.dart';
 import '../../../shared/input_field_widget.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
-  TextEditingController emailController = TextEditingController();
+  TextEditingController userNameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   var formKey = GlobalKey<FormState>();
 
@@ -80,9 +79,9 @@ class LoginScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           //Email
-                          buildColumn(text: "Email"),
+                          buildColumn(text: "User Name"),
                           InputFieldWidget(
-                            controller: emailController,
+                            controller: userNameController,
                             // onSubmit: (value) {
                             //   if (value!.isEmpty ||
                             //       !value.contains('@') ||
@@ -92,8 +91,8 @@ class LoginScreen extends StatelessWidget {
                             //   return null;
                             // },
                             keyboardType: TextInputType.emailAddress,
-                            hint: 'Enter your Email',
-                            fieldKey: "email",
+                            hint: 'Enter your User Name',
+                            fieldKey: "user name",
                           ),
                           SizedBox(
                             height: SizeConfig.getProportionateScreenHeight(24),
@@ -153,10 +152,10 @@ class LoginScreen extends StatelessWidget {
                               ),
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
-                                  // AuthBloc.get(context).LoginMethod(
-                                  //   username: emailController.text,
-                                  //   password: passwordController.text,
-                                  // );
+                                  AuthBloc.get(context).loginMethod(
+                                    username: userNameController.text,
+                                    password: passwordController.text,
+                                  );
                                   TOKEN = CacheHelper.getData('token');
                                 }
                               },

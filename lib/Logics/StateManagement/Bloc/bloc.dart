@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smart_education/NavigationBar_Screens/coursesscreen.dart';
-import 'package:smart_education/NavigationBar_Screens/homescreen.dart';
+import 'package:smart_education/NavigationBar_Screens/courses_screen.dart';
+import 'package:smart_education/NavigationBar_Screens/home_screen.dart';
 import 'package:smart_education/NavigationBar_Screens/leaderboard_screen.dart';
-import 'package:smart_education/NavigationBar_Screens/communityscreen.dart';
-import 'package:smart_education/data/api/cacheHelper.dart';
+import 'package:smart_education/NavigationBar_Screens/community_screen.dart';
+import '../../../API/api/cacheHelper.dart';
 import 'bloc_states.dart';
-import 'package:smart_education/NavigationBar_Screens/profilescreen.dart';
+import 'package:smart_education/NavigationBar_Screens/profile_screen.dart';
 
 class Mybloc extends Cubit<AppStates> {
   Mybloc() : super(AppInitialState());

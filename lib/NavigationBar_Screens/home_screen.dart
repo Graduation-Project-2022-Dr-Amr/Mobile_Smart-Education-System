@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:smart_education/Screens/articale_screen.dart';
-import 'package:smart_education/Screens/course_screen.dart';
+import 'package:smart_education/Screens/course_details_screen.dart';
 import 'package:smart_education/shared/commponents.dart';
 import 'package:smart_education/shared/constants/my_colors.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
@@ -149,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget testCourseItem(context, index) => GestureDetector(
     onTap: () {
-      navigateTo(context, CourseScreen());
+      //navigateTo(context, CourseScreen());
     },
     child: Container(
       margin: EdgeInsets.only(right: SizeConfig.getProportionateScreenWidth(15)),

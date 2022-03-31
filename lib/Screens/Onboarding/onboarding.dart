@@ -7,8 +7,8 @@ import 'package:smart_education/shared/commponents.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../data/api/cacheHelper.dart';
-import '../../shared/constants/my_colors.dart';
+import '../../API/api/cacheHelper.dart';
+import 'package:smart_education/shared/constants/my_colors.dart';
 
 class BoardingModel {
   final String title;

@@ -1,10 +1,14 @@
-import '../../../data/Models/student_register_model.dart';
+
+import 'package:smart_education/API/Models/login_model.dart';
+
+import '../../../API/Models/student_register_model.dart';
 
 abstract class AppStates {}
 
 class AppInitialState extends AppStates {}
 
 class ChangeRoleState extends AppStates {}
+class ChangeStepIndex extends AppStates {}
 
 class ChangeCheckBoxState extends AppStates {}
 
@@ -20,6 +24,7 @@ class AppSearchedLoadingState extends AppStates {}
 
 class AppSearchedLoadedState extends AppStates {}
 
+
 class AppSearchedErrorState extends AppStates {
   final String error;
 
@@ -30,9 +35,9 @@ class AppSearchedErrorState extends AppStates {
 class LoginLoadingState extends AppStates {}
 
 class LoginSuccessState extends AppStates {
-  //final UserModel loginUserModel;
+  final LoginModel loginUserModel;
 
-  LoginSuccessState();
+  LoginSuccessState(this.loginUserModel);
 }
 
 class LoginErrorState extends AppStates {}
@@ -50,3 +55,43 @@ class SignUpSuccessState extends AppStates {
 }
 
 class SignUpErrorState extends AppStates {}
+
+
+/// courses
+class CourseLoadingState extends AppStates {}
+
+class CourseSuccessState extends AppStates {}
+
+class CourseErrorState extends AppStates {}
+
+/// chapter Details
+
+class ChapterLoadingState extends AppStates {}
+
+class ChapterSuccessState extends AppStates {}
+
+class ChapterErrorState extends AppStates {}
+
+/// Video Details
+
+class VideoLoadingState extends AppStates {}
+
+class VideoSuccessState extends AppStates {}
+
+class VideoErrorState extends AppStates {}
+
+
+
+/*/////////////////////////////////////////////////// */
+
+class AdminLoadingState extends AppStates {}
+
+class AdminSuccessState extends AppStates {}
+
+class AdminErrorState extends AppStates {}
+/*/////////////////////////////////////////////////// */
+class LogoutLoadingState extends AppStates {}
+
+class LogoutSuccessState extends AppStates {}
+
+class LogoutErrorState extends AppStates {}
