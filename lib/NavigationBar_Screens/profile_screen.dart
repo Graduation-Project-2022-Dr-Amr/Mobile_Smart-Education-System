@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:smart_education/API/api/cacheHelper.dart';
+import 'package:smart_education/Screens/Authentication/Login/login_screen.dart';
+import 'package:smart_education/shared/commponents.dart';
 
 import '../shared/constants/size_config.dart';
 
@@ -219,7 +222,12 @@ class ProfileScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      CacheHelper.removeData('token').then((value){
+                        navigateandFinish(context, LoginScreen());
+                      });
+
+                    },
                     child: Row(
                       children: [
                         Icon(

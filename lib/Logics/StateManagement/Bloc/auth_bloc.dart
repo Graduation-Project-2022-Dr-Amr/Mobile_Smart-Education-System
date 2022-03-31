@@ -42,7 +42,10 @@ class AuthBloc extends Cubit<AppStates> {
     emit(AdminLoadingState());
     DioHelper.postData(
       url: ADMINLOGIN,
-      data: {"username": "mohamed", "password": "01203"},
+      data:     {
+        "username": "mohamed",
+        "password": "01203"
+      },
     ).then((value) {
       adminModel = AdminModel.fromJson(value.data);
       if (kDebugMode) {
@@ -61,7 +64,6 @@ class AuthBloc extends Cubit<AppStates> {
 
   //////////////////////////////////////////////////////////////////////////////
   StudentRegisterModel? registerModel;
-
   void registerMethod({
     required String username,
     required String email,
@@ -70,15 +72,18 @@ class AuthBloc extends Cubit<AppStates> {
   }) {
     getAdminToken();
     emit(SignUpLoadingState());
+    print(adminModel!.token);
     DioHelper.postData(
       url: isInstructor ? TeacherREGISTER : StudentREGISTER,
       data: {
-        'username': username,
-        'email': email,
-        'password': password,
-        'password2': confirm_password,
+        "username":username,
+        "email":email,
+        "password":password,
+        "password2":confirm_password
       },
+      token: adminModel!.token
     ).then((value) {
+
       registerModel = StudentRegisterModel.fromJson(value.data);
       if (kDebugMode) {
         print('============User Information=================================');

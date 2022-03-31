@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/auth_bloc.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
+import 'package:smart_education/NavigationBar_Screens/start_screen.dart';
 import 'package:smart_education/Screens/Authentication/Signin/sign_screen.dart';
 import 'package:smart_education/shared/commponents.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
@@ -157,6 +158,7 @@ class LoginScreen extends StatelessWidget {
                                     password: passwordController.text,
                                   );
                                   TOKEN = CacheHelper.getData('token');
+                                  navigateTo(context, StartScreen());
                                 }
                               },
                             ),

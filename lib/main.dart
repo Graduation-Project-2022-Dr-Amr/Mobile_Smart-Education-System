@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smart_education/NavigationBar_Screens/start_screen.dart';
 import 'package:smart_education/Screens/Authentication/Login/login_screen.dart';
 import 'package:smart_education/Screens/Joining%20University/search_screen.dart';
 import 'package:smart_education/Screens/Onboarding/onboarding.dart';
@@ -22,11 +23,12 @@ void main() async {
 
   if (showOnBoard == false) {
     if (TOKEN != null) {
-      widget = SearchScreen();
+      widget = StartScreen();
     } else {
       widget = LoginScreen();
     }
-  } else {
+  }
+  else {
     widget = OnboardingScreen();
   }
   runApp(MyApp(

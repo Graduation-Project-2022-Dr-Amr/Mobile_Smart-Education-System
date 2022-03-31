@@ -24,7 +24,7 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return BlocProvider(
-      create: (context) => AuthBloc(),
+      create: (context) => AuthBloc()..getAdminToken(),
       child: BlocConsumer<AuthBloc, AppStates>(
         listener: (context, state) {
           if (state is SignUpSuccessState) {
@@ -186,7 +186,7 @@ class SignUpScreen extends StatelessWidget {
                                 context: context,
                                 role: "Instructor",
                                 isInstructor:
-                                    AuthBloc.get(context).isInstructor,
+                                AuthBloc.get(context).isInstructor,
                               ),
                               SizedBox(
                                 width:

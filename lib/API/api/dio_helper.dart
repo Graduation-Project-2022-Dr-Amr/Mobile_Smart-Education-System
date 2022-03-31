@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:smart_education/API/api/endPoints.dart';
 
 class DioHelper {
   static late Dio dio;
@@ -42,7 +43,7 @@ class DioHelper {
   }) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
-      'Authorization': 'Token e8a41a1227f88dbbe80750ab22ec246777fbe4d9'
+      'Authorization':LOGIN==url ? null :'Token $token'
     };
     return await dio.post(
       url,
@@ -53,9 +54,9 @@ class DioHelper {
 
   static Future<Response> putData(
       {required String url,
-        Map<String, dynamic>? query,
-        Map<String, dynamic>? data,
-        String? token}) async {
+      Map<String, dynamic>? query,
+      Map<String, dynamic>? data,
+      String? token}) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
       'Authorization': 'Token {{admin_token}}'
