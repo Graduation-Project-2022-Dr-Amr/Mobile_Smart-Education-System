@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -12,13 +13,17 @@ import 'API/api/dio_helper.dart';
 import 'API/api/endPoints.dart';
 import 'Logics/StateManagement/Bloc/bloc.dart';
 import 'Logics/StateManagement/Bloc/bloc_states.dart';
+import 'firebase_options.dart';
 import 'Screens/NavigationBar_Screens/More Screens/todo_part/db/db_helper.dart';
 import 'l10n/l10n.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   await DioHelper.init();
   await DbHelper.initDb().then((value) => print("db initialization"));
   await CacheHelper.init();
@@ -63,8 +68,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-            create: (context) => Mybloc()..changeMode(fromCache: isDark)),
+        BlocProvider(create: (context) => Mybloc()..changeMode(fromCache: isDark)),
       ],
       child: BlocConsumer<Mybloc, AppStates>(
           listener: (context, state) {},
