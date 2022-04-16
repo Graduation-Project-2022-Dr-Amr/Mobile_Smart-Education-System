@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_education/NavigationBar_Screens/start_screen.dart';
@@ -10,9 +11,15 @@ import 'API/api/dio_helper.dart';
 import 'API/api/endPoints.dart';
 import 'Logics/StateManagement/Bloc/bloc.dart';
 import 'Logics/StateManagement/Bloc/bloc_states.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   DioHelper.init();
   await CacheHelper.init();
   bool? isDark = CacheHelper.getData('isDark');
@@ -27,8 +34,7 @@ void main() async {
     } else {
       widget = LoginScreen();
     }
-  }
-  else {
+  } else {
     widget = OnboardingScreen();
   }
   runApp(MyApp(
