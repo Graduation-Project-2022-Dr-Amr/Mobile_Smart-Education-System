@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:smart_education/Logics/StateManagement/Bloc/bloc.dart';
+import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 
 class LeaderBoard extends StatefulWidget {
@@ -17,43 +20,48 @@ class _LeaderBoardState extends State<LeaderBoard> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    print(Mybloc.get(context).isDark);
 
-    return Scaffold(
-      backgroundColor: Colors.white,
+    return BlocProvider(create: (context)=>Mybloc(),
+    child: BlocConsumer<Mybloc,AppStates>(
+        listener: (context, state) {
 
-      body: DefaultTabController(
-        length: 3,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+        },
+        builder: (context, state) {
+          return Scaffold(
+            body: DefaultTabController(
+              length: 3,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
 
-            SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(16)),
-              child: Text(
-                "leaderboard",
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: HexColor("333333")),
+                  SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(16)),
+                    child: Text(
+                      "leaderboard",
+                    style: Theme.of(context).textTheme.headline3,
+                    ),
+                  ),
+                  SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
+                  Padding(
+                    padding: EdgeInsets.only(left: SizeConfig.getProportionateScreenWidth(16)),
+                    child: _buildTabs(),
+                  ),
+                  SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
+
+                  Flexible(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(16)),
+                      child: _buildContent(),
+                    ),
+                  )
+                ],
               ),
             ),
-            SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
-            Padding(
-              padding: EdgeInsets.only(left: SizeConfig.getProportionateScreenWidth(16)),
-              child: _buildTabs(),
-            ),
-            SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
-
-            Flexible(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(16)),
-                child: _buildContent(),
-              ),
-            )
-          ],
-        ),
-      ),
+          );
+        },
+    ),
     );
   }
 
@@ -172,20 +180,14 @@ Widget buildItem(
                   children: [
                     Text(
                       itemData[index]['name'],
-                      style: TextStyle(
-                        color: HexColor('#4F4F4F'),
-                        fontWeight: FontWeight.w700,
-                        fontStyle: FontStyle.normal,
-                        fontSize: 16,
-                      ),
+                       style: Theme.of(context).textTheme.headline3!.copyWith(
+                         color: Mybloc.get(context).isDark ? HexColor('#FFFFFF'): HexColor('#4F4F4F'),
+                       ),
                     ),
                     Text(
                       itemData[index]['degree'],
-                      style: TextStyle(
-                        color: HexColor('#4F4F4F'),
-                        fontWeight: FontWeight.w700,
-                        fontStyle: FontStyle.normal,
-                        fontSize: 16,
+                      style: Theme.of(context).textTheme.headline3!.copyWith(
+                        color: Mybloc.get(context).isDark ? HexColor('#FFFFFF'): HexColor('#4F4F4F'),
                       ),
                     ),
                   ],
@@ -193,11 +195,8 @@ Widget buildItem(
                 Spacer(),
                 Text(
                   itemData[index]['number'],
-                  style: TextStyle(
-                    color: HexColor('#4F4F4F'),
-                    fontWeight: FontWeight.w700,
-                    fontStyle: FontStyle.normal,
-                    fontSize: 16,
+                  style: Theme.of(context).textTheme.headline3!.copyWith(
+                    color: Mybloc.get(context).isDark ? HexColor('#FFFFFF'): HexColor('#4F4F4F'),
                   ),
                 ),
               ],

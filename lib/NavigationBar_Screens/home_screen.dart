@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
+import 'package:smart_education/Logics/StateManagement/Bloc/bloc.dart';
 import 'package:smart_education/Screens/articale_screen.dart';
 import 'package:smart_education/Screens/course_details_screen.dart';
-import 'package:smart_education/shared/commponents.dart';
+import 'package:smart_education/shared/Components/commponents.dart';
 import 'package:smart_education/shared/constants/my_colors.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 
@@ -25,7 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      backgroundColor: Colors.white,
       key: scaffoldkey,
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -173,7 +173,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     blurRadius: 8,
                   ),
                 ],
-                color: Color.fromRGBO(255, 255, 255, 1),
+                color: Mybloc.get(context).isDark?HexColor('333739'):HexColor('FFFFFF'),
                 border: Border.all(
                   color: HexColor("E8E8E8"),
                   width: 1,

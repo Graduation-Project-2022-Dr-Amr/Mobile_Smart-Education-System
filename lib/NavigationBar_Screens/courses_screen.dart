@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
 import 'package:smart_education/Screens/course_details_screen.dart';
-import 'package:smart_education/shared/commponents.dart';
+import 'package:smart_education/shared/Components/commponents.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 
 import '../API/Models/course.dart';
@@ -28,7 +28,6 @@ class _CoursesScreenState extends State<CoursesScreen> {
         builder: (context, state) {
           var courseBloc = CourseBloc.get(context);
           return Scaffold(
-            backgroundColor: Colors.white,
             body: courseBloc.allCourses.isEmpty ? Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/Screens/Joining%20University/colleges_screen.dart';
-import 'package:smart_education/shared/commponents.dart';
+import 'package:smart_education/shared/Components/commponents.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 
 class SearchScreen extends StatefulWidget {

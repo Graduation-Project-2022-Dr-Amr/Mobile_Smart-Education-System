@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smart_education/NavigationBar_Screens/start_screen.dart';
+import 'package:smart_education/Layout/app_layout.dart';
 import 'package:smart_education/Screens/Authentication/Login/login_screen.dart';
 import 'package:smart_education/Screens/Joining%20University/search_screen.dart';
 import 'package:smart_education/Screens/Onboarding/onboarding.dart';
+import 'package:smart_education/shared/Modes/themes.dart';
 
 import 'API/api/cacheHelper.dart';
 import 'API/api/dio_helper.dart';
@@ -16,6 +17,8 @@ void main() async {
   DioHelper.init();
   await CacheHelper.init();
   bool? isDark = CacheHelper.getData('isDark');
+  print('Mode dark ==>>> ${isDark}');
+
   bool? isRtl = CacheHelper.getData('isRtl');
   bool? showOnBoard = CacheHelper.getData('ShowOnBoard');
   Widget widget;
@@ -23,12 +26,11 @@ void main() async {
 
   if (showOnBoard == false) {
     if (TOKEN != null) {
-      widget = StartScreen();
+      widget = AppLayout();
     } else {
       widget = LoginScreen();
     }
-  }
-  else {
+  } else {
     widget = OnboardingScreen();
   }
   runApp(MyApp(
@@ -49,7 +51,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => Mybloc()),
+        BlocProvider(create: (context) => Mybloc()..changeMode(fromCache: isDark),),
       ],
       child: BlocConsumer<Mybloc, AppStates>(
           listener: (context, state) {},
@@ -57,6 +59,9 @@ class MyApp extends StatelessWidget {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
               home: startWidget,
+              theme: lightMode,
+              darkTheme: darkMode,
+              themeMode: Mybloc.get(context).appMode, //ThemeMode.light,
             );
           }),
     );

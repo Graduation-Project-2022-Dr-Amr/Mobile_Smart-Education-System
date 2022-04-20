@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -7,7 +8,7 @@ import 'package:smart_education/NavigationBar_Screens/leaderboard_screen.dart';
 import 'package:smart_education/NavigationBar_Screens/community_screen.dart';
 import '../../../API/api/cacheHelper.dart';
 import 'bloc_states.dart';
-import 'package:smart_education/NavigationBar_Screens/profile_screen.dart';
+import 'package:smart_education/NavigationBar_Screens/more_screen.dart';
 
 class Mybloc extends Cubit<AppStates> {
   Mybloc() : super(AppInitialState());
@@ -21,8 +22,36 @@ class Mybloc extends Cubit<AppStates> {
   bool isDark = false;
   bool isRtl = true;
   bool isObsecure = true;
+  ThemeMode appMode = ThemeMode.light;
 
-
+  void changeMode({fromCache}) {
+    if (fromCache == null) {
+      isDark = !isDark;
+      emit(ChangeModeState());
+    } else {
+      isDark = fromCache;
+      emit(ChangeModeState());
+    }
+    CacheHelper.saveData(key: 'isDark', value: isDark).then((value) {
+      if (kDebugMode) {
+        print('cache saved');
+      }
+      if (isDark) {
+        if (kDebugMode) {
+          print('dark mode');
+        }
+        appMode = ThemeMode.dark;
+        emit(ChangeModeState());
+      } else {
+        if (kDebugMode) {
+          print('light mode');
+        }
+        appMode = ThemeMode.light;
+        emit(ChangeModeState());
+      }
+      emit(ChangeModeState());
+    });
+  }
 
 //تحط هنا الاسكرينات اللي عندك  في التطبيق عشان لو هتستخدمهم  في ال BottomNavigationBar
   List<Widget> screens = [
@@ -30,10 +59,8 @@ class Mybloc extends Cubit<AppStates> {
     CoursesScreen(),
     CommunityScreen(),
     LeaderBoard(),
-    ProfileScreen(),
+    MoreScreen(),
   ];
-
-
 
   List<BottomNavigationBarItem> bottomItemsArabic = [
     BottomNavigationBarItem(
@@ -72,7 +99,9 @@ class Mybloc extends Cubit<AppStates> {
 
   List<BottomNavigationBarItem> bottomItemsEnglish = [
     BottomNavigationBarItem(
-      icon: SvgPicture.asset('assets/images/home.svg'),
+      icon: SvgPicture.asset(
+        'assets/images/home.svg',
+      ),
       label: 'Home',
     ),
     BottomNavigationBarItem(
@@ -106,8 +135,6 @@ class Mybloc extends Cubit<AppStates> {
     }
   }
 
-
-
 //دي عشان لما تغير اتجاه البرنامج من اليمين للشمال
   void changeAppDirection({bool? fromShared}) {
     if (fromShared != null) {
@@ -127,5 +154,4 @@ class Mybloc extends Cubit<AppStates> {
   }
 
   bool showPassword = false;
-
 }

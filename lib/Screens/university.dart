@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smart_education/shared/commponents.dart';
+import 'package:smart_education/shared/Components/commponents.dart';
 
-import '../NavigationBar_Screens/start_screen.dart';
+import '../Layout/app_layout.dart';
 
 class University extends StatefulWidget {
   University({Key? key}) : super(key: key);
@@ -45,7 +45,7 @@ class _UniversityState extends State<University> {
     ),
     itemBuilder: (context, index) => InkWell(
       onTap: () {
-        navigateTo(context, StartScreen());
+        navigateTo(context, AppLayout());
       },
       child: Container(
         width: double.infinity,

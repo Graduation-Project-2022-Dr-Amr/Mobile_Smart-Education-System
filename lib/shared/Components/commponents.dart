@@ -2,7 +2,7 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc.dart';
-import 'package:smart_education/NavigationBar_Screens/start_screen.dart';
+import 'package:smart_education/Layout/app_layout.dart';
 import 'package:smart_education/shared/constants/my_colors.dart';
 
 

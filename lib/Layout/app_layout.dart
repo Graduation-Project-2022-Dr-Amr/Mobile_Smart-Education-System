@@ -7,8 +7,8 @@ import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
 
 import '../shared/constants/size_config.dart';
 
-class StartScreen extends StatelessWidget {
-  StartScreen({Key? key}) : super(key: key);
+class AppLayout extends StatelessWidget {
+  AppLayout({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,6 @@ class StartScreen extends StatelessWidget {
         builder: (context, state) {
 
           return Scaffold(
-            backgroundColor: Colors.white,
             appBar:AppBar(
               title: SvgPicture.asset(
                 'assets/images/Logo.svg',
@@ -28,7 +27,6 @@ class StartScreen extends StatelessWidget {
                 height: SizeConfig.getProportionateScreenHeight(26.2),
                 fit: BoxFit.contain,
               ),
-              backgroundColor: Colors.white,
               elevation: 4,
               shadowColor: HexColor("0053CB").withOpacity(0.1),
               automaticallyImplyLeading: false,
@@ -61,7 +59,6 @@ class StartScreen extends StatelessWidget {
             bottomNavigationBar: BottomNavigationBar(
               unselectedFontSize: 12,
               selectedFontSize: 12,
-
               currentIndex: Mybloc.get(context).selectedIndex,
               onTap: (index) {
                 Mybloc.get(context).changeBottomNavBar(index);

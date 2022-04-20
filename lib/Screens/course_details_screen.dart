@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
-import 'package:smart_education/NavigationBar_Screens/start_screen.dart';
-import 'package:smart_education/shared/commponents.dart';
+import 'package:smart_education/Layout/app_layout.dart';
+import 'package:smart_education/shared/Components/commponents.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 import '../API/Models/chapter.dart';
 import '../API/Models/course.dart';
@@ -199,7 +199,7 @@ class CourseScreen extends StatelessWidget {
                                             21)),
                                 IconButton(
                                   onPressed: () {
-                                    navigateTo(context, StartScreen());
+                                    navigateTo(context, AppLayout());
                                   },
                                   icon: Icon(Icons.arrow_back),
                                   color: HexColor('FFFFFF'),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:smart_education/NavigationBar_Screens/start_screen.dart';
-import 'package:smart_education/shared/commponents.dart';
+import 'package:smart_education/Layout/app_layout.dart';
+import 'package:smart_education/shared/Components/commponents.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 
 class Colleges extends StatefulWidget {
@@ -408,7 +408,7 @@ class _CollegesState extends State<Colleges> {
                                                       .currentState!
                                                       .validate()) {
                                                     navigateTo(context,
-                                                        StartScreen());
+                                                        AppLayout());
                                                     ScaffoldMessenger.of(
                                                         context)
                                                         .showSnackBar(

@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/Screens/Authentication/Login/login_screen.dart';
 import 'package:smart_education/Screens/Authentication/Signin/sign_screen.dart';
-import 'package:smart_education/shared/commponents.dart';
+import 'package:smart_education/shared/Components/commponents.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

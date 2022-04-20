@@ -4,14 +4,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/auth_bloc.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
-import 'package:smart_education/NavigationBar_Screens/start_screen.dart';
+import 'package:smart_education/Layout/app_layout.dart';
 import 'package:smart_education/Screens/Authentication/Signin/sign_screen.dart';
-import 'package:smart_education/shared/commponents.dart';
+import 'package:smart_education/shared/Components/commponents.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 
 import '../../../API/api/cacheHelper.dart';
 import '../../../API/api/endPoints.dart';
-import '../../../shared/input_field_widget.dart';
+import '../../../shared/Components/input_field_widget.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
@@ -33,7 +33,7 @@ class LoginScreen extends StatelessWidget {
             ).then(
               (value) {
                 TOKEN = state.loginUserModel.token;
-                navigateandFinish(context, StartScreen());
+                navigateandFinish(context, AppLayout());
               },
             );
           }
@@ -158,7 +158,7 @@ class LoginScreen extends StatelessWidget {
                                     password: passwordController.text,
                                   );
                                   TOKEN = CacheHelper.getData('token');
-                                  navigateTo(context, StartScreen());
+                                  navigateTo(context, AppLayout());
                                 }
                               },
                             ),

@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:smart_education/Logics/StateManagement/Bloc/bloc.dart';
+import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 
 import 'leaderboard_screen.dart';
@@ -19,47 +22,54 @@ class _CommunityScreenState extends State<CommunityScreen> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: DefaultTabController(
-        length: 2,
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(17)),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
-              Text("Community",style: TextStyle(
-                  fontSize: 16,fontWeight: FontWeight.bold,
-                  color: HexColor("333333")
-              ),),
-              SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
+    return BlocProvider(create: (context)=>Mybloc(),
+    child: BlocConsumer<Mybloc,AppStates>(
+      listener: (context, state) {
 
-              _buildTabs(),
-              SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
-
-              _activeIndex == 0
-                  ? Container(
-                child: ListView.separated(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  itemBuilder: (context, index) => buildItem(
-                    context,
-                    index,
+      },
+      builder: (context, state) {
+        return Scaffold(
+          body: DefaultTabController(
+            length: 2,
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: SizeConfig.getProportionateScreenWidth(17)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
+                  Text(
+                    "Community",
+                    style: Theme.of(context).textTheme.headline3,
                   ),
-                  separatorBuilder: (context, index) => SizedBox(
-                    height: SizeConfig.getProportionateScreenHeight(8),
+                  SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
+                  _buildTabs(),
+                  SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
+                  _activeIndex == 0
+                      ? Container(
+                    child: ListView.separated(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemBuilder: (context, index) => buildItem(
+                        context,
+                        index,
+                      ),
+                      separatorBuilder: (context, index) => SizedBox(
+                        height: SizeConfig.getProportionateScreenHeight(8),
+                      ),
+                      itemCount: 5,
+                    ),
+                  )
+                      : Center(
+                    child: Text("Chat Pages"),
                   ),
-                  itemCount: 5,
-                ),
-              )
-                  : Center(
-                child: Text("Chat Pages"),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
+    ),
     );
   }
 
@@ -77,7 +87,8 @@ class _CommunityScreenState extends State<CommunityScreen> {
             return GestureDetector(
               onTap: (() => setState(() => _activeIndex = index)),
               child: Container(
-                margin: EdgeInsets.only(right: SizeConfig.getProportionateScreenWidth(8)),
+                margin: EdgeInsets.only(
+                    right: SizeConfig.getProportionateScreenWidth(8)),
                 alignment: Alignment.center,
                 padding: EdgeInsets.symmetric(
                     horizontal: SizeConfig.getProportionateScreenWidth(24),
@@ -91,10 +102,12 @@ class _CommunityScreenState extends State<CommunityScreen> {
                 ),
                 child: Text(
                   _getName(index),
-                  style: TextStyle(color:  _activeIndex == index
-                      ? Colors.white
-                      : HexColor("828282"),fontSize: 16,fontWeight: FontWeight.w700),
-
+                  style: TextStyle(
+                      color: _activeIndex == index
+                          ? Colors.white
+                          : HexColor("828282"),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700),
                 ),
               ),
             );
@@ -116,9 +129,9 @@ class _CommunityScreenState extends State<CommunityScreen> {
 }
 
 Widget buildItem(
-    context,
-    index,
-    ) =>
+  context,
+  index,
+) =>
     Container(
       width: SizeConfig.getProportionateScreenWidth(396),
       height: SizeConfig.getProportionateScreenHeight(101),
