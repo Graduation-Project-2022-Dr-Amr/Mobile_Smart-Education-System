@@ -50,7 +50,7 @@ class AppLayout extends StatelessWidget {
               ),
               label: 'More',
             ),
-          ]
+          ];
           return Scaffold(
             appBar:AppBar(
               title: SvgPicture.asset(
