@@ -21,6 +21,8 @@ class AppBottomNavState extends AppStates {}
 
 class SuffixIconState extends AppStates {}
 
+class ToDOState extends AppStates {}
+
 class AppSearchedLoadingState extends AppStates {}
 
 class AppSearchedLoadedState extends AppStates {}

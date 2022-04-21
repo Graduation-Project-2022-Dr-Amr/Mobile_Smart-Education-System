@@ -5,20 +5,22 @@ import 'package:smart_education/Screens/Authentication/Login/login_screen.dart';
 import 'package:smart_education/Screens/Joining%20University/search_screen.dart';
 import 'package:smart_education/Screens/Onboarding/onboarding.dart';
 import 'package:smart_education/shared/Modes/themes.dart';
+import 'package:smart_education/todo_part/view/all_tasks_screen.dart';
 
 import 'API/api/cacheHelper.dart';
 import 'API/api/dio_helper.dart';
 import 'API/api/endPoints.dart';
 import 'Logics/StateManagement/Bloc/bloc.dart';
 import 'Logics/StateManagement/Bloc/bloc_states.dart';
+import 'todo_part/db/db_helper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  DioHelper.init();
+  await DioHelper.init();
+  await DbHelper.initDb().then((value) => print("db initialization"));
   await CacheHelper.init();
   bool? isDark = CacheHelper.getData('isDark');
   print('Mode dark ==>>> ${isDark}');
-
   bool? isRtl = CacheHelper.getData('isRtl');
   bool? showOnBoard = CacheHelper.getData('ShowOnBoard');
   Widget widget;
@@ -56,12 +58,15 @@ class MyApp extends StatelessWidget {
       child: BlocConsumer<Mybloc, AppStates>(
           listener: (context, state) {},
           builder: (context, state) {
+           // DbHelper.initDb();
+
             return MaterialApp(
               debugShowCheckedModeBanner: false,
               home: startWidget,
               theme: lightMode,
               darkTheme: darkMode,
               themeMode: Mybloc.get(context).appMode, //ThemeMode.light,
+             // routes: {},
             );
           }),
     );

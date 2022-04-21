@@ -125,4 +125,12 @@ Widget customRadioButton(String text, int index) {
       style: TextStyle(),
     ),
   );
+
 }
+
+
+ showSnackBarComponent({required String text, required BuildContext context}) {
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text,style: TextStyle(fontSize: 20),)));
+}
+
+

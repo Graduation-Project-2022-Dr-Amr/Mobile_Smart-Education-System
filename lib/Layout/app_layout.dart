@@ -18,7 +18,6 @@ class AppLayout extends StatelessWidget {
       child: BlocConsumer<Mybloc, AppStates>(
         listener: (context, state) {},
         builder: (context, state) {
-
           return Scaffold(
             appBar:AppBar(
               title: SvgPicture.asset(
