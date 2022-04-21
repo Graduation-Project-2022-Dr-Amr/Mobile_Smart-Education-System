@@ -18,6 +18,39 @@ class AppLayout extends StatelessWidget {
       child: BlocConsumer<Mybloc, AppStates>(
         listener: (context, state) {},
         builder: (context, state) {
+          List<BottomNavigationBarItem> bottomItemsEnglish = [
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/images/home.svg',
+                color: Mybloc.get(context).selectedIndex==0 ?Colors.blue:Colors.grey,
+              ),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset('assets/images/course.svg',
+                color: Mybloc.get(context).selectedIndex==1 ?Colors.blue:Colors.grey,
+              ),
+              label: 'Courses',
+            ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset('assets/images/chat.svg',
+                color: Mybloc.get(context).selectedIndex==2 ?Colors.blue:Colors.grey,
+              ),
+              label: 'Community',
+            ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset('assets/images/leader.svg',
+                color: Mybloc.get(context).selectedIndex==3 ?Colors.blue:Colors.grey,
+              ),
+              label: 'Leaderboard',
+            ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset('assets/images/more.svg',
+                color: Mybloc.get(context).selectedIndex==4 ?Colors.blue:Colors.grey,
+              ),
+              label: 'More',
+            ),
+          ]
           return Scaffold(
             appBar:AppBar(
               title: SvgPicture.asset(
@@ -65,7 +98,7 @@ class AppLayout extends StatelessWidget {
               selectedItemColor: HexColor('2F80ED'),
               unselectedItemColor: HexColor('BDBDBD'),
               type: BottomNavigationBarType.fixed,
-              items: Mybloc.get(context).bottomItemsEnglish,//Mybloc.get(context).bottomItemsEnglish,
+              items: bottomItemsEnglish,//Mybloc.get(context).bottomItemsEnglish,
             ),
           );
         },
