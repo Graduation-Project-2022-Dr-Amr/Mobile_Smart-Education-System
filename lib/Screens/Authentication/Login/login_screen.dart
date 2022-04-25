@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/auth_bloc.dart';
@@ -64,7 +65,7 @@ class LoginScreen extends StatelessWidget {
                       height: SizeConfig.getProportionateScreenHeight(40.7),
                     ),
                     Text(
-                      "To get started — Login to your account.",
+                      AppLocalizations.of(context)!.to_get_started_login_to_your_account,
                       textScaleFactor: 1.0,
                       style: TextStyle(
                         fontSize: 18,
@@ -81,7 +82,7 @@ class LoginScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           //Email
-                          buildColumn(text: "User Name"),
+                          buildColumn(text: AppLocalizations.of(context)!.user_name),
                           InputFieldWidget(
                             controller: userNameController,
                             // onSubmit: (value) {
@@ -96,11 +97,11 @@ class LoginScreen extends StatelessWidget {
                             hint: 'Enter your User Name',
                             fieldKey: "user name",
                           ),
-                          SizedBox(
-                            height: SizeConfig.getProportionateScreenHeight(24),
-                          ),
+                          // SizedBox(
+                          //   height: SizeConfig.getProportionateScreenHeight(24),
+                          // ),
                           //Password
-                          buildColumn(text: "Password"),
+                          buildColumn(text: AppLocalizations.of(context)!.password),
                           InputFieldWidget(
                             controller: passwordController,
                             // onSubmit: (value) {
@@ -114,11 +115,11 @@ class LoginScreen extends StatelessWidget {
                             hint: 'Enter your Password',
                             fieldKey: "password",
                           ),
-                          SizedBox(
-                            height: SizeConfig.getProportionateScreenHeight(23),
-                          ),
+                          // SizedBox(
+                          //   height: SizeConfig.getProportionateScreenHeight(23),
+                          // ),
                           Text(
-                            'Reset your password?',
+                            AppLocalizations.of(context)!.reset_your_password ,
                             style: TextStyle(
                               fontSize: 14,
                               fontStyle: FontStyle.normal,
@@ -144,7 +145,7 @@ class LoginScreen extends StatelessWidget {
                             ),
                             child: MaterialButton(
                               child: Text(
-                                "Login",
+                                AppLocalizations.of(context)!.login ,
                                 style: TextStyle(
                                   color: HexColor('FFFFFF'),
                                   fontSize: 18,
@@ -177,7 +178,7 @@ class LoginScreen extends StatelessWidget {
                                 text: TextSpan(
                                   children: <TextSpan>[
                                     TextSpan(
-                                      text: 'Don’t have an account? ',
+                                      text:AppLocalizations.of(context)!.dont_have_an_account ,
                                       style: TextStyle(
                                         fontSize: 14,
                                         fontStyle: FontStyle.normal,
@@ -186,7 +187,7 @@ class LoginScreen extends StatelessWidget {
                                       ),
                                     ),
                                     TextSpan(
-                                      text: 'Sign up',
+                                      text:AppLocalizations.of(context)!.sign_up ,
                                       style: TextStyle(
                                         fontSize: 14,
                                         fontStyle: FontStyle.normal,
