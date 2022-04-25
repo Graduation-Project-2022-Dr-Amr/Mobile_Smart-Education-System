@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_education/Layout/app_layout.dart';
 import 'package:smart_education/Screens/Authentication/Login/login_screen.dart';
-import 'package:smart_education/Screens/Joining%20University/search_screen.dart';
 import 'package:smart_education/Screens/Onboarding/onboarding.dart';
 import 'package:smart_education/shared/Modes/themes.dart';
-import 'package:smart_education/todo_part/view/all_tasks_screen.dart';
-
 import 'API/api/cacheHelper.dart';
 import 'API/api/dio_helper.dart';
 import 'API/api/endPoints.dart';
 import 'Logics/StateManagement/Bloc/bloc.dart';
 import 'Logics/StateManagement/Bloc/bloc_states.dart';
+import 'l10n/l10n.dart';
 import 'todo_part/db/db_helper.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await DioHelper.init();
@@ -58,14 +58,21 @@ class MyApp extends StatelessWidget {
       child: BlocConsumer<Mybloc, AppStates>(
           listener: (context, state) {},
           builder: (context, state) {
-           // DbHelper.initDb();
-
+            var cubit=Mybloc.get(context);
             return MaterialApp(
               debugShowCheckedModeBanner: false,
               home: startWidget,
+              locale: cubit.locale,
+              supportedLocales: L10n.all,
+              localizationsDelegates: [
+                AppLocalizations.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+              ],
               theme: lightMode,
               darkTheme: darkMode,
-              themeMode: Mybloc.get(context).appMode, //ThemeMode.light,
+              themeMode: cubit.appMode, //ThemeMode.light,
              // routes: {},
             );
           }),

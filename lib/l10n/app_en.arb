@@ -1,0 +1,20 @@
+{
+  "language": "English",
+  "@language":{
+    "description": "The current Language"
+  },
+  "helloWorld": "Hello World!",
+  "hello": "Hello {username}",
+
+  "best_learning_exp": "Best Learning Exp.",
+  "no_more_frequent_flaws_no_boundaries_between_the_teacher_and_his_students": "No more frequent flaws, no boundaries\\nbetween the teacher and his students.",
+  "skip": "Skip",
+  "perfect_community": "Perfect community",
+  "you_will_never_walk_alone_is_what_we_worked_for_in_order_to_reduce_the_gap_between_student_and_the_teacher": "“You will never walk alone” is what we worked\\nfor in order to reduce the gap between\\nstudent and the teacher.",
+  "join_now": "Join Now",
+  "no_matter_how_complex_your_course_content_is_smart_edu_is_smart_enough_to_keep_students_focused_on_what_they_have_to_do": "No matter how complex your course content\\nis , Smart-edu is smart enough to keep\\nstudents focused on what they have to do.",
+  "join_now_create_a_new_account": "Join Now — Create a new account",
+  "already_have_an_account": "Already have an account?",
+  "login": "Login"
+
+}

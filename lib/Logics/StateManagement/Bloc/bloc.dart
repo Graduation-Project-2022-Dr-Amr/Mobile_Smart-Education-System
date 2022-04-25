@@ -1,19 +1,37 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smart_education/NavigationBar_Screens/courses_screen.dart';
 import 'package:smart_education/NavigationBar_Screens/home_screen.dart';
 import 'package:smart_education/NavigationBar_Screens/leaderboard_screen.dart';
 import 'package:smart_education/NavigationBar_Screens/community_screen.dart';
 import '../../../API/api/cacheHelper.dart';
+import '../../../l10n/l10n.dart';
 import 'bloc_states.dart';
 import 'package:smart_education/NavigationBar_Screens/more_screen.dart';
-
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class Mybloc extends Cubit<AppStates> {
   Mybloc() : super(AppInitialState());
 
   static Mybloc get(context) => BlocProvider.of(context);
+
+  Locale? _locale;
+
+  Locale get locale => _locale??Locale('ar');
+
+  void setLocale(Locale locale) {
+    if (!L10n.all.contains(locale)) return;
+    _locale = locale;
+    emit(SetLocalLangState());
+  }
+
+  void clearLocale() {
+    _locale = null;
+    emit(ClearLocalLangState());
+  }
 
   bool isLast = false;
   int pageIndex = 0;

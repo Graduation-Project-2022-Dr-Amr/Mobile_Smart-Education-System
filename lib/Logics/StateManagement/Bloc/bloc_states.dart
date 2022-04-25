@@ -6,6 +6,8 @@ import '../../../API/Models/student_register_model.dart';
 abstract class AppStates {}
 
 class AppInitialState extends AppStates {}
+class SetLocalLangState extends AppStates {}
+class ClearLocalLangState extends AppStates {}
 class ChangeModeState extends AppStates {}
 
 class ChangeRoleState extends AppStates {}

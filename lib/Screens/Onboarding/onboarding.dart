@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/Screens/Authentication/Login/login_screen.dart';
@@ -6,9 +9,7 @@ import 'package:smart_education/Screens/Authentication/Signin/sign_screen.dart';
 import 'package:smart_education/shared/Components/commponents.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 import '../../API/api/cacheHelper.dart';
-import 'package:smart_education/shared/constants/my_colors.dart';
 
 class BoardingModel {
   final String title;
@@ -32,33 +33,32 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   bool isLast = false;
   int pageIndex = 0;
-  List<BoardingModel> boarding = [
-    BoardingModel(
-      title: 'Best Learning Exp.',
-      body:
-          'No more frequent flaws, no boundaries\nbetween the teacher and his students.',
-      image: 'assets/onboarding1.svg',
-    ),
-    BoardingModel(
-      title: 'Perfect community',
-      body:
-          '“You will never walk alone” is what we worked\nfor in order to reduce the gap between\nstudent and the teacher.',
-      image: 'assets/onboarding2.svg',
-    ),
-    BoardingModel(
-      title: 'Join Now',
-      body:
-          'No matter how complex your course content\nis , Smart-edu is smart enough to keep\nstudents focused on what they have to do.',
-      image: 'assets/onboarding3.svg',
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    List<BoardingModel> boarding = [
+      BoardingModel(
+        title: AppLocalizations.of(context)!.best_learning_exp,
+        body: AppLocalizations.of(context)!.no_more_frequent_flaws_no_boundaries_between_the_teacher_and_his_students,
+        image: 'assets/onboarding1.svg',
+      ),
+      BoardingModel(
+        title: AppLocalizations.of(context)!.perfect_community,
+        body:
+        AppLocalizations.of(context)!.you_will_never_walk_alone_is_what_we_worked_for_in_order_to_reduce_the_gap_between_student_and_the_teacher,
+        image: 'assets/onboarding2.svg',
+      ),
+      BoardingModel(
+        title: AppLocalizations.of(context)!.join_now,
+        body:
+        AppLocalizations.of(context)!.no_matter_how_complex_your_course_content_is_smart_edu_is_smart_enough_to_keep_students_focused_on_what_they_have_to_do,
+        image: 'assets/onboarding3.svg',
+      ),
+    ];
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           children: [
             SizedBox(
@@ -163,7 +163,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       child: Row(
                         children: [
                           Text(
-                            'Skip',
+                            AppLocalizations.of(context)!.skip,
                             textScaleFactor: 1.0,
                             style: TextStyle(
                               fontStyle: FontStyle.normal,
@@ -199,7 +199,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       MaterialStateProperty.all(HexColor('0053CB')),
                 ),
                 child: Text(
-                  'Join Now — Create a new account',
+                  AppLocalizations.of(context)!.join_now_create_a_new_account,
                   textScaleFactor: 1.0,
                   style: TextStyle(
                     color: HexColor('FFFFFF'),
@@ -228,7 +228,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   text: TextSpan(
                     children: <TextSpan>[
                       TextSpan(
-                        text: 'Already have an account?  ',
+                        text: AppLocalizations.of(context)!.already_have_an_account,
                         style: TextStyle(
                           fontSize: 16,
                           fontStyle: FontStyle.normal,
@@ -237,7 +237,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ),
                       ),
                       TextSpan(
-                        text: ' Login',
+                        text: AppLocalizations.of(context)!.login,
                         style: TextStyle(
                           fontSize: 16,
                           fontStyle: FontStyle.normal,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../model/task.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';import '../model/task.dart';
 import 'package:intl/intl.dart' as intl;
 import '../size_config.dart';
 import '../theme.dart';
