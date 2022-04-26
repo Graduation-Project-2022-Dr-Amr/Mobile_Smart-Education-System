@@ -2,18 +2,19 @@ import 'package:expansion_widget/expansion_widget.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/API/api/cacheHelper.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc.dart';
+import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
 import 'package:smart_education/Screens/Authentication/Login/login_screen.dart';
 import 'package:smart_education/Screens/Authentication/Profile/profileScreen.dart';
+import 'package:smart_education/Screens/NavigationBar_Screens/More%20Screens/todo_part/view/all_tasks_screen.dart';
 import 'package:smart_education/shared/Components/commponents.dart';
 import 'dart:math' as math;
 
-import '../Logics/StateManagement/Bloc/bloc_states.dart';
-import '../shared/constants/size_config.dart';
-import '../todo_part/view/all_tasks_screen.dart';
+import 'package:smart_education/shared/constants/size_config.dart';
 
 class MoreScreen extends StatelessWidget {
   @override
@@ -21,10 +22,8 @@ class MoreScreen extends StatelessWidget {
     SizeConfig().init(context);
     return BlocProvider(
       create: (BuildContext context) => Mybloc(),
-    child: BlocConsumer<Mybloc,AppStates>(
-        listener: (context, state) {
-
-        },
+      child: BlocConsumer<Mybloc, AppStates>(
+        listener: (context, state) {},
         builder: (context, state) {
           CacheHelper.getData('isDark');
           var cubit = Mybloc.get(context);
@@ -63,7 +62,7 @@ class MoreScreen extends StatelessWidget {
                               ),
                             ),
                             GestureDetector(
-                              onTap: (){
+                              onTap: () {
                                 navigateTo(context, ProfileScreen());
                               },
                               child: Text(
@@ -104,127 +103,127 @@ class MoreScreen extends StatelessWidget {
                     SizedBox(
                       height: SizeConfig.getProportionateScreenHeight(18.5),
                     ),
-                     // ExpansionWidget(
-                     //                      titleBuilder: (double animationValue, _, bool isExpand,
-                     //                          toogleFunction) {
-                     //                        return InkWell(
-                     //                          onTap: () => toogleFunction(animated: true),
-                     //                          child: Container(
-                     //                            width: 318,
-                     //                            height: 55,
-                     //                            decoration: BoxDecoration(
-                     //                              borderRadius: BorderRadius.circular(15),
-                     //                              color: Mybloc.get(context).isDark
-                     //                                  ? HexColor('333739')
-                     //                                  : HexColor('FFFFFF'),
-                     //                              border: Border.all(color: cubit.borderColor),
-                     //                            ),
-                     //                            child: Row(
-                     //                              children: [
-                     //                                CircleAvatar(
-                     //                                  child: Icon(
-                     //                                    Icons.dark_mode_outlined,
-                     //                                    color: Colors.grey[600],
-                     //                                    size: 27,
-                     //                                  ),
-                     //                                  backgroundColor: Colors.grey[400],
-                     //                                ),
-                     //                                SizedBox(width: 10),
-                     //                                Text(
-                     //                                    cubit.isRtl
-                     //                                        ? 'الثيمات ':'Theme',
-                     //                                    style: Theme.of(context)
-                     //                                        .textTheme
-                     //                                        .headline3),
-                     //                                Spacer(),
-                     //                                Transform.rotate(
-                     //                                  child: Icon(
-                     //                                    Icons.arrow_forward_ios_sharp,
-                     //                                    color: cubit.isDark
-                     //                                        ? HexColor('FFFFFF')
-                     //                                        : HexColor('333739'),
-                     //                                  ),
-                     //                                  angle: math.pi * animationValue / 0.666,
-                     //                                ),
-                     //                              ],
-                     //                            ),
-                     //                          ),
-                     //                        );
-                     //                      },
-                     //                      content: Column(
-                     //                        children: [
-                     //                          SizedBox(
-                     //                            height: 20,
-                     //                          ),
-                     //                          Container(
-                     //                            width: 318,
-                     //                            height: 55,
-                     //                            decoration: BoxDecoration(
-                     //                              borderRadius: BorderRadius.circular(15),
-                     //                              color: cubit.isDark
-                     //                                  ? HexColor('333739')
-                     //                                  : HexColor('FFFFFF'),
-                     //                              border: Border.all(color: cubit.borderColor),
-                     //                            ),
-                     //                            child: Row(
-                     //                              mainAxisAlignment: MainAxisAlignment.start,
-                     //                              children: [
-                     //                                Radio(
-                     //                                  toggleable: true,
-                     //                                  value: 'On',
-                     //                                  groupValue: cubit.darkModeRadio,
-                     //                                  activeColor: Colors.red,
-                     //                                  onChanged: (value) {
-                     //                                    cubit.changeActiveRadio(value);
-                     //                                    cubit.changeMode();
-                     //                                    // cubit.changeMode();
-                     //                                  },
-                     //                                ),
-                     //                                Text('On',
-                     //                                  style: Theme.of(context).textTheme.headline3,
-                     //                                ),
-                     //                              ],
-                     //                            ),
-                     //                          ),
-                     //                          SizedBox(
-                     //                            height: 14,
-                     //                          ),
-                     //                          Container(
-                     //                            width: 318,
-                     //                            height: 55,
-                     //                            decoration: BoxDecoration(
-                     //                              borderRadius: BorderRadius.circular(15),
-                     //                              color: cubit.isDark
-                     //                                  ? HexColor('333739')
-                     //                                  : HexColor('FFFFFF'),
-                     //                              border: Border.all(color: cubit.borderColor),
-                     //                            ),
-                     //                            child: Row(
-                     //                              mainAxisAlignment: MainAxisAlignment.start,
-                     //                              children: [
-                     //                                Radio(
-                     //                                  toggleable: true,
-                     //                                  value: 'Off',
-                     //                                  groupValue: cubit.darkModeRadio,
-                     //                                  activeColor: Colors.red,
-                     //                                  onChanged: (value) {
-                     //                                    cubit.changeActiveRadio(value);
-                     //                                    cubit.changeMode();
-                     //
-                     //                                    // cubit.changeMode();
-                     //                                  },
-                     //                                ),
-                     //                                Text(
-                     //                                 'OFF',
-                     //                                  style:
-                     //                                  Theme.of(context).textTheme.headline3,
-                     //                                ),
-                     //                              ],
-                     //                            ),
-                     //                          ),
-                     //                        ],
-                     //                      ),
-                     //                    ),
+                    // ExpansionWidget(
+                    //                      titleBuilder: (double animationValue, _, bool isExpand,
+                    //                          toogleFunction) {
+                    //                        return InkWell(
+                    //                          onTap: () => toogleFunction(animated: true),
+                    //                          child: Container(
+                    //                            width: 318,
+                    //                            height: 55,
+                    //                            decoration: BoxDecoration(
+                    //                              borderRadius: BorderRadius.circular(15),
+                    //                              color: Mybloc.get(context).isDark
+                    //                                  ? HexColor('333739')
+                    //                                  : HexColor('FFFFFF'),
+                    //                              border: Border.all(color: cubit.borderColor),
+                    //                            ),
+                    //                            child: Row(
+                    //                              children: [
+                    //                                CircleAvatar(
+                    //                                  child: Icon(
+                    //                                    Icons.dark_mode_outlined,
+                    //                                    color: Colors.grey[600],
+                    //                                    size: 27,
+                    //                                  ),
+                    //                                  backgroundColor: Colors.grey[400],
+                    //                                ),
+                    //                                SizedBox(width: 10),
+                    //                                Text(
+                    //                                    cubit.isRtl
+                    //                                        ? 'الثيمات ':'Theme',
+                    //                                    style: Theme.of(context)
+                    //                                        .textTheme
+                    //                                        .headline3),
+                    //                                Spacer(),
+                    //                                Transform.rotate(
+                    //                                  child: Icon(
+                    //                                    Icons.arrow_forward_ios_sharp,
+                    //                                    color: cubit.isDark
+                    //                                        ? HexColor('FFFFFF')
+                    //                                        : HexColor('333739'),
+                    //                                  ),
+                    //                                  angle: math.pi * animationValue / 0.666,
+                    //                                ),
+                    //                              ],
+                    //                            ),
+                    //                          ),
+                    //                        );
+                    //                      },
+                    //                      content: Column(
+                    //                        children: [
+                    //                          SizedBox(
+                    //                            height: 20,
+                    //                          ),
+                    //                          Container(
+                    //                            width: 318,
+                    //                            height: 55,
+                    //                            decoration: BoxDecoration(
+                    //                              borderRadius: BorderRadius.circular(15),
+                    //                              color: cubit.isDark
+                    //                                  ? HexColor('333739')
+                    //                                  : HexColor('FFFFFF'),
+                    //                              border: Border.all(color: cubit.borderColor),
+                    //                            ),
+                    //                            child: Row(
+                    //                              mainAxisAlignment: MainAxisAlignment.start,
+                    //                              children: [
+                    //                                Radio(
+                    //                                  toggleable: true,
+                    //                                  value: 'On',
+                    //                                  groupValue: cubit.darkModeRadio,
+                    //                                  activeColor: Colors.red,
+                    //                                  onChanged: (value) {
+                    //                                    cubit.changeActiveRadio(value);
+                    //                                    cubit.changeMode();
+                    //                                    // cubit.changeMode();
+                    //                                  },
+                    //                                ),
+                    //                                Text('On',
+                    //                                  style: Theme.of(context).textTheme.headline3,
+                    //                                ),
+                    //                              ],
+                    //                            ),
+                    //                          ),
+                    //                          SizedBox(
+                    //                            height: 14,
+                    //                          ),
+                    //                          Container(
+                    //                            width: 318,
+                    //                            height: 55,
+                    //                            decoration: BoxDecoration(
+                    //                              borderRadius: BorderRadius.circular(15),
+                    //                              color: cubit.isDark
+                    //                                  ? HexColor('333739')
+                    //                                  : HexColor('FFFFFF'),
+                    //                              border: Border.all(color: cubit.borderColor),
+                    //                            ),
+                    //                            child: Row(
+                    //                              mainAxisAlignment: MainAxisAlignment.start,
+                    //                              children: [
+                    //                                Radio(
+                    //                                  toggleable: true,
+                    //                                  value: 'Off',
+                    //                                  groupValue: cubit.darkModeRadio,
+                    //                                  activeColor: Colors.red,
+                    //                                  onChanged: (value) {
+                    //                                    cubit.changeActiveRadio(value);
+                    //                                    cubit.changeMode();
+                    //
+                    //                                    // cubit.changeMode();
+                    //                                  },
+                    //                                ),
+                    //                                Text(
+                    //                                 'OFF',
+                    //                                  style:
+                    //                                  Theme.of(context).textTheme.headline3,
+                    //                                ),
+                    //                              ],
+                    //                            ),
+                    //                          ),
+                    //                        ],
+                    //                      ),
+                    //                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -286,9 +285,9 @@ class MoreScreen extends StatelessWidget {
                       height: SizeConfig.getProportionateScreenHeight(18.5),
                     ),
 
-
                     InkWell(
-                      onTap: ()=>Navigator.of(context).push(MaterialPageRoute(builder: (_)=> ToDoScreen())),
+                      onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => ToDoScreen())),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -313,7 +312,8 @@ class MoreScreen extends StatelessWidget {
                       height: SizeConfig.getProportionateScreenHeight(21),
                     ),
                     InkWell(
-                      onTap: ()=>Navigator.of(context).push(MaterialPageRoute(builder: (_)=> ToDoScreen())),
+                      onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => ToDoScreen())),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -338,7 +338,8 @@ class MoreScreen extends StatelessWidget {
                       height: SizeConfig.getProportionateScreenHeight(21),
                     ),
                     InkWell(
-                      onTap: ()=>Navigator.of(context).push(MaterialPageRoute(builder: (_)=> ToDoScreen())),
+                      onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => ToDoScreen())),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -368,7 +369,6 @@ class MoreScreen extends StatelessWidget {
                       children: [
                         Text(
                           AppLocalizations.of(context)!.resource,
-
                           style: TextStyle(
                             color: HexColor('BDBDBD'),
                             fontSize: 16,
@@ -413,7 +413,6 @@ class MoreScreen extends StatelessWidget {
                         ),
                         Text(
                           AppLocalizations.of(context)!.about_us,
-
                           style: TextStyle(
                             color: HexColor('4F4F4F'),
                             fontSize: 16,
@@ -430,20 +429,19 @@ class MoreScreen extends StatelessWidget {
                       children: [
                         TextButton(
                           onPressed: () {
-                            CacheHelper.removeData('token').then((value){
+                            CacheHelper.removeData('token').then((value) {
                               navigateandFinish(context, LoginScreen());
                             });
-
                           },
                           child: Row(
                             children: [
                               Icon(
                                 Icons.exit_to_app,
                                 color: Colors.red,
-
                               ),
                               SizedBox(
-                                width: SizeConfig.getProportionateScreenWidth(10),
+                                width:
+                                    SizeConfig.getProportionateScreenWidth(10),
                               ),
                               Text(
                                 AppLocalizations.of(context)!.sign_out_n,
@@ -464,7 +462,7 @@ class MoreScreen extends StatelessWidget {
             ),
           );
         },
-    ),
+      ),
     );
   }
 }

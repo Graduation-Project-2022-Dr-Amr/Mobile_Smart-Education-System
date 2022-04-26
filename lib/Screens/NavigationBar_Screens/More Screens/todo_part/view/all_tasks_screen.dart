@@ -9,7 +9,7 @@ import 'package:get/get_core/src/get_main.dart';
 
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import '../../Logics/StateManagement/Bloc/bloc_states.dart';
+import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
 import '../controller/todo_bloc.dart';
 import '../theme.dart';
 import 'package:intl/intl.dart' as intl;

@@ -1,15 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc.dart';
-import 'package:smart_education/Screens/articale_screen.dart';
-import 'package:smart_education/Screens/course_details_screen.dart';
+import 'package:smart_education/Screens/NavigationBar_Screens/Home%20Screens/Articales%20Details/articale_screen.dart';
 import 'package:smart_education/shared/Components/commponents.dart';
-import 'package:smart_education/shared/constants/my_colors.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

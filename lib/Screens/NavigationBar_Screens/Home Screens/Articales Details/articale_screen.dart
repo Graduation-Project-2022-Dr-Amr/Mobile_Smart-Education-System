@@ -9,12 +9,12 @@ import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:smart_education/Layout/app_layout.dart';
 import 'package:smart_education/Screens/Onboarding/assigments_screen.dart';
-import 'package:smart_education/Screens/discussion_screen.dart';
 import 'package:smart_education/shared/Components/commponents.dart';
 import 'package:chewie/chewie.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 import 'package:video_player/video_player.dart';
 
+import 'discussion_screen.dart';
 class ArticalScreen extends StatefulWidget {
   @override
   _ArticalScreenState createState() => _ArticalScreenState();

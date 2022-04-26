@@ -8,7 +8,7 @@ import 'package:smart_education/Logics/StateManagement/Bloc/bloc.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 
-import 'leaderboard_screen.dart';
+import '../LeaderBoard Screens/leaderboard_screen.dart';
 
 class CommunityScreen extends StatefulWidget {
   CommunityScreen({Key? key}) : super(key: key);
