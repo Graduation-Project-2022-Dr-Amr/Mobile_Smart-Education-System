@@ -31,7 +31,9 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Padding(
-          padding: EdgeInsets.only(left: SizeConfig.getProportionateScreenWidth(16)),
+          padding: EdgeInsets.only(
+              left: SizeConfig.getProportionateScreenWidth(16),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -42,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Courses',
+                    AppLocalizations.of(context)!.courses,
                     textScaleFactor: 1.0,
                     style: TextStyle(
                       fontSize: 18,
@@ -61,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            'SEE ALL',
+                          AppLocalizations.of(context)!.see_aLL,
                             textAlign: TextAlign.right,
                             style: TextStyle(
                               fontSize: 12,
@@ -102,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Text(
-                'Recommended',
+                AppLocalizations.of(context)!.recommended,
                 textScaleFactor: 1.0,
                 style: TextStyle(
                   fontSize: 18,
@@ -118,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: EdgeInsets.only(right: SizeConfig.getProportionateScreenWidth(16)),
                 child: Text(
-                  'based on your recent performance in quizzes, assignments — We highly recommend reviewing the materials below.',
+                  AppLocalizations.of(context)!.based_on_your_recent_performance_in_quizzes_assignments_we_highly_recommend_reviewing_the_materials_below,
                   textScaleFactor: 1.0,
                   style: TextStyle(
                     fontSize: 14,
@@ -134,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SingleChildScrollView(
                 child: Column(
-                    children: List.generate(5, (index) => buildarticalitem(context, index))
+                    children: List.generate(3, (index) => buildarticalitem(context, index))
                 ),
               ),
             ],
@@ -161,11 +163,8 @@ class _HomeScreenState extends State<HomeScreen> {
               width: SizeConfig.getProportionateScreenWidth(178),
               height: SizeConfig.getProportionateScreenHeight(269),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(16),
-                  topRight: Radius.circular(16),
-                  bottomLeft: Radius.circular(16),
-                  bottomRight: Radius.circular(16),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(16),
                 ),
                 boxShadow: [
                   BoxShadow(
@@ -245,9 +244,10 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
   );
 
-  Widget buildarticalitem(context, index) => Container(
+  Widget buildarticalitem(context, index) {
+    return Container(
     margin: EdgeInsets.only(bottom: SizeConfig.getProportionateScreenHeight(16)),
-    height: SizeConfig.getProportionateScreenHeight(92),
+    height: SizeConfig.getProportionateScreenHeight(100),
     width: SizeConfig.getProportionateScreenWidth(396),
     decoration: BoxDecoration(
         color: Colors.white,
@@ -324,6 +324,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     ),
   );
+  }
 
   Widget buildBottomSheet(context) => Container(
     width: double.infinity,

@@ -32,7 +32,26 @@
   "enter_your_full_name": "أدخل اسمك الكامل",
   "enter_your_email": "أدخل بريدك الإلكتروني",
   "enter_your_password": "ادخل كلمة السري",
-  "enter_your_name": "ادخل اسمك"
+  "enter_your_name": "ادخل اسمك",
+  "profile": "الملف الشخصي",
+  "courses": "الدورات",
+  "see_aLL": "اظهار الكل",
+  "recommended": "مُستَحسَن",
+  "based_on_your_recent_performance_in_quizzes_assignments_we_highly_recommend_reviewing_the_materials_below": "بناءً على أدائك الأخير في الاختبارات والمهام - نوصي بشدة بمراجعة المواد أدناه.",
+  "home": "الصفحة الرئيسية",
+  "community": "تواصل اجتماعي",
+  "leaderboard": "المتصدرين",
+  "more": "المزيد"
+
+
+
+
+
+
+
+
+
+
 
 
 

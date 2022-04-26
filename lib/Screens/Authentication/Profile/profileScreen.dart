@@ -32,14 +32,13 @@ class ProfileScreen extends StatelessWidget {
 
           return Scaffold(
               appBar: AppBar(
-                backgroundColor: Colors.white,
                 automaticallyImplyLeading: false,
                 centerTitle: true,
                 title: Text(
-                  'الملف الشخصي',
+                  AppLocalizations.of(context)!.profile,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                        color: HexColor('000000'),
+                        color: HexColor('FFFFFF'),
                       ),
                 ),
                 leading: GestureDetector(

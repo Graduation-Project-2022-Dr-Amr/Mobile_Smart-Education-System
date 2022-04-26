@@ -36,7 +36,16 @@
   "enter_your_full_name": "Enter your full name",
   "enter_your_email": "Enter your Email",
   "enter_your_password": "Enter your Password",
-  "enter_your_name": "Enter your Name"
+  "enter_your_name": "Enter your Name",
+  "profile": "Profile",
+  "courses": "Courses",
+  "see_aLL": "SEE ALL",
+  "recommended": "Recommended",
+  "based_on_your_recent_performance_in_quizzes_assignments_we_highly_recommend_reviewing_the_materials_below": "based on your recent performance in quizzes, assignments — We highly recommend reviewing the materials below.",
+  "home": "Home",
+  "community": "Community",
+  "leaderboard": "Leaderboard",
+  "more": "More"
 
 
 }

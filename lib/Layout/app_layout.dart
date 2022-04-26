@@ -25,31 +25,31 @@ class AppLayout extends StatelessWidget {
                 'assets/images/home.svg',
                 color: Mybloc.get(context).selectedIndex==0 ?Colors.blue:Colors.grey,
               ),
-              label: 'Home',
+              label: AppLocalizations.of(context)!.home,
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/images/course.svg',
                 color: Mybloc.get(context).selectedIndex==1 ?Colors.blue:Colors.grey,
               ),
-              label: 'Courses',
+              label: AppLocalizations.of(context)!.courses,
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/images/chat.svg',
                 color: Mybloc.get(context).selectedIndex==2 ?Colors.blue:Colors.grey,
               ),
-              label: 'Community',
+              label: AppLocalizations.of(context)!.community,
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/images/leader.svg',
                 color: Mybloc.get(context).selectedIndex==3 ?Colors.blue:Colors.grey,
               ),
-              label: 'Leaderboard',
+              label: AppLocalizations.of(context)!.leaderboard,
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/images/more.svg',
                 color: Mybloc.get(context).selectedIndex==4 ?Colors.blue:Colors.grey,
               ),
-              label: 'More',
+              label: AppLocalizations.of(context)!.more,
             ),
           ];
           return Scaffold(
