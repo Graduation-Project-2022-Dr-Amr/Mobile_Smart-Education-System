@@ -3,10 +3,13 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';import 'package:hexcolor/hexcolor.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';import 'package:hexcolor/hexcolor.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:smart_education/Layout/app_layout.dart';
+import 'package:smart_education/Screens/Onboarding/assigments_screen.dart';
+import 'package:smart_education/Screens/discussion_screen.dart';
 import 'package:smart_education/shared/Components/commponents.dart';
 import 'package:chewie/chewie.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
@@ -193,17 +196,15 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                   height: MediaQuery.of(context).size.height *
                                       0.0539956803455724,
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(11),
-                                      topRight: Radius.circular(11),
-                                      bottomLeft: Radius.circular(11),
-                                      bottomRight: Radius.circular(11),
+                                    borderRadius: BorderRadius.all(
+                                     Radius.circular(11),
                                     ),
-                                    color: Color.fromRGBO(25, 100, 209, 1),
+
                                   ),
-                                  child: Icon(
-                                    Icons.menu_book,
-                                    color: HexColor('FFFFFF'),
+                                  child: Center(
+                                    child: SvgPicture.asset('assets/images/course.svg',color: HexColor('1964D1'),
+
+                                    ),
                                   ),
                                 ),
                                 SizedBox(
@@ -211,7 +212,7 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                       0.0086393088552916,
                                 ),
                                 Text(
-                                  'Professeur\n     word',
+                                  'Prof.word',
                                   style: TextStyle(
                                     fontSize: 10,
                                     fontStyle: FontStyle.normal,
@@ -226,8 +227,11 @@ class _ArticalScreenState extends State<ArticalScreen> {
                             width: MediaQuery.of(context).size.width *
                                 0.0747663551401869,
                           ),
-                          InkWell(
-                            onTap: () {},
+                          GestureDetector(
+                            onTap: () {
+                              navigateTo(context, DiscussionScreen());
+
+                            },
                             child: Column(
                               children: [
                                 Container(
@@ -236,17 +240,15 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                   height: MediaQuery.of(context).size.height *
                                       0.0539956803455724,
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(11),
-                                      topRight: Radius.circular(11),
-                                      bottomLeft: Radius.circular(11),
-                                      bottomRight: Radius.circular(11),
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(11),
                                     ),
-                                    color: Color.fromRGBO(25, 100, 209, 1),
+
                                   ),
-                                  child: Icon(
-                                    Icons.menu_book,
-                                    color: HexColor('FFFFFF'),
+                                  child: Center(
+                                    child: SvgPicture.asset('assets/images/disc.svg',color: HexColor('1964D1'),
+
+                                    ),
                                   ),
                                 ),
                                 SizedBox(
@@ -254,7 +256,7 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                       0.0086393088552916,
                                 ),
                                 Text(
-                                  'Discussion\n    ',
+                                  'Discussion',
                                   style: TextStyle(
                                     fontSize: 10,
                                     fontStyle: FontStyle.normal,
@@ -269,7 +271,7 @@ class _ArticalScreenState extends State<ArticalScreen> {
                             width: MediaQuery.of(context).size.width *
                                 0.0747663551401869,
                           ),
-                          InkWell(
+                          GestureDetector(
                             onTap: () {
                               showDialog(
                                   context: context,
@@ -540,17 +542,15 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                   height: MediaQuery.of(context).size.height *
                                       0.0539956803455724,
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(11),
-                                      topRight: Radius.circular(11),
-                                      bottomLeft: Radius.circular(11),
-                                      bottomRight: Radius.circular(11),
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(11),
                                     ),
-                                    color: Color.fromRGBO(25, 100, 209, 1),
+
                                   ),
-                                  child: Icon(
-                                    Icons.menu_book,
-                                    color: HexColor('FFFFFF'),
+                                  child: Center(
+                                    child: SvgPicture.asset('assets/images/quiz.svg',color: HexColor('1964D1'),
+
+                                    ),
                                   ),
                                 ),
                                 SizedBox(
@@ -558,7 +558,7 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                       0.0086393088552916,
                                 ),
                                 Text(
-                                  'Quizzes\n     ',
+                                  'Quizzes',
                                   style: TextStyle(
                                     fontSize: 10,
                                     fontStyle: FontStyle.normal,
@@ -573,8 +573,11 @@ class _ArticalScreenState extends State<ArticalScreen> {
                             width: MediaQuery.of(context).size.width *
                                 0.0747663551401869,
                           ),
-                          InkWell(
-                            onTap: () {},
+                          GestureDetector(
+                            onTap: () {
+                              navigateTo(context, AssigmentsScreen());
+
+                            },
                             child: Column(
                               children: [
                                 Container(
@@ -583,17 +586,15 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                   height: MediaQuery.of(context).size.height *
                                       0.0539956803455724,
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(11),
-                                      topRight: Radius.circular(11),
-                                      bottomLeft: Radius.circular(11),
-                                      bottomRight: Radius.circular(11),
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(11),
                                     ),
-                                    color: Color.fromRGBO(25, 100, 209, 1),
+
                                   ),
-                                  child: Icon(
-                                    Icons.menu_book,
-                                    color: HexColor('FFFFFF'),
+                                  child: Center(
+                                    child: SvgPicture.asset('assets/images/edit.svg',color: HexColor('1964D1'),
+
+                                    ),
                                   ),
                                 ),
                                 SizedBox(
@@ -601,7 +602,7 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                       0.0086393088552916,
                                 ),
                                 Text(
-                                  'Assignments\n     ',
+                                  'Assigments',
                                   style: TextStyle(
                                     fontSize: 10,
                                     fontStyle: FontStyle.normal,
@@ -616,8 +617,10 @@ class _ArticalScreenState extends State<ArticalScreen> {
                             width: MediaQuery.of(context).size.width *
                                 0.0747663551401869,
                           ),
-                          InkWell(
-                            onTap: () {},
+                          GestureDetector(
+                            onTap: () {
+
+                            },
                             child: Column(
                               children: [
                                 Container(
@@ -626,17 +629,15 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                   height: MediaQuery.of(context).size.height *
                                       0.0539956803455724,
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(11),
-                                      topRight: Radius.circular(11),
-                                      bottomLeft: Radius.circular(11),
-                                      bottomRight: Radius.circular(11),
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(11),
                                     ),
-                                    color: Color.fromRGBO(25, 100, 209, 1),
+
                                   ),
-                                  child: Icon(
-                                    Icons.menu_book,
-                                    color: HexColor('FFFFFF'),
+                                  child: Center(
+                                    child: SvgPicture.asset('assets/images/download.svg',color: HexColor('1964D1'),
+
+                                    ),
                                   ),
                                 ),
                                 SizedBox(
@@ -644,7 +645,7 @@ class _ArticalScreenState extends State<ArticalScreen> {
                                       0.0086393088552916,
                                 ),
                                 Text(
-                                  'Download\n     ',
+                                  'Download',
                                   style: TextStyle(
                                     fontSize: 10,
                                     fontStyle: FontStyle.normal,

@@ -20,7 +20,7 @@ class Mybloc extends Cubit<AppStates> {
 
   Locale? _locale;
 
-  Locale get locale => _locale??Locale('ar');
+  Locale get locale => _locale??Locale('en');
 
   void setLocale(Locale locale) {
     if (!L10n.all.contains(locale)) return;

@@ -73,7 +73,7 @@ class MyApp extends StatelessWidget {
               ],
               theme: lightMode,
               darkTheme: darkMode,
-              themeMode: Mybloc.get(context).appMode,//ThemeMode.light,
+              themeMode: Mybloc.get(context).appMode,
              // routes: {},
             );
           }),
