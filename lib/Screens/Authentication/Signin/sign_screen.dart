@@ -63,7 +63,7 @@ class SignUpScreen extends StatelessWidget {
                       height: SizeConfig.getProportionateScreenHeight(40.7),
                     ),
                     Text(
-                      "To get started — Please create a new account.",
+                      AppLocalizations.of(context)!.to_get_started_please_create_a_new_account,
                       textScaleFactor: 1.0,
                       style: TextStyle(
                         fontSize: 18,
@@ -81,7 +81,7 @@ class SignUpScreen extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          buildColumn(text: "Name"),
+                          buildColumn(text: AppLocalizations.of(context)!.name ),
                           InputFieldWidget(
                             controller: nameController,
                             // onSubmit: (value) {
@@ -93,13 +93,13 @@ class SignUpScreen extends StatelessWidget {
                             //   return null;
                             // },
                             keyboardType: TextInputType.name,
-                            hint: 'Enter your full name',
+                            hint:AppLocalizations.of(context)!.enter_your_full_name,
                             fieldKey: "name",
                           ),
-                          SizedBox(
-                            height: SizeConfig.getProportionateScreenHeight(24),
-                          ),
-                          buildColumn(text: "Email"),
+                          // SizedBox(
+                          //   height: SizeConfig.getProportionateScreenHeight(24),
+                          // ),
+                          buildColumn(text: AppLocalizations.of(context)!.email),
                           InputFieldWidget(
                             controller: emailController,
                             // onSubmit: (value) {
@@ -111,13 +111,13 @@ class SignUpScreen extends StatelessWidget {
                             //   return null;
                             // },
                             keyboardType: TextInputType.emailAddress,
-                            hint: 'Enter your Email',
+                            hint: AppLocalizations.of(context)!.enter_your_email,
                             fieldKey: "email",
                           ),
-                          SizedBox(
-                            height: SizeConfig.getProportionateScreenHeight(24),
-                          ),
-                          buildColumn(text: "Password"),
+                          // SizedBox(
+                          //   height: SizeConfig.getProportionateScreenHeight(24),
+                          // ),
+                          buildColumn(text: AppLocalizations.of(context)!.password),
                           InputFieldWidget(
                               controller: passwordController,
                               // onSubmit: (value) {
@@ -127,7 +127,7 @@ class SignUpScreen extends StatelessWidget {
                               //   return null;
                               // },
                               keyboardType: TextInputType.text,
-                              hint: 'Enter your Password',
+                              hint: AppLocalizations.of(context)!.enter_your_password,
                               fieldKey: "password",
                               suffix: AuthBloc.get(context).suffixIcon,
                               suffixPressed: () {
@@ -136,7 +136,7 @@ class SignUpScreen extends StatelessWidget {
                           SizedBox(
                             height: SizeConfig.getProportionateScreenHeight(24),
                           ),
-                          buildColumn(text: "Confirm Password"),
+                          buildColumn(text:AppLocalizations.of(context)!.confirm_password ),
                           InputFieldWidget(
                               controller: passwordConfirmController,
                               // onSubmit: (value) {
@@ -146,7 +146,7 @@ class SignUpScreen extends StatelessWidget {
                               //   return null;
                               // },
                               keyboardType: TextInputType.text,
-                              hint: 'Enter your Password',
+                              hint: AppLocalizations.of(context)!.enter_your_password,
                               fieldKey: "password",
                               suffix: AuthBloc.get(context).suffixIcon,
                               suffixPressed: () {
@@ -156,7 +156,7 @@ class SignUpScreen extends StatelessWidget {
                             height: SizeConfig.getProportionateScreenHeight(8),
                           ),
                           Text(
-                            'Your Password should be 8 letters or more.',
+                            AppLocalizations.of(context)!.your_password_should_be_8_letters_or_more ,
                             textScaleFactor: 1.0,
                             style: TextStyle(
                               fontSize: 12,
@@ -169,7 +169,7 @@ class SignUpScreen extends StatelessWidget {
                             height: SizeConfig.getProportionateScreenHeight(24),
                           ),
                           Text(
-                            'Please choose your role',
+                            AppLocalizations.of(context)!.please_choose_your_role  ,
                             textScaleFactor: 1.0,
                             style: TextStyle(
                               fontSize: 14,
@@ -185,7 +185,7 @@ class SignUpScreen extends StatelessWidget {
                             children: [
                               buildExpanded(
                                 context: context,
-                                role: "Instructor",
+                                role: AppLocalizations.of(context)!.instructor,
                                 isInstructor:
                                 AuthBloc.get(context).isInstructor,
                               ),
@@ -195,7 +195,7 @@ class SignUpScreen extends StatelessWidget {
                               ),
                               buildExpanded(
                                 context: context,
-                                role: "Student",
+                                role: AppLocalizations.of(context)!.student,
                                 isInstructor:
                                     !AuthBloc.get(context).isInstructor,
                               ),
@@ -228,7 +228,7 @@ class SignUpScreen extends StatelessWidget {
                                 text: TextSpan(
                                   children: <TextSpan>[
                                     TextSpan(
-                                      text: 'You have read and agree our ',
+                                      text:  AppLocalizations.of(context)!.you_have_read_and_agree_our,
                                       style: TextStyle(
                                         fontSize: 14,
                                         fontStyle: FontStyle.normal,
@@ -237,7 +237,7 @@ class SignUpScreen extends StatelessWidget {
                                       ),
                                     ),
                                     TextSpan(
-                                      text: 'Privacy Policy',
+                                      text:AppLocalizations.of(context)!.privacy_policy,
                                       style: TextStyle(
                                         fontSize: 14,
                                         fontStyle: FontStyle.normal,
@@ -267,7 +267,7 @@ class SignUpScreen extends StatelessWidget {
                                   shadowColor: MaterialStateProperty.all(
                                       HexColor("0053CB").withOpacity(0.25))),
                               child: Text(
-                                "Create a new account",
+                                AppLocalizations.of(context)!.create_a_new_account,
                                 textScaleFactor: 1.0,
                                 style: TextStyle(
                                   color: HexColor('FFFFFF'),

@@ -94,7 +94,7 @@ class LoginScreen extends StatelessWidget {
                             //   return null;
                             // },
                             keyboardType: TextInputType.emailAddress,
-                            hint: 'Enter your User Name',
+                            hint: AppLocalizations.of(context)!.enter_your_name,
                             fieldKey: "user name",
                           ),
                           // SizedBox(
@@ -112,7 +112,7 @@ class LoginScreen extends StatelessWidget {
                             // },
                             keyboardType: TextInputType.text,
 
-                            hint: 'Enter your Password',
+                            hint: AppLocalizations.of(context)!.enter_your_password,
                             fieldKey: "password",
                           ),
                           // SizedBox(
