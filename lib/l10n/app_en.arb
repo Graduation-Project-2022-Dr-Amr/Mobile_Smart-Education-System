@@ -45,7 +45,18 @@
   "home": "Home",
   "community": "Community",
   "leaderboard": "Leaderboard",
-  "more": "More"
-
+  "more": "More",
+  "account": "Account",
+  "settings": "Settings",
+  "app_language": "Language",
+  "manage": "Manage",
+  "activity": "Activity",
+  "assignments_quizzes": "Assignments & Quizzes",
+  "my_to_do": " My To Do",
+  "resource": "Resource",
+  "help": "Help",
+  "about_us": "  About us",
+  "sign_out_n": "Sign out",
+  "search": "Search"
 
 }

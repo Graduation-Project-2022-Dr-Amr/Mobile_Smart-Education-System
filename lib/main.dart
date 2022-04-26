@@ -53,7 +53,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => Mybloc()..changeMode(fromCache: isDark),),
+        BlocProvider(create: (context) => Mybloc()..changeMode(fromCache: isDark)
+        ),
       ],
       child: BlocConsumer<Mybloc, AppStates>(
           listener: (context, state) {},
@@ -72,7 +73,7 @@ class MyApp extends StatelessWidget {
               ],
               theme: lightMode,
               darkTheme: darkMode,
-              themeMode: cubit.appMode, //ThemeMode.light,
+              themeMode: Mybloc.get(context).appMode,//ThemeMode.light,
              // routes: {},
             );
           }),

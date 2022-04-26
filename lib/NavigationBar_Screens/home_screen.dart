@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Spacer(),
                   Padding(
-                    padding: EdgeInsets.only(right: SizeConfig.getProportionateScreenWidth(16)),
+                    padding:EdgeInsets.only(right: SizeConfig.getProportionateScreenWidth(16)),
                     child: GestureDetector(
                       onTap: () {},
                       child: Row(

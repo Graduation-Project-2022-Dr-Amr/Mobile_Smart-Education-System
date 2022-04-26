@@ -40,7 +40,21 @@ class Mybloc extends Cubit<AppStates> {
   bool isDark = false;
   bool isRtl = true;
   bool isObsecure = true;
+  String? darkModeRadio = '';
+  String? languageValue='';
+  Color borderColor = Colors.grey.shade300;
+  Color? textFieldColor = Colors.grey[300];
+  Color? myMessageColor = Colors.blueAccent;
+  Color? messageColor = Colors.grey[300];
+  Color? unreadMessage = Colors.grey[300];
+  Color textColor = Colors.black;
+  Color backgroundColor = Colors.white;
+  IconData? icon = Icons.brightness_4_outlined;
   ThemeMode appMode = ThemeMode.light;
+  changeActiveRadio(value) {
+    value = darkModeRadio;
+    emit(ChangeActiveRadio());
+  }
 
   void changeMode({fromCache}) {
     if (fromCache == null) {
@@ -59,12 +73,14 @@ class Mybloc extends Cubit<AppStates> {
           print('dark mode');
         }
         appMode = ThemeMode.dark;
+        darkModeRadio = 'On';
         emit(ChangeModeState());
       } else {
         if (kDebugMode) {
           print('light mode');
         }
         appMode = ThemeMode.light;
+        darkModeRadio = 'Off';
         emit(ChangeModeState());
       }
       emit(ChangeModeState());
@@ -140,31 +156,7 @@ class Mybloc extends Cubit<AppStates> {
     ),
   ];
 
-  //دي عشان لما تغير بين موود ال dark ,light
-  void changeAppMode({bool? fromShared}) {
-    if (fromShared != null) {
-      isDark = fromShared;
-      emit(AppChangeModeState());
-    } else {
-      isDark = !isDark;
-      CacheHelper.saveData(key: 'isDark', value: isDark).then((value) {
-        emit(AppChangeModeState());
-      });
-    }
-  }
 
-//دي عشان لما تغير اتجاه البرنامج من اليمين للشمال
-  void changeAppDirection({bool? fromShared}) {
-    if (fromShared != null) {
-      isRtl = fromShared;
-      emit(AppChangeDirectionState());
-    } else {
-      isRtl = !isRtl;
-      CacheHelper.saveData(key: 'isRtl', value: isRtl).then((value) {
-        emit(AppChangeDirectionState());
-      });
-    }
-  }
 
   void changeBottomNavBar(int index) {
     selectedIndex = index;

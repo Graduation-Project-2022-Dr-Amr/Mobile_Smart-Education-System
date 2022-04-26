@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';import 'package:flutter/services.dart';
+import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-
-ThemeMode appMode = ThemeMode.light;
+Color defaultColor  = Colors.red;
 
 ThemeData get lightMode => ThemeData(
   appBarTheme: AppBarTheme(
@@ -64,7 +62,7 @@ ThemeData get lightMode => ThemeData(
 
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
     backgroundColor: Colors.white,
-    selectedItemColor: Colors.blue,
+    selectedItemColor: defaultColor,
     unselectedItemColor: Colors.grey,
     showUnselectedLabels: true,
     type: BottomNavigationBarType.fixed,
@@ -73,7 +71,7 @@ ThemeData get lightMode => ThemeData(
 /*/////////////////////////////////////////// */ /*/////////////////////////////////////////// */
 ThemeData get darkMode => ThemeData(
   appBarTheme: AppBarTheme(
-    backgroundColor: HexColor('#333739'),
+    backgroundColor: HexColor('#212121'),
     elevation: 0,
     actionsIconTheme: IconThemeData(color: Colors.white),
     titleTextStyle: TextStyle(

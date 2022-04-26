@@ -9,6 +9,7 @@ class AppInitialState extends AppStates {}
 class SetLocalLangState extends AppStates {}
 class ClearLocalLangState extends AppStates {}
 class ChangeModeState extends AppStates {}
+class ChangeActiveRadio extends AppStates {}
 
 class ChangeRoleState extends AppStates {}
 class ChangeStepIndex extends AppStates {}

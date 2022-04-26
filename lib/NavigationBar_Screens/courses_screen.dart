@@ -74,7 +74,8 @@ class _CoursesScreenState extends State<CoursesScreen> {
                           height: MediaQuery.of(context).size.height * .0259179266,
                           width: MediaQuery.of(context).size.width * .0259179266,
                         ),
-                        hintText: 'Search',
+                        hintText: AppLocalizations.of(context)!.search,
+
                         hintStyle: TextStyle(
                           fontSize: 18,
                           fontStyle: FontStyle.normal,
@@ -109,7 +110,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
                     height: SizeConfig.getProportionateScreenHeight(32),
                   ),
                   Text(
-                    'Courses',
+                    AppLocalizations.of(context)!.courses,
                     style: TextStyle(
                       fontSize: 18,
                       fontStyle: FontStyle.normal,
