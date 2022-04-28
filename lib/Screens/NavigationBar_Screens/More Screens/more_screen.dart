@@ -10,6 +10,7 @@ import 'package:smart_education/Logics/StateManagement/Bloc/bloc.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
 import 'package:smart_education/Screens/Authentication/Login/login_screen.dart';
 import 'package:smart_education/Screens/Authentication/Profile/profileScreen.dart';
+import 'package:smart_education/Screens/NavigationBar_Screens/More%20Screens/recent_activity/recent_activity_screen.dart';
 import 'package:smart_education/Screens/NavigationBar_Screens/More%20Screens/todo_part/view/all_tasks_screen.dart';
 import 'package:smart_education/shared/Components/commponents.dart';
 import 'dart:math' as math;
@@ -287,7 +288,7 @@ class MoreScreen extends StatelessWidget {
 
                     InkWell(
                       onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => ToDoScreen())),
+                          MaterialPageRoute(builder: (_) => RecentActivityScreen())),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -308,32 +309,7 @@ class MoreScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(
-                      height: SizeConfig.getProportionateScreenHeight(21),
-                    ),
-                    InkWell(
-                      onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => ToDoScreen())),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Icon(
-                            Icons.watch_later_outlined,
-                          ),
-                          SizedBox(
-                            width: SizeConfig.getProportionateScreenWidth(10),
-                          ),
-                          Text(
-                            AppLocalizations.of(context)!.assignments_quizzes,
-                            style: TextStyle(
-                              color: HexColor('4F4F4F'),
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+
                     SizedBox(
                       height: SizeConfig.getProportionateScreenHeight(21),
                     ),

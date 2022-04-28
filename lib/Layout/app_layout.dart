@@ -46,8 +46,14 @@ class AppLayout extends StatelessWidget {
               label: AppLocalizations.of(context)!.leaderboard,
             ),
             BottomNavigationBarItem(
+              icon: SvgPicture.asset('assets/images/Schedule.svg',
+                color: Mybloc.get(context).selectedIndex == 4 ?Colors.blue:Colors.grey,
+              ),
+              label: "Schedule",//AppLocalizations.of(context)!.more,
+            ),
+            BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/images/more.svg',
-                color: Mybloc.get(context).selectedIndex==4 ?Colors.blue:Colors.grey,
+                color: Mybloc.get(context).selectedIndex == 5 ?Colors.blue:Colors.grey,
               ),
               label: AppLocalizations.of(context)!.more,
             ),

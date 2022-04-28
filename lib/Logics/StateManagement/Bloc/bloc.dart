@@ -9,6 +9,7 @@ import 'package:smart_education/Screens/NavigationBar_Screens/Home%20Screens/hom
 import 'package:smart_education/Screens/NavigationBar_Screens/LeaderBoard%20Screens/leaderboard_screen.dart';
 import 'package:smart_education/Screens/NavigationBar_Screens/More%20Screens/more_screen.dart';
 import '../../../API/api/cacheHelper.dart';
+import '../../../Screens/NavigationBar_Screens/Schedule_Screens/schedule_screen.dart';
 import '../../../l10n/l10n.dart';
 import 'bloc_states.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -93,6 +94,7 @@ class Mybloc extends Cubit<AppStates> {
     CoursesScreen(),
     CommunityScreen(),
     LeaderBoard(),
+    ScheduleScreen(),
     MoreScreen(),
   ];
 
