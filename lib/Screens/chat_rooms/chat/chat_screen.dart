@@ -5,8 +5,8 @@ import 'package:smart_education/Screens/chat_rooms/models/user_model.dart';
 
 class ChatScreen extends StatefulWidget {
   final User user;
-
-  const ChatScreen({required this.user});
+  final String room;
+  const ChatScreen({Key? key, required this.user, required this.room}) : super(key: key);
 
   @override
   _ChatScreenState createState() => _ChatScreenState();
@@ -14,22 +14,10 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   DatabaseReference ref = FirebaseDatabase.instance.ref();
-
+  final _messageController = TextEditingController();
   @override
   void initState() {
     super.initState();
-    _doOperation();
-  }
-
-  _doOperation() async {
-    final newUser = {
-      'id': '3',
-      'name': 'Test',
-    };
-
-    final userRef = ref.child('users').push();
-
-    return userRef.set(newUser);
   }
 
   @override
@@ -52,25 +40,35 @@ class _ChatScreenState extends State<ChatScreen> {
             Expanded(
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: FutureBuilder(
-                    future: _getMessages(),
+                child: StreamBuilder(
+                    stream: _getMessages(),
                     builder: (ctx, snapshot) {
                       if (snapshot.hasData) {
-                        final data = snapshot.data as DataSnapshot,
-                            messages =
-                                data.children.map((e) => Message.fromMap(e.value as Map)).toList().reversed.toList();
+                        final data = snapshot.data as DatabaseEvent,
+                            messages = data.snapshot.children
+                                .map((e) => Message.fromMap(e.value as Map))
+                                .toList()
+                                .reversed
+                                .toList();
 
-                        return ListView.builder(
-                          physics: BouncingScrollPhysics(),
-                          reverse: true,
-                          padding: EdgeInsets.only(top: 15.0),
-                          itemCount: messages.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            final Message message = messages[index];
-                            final bool isMe = message.sender.id == currentUser.id;
-                            return _buildMessage(message, isMe);
-                          },
-                        );
+                        return messages.isEmpty
+                            ? Center(
+                                child: Text('No messages yet, you could be the first one'),
+                              )
+                            : ListView.builder(
+                                physics: BouncingScrollPhysics(),
+                                reverse: true,
+                                padding: EdgeInsets.only(top: 15.0),
+                                itemCount: messages.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  final Message message = messages[index];
+                                  final bool isMe = message.sender.id == currentUser.id;
+
+                                  if (!isMe) _updateLastMessage();
+
+                                  return _buildMessage(message, isMe);
+                                },
+                              );
                       } else {
                         return Center(
                           child: CircularProgressIndicator(),
@@ -88,16 +86,11 @@ class _ChatScreenState extends State<ChatScreen> {
 
   _buildMessage(Message message, bool isMe) {
     final Container msg = Container(
-      margin: isMe
-          ? EdgeInsets.only(
-              top: 8.0,
-              bottom: 8.0,
-              left: 80.0,
-            )
-          : EdgeInsets.only(
-              top: 8.0,
-              bottom: 8.0,
-            ),
+      margin: EdgeInsets.only(
+        top: 5.0,
+        bottom: 5.0,
+        left: isMe ? 80.0 : 0.0,
+      ),
       padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
       width: MediaQuery.of(context).size.width * 0.75,
       decoration: BoxDecoration(
@@ -148,8 +141,10 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
           Expanded(
             child: TextField(
+              controller: _messageController,
               textCapitalization: TextCapitalization.sentences,
               onChanged: (value) {},
+              onSubmitted: (_) => _onSendMessage(),
               decoration: InputDecoration.collapsed(
                 hintText: 'Send a message...',
                 hintStyle: TextStyle(fontSize: 12),
@@ -168,23 +163,38 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   void _onSendMessage() async {
-    final roomId = 'rooms/1-2';
+    if (_messageController.text.isEmpty) return;
+
     final newMessage = {
       'sender': {
         'id': 1,
         'name': 'Hoda',
       },
-      'text': 'This is a test message',
+      'text': _messageController.text,
       'time': DateTime.now().millisecondsSinceEpoch.toString(),
       'isRead': false,
     };
 
-    final messagesRef = ref.child(roomId).push();
-
+    final messagesRef = ref.child(_roomName).push();
+    _resetMessage();
     return messagesRef.set(newMessage);
   }
 
-  _getMessages() async {
-    return ref.child('rooms/1-2').get();
+  void _updateLastMessage() async {
+    final chats = await ref.child(_roomName).get();
+    final lastMessage = ref.child(_roomName).child(chats.children.last.key.toString());
+    return lastMessage.update({'isRead': true});
+  }
+
+  Stream<DatabaseEvent> _getMessages() {
+    return ref.child(_roomName).onValue;
+  }
+
+  void _resetMessage() {
+    _messageController.clear();
+  }
+
+  get _roomName {
+    return 'rooms/${widget.room}';
   }
 }
