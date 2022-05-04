@@ -80,7 +80,7 @@ class RecentChats extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 5.0),
-                    chat.unread
+                    chat.isRead
                         ? Container(
                             padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                             decoration: BoxDecoration(
