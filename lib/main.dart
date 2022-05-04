@@ -5,12 +5,15 @@ import 'package:smart_education/NavigationBar_Screens/start_screen.dart';
 import 'package:smart_education/Screens/Authentication/Login/login_screen.dart';
 import 'package:smart_education/Screens/Joining%20University/search_screen.dart';
 import 'package:smart_education/Screens/Onboarding/onboarding.dart';
+import 'package:smart_education/Screens/chat_rooms/chat/chat_screen.dart';
+import 'package:smart_education/Screens/chat_rooms/chat_rooms_screen.dart';
 
 import 'API/api/cacheHelper.dart';
 import 'API/api/dio_helper.dart';
 import 'API/api/endPoints.dart';
 import 'Logics/StateManagement/Bloc/bloc.dart';
 import 'Logics/StateManagement/Bloc/bloc_states.dart';
+import 'Screens/chat_rooms/models/user_model.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -40,7 +43,8 @@ void main() async {
   runApp(MyApp(
     isDark: isDark,
     isRtl: isRtl,
-    startWidget: widget,
+    startWidget: ChatRoomsScreen(),
+    // startWidget: ChatScreen(user: User(id: 1, name: 'Ahmed')),
   ));
 }
 
