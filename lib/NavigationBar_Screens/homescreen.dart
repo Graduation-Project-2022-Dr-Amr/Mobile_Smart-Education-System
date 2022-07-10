@@ -149,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget testCourseItem(context, index) => GestureDetector(
     onTap: () {
-      navigateTo(context, CourseScreen());
+      //navigateTo(context, CourseScreen());
     },
     child: Container(
       margin: EdgeInsets.only(right: SizeConfig.getProportionateScreenWidth(15)),

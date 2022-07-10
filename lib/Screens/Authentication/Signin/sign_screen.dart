@@ -19,6 +19,7 @@ class SignUpScreen extends StatelessWidget {
   var nameController = TextEditingController();
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
+  var passwordConfirmController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +31,9 @@ class SignUpScreen extends StatelessWidget {
           if (state is SignUpSuccessState) {
             CacheHelper.saveData(
               key: 'token',
-              value: state.signUpUserModel.token,
+              value: state.registerModel.token,
             ).then((value) {
-              TOKEN = state.signUpUserModel.token;
+              TOKEN = state.registerModel.token;
               navigateandFinish(context, SearchScreen());
             });
           }
@@ -133,6 +134,25 @@ class SignUpScreen extends StatelessWidget {
                                 AuthBloc.get(context).changeSuffexIcon();
                               }),
                           SizedBox(
+                            height: SizeConfig.getProportionateScreenHeight(24),
+                          ),
+                          buildColumn(text: "Confirm Password"),
+                          InputFieldWidget(
+                              controller: passwordConfirmController,
+                              // onSubmit: (value) {
+                              //   if (value!.isEmpty || value.length < 8) {
+                              //     return 'Password is to short at least 8 !';
+                              //   }
+                              //   return null;
+                              // },
+                              keyboardType: TextInputType.text,
+                              hint: 'Enter your Password',
+                              fieldKey: "password",
+                              suffix: AuthBloc.get(context).suffixIcon,
+                              suffixPressed: () {
+                                AuthBloc.get(context).changeSuffexIcon();
+                              }),
+                          SizedBox(
                             height: SizeConfig.getProportionateScreenHeight(8),
                           ),
                           Text(
@@ -199,8 +219,10 @@ class SignUpScreen extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                  width: SizeConfig.getProportionateScreenWidth(
-                                      15)),
+                                width: SizeConfig.getProportionateScreenWidth(
+                                  15,
+                                ),
+                              ),
                               RichText(
                                 textAlign: TextAlign.center,
                                 text: TextSpan(
@@ -258,13 +280,15 @@ class SignUpScreen extends StatelessWidget {
                                 if (formKey.currentState!.validate() ||
                                     nameController.text.trim().isEmpty ||
                                     nameController.text.trim().length < 3 ||
-                                    !AuthBloc.get(context).isChecked) {
+                                    !AuthBloc.get(context).isChecked ||
+                                    passwordController.text ==
+                                        passwordConfirmController.text) {
                                   AuthBloc.get(context).RegisterMethod(
                                     username: nameController.text,
                                     email: emailController.text,
                                     password: passwordController.text,
-                                    confirm_password: passwordController.text,
-                                    is_student: true,
+                                    confirm_password:
+                                        passwordConfirmController.text,
                                   );
                                 }
                               },

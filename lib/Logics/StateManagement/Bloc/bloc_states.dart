@@ -1,4 +1,4 @@
-import '../../../data/Models/userModel.dart';
+import '../../../data/Models/student_register_model.dart';
 
 abstract class AppStates {}
 
@@ -20,6 +20,7 @@ class AppSearchedLoadingState extends AppStates {}
 
 class AppSearchedLoadedState extends AppStates {}
 
+
 class AppSearchedErrorState extends AppStates {
   final String error;
 
@@ -30,9 +31,9 @@ class AppSearchedErrorState extends AppStates {
 class LoginLoadingState extends AppStates {}
 
 class LoginSuccessState extends AppStates {
-  final UserModel loginUserModel;
+  //final UserModel loginUserModel;
 
-  LoginSuccessState(this.loginUserModel);
+  LoginSuccessState();
 }
 
 class LoginErrorState extends AppStates {}
@@ -44,9 +45,33 @@ class LoginErrorState extends AppStates {}
 class SignUpLoadingState extends AppStates {}
 
 class SignUpSuccessState extends AppStates {
-  final UserModel signUpUserModel;
+  final StudentRegisterModel registerModel;
 
-  SignUpSuccessState(this.signUpUserModel);
+  SignUpSuccessState(this.registerModel);
 }
 
 class SignUpErrorState extends AppStates {}
+
+
+/// courses
+class CourseLoadingState extends AppStates {}
+
+class CourseSuccessState extends AppStates {}
+
+class CourseErrorState extends AppStates {}
+
+/// chapter Details
+
+class ChapterLoadingState extends AppStates {}
+
+class ChapterSuccessState extends AppStates {}
+
+class ChapterErrorState extends AppStates {}
+
+/// Video Details
+
+class VideoLoadingState extends AppStates {}
+
+class VideoSuccessState extends AppStates {}
+
+class VideoErrorState extends AppStates {}
