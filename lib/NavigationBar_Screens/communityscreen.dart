@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:smart_education/shared/constants/size_config.dart';
+import 'package:smartEdu/shared/constants/size_config.dart';
 
 import 'leaderboard_screen.dart';
 
@@ -29,33 +29,31 @@ class _CommunityScreenState extends State<CommunityScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
-              Text("Community",style: TextStyle(
-                  fontSize: 16,fontWeight: FontWeight.bold,
-                  color: HexColor("333333")
-              ),),
+              Text(
+                "Community",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: HexColor("333333")),
+              ),
               SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
-
               _buildTabs(),
               SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
-
               _activeIndex == 0
                   ? Container(
-                child: ListView.separated(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  itemBuilder: (context, index) => buildItem(
-                    context,
-                    index,
-                  ),
-                  separatorBuilder: (context, index) => SizedBox(
-                    height: SizeConfig.getProportionateScreenHeight(8),
-                  ),
-                  itemCount: 5,
-                ),
-              )
+                      child: ListView.separated(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        itemBuilder: (context, index) => buildItem(
+                          context,
+                          index,
+                        ),
+                        separatorBuilder: (context, index) => SizedBox(
+                          height: SizeConfig.getProportionateScreenHeight(8),
+                        ),
+                        itemCount: 5,
+                      ),
+                    )
                   : Center(
-                child: Text("Chat Pages"),
-              ),
+                      child: Text("Chat Pages"),
+                    ),
             ],
           ),
         ),
@@ -83,18 +81,15 @@ class _CommunityScreenState extends State<CommunityScreen> {
                     horizontal: SizeConfig.getProportionateScreenWidth(24),
                     vertical: SizeConfig.getProportionateScreenHeight(8)),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                      SizeConfig.getProportionateScreenWidth(28)),
-                  color: _activeIndex == index
-                      ? HexColor("2F80ED")
-                      : HexColor("F2F2F2"),
+                  borderRadius: BorderRadius.circular(SizeConfig.getProportionateScreenWidth(28)),
+                  color: _activeIndex == index ? HexColor("2F80ED") : HexColor("F2F2F2"),
                 ),
                 child: Text(
                   _getName(index),
-                  style: TextStyle(color:  _activeIndex == index
-                      ? Colors.white
-                      : HexColor("828282"),fontSize: 16,fontWeight: FontWeight.w700),
-
+                  style: TextStyle(
+                      color: _activeIndex == index ? Colors.white : HexColor("828282"),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700),
                 ),
               ),
             );
@@ -116,9 +111,9 @@ class _CommunityScreenState extends State<CommunityScreen> {
 }
 
 Widget buildItem(
-    context,
-    index,
-    ) =>
+  context,
+  index,
+) =>
     Container(
       width: SizeConfig.getProportionateScreenWidth(396),
       height: SizeConfig.getProportionateScreenHeight(101),
@@ -139,20 +134,14 @@ Widget buildItem(
             'Lörem ipsum testbädd faning internet of things.',
             textScaleFactor: 1.0,
             style: TextStyle(
-                color: HexColor('FFFFFF'),
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-                fontStyle: FontStyle.normal),
+                color: HexColor('FFFFFF'), fontSize: 16, fontWeight: FontWeight.w400, fontStyle: FontStyle.normal),
           ),
           Spacer(),
           Text(
             "Today at 1:01 PM",
             textScaleFactor: 1.0,
             style: TextStyle(
-                color: HexColor('FFFFFF'),
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
-                fontStyle: FontStyle.normal),
+                color: HexColor('FFFFFF'), fontSize: 12, fontWeight: FontWeight.w400, fontStyle: FontStyle.normal),
           )
         ],
       ),

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smart_education/Screens/Authentication/Login/login_screen.dart';
-import 'package:smart_education/Screens/Joining%20University/explore_all_cources_screeen.dart';
-import 'package:smart_education/Screens/Onboarding/onboarding.dart';
-import 'package:smart_education/data/api/dio_helper.dart';
-import 'package:smart_education/data/api/endPoints.dart';
+import 'package:smartEdu/Screens/Joining%20University/explore_all_cources_screeen.dart';
+import 'package:smartEdu/data/api/endPoints.dart';
+import 'package:smartEdu/Screens/Authentication/Login/login_screen.dart';
+import 'package:smartEdu/Screens/Onboarding/onboarding.dart';
+import 'package:smartEdu/data/api/dio_helper.dart';
 
 import 'Logics/StateManagement/Bloc/bloc.dart';
 import 'Logics/StateManagement/Bloc/bloc_states.dart';
 import 'data/api/cacheHelper.dart';
+import 'data/api/dio_helper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,11 +30,7 @@ void main() async {
   } else {
     widget = OnboardingScreen();
   }
-  runApp(MyApp(
-    isDark: isDark,
-    isRtl: isRtl,
-    startWidget: widget,
-  ));
+  runApp(MyApp(isDark: isDark, isRtl: isRtl, startWidget: widget));
 }
 
 class MyApp extends StatelessWidget {

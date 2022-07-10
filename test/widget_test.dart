@@ -7,14 +7,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:smart_education/Screens/Onboarding/onboarding.dart';
+import 'package:smartEdu/Screens/Onboarding/onboarding.dart';
 
-import 'package:smart_education/main.dart';
+import 'package:smartEdu/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp(isDark: false,startWidget: OnboardingScreen(),));
+    await tester.pumpWidget(MyApp(
+      isDark: false,
+      startWidget: OnboardingScreen(),
+    ));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:smart_education/shared/constants/my_colors.dart';
+import 'package:smartEdu/shared/constants/my_colors.dart';
 
 var darkmode = ThemeData(
   inputDecorationTheme: InputDecorationTheme(

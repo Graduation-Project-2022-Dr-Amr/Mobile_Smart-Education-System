@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smart_education/NavigationBar_Screens/coursesscreen.dart';
-import 'package:smart_education/NavigationBar_Screens/homescreen.dart';
-import 'package:smart_education/NavigationBar_Screens/leaderboard_screen.dart';
-import 'package:smart_education/NavigationBar_Screens/communityscreen.dart';
-import 'package:smart_education/data/api/cacheHelper.dart';
+import 'package:smartEdu/NavigationBar_Screens/coursesscreen.dart';
+import 'package:smartEdu/NavigationBar_Screens/homescreen.dart';
+import 'package:smartEdu/NavigationBar_Screens/leaderboard_screen.dart';
+import 'package:smartEdu/NavigationBar_Screens/communityscreen.dart';
+import 'package:smartEdu/data/api/cacheHelper.dart';
 import 'bloc_states.dart';
-import 'package:smart_education/NavigationBar_Screens/profilescreen.dart';
+import 'package:smartEdu/NavigationBar_Screens/profilescreen.dart';
 
 class Mybloc extends Cubit<AppStates> {
   Mybloc() : super(AppInitialState());
@@ -21,8 +21,6 @@ class Mybloc extends Cubit<AppStates> {
   bool isRtl = true;
   bool isObsecure = true;
 
-
-
 //تحط هنا الاسكرينات اللي عندك  في التطبيق عشان لو هتستخدمهم  في ال BottomNavigationBar
   List<Widget> screens = [
     HomeScreen(),
@@ -31,8 +29,6 @@ class Mybloc extends Cubit<AppStates> {
     LeaderBoard(),
     ProfileScreen(),
   ];
-
-
 
   List<BottomNavigationBarItem> bottomItemsArabic = [
     BottomNavigationBarItem(
@@ -117,8 +113,6 @@ class Mybloc extends Cubit<AppStates> {
     }
   }
 
-
-
 //دي عشان لما تغير اتجاه البرنامج من اليمين للشمال
   void changeAppDirection({bool? fromShared}) {
     if (fromShared != null) {
@@ -138,5 +132,4 @@ class Mybloc extends Cubit<AppStates> {
   }
 
   bool showPassword = false;
-
 }

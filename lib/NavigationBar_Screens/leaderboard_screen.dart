@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:smart_education/shared/constants/size_config.dart';
+import 'package:smartEdu/shared/constants/size_config.dart';
 
 class LeaderBoard extends StatefulWidget {
   LeaderBoard({Key? key}) : super(key: key);
@@ -20,22 +20,17 @@ class _LeaderBoardState extends State<LeaderBoard> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-
       body: DefaultTabController(
         length: 3,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(16)),
               child: Text(
                 "leaderboard",
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: HexColor("333333")),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: HexColor("333333")),
               ),
             ),
             SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
@@ -44,7 +39,6 @@ class _LeaderBoardState extends State<LeaderBoard> {
               child: _buildTabs(),
             ),
             SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
-
             Flexible(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(16)),
@@ -71,25 +65,19 @@ class _LeaderBoardState extends State<LeaderBoard> {
             return GestureDetector(
               onTap: (() => setState(() => _activeIndex = index)),
               child: Container(
-                margin: EdgeInsets.only(
-                    right: SizeConfig.getProportionateScreenWidth(8)),
+                margin: EdgeInsets.only(right: SizeConfig.getProportionateScreenWidth(8)),
                 alignment: Alignment.center,
                 padding: EdgeInsets.symmetric(
                     horizontal: SizeConfig.getProportionateScreenWidth(24),
                     vertical: SizeConfig.getProportionateScreenHeight(8)),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                      SizeConfig.getProportionateScreenWidth(28)),
-                  color: _activeIndex == index
-                      ? HexColor("2F80ED")
-                      : HexColor("F2F2F2"),
+                  borderRadius: BorderRadius.circular(SizeConfig.getProportionateScreenWidth(28)),
+                  color: _activeIndex == index ? HexColor("2F80ED") : HexColor("F2F2F2"),
                 ),
                 child: Text(
                   _getName(index),
                   style: TextStyle(
-                      color: _activeIndex == index
-                          ? Colors.white
-                          : HexColor("828282"),
+                      color: _activeIndex == index ? Colors.white : HexColor("828282"),
                       fontSize: 16,
                       fontWeight: FontWeight.w700),
                 ),
@@ -147,9 +135,9 @@ bool isRTL(BuildContext context) {
 }
 
 Widget buildItem(
-    context,
-    index,
-    ) =>
+  context,
+  index,
+) =>
     Container(
         width: SizeConfig.getProportionateScreenWidth(396),
         height: SizeConfig.getProportionateScreenHeight(54),
@@ -165,7 +153,7 @@ Widget buildItem(
                   maxRadius: SizeConfig.getProportionateScreenWidth(26),
                   backgroundColor: HexColor('C4C4C4'),
                 ),
-                SizedBox(width:SizeConfig.getProportionateScreenWidth(16)),
+                SizedBox(width: SizeConfig.getProportionateScreenWidth(16)),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -202,7 +190,6 @@ Widget buildItem(
                 ),
               ],
             ),
-
           ],
         ));
 

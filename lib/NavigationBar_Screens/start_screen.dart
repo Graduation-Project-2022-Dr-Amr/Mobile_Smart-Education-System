@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:smart_education/Logics/StateManagement/Bloc/bloc.dart';
-import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
+import 'package:smartEdu/Logics/StateManagement/Bloc/bloc.dart';
+import 'package:smartEdu/Logics/StateManagement/Bloc/bloc_states.dart';
 
 import '../shared/constants/size_config.dart';
 
@@ -25,7 +25,7 @@ class StartScreen extends StatelessWidget {
                 //width: SizeConfig.getProportionateScreenWidth(113),
                 //height: SizeConfig.getProportionateScreenHeight(26.2),
                 //fit: BoxFit.contain,
-                color: Mybloc.get(context).selectedIndex == 0? HexColor('2F80ED'):HexColor('BDBDBD'),
+                color: Mybloc.get(context).selectedIndex == 0 ? HexColor('2F80ED') : HexColor('BDBDBD'),
               ),
               label: 'Home',
             ),
@@ -35,7 +35,7 @@ class StartScreen extends StatelessWidget {
                 //width: SizeConfig.getProportionateScreenWidth(113),
                 //height: SizeConfig.getProportionateScreenHeight(26.2),
                 //fit: BoxFit.contain,
-                color: Mybloc.get(context).selectedIndex == 1? HexColor('2F80ED'):HexColor('BDBDBD'),
+                color: Mybloc.get(context).selectedIndex == 1 ? HexColor('2F80ED') : HexColor('BDBDBD'),
               ),
               label: 'Courses',
             ),
@@ -45,7 +45,7 @@ class StartScreen extends StatelessWidget {
                 //width: SizeConfig.getProportionateScreenWidth(113),
                 //height: SizeConfig.getProportionateScreenHeight(26.2),
                 //fit: BoxFit.contain,
-                color: Mybloc.get(context).selectedIndex == 2? HexColor('2F80ED'):HexColor('BDBDBD'),
+                color: Mybloc.get(context).selectedIndex == 2 ? HexColor('2F80ED') : HexColor('BDBDBD'),
               ),
               label: 'Community',
             ),
@@ -55,7 +55,7 @@ class StartScreen extends StatelessWidget {
                 //width: SizeConfig.getProportionateScreenWidth(113),
                 //height: SizeConfig.getProportionateScreenHeight(26.2),
                 //fit: BoxFit.contain,
-                color: Mybloc.get(context).selectedIndex == 3? HexColor('2F80ED'):HexColor('BDBDBD'),
+                color: Mybloc.get(context).selectedIndex == 3 ? HexColor('2F80ED') : HexColor('BDBDBD'),
               ),
               label: 'Leaderboard',
             ),
@@ -65,14 +65,14 @@ class StartScreen extends StatelessWidget {
                 //width: SizeConfig.getProportionateScreenWidth(113),
                 //height: SizeConfig.getProportionateScreenHeight(26.2),
                 //fit: BoxFit.contain,
-                color: Mybloc.get(context).selectedIndex == 4? HexColor('2F80ED'):HexColor('BDBDBD'),
+                color: Mybloc.get(context).selectedIndex == 4 ? HexColor('2F80ED') : HexColor('BDBDBD'),
               ),
               label: 'More',
             ),
           ];
           return Scaffold(
             backgroundColor: Colors.white,
-            appBar:AppBar(
+            appBar: AppBar(
               title: SvgPicture.asset(
                 'assets/Logo.svg',
                 width: SizeConfig.getProportionateScreenWidth(113),
@@ -98,10 +98,10 @@ class StartScreen extends StatelessWidget {
                 CircleAvatar(
                   maxRadius: SizeConfig.getProportionateScreenWidth(16),
                   minRadius: SizeConfig.getProportionateScreenWidth(16),
-                  child:Text("N",style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white
-                  ),),
+                  child: Text(
+                    "N",
+                    style: TextStyle(fontSize: 14, color: Colors.white),
+                  ),
                   backgroundColor: HexColor("0053CB"),
                 ),
                 SizedBox(width: SizeConfig.getProportionateScreenWidth(16)),
@@ -136,8 +136,7 @@ class StartScreen extends StatelessWidget {
                 // ),
               ],
             ),
-            body:
-            Mybloc.get(context).screens[Mybloc.get(context).selectedIndex],
+            body: Mybloc.get(context).screens[Mybloc.get(context).selectedIndex],
             bottomNavigationBar: BottomNavigationBar(
               unselectedFontSize: 12,
               selectedFontSize: 12,
@@ -149,7 +148,7 @@ class StartScreen extends StatelessWidget {
               selectedItemColor: HexColor('2F80ED'),
               unselectedItemColor: HexColor('BDBDBD'),
               type: BottomNavigationBarType.fixed,
-              items: bottomItemsEnglish,//Mybloc.get(context).bottomItemsEnglish,
+              items: bottomItemsEnglish, //Mybloc.get(context).bottomItemsEnglish,
             ),
           );
         },
@@ -168,8 +167,7 @@ void show(BuildContext ctx) {
       },
       child: Container(
         decoration: BoxDecoration(
-            color: HexColor('0053CB'),
-            borderRadius: BorderRadius.vertical(top: Radius.circular(24.5221))),
+            color: HexColor('0053CB'), borderRadius: BorderRadius.vertical(top: Radius.circular(24.5221))),
         height: MediaQuery.of(ctx).size.height * 0.1090712742980562,
         alignment: Alignment.center,
         child: Column(
@@ -189,8 +187,7 @@ void show(BuildContext ctx) {
               height: 2,
               color: HexColor('C4E2FC'),
             ),
-            SizedBox(
-                height: MediaQuery.of(ctx).size.height * 0.0259179265658747),
+            SizedBox(height: MediaQuery.of(ctx).size.height * 0.0259179265658747),
             Text(
               'CONTINUE STUDYING',
               style: TextStyle(

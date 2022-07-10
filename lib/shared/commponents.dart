@@ -1,10 +1,9 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:smart_education/Logics/StateManagement/Bloc/bloc.dart';
-import 'package:smart_education/NavigationBar_Screens/start_screen.dart';
-import 'package:smart_education/shared/constants/my_colors.dart';
-
+import 'package:smartEdu/Logics/StateManagement/Bloc/bloc.dart';
+import 'package:smartEdu/NavigationBar_Screens/start_screen.dart';
+import 'package:smartEdu/shared/constants/my_colors.dart';
 
 List<Map> coursesData = [
   {
@@ -93,15 +92,13 @@ List<Map> articalassignment = [
   {'name': ' | 8 Assignments'},
 ];
 
-
 Widget divider() => Divider(
       thickness: 0.3,
       color: MyColors.dark,
     );
 
 //navigateTo(context,ScreenName()); <<==لما تعمل انتقال بين شاشتين تستخدما وتحط في الزر اللي يعمل انتقال
-void navigateTo(context, widget) =>
-    Navigator.push(context, MaterialPageRoute(builder: (context) => widget));
+void navigateTo(context, widget) => Navigator.push(context, MaterialPageRoute(builder: (context) => widget));
 
 void navigateandFinish(
   context,
@@ -113,9 +110,6 @@ void navigateandFinish(
           builder: (context) => widget,
         ),
         (Route<dynamic> route) => false);
-
-
-
 
 Widget customRadioButton(String text, int index) {
   return MaterialButton(

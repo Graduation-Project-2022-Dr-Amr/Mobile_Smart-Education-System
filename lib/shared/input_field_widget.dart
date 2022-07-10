@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:smart_education/shared/constants/size_config.dart';
+import 'package:smartEdu/shared/constants/size_config.dart';
 
 class InputFieldWidget extends StatelessWidget {
   final TextEditingController controller;
@@ -9,17 +9,17 @@ class InputFieldWidget extends StatelessWidget {
   final TextInputType keyboardType;
   final String hint;
   final String fieldKey;
-  IconData ?suffix;
+  IconData? suffix;
   Function()? suffixPressed;
-  InputFieldWidget({
-    Key? key,
-    required this.controller,
-    required this.keyboardType,
-    required this.hint,
-    required this.fieldKey,
-    this.suffix,
-    this.suffixPressed
-  }) : super(key: key);
+  InputFieldWidget(
+      {Key? key,
+      required this.controller,
+      required this.keyboardType,
+      required this.hint,
+      required this.fieldKey,
+      this.suffix,
+      this.suffixPressed})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -50,11 +50,11 @@ class InputFieldWidget extends StatelessWidget {
           ),
           suffixIcon: suffix != null
               ? IconButton(
-            onPressed: suffixPressed,
-            icon: Icon(
-              suffix,
-            ),
-          )
+                  onPressed: suffixPressed,
+                  icon: Icon(
+                    suffix,
+                  ),
+                )
               : null,
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(

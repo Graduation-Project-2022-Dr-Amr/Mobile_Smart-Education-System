@@ -4,7 +4,7 @@
 
 import 'dart:convert';
 
-import 'package:smart_education/data/Models/video.dart';
+import 'package:smartEdu/data/Models/video.dart';
 
 //List<ChapterWithVideos> chapterWithVideosFromJson(String str) => List<ChapterWithVideos>.from(json.decode(str).map((x) => ChapterWithVideos.fromJson(x)));
 
@@ -41,4 +41,3 @@ class ChapterWithVideos {
   //   "videos": List<dynamic>.from(videos.map((x) => x.toJson())),
   // };
 }
-

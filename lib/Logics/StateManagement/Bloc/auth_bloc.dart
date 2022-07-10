@@ -1,9 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smart_education/data/Models/student_register_model.dart';
-import 'package:smart_education/data/api/dio_helper.dart';
-import 'package:smart_education/data/api/endPoints.dart';
+import 'package:smartEdu/data/Models/student_register_model.dart';
+import 'package:smartEdu/data/api/dio_helper.dart';
+import 'package:smartEdu/data/api/endPoints.dart';
 import 'bloc_states.dart';
 
 class AuthBloc extends Cubit<AppStates> {
@@ -36,7 +36,6 @@ class AuthBloc extends Cubit<AppStates> {
     isChecked = !isChecked;
     emit(ChangeCheckBoxState());
   }
-
 
   // void LoginMethod({
   //   required String username,

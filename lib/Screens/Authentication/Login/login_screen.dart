@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:smart_education/Logics/StateManagement/Bloc/auth_bloc.dart';
-import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
-import 'package:smart_education/Screens/Authentication/Signin/sign_screen.dart';
-import 'package:smart_education/Screens/Joining%20University/explore_all_cources_screeen.dart';
-import 'package:smart_education/data/api/endPoints.dart';
-import 'package:smart_education/shared/commponents.dart';
-import 'package:smart_education/shared/constants/size_config.dart';
+import 'package:smartEdu/Logics/StateManagement/Bloc/auth_bloc.dart';
+import 'package:smartEdu/Logics/StateManagement/Bloc/bloc_states.dart';
+import 'package:smartEdu/Screens/Authentication/Signin/sign_screen.dart';
+import 'package:smartEdu/Screens/Joining%20University/explore_all_cources_screeen.dart';
+import 'package:smartEdu/data/api/endPoints.dart';
+import 'package:smartEdu/shared/commponents.dart';
+import 'package:smartEdu/shared/constants/size_config.dart';
 
 import '../../../data/api/cacheHelper.dart';
 import '../../../shared/input_field_widget.dart';
@@ -49,8 +49,7 @@ class LoginScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    SizedBox(
-                        height: SizeConfig.getProportionateScreenHeight(50)),
+                    SizedBox(height: SizeConfig.getProportionateScreenHeight(50)),
                     Center(
                       child: SvgPicture.asset(
                         'assets/Logo.svg',
@@ -126,8 +125,7 @@ class LoginScreen extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            height:
-                                SizeConfig.getProportionateScreenHeight(318),
+                            height: SizeConfig.getProportionateScreenHeight(318),
                           ),
                           Container(
                             //56 396

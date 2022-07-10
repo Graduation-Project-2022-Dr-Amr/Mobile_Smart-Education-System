@@ -1,6 +1,6 @@
 // import 'package:dio/dio.dart';
-// import 'package:smart_education/data/api/api_constants.dart';
-// import 'package:smart_education/data/api/dio_helper.dart';
+// import 'package:smartEdu/data/api/api_constants.dart';
+// import 'package:smartEdu/data/api/dio_helper.dart';
 //
 // class AuthApi {
 //   DioHelper dioHelper = DioHelper();

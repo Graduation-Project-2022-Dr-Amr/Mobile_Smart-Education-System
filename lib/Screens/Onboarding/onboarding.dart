@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:smart_education/Screens/Authentication/Login/login_screen.dart';
-import 'package:smart_education/Screens/Authentication/Signin/sign_screen.dart';
-import 'package:smart_education/shared/commponents.dart';
-import 'package:smart_education/shared/constants/size_config.dart';
+import 'package:smartEdu/Screens/Authentication/Login/login_screen.dart';
+import 'package:smartEdu/Screens/Authentication/Signin/sign_screen.dart';
+import 'package:smartEdu/shared/commponents.dart';
+import 'package:smartEdu/shared/constants/size_config.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../data/api/cacheHelper.dart';
@@ -35,8 +35,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   List<BoardingModel> boarding = [
     BoardingModel(
       title: 'Best Learning Exp.',
-      body:
-          'No more frequent flaws, no boundaries\nbetween the teacher and his students.',
+      body: 'No more frequent flaws, no boundaries\nbetween the teacher and his students.',
       image: 'assets/onboarding1.svg',
     ),
     BoardingModel(
@@ -91,8 +90,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               children: [
                 TextButton(
                   style: ButtonStyle(
-                    foregroundColor: MaterialStateProperty.all(
-                        HexColor(pageIndex != 0 ? '0053CB' : 'e3f2fd')),
+                    foregroundColor: MaterialStateProperty.all(HexColor(pageIndex != 0 ? '0053CB' : 'e3f2fd')),
                   ),
                   onPressed: pageIndex != 0
                       ? () {
@@ -124,8 +122,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 Spacer(),
                 TextButton(
                   style: ButtonStyle(
-                    foregroundColor: MaterialStateProperty.all(
-                        HexColor(pageIndex != 2 ? '0053CB' : 'e3f2fd')),
+                    foregroundColor: MaterialStateProperty.all(HexColor(pageIndex != 2 ? '0053CB' : 'e3f2fd')),
                   ),
                   onPressed: pageIndex != 2
                       ? () {
@@ -176,8 +173,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ],
                       ),
                       style: ButtonStyle(
-                        foregroundColor:
-                            MaterialStateProperty.all(HexColor('90CAF9')),
+                        foregroundColor: MaterialStateProperty.all(HexColor('90CAF9')),
                       ),
                       onPressed: () {
                         navigateandFinish(context, LoginScreen());
@@ -195,8 +191,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       SizeConfig.getProportionateScreenHeight(56),
                     ),
                   ),
-                  backgroundColor:
-                      MaterialStateProperty.all(HexColor('0053CB')),
+                  backgroundColor: MaterialStateProperty.all(HexColor('0053CB')),
                 ),
                 child: Text(
                   'Join Now — Create a new account',
@@ -209,8 +204,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                 ),
                 onPressed: () {
-                  CacheHelper.saveData(key: 'ShowOnBoard', value: false)
-                      .then((value) {
+                  CacheHelper.saveData(key: 'ShowOnBoard', value: false).then((value) {
                     if (value) navigateandFinish(context, SignUpScreen());
                   });
                 },
@@ -218,8 +212,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             if (pageIndex == 2)
               TextButton(
                 onPressed: () {
-                  CacheHelper.saveData(key: 'ShowOnBoard', value: false)
-                      .then((value) {
+                  CacheHelper.saveData(key: 'ShowOnBoard', value: false).then((value) {
                     if (value) navigateandFinish(context, LoginScreen());
                   });
                 },
@@ -288,8 +281,7 @@ Widget buildBoarding(BoardingModel model) => Column(
           height: SizeConfig.getProportionateScreenHeight(24),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal: SizeConfig.getProportionateScreenWidth(16)),
+          padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(16)),
           child: Text(
             model.body,
             textScaleFactor: 1.0,

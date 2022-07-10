@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:smart_education/shared/constants/size_config.dart';
+import 'package:smartEdu/shared/constants/size_config.dart';
 
 class InputFieldWidget extends StatelessWidget {
   final TextEditingController controller;

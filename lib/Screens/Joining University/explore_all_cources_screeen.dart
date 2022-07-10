@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:smart_education/Screens/Joining%20University/all_colleges_screen.dart';
-import 'package:smart_education/shared/commponents.dart';
-import 'package:smart_education/shared/constants/size_config.dart';
+import 'package:smartEdu/Screens/Joining%20University/all_colleges_screen.dart';
+import 'package:smartEdu/shared/commponents.dart';
+import 'package:smartEdu/shared/constants/size_config.dart';
 
 class SearchScreen extends StatefulWidget {
   SearchScreen({Key? key}) : super(key: key);
@@ -20,19 +20,15 @@ class _SearchScreenState extends State<SearchScreen> {
     SizeConfig().init(context);
     return Scaffold(
       backgroundColor: Colors.white,
-
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.symmetric(
-              horizontal: SizeConfig.getProportionateScreenWidth(16)
-          ),
+          padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(16)),
           child: Column(
             children: [
               SizedBox(height: SizeConfig.getProportionateScreenHeight(61)),
               Container(
                 width: SizeConfig.getProportionateScreenWidth(396),
-                height:
-                SizeConfig.getProportionateScreenWidth(56),
+                height: SizeConfig.getProportionateScreenWidth(56),
                 child: TextFormField(
                   onTap: () {
                     navigateTo(context, Colleges());
@@ -55,8 +51,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         Icons.search,
                         color: HexColor('C4E2FC'),
                       ),
-                      height:
-                      MediaQuery.of(context).size.height * .0259179266,
+                      height: MediaQuery.of(context).size.height * .0259179266,
                       width: MediaQuery.of(context).size.width * .0259179266,
                     ),
                     hintText: 'Search',
@@ -90,12 +85,9 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                 ),
               ),
-
               SizedBox(
-                height:
-                SizeConfig.getProportionateScreenHeight(46),
+                height: SizeConfig.getProportionateScreenHeight(46),
               ),
-
               SvgPicture.asset(
                 'assets/Notebook.svg',
                 fit: BoxFit.contain,
@@ -103,10 +95,8 @@ class _SearchScreenState extends State<SearchScreen> {
                 height: SizeConfig.getProportionateScreenHeight(346),
               ),
               SizedBox(
-                height:
-                SizeConfig.getProportionateScreenHeight(24),
+                height: SizeConfig.getProportionateScreenHeight(24),
               ),
-
               Text(
                 'To get started, search for a school',
                 textScaleFactor: 1.0,
@@ -118,10 +108,8 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
               ),
               SizedBox(
-                height:
-                SizeConfig.getProportionateScreenHeight(145),
+                height: SizeConfig.getProportionateScreenHeight(145),
               ),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -132,8 +120,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     ),
                   ),
                   SizedBox(
-                    width:
-                    SizeConfig.getProportionateScreenWidth(14),
+                    width: SizeConfig.getProportionateScreenWidth(14),
                   ),
                   Text(
                     'or simply',
@@ -146,8 +133,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     ),
                   ),
                   SizedBox(
-                    width:
-                    SizeConfig.getProportionateScreenWidth(14),
+                    width: SizeConfig.getProportionateScreenWidth(14),
                   ),
                   Expanded(
                     child: Container(
@@ -158,14 +144,11 @@ class _SearchScreenState extends State<SearchScreen> {
                 ],
               ),
               SizedBox(
-                height:
-                SizeConfig.getProportionateScreenHeight(21),
+                height: SizeConfig.getProportionateScreenHeight(21),
               ),
               Container(
-                height:
-                SizeConfig.getProportionateScreenHeight(56),
-                width:
-                SizeConfig.getProportionateScreenWidth(396),
+                height: SizeConfig.getProportionateScreenHeight(56),
+                width: SizeConfig.getProportionateScreenWidth(396),
                 decoration: BoxDecoration(
                   color: HexColor('FFFFFF'),
                   boxShadow: [
@@ -174,10 +157,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     )
                   ],
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(
-                      color: HexColor('0053CB'),
-                      style: BorderStyle.solid,
-                      width: 2),
+                  border: Border.all(color: HexColor('0053CB'), style: BorderStyle.solid, width: 2),
                 ),
                 child: MaterialButton(
                   child: Text("Explore all courses ",

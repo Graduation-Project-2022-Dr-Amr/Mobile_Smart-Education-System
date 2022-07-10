@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smart_education/shared/commponents.dart';
+import 'package:smartEdu/shared/commponents.dart';
 
 import '../NavigationBar_Screens/start_screen.dart';
 
@@ -37,39 +37,39 @@ class _UniversityState extends State<University> {
       ),
     );
   }
-  Widget builduniversityScreen(context) => ListView.separated(
-    shrinkWrap: true,
-    separatorBuilder: (context, index) => Container(
-      height: 1,
-      color: Colors.grey,
-    ),
-    itemBuilder: (context, index) => InkWell(
-      onTap: () {
-        navigateTo(context, StartScreen());
-      },
-      child: Container(
-        width: double.infinity,
-        height: 100,
-        color: Colors.white,
-        child: Row(
-          children: [
-            Icon(
-              Icons.house,
-              color: Colors.blue,
-              size: 50,
-            ),
-            SizedBox(
-              width: 50,
-            ),
-            Text(
-              '${collegesNames[index]['name']}',
-              style: TextStyle(fontSize: 20, color: Colors.black),
-            ),
-          ],
-        ),
-      ),
-    ),
-    itemCount: collegesNames.length,
-  );
 
+  Widget builduniversityScreen(context) => ListView.separated(
+        shrinkWrap: true,
+        separatorBuilder: (context, index) => Container(
+          height: 1,
+          color: Colors.grey,
+        ),
+        itemBuilder: (context, index) => InkWell(
+          onTap: () {
+            navigateTo(context, StartScreen());
+          },
+          child: Container(
+            width: double.infinity,
+            height: 100,
+            color: Colors.white,
+            child: Row(
+              children: [
+                Icon(
+                  Icons.house,
+                  color: Colors.blue,
+                  size: 50,
+                ),
+                SizedBox(
+                  width: 50,
+                ),
+                Text(
+                  '${collegesNames[index]['name']}',
+                  style: TextStyle(fontSize: 20, color: Colors.black),
+                ),
+              ],
+            ),
+          ),
+        ),
+        itemCount: collegesNames.length,
+      );
 }
