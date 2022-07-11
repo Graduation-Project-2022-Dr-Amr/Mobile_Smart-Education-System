@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 
 List<Course> courseFromJson(List<dynamic> str) => List<Course>.from(str.map((x) => Course.fromJson(x)));
@@ -6,38 +5,58 @@ List<Course> courseFromJson(List<dynamic> str) => List<Course>.from(str.map((x) 
 String courseToJson(List<Course> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Course {
-  Course({
-    required this.id,
-    required this.title,
-    required this.description,
-    this.thumbnail,
-    required this.date,
-    required this.teacher,
-  });
+  String? id;
+  String? picture;
+  String? title;
+  String? description;
+  String? university;
+  String? majorTypes;
+  int? category;
+  int? user;
+  List<int>? enrolled;
+  List<int>? modules;
+  List<int>? questions;
 
-  int id;
-  String title;
-  String description;
-  String? thumbnail;
-  DateTime date;
-  int teacher;
+  Course(
+      {this.id,
+      this.picture,
+      this.title,
+      this.description,
+      this.university,
+      this.majorTypes,
+      this.category,
+      this.user,
+      this.enrolled,
+      this.modules,
+      this.questions});
 
-  factory Course.fromJson(Map<String, dynamic> json) => Course(
-    id: json["id"],
-    title: json["title"],
-    description: json["description"],
-    thumbnail: json["thumbnail"],
-    date: DateTime.parse(json["date"]),
-    teacher: json["teacher"],
-  );
+  Course.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    picture = json['picture'];
+    title = json['title'];
+    description = json['description'];
+    university = json['university'];
+    majorTypes = json['major_types'];
+    category = json['category'];
+    user = json['user'];
+    enrolled = json['enrolled'].cast<int>();
+    modules = json['modules'].cast<int>();
+    questions = json['questions'].cast<int>();
+  }
 
-  Map<String, dynamic> toJson() => {
-    "id": id,
-    "title": title,
-    "description": description,
-    "thumbnail": thumbnail,
-    "date": date.toIso8601String(),
-    "teacher": teacher,
-  };
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['picture'] = this.picture;
+    data['title'] = this.title;
+    data['description'] = this.description;
+    data['university'] = this.university;
+    data['major_types'] = this.majorTypes;
+    data['category'] = this.category;
+    data['user'] = this.user;
+    data['enrolled'] = this.enrolled;
+    data['modules'] = this.modules;
+    data['questions'] = this.questions;
+    return data;
+  }
 }
-

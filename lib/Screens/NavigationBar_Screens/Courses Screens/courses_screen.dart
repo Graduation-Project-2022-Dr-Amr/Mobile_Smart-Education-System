@@ -37,16 +37,12 @@ class _CoursesScreenState extends State<CoursesScreen> {
                       children: [
                         Text("Loading .."),
                         SizedBox(width: 10),
-                        SizedBox(
-                            width: 25,
-                            height: 25,
-                            child: CircularProgressIndicator(strokeWidth: 3))
+                        SizedBox(width: 25, height: 25, child: CircularProgressIndicator(strokeWidth: 3))
                       ],
                     ),
                   )
                 : Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: SizeConfig.getProportionateScreenWidth(16)),
+                    padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(16)),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -54,10 +50,8 @@ class _CoursesScreenState extends State<CoursesScreen> {
                           height: SizeConfig.getProportionateScreenHeight(24),
                         ),
                         Container(
-                          width: MediaQuery.of(context).size.width *
-                              0.9252336448598131,
-                          height: MediaQuery.of(context).size.height *
-                              0.060475161987041,
+                          width: MediaQuery.of(context).size.width * 0.9252336448598131,
+                          height: MediaQuery.of(context).size.height * 0.060475161987041,
                           child: TextFormField(
                             onTap: () {},
                             validator: (value) {
@@ -78,10 +72,8 @@ class _CoursesScreenState extends State<CoursesScreen> {
                                   Icons.search,
                                   color: HexColor('C4E2FC'),
                                 ),
-                                height: MediaQuery.of(context).size.height *
-                                    .0259179266,
-                                width: MediaQuery.of(context).size.width *
-                                    .0259179266,
+                                height: MediaQuery.of(context).size.height * .0259179266,
+                                width: MediaQuery.of(context).size.width * .0259179266,
                               ),
                               hintText: AppLocalizations.of(context)!.search,
                               hintStyle: TextStyle(
@@ -133,21 +125,15 @@ class _CoursesScreenState extends State<CoursesScreen> {
                         Expanded(
                           child: GridView.count(
                             crossAxisCount: 2,
-                            childAspectRatio:
-                                (SizeConfig.getProportionateScreenWidth(178) /
-                                    SizeConfig.getProportionateScreenHeight(
-                                        317)),
-                            crossAxisSpacing:
-                                SizeConfig.getProportionateScreenWidth(16),
-                            mainAxisSpacing:
-                                SizeConfig.getProportionateScreenHeight(16),
+                            childAspectRatio: (SizeConfig.getProportionateScreenWidth(178) /
+                                SizeConfig.getProportionateScreenHeight(317)),
+                            crossAxisSpacing: SizeConfig.getProportionateScreenWidth(16),
+                            mainAxisSpacing: SizeConfig.getProportionateScreenHeight(16),
                             physics: BouncingScrollPhysics(),
                             children: List.generate(
                                 courseBloc.allCourses.length,
-                                (index) => testCourseItem(
-                                    context: context,
-                                    index: index,
-                                    allCourses: courseBloc.allCourses)),
+                                (index) =>
+                                    testCourseItem(context: context, index: index, allCourses: courseBloc.allCourses)),
                           ),
                         )
                       ],
@@ -160,8 +146,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
   }
 }
 
-Widget testCourseItem({context, index, required List<Course> allCourses}) =>
-    GestureDetector(
+Widget testCourseItem({context, index, required List<Course> allCourses}) => GestureDetector(
       onTap: () {
         navigateTo(context, CourseScreen(courseData: allCourses[index]));
       },
@@ -202,17 +187,14 @@ Widget testCourseItem({context, index, required List<Course> allCourses}) =>
             Positioned.fill(
               top: SizeConfig.getProportionateScreenHeight(230),
               child: Container(
-                padding: EdgeInsets.only(
-                    right: SizeConfig.getProportionateScreenWidth(12)),
+                padding: EdgeInsets.only(right: SizeConfig.getProportionateScreenWidth(12)),
                 width: SizeConfig.getProportionateScreenWidth(146),
                 alignment: Alignment.center,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal:
-                              SizeConfig.getProportionateScreenWidth(8)),
+                      padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(8)),
                       child: Text(
                         allCourses[index].title.toString(),
                         /*.split(' ')[0] +
@@ -231,12 +213,9 @@ Widget testCourseItem({context, index, required List<Course> allCourses}) =>
                         ),
                       ),
                     ),
-                    SizedBox(
-                        height: SizeConfig.getProportionateScreenHeight(8)),
+                    SizedBox(height: SizeConfig.getProportionateScreenHeight(8)),
                     Text(
-                      allCourses[index].teacher != null || true
-                          ? coursesData[index]['doctorName']
-                          : "",
+                      allCourses[index].university != null || true ? coursesData[index]['doctorName'] : "",
                       textScaleFactor: 1.0,
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -268,8 +247,7 @@ Widget testCourseItem({context, index, required List<Course> allCourses}) =>
                   ),
                   color: Color.fromRGBO(166, 166, 166, 1),
                   image: DecorationImage(
-                    image: NetworkImage(
-                        "https://mohamedameer.pythonanywhere.com/api/${allCourses[index].thumbnail}"),
+                    image: NetworkImage('${allCourses[index].picture}'),
                     //AssetImage('${coursesData[index]['imageURL']}'),
                     fit: BoxFit.cover,
                   ),

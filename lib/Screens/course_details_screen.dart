@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
 import 'package:smart_education/Layout/app_layout.dart';
@@ -22,8 +23,7 @@ class CourseScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return BlocProvider(
-        create: (context) =>
-            CourseBloc()..getAllVideos(courseId: courseData.id),
+        create: (context) => CourseBloc()..getAllVideos(courseId: courseData.id),
         child: BlocConsumer<CourseBloc, AppStates>(
           listener: (context, state) {},
           builder: (context, state) {
@@ -39,9 +39,7 @@ class CourseScreen extends StatelessWidget {
                   children: [
                     Column(
                       children: [
-                        SizedBox(
-                            height:
-                                SizeConfig.getProportionateScreenHeight(497)),
+                        SizedBox(height: SizeConfig.getProportionateScreenHeight(497)),
                         Container(
                           padding: EdgeInsets.only(
                             left: SizeConfig.getProportionateScreenWidth(24),
@@ -57,9 +55,7 @@ class CourseScreen extends StatelessWidget {
                             ),
                             boxShadow: [
                               BoxShadow(
-                                  color: HexColor("0053CB").withOpacity(0.05),
-                                  offset: Offset(6, 6),
-                                  blurRadius: 8)
+                                  color: HexColor("0053CB").withOpacity(0.05), offset: Offset(6, 6), blurRadius: 8)
                             ],
                             color: Colors.white,
                             // border: Border.all(
@@ -81,8 +77,7 @@ class CourseScreen extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                height:
-                                    SizeConfig.getProportionateScreenHeight(16),
+                                height: SizeConfig.getProportionateScreenHeight(16),
                               ),
                               Text(
                                 courseData.description.toString(),
@@ -103,9 +98,7 @@ class CourseScreen extends StatelessWidget {
                         ),
                         Container(
                           alignment: Alignment.centerLeft,
-                          padding: EdgeInsets.symmetric(
-                              horizontal:
-                                  SizeConfig.getProportionateScreenWidth(24)),
+                          padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(24)),
                           child: Text(
                             'Content',
                             textScaleFactor: 1.0, // textAlign: TextAlign.left,
@@ -127,14 +120,13 @@ class CourseScreen extends StatelessWidget {
                             ),
                             currentStep: currentStep,
                             onStepTapped: (int index) {
-                             CourseBloc.get(context).changeIndex(index);
+                              CourseBloc.get(context).changeIndex(index);
                             },
                             controlsBuilder: (context, _) {
                               return Container();
                             },
                             steps: List.generate(chapters.length, (index) {
-                              List<Video> cv = courseBloc.getChapterVideos(
-                                  videos: videos, chapter: chapters[index]);
+                              List<Video> cv = courseBloc.getChapterVideos(videos: videos, chapter: chapters[index]);
                               return Step(
                                   title: Text(
                                     chapters[index].chapterName,
@@ -142,23 +134,14 @@ class CourseScreen extends StatelessWidget {
                                   ),
                                   content: Container(
                                     color: Colors.white,
-                                    padding: EdgeInsets.symmetric(
-                                            horizontal: SizeConfig
-                                                .getProportionateScreenWidth(
-                                                    24))
-                                        .copyWith(
-                                            bottom: SizeConfig
-                                                .getProportionateScreenHeight(
-                                                    10),
-                                            top: SizeConfig
-                                                .getProportionateScreenHeight(
-                                                    5)),
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(24))
+                                            .copyWith(
+                                                bottom: SizeConfig.getProportionateScreenHeight(10),
+                                                top: SizeConfig.getProportionateScreenHeight(5)),
                                     child: Column(
                                       children: List.generate(cv.length, (i) {
-                                        return buildItem(
-                                            context: context,
-                                            chapter: chapters[index],
-                                            video: cv[i]);
+                                        return buildItem(context: context, chapter: chapters[index], video: cv[i]);
                                       }),
                                     ),
                                   ),
@@ -179,8 +162,7 @@ class CourseScreen extends StatelessWidget {
                           ),
                           boxShadow: [
                             BoxShadow(
-                                color: Color.fromRGBO(
-                                    0, 83, 203, 0.05000000074505806),
+                                color: Color.fromRGBO(0, 83, 203, 0.05000000074505806),
                                 offset: Offset(6, 6),
                                 blurRadius: 8)
                           ],
@@ -189,15 +171,11 @@ class CourseScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             SizedBox(
-                              height:
-                                  SizeConfig.getProportionateScreenHeight(32),
+                              height: SizeConfig.getProportionateScreenHeight(32),
                             ),
                             Row(
                               children: [
-                                SizedBox(
-                                    width:
-                                        SizeConfig.getProportionateScreenWidth(
-                                            21)),
+                                SizedBox(width: SizeConfig.getProportionateScreenWidth(21)),
                                 IconButton(
                                   onPressed: () {
                                     navigateTo(context, AppLayout());
@@ -211,15 +189,12 @@ class CourseScreen extends StatelessWidget {
                             ClipRRect(
                               child: Image.asset(
                                 'assets/images/course1.png',
-                                width:
-                                    SizeConfig.getProportionateScreenWidth(130),
-                                height: SizeConfig.getProportionateScreenHeight(
-                                    190),
+                                width: SizeConfig.getProportionateScreenWidth(130),
+                                height: SizeConfig.getProportionateScreenHeight(190),
                               ),
                             ),
                             SizedBox(
-                              height:
-                                  SizeConfig.getProportionateScreenHeight(24),
+                              height: SizeConfig.getProportionateScreenHeight(24),
                             ),
                             Text(
                               courseData.title.toString(),
@@ -231,13 +206,10 @@ class CourseScreen extends StatelessWidget {
                                   color: HexColor('FFFFFF')),
                             ),
                             SizedBox(
-                              height:
-                                  SizeConfig.getProportionateScreenHeight(8),
+                              height: SizeConfig.getProportionateScreenHeight(8),
                             ),
                             Text(
-                              courseData.teacher != null || true
-                                  ? coursesData[0]['doctorName']
-                                  : "",
+                              courseData.user != null || true ? coursesData[0]['doctorName'] : "",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 12,
@@ -246,14 +218,11 @@ class CourseScreen extends StatelessWidget {
                                   color: HexColor('FFFFFF')),
                             ),
                             SizedBox(
-                              height:
-                                  SizeConfig.getProportionateScreenHeight(24),
+                              height: SizeConfig.getProportionateScreenHeight(24),
                             ),
                             Container(
-                              width:
-                                  SizeConfig.getProportionateScreenWidth(396),
-                              height:
-                                  SizeConfig.getProportionateScreenHeight(74),
+                              width: SizeConfig.getProportionateScreenWidth(396),
+                              height: SizeConfig.getProportionateScreenHeight(74),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(15),
@@ -275,27 +244,20 @@ class CourseScreen extends StatelessWidget {
                                             Icons.watch,
                                             color: HexColor('FFFFFF'),
                                           ),
-                                          SizedBox(
-                                              width: SizeConfig
-                                                  .getProportionateScreenWidth(
-                                                      8)),
+                                          SizedBox(width: SizeConfig.getProportionateScreenWidth(8)),
                                           Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               Text(
                                                 'Length',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                     color: HexColor('FFFFFF'),
-                                                    fontFamily:
-                                                        'SF Pro Display',
+                                                    fontFamily: 'SF Pro Display',
                                                     fontSize: 10,
                                                     fontStyle: FontStyle.normal,
-                                                    letterSpacing:
-                                                        0.10000000149011612,
+                                                    letterSpacing: 0.10000000149011612,
                                                     fontWeight: FontWeight.w300,
                                                     height: 1),
                                               ),
@@ -305,12 +267,10 @@ class CourseScreen extends StatelessWidget {
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                     color: HexColor('FFFFFF'),
-                                                    fontFamily:
-                                                        'SF Pro Display',
+                                                    fontFamily: 'SF Pro Display',
                                                     fontSize: 14,
                                                     fontStyle: FontStyle.normal,
-                                                    letterSpacing:
-                                                        0.10000000149011612,
+                                                    letterSpacing: 0.10000000149011612,
                                                     fontWeight: FontWeight.w600,
                                                     height: 1),
                                               ),
@@ -319,9 +279,7 @@ class CourseScreen extends StatelessWidget {
                                         ],
                                       ),
                                       SizedBox(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.1191588785046729,
+                                        width: MediaQuery.of(context).size.width * 0.1191588785046729,
                                       ),
                                       Row(
                                         children: [
@@ -329,27 +287,20 @@ class CourseScreen extends StatelessWidget {
                                             Icons.quiz_outlined,
                                             color: HexColor('FFFFFF'),
                                           ),
-                                          SizedBox(
-                                              width: SizeConfig
-                                                  .getProportionateScreenWidth(
-                                                      8)),
+                                          SizedBox(width: SizeConfig.getProportionateScreenWidth(8)),
                                           Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               Text(
                                                 'Quizzes',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                     color: HexColor('FFFFFF'),
-                                                    fontFamily:
-                                                        'SF Pro Display',
+                                                    fontFamily: 'SF Pro Display',
                                                     fontSize: 10,
                                                     fontStyle: FontStyle.normal,
-                                                    letterSpacing:
-                                                        0.10000000149011612,
+                                                    letterSpacing: 0.10000000149011612,
                                                     fontWeight: FontWeight.w300,
                                                     height: 1),
                                               ),
@@ -359,12 +310,10 @@ class CourseScreen extends StatelessWidget {
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                     color: HexColor('FFFFFF'),
-                                                    fontFamily:
-                                                        'SF Pro Display',
+                                                    fontFamily: 'SF Pro Display',
                                                     fontSize: 14,
                                                     fontStyle: FontStyle.normal,
-                                                    letterSpacing:
-                                                        0.10000000149011612,
+                                                    letterSpacing: 0.10000000149011612,
                                                     fontWeight: FontWeight.w600,
                                                     height: 1),
                                               ),
@@ -373,9 +322,7 @@ class CourseScreen extends StatelessWidget {
                                         ],
                                       ),
                                       SizedBox(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.1191588785046729,
+                                        width: MediaQuery.of(context).size.width * 0.1191588785046729,
                                       ),
                                       Row(
                                         children: [
@@ -383,27 +330,20 @@ class CourseScreen extends StatelessWidget {
                                             Icons.watch,
                                             color: HexColor('FFFFFF'),
                                           ),
-                                          SizedBox(
-                                              width: SizeConfig
-                                                  .getProportionateScreenWidth(
-                                                      8)),
+                                          SizedBox(width: SizeConfig.getProportionateScreenWidth(8)),
                                           Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               Text(
                                                 'Assignments',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                     color: HexColor('FFFFFF'),
-                                                    fontFamily:
-                                                        'SF Pro Display',
+                                                    fontFamily: 'SF Pro Display',
                                                     fontSize: 10,
                                                     fontStyle: FontStyle.normal,
-                                                    letterSpacing:
-                                                        0.10000000149011612,
+                                                    letterSpacing: 0.10000000149011612,
                                                     fontWeight: FontWeight.w300,
                                                     height: 1),
                                               ),
@@ -413,12 +353,10 @@ class CourseScreen extends StatelessWidget {
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                     color: HexColor('FFFFFF'),
-                                                    fontFamily:
-                                                        'SF Pro Display',
+                                                    fontFamily: 'SF Pro Display',
                                                     fontSize: 14,
                                                     fontStyle: FontStyle.normal,
-                                                    letterSpacing:
-                                                        0.10000000149011612,
+                                                    letterSpacing: 0.10000000149011612,
                                                     fontWeight: FontWeight.w600,
                                                     height: 1),
                                               ),
@@ -451,12 +389,7 @@ Widget buildItem({context, chapter, required Video video}) => InkWell(
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-                color: HexColor("0053CB").withOpacity(0.05),
-                offset: Offset(6, 6),
-                blurRadius: 8)
-          ],
+          boxShadow: [BoxShadow(color: HexColor("0053CB").withOpacity(0.05), offset: Offset(6, 6), blurRadius: 8)],
           color: Colors.white,
         ),
         padding: EdgeInsets.all(SizeConfig.getProportionateScreenWidth(8)),
@@ -473,12 +406,9 @@ Widget buildItem({context, chapter, required Video video}) => InkWell(
                     bottomRight: Radius.circular(8),
                   ),
                   color: Color.fromRGBO(0, 0, 0, 0.5),
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/hateme.png'),
-                      fit: BoxFit.fitWidth),
+                  image: DecorationImage(image: AssetImage('assets/images/hateme.png'), fit: BoxFit.fitWidth),
                 )),
-            SizedBox(
-                width: MediaQuery.of(context).size.width * 0.0186915887850467),
+            SizedBox(width: MediaQuery.of(context).size.width * 0.0186915887850467),
             Container(
               child: Column(
                 children: <Widget>[
@@ -493,9 +423,7 @@ Widget buildItem({context, chapter, required Video video}) => InkWell(
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  SizedBox(
-                      height: MediaQuery.of(context).size.height *
-                          0.0086393088552916),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.0086393088552916),
                   Row(
                     children: <Widget>[
                       Row(
@@ -517,9 +445,7 @@ Widget buildItem({context, chapter, required Video video}) => InkWell(
                           ),
                         ],
                       ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width *
-                              0.0373831775700935),
+                      SizedBox(width: MediaQuery.of(context).size.width * 0.0373831775700935),
                       Row(
                         children: [
                           Icon(
@@ -533,16 +459,13 @@ Widget buildItem({context, chapter, required Video video}) => InkWell(
                                 color: Color.fromRGBO(51, 51, 51, 1),
                                 fontFamily: 'SF Pro Display',
                                 fontSize: 12,
-                                letterSpacing:
-                                    0 /*percentages not used in flutter. defaulting to zero*/,
+                                letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
                                 fontWeight: FontWeight.normal,
                                 height: 1),
                           ),
                         ],
                       ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width *
-                              0.0373831775700935),
+                      SizedBox(width: MediaQuery.of(context).size.width * 0.0373831775700935),
                       Row(
                         children: [
                           Icon(
@@ -556,8 +479,7 @@ Widget buildItem({context, chapter, required Video video}) => InkWell(
                                 color: Color.fromRGBO(51, 51, 51, 1),
                                 fontFamily: 'SF Pro Display',
                                 fontSize: 12,
-                                letterSpacing:
-                                    0 /*percentages not used in flutter. defaulting to zero*/,
+                                letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
                                 fontWeight: FontWeight.normal,
                                 height: 1),
                           ),

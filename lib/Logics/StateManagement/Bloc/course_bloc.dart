@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smart_education/API/api/cacheHelper.dart';
 
 import '../../../API/Models/chapter.dart';
 import '../../../API/Models/course.dart';
@@ -22,16 +23,12 @@ class CourseBloc extends Cubit<AppStates> {
   List<Course> allCourses = [];
 
   void getAllCourses() {
-    DioHelper.getData(
-            url: courses, token: "87bbba43d275f6c5746ad900a2254b23e01e630d")
-        .then((value) {
-      print(
-          "this is important course ${value.data} and type ${value.data.runtimeType}");
+    DioHelper.getData(url: courses, token: CacheHelper.getData('token')).then((value) {
+      print("this is important course ${value.data} and type ${value.data.runtimeType}");
       allCourses = courseFromJson(value.data);
 
       if (kDebugMode) {
-        print(
-            '============Course Information=================================');
+        print('============Course Information=================================');
         for (var element in allCourses) {
           print("Course  $element");
         }
@@ -55,19 +52,14 @@ class CourseBloc extends Cubit<AppStates> {
   //
   // List<Video> chapterVideos = [];
 
-  void getAllChapters(
-      {required List<Video> courseVideos, required int courseId}) async {
-    await DioHelper.getData(
-            url: chapters, token: "87bbba43d275f6c5746ad900a2254b23e01e630d")
-        .then((value) {
-      print(
-          "this is important chapter ${value.data} and type ${value.data.runtimeType}");
+  void getAllChapters({required List<Video> courseVideos, required String courseId}) async {
+    await DioHelper.getData(url: chapters, token: CacheHelper.getData('token')).then((value) {
+      print("this is important chapter ${value.data} and type ${value.data.runtimeType}");
 
       allChapters = chapterFromJson(value.data);
 
       if (kDebugMode) {
-        print(
-            '============Chapters Information=================================');
+        print('============Chapters Information=================================');
         for (var element in allChapters) {
           print("chapter  $element");
         }
@@ -75,8 +67,7 @@ class CourseBloc extends Cubit<AppStates> {
 
       for (var chapter in allChapters) {
         if (chapter.course == courseId) {
-          int isExist =
-              courseChapters.indexWhere((element) => element.id == chapter.id);
+          int isExist = courseChapters.indexWhere((element) => element.id == chapter.id);
           if (isExist < 0) {
             courseChapters.add(chapter);
           }
@@ -165,25 +156,20 @@ class CourseBloc extends Cubit<AppStates> {
   List<Video> courseVideos = [];
 
   void getAllVideos({courseId}) async {
-    await DioHelper.getData(
-            url: videos, token: "87bbba43d275f6c5746ad900a2254b23e01e630d")
-        .then((value) {
-      print(
-          "this is important course ${value.data} and type ${value.data.runtimeType}");
+    await DioHelper.getData(url: videos, token: CacheHelper.getData('token')).then((value) {
+      print("this is important course ${value.data} and type ${value.data.runtimeType}");
 
       allVideos = videoFromJson(value.data);
       //allVideos = value.API;
 
       if (kDebugMode) {
-        print(
-            '============Videos Information=================================');
+        print('============Videos Information=================================');
         //for (var element in allVideos) {print("video  $element");}
       }
 
       for (var video in allVideos) {
         if (video.whichCourse == courseId) {
-          int isExist =
-              courseVideos.indexWhere((element) => element.id == video.id);
+          int isExist = courseVideos.indexWhere((element) => element.id == video.id);
           if (isExist < 0) {
             courseVideos.add(video);
           }

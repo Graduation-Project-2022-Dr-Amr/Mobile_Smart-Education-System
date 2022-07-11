@@ -5,7 +5,7 @@ const LOGOUT = 'logout/';
 const LOGIN = 'api/app_users/login/';
 const REGISTER = 'api/app_users/signup/';
 /*////////////////////===Course Api ===//////////////////////// */
-const courses = "/courses/";
+const courses = "api/classroom/course/";
 const courseDetails = "/course/";
 /*///////////////////////////////////////////////// */
 const chapters = "/chapters/";
