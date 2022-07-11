@@ -2,10 +2,12 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';import 'package:google_fonts/google_fonts.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc.dart';
 import 'package:smart_education/Layout/app_layout.dart';
 import 'package:smart_education/shared/constants/my_colors.dart';
 
+import 'package:fluttertoast/fluttertoast.dart';
 
 List<Map> coursesData = [
   {
@@ -135,3 +137,63 @@ Widget customRadioButton(String text, int index) {
 }
 
 
+void showMyToast({
+  required String text,
+  required ToastStates state,
+}) {
+  Fluttertoast.showToast(
+    msg: text,
+    toastLength: Toast.LENGTH_SHORT,
+    gravity: ToastGravity.BOTTOM,
+    timeInSecForIosWeb: 1,
+    backgroundColor: choseToastColor(state),
+    textColor: Colors.white,
+    fontSize: 16.0,
+  );
+}
+
+enum ToastStates {
+  SUCESS,
+  ERROR,
+  WARNING,
+  SAD,
+  EXCITED,
+  ANGRY,
+  DONE,
+  NOTBAD,
+  EMOJI
+}
+
+Color choseToastColor(ToastStates states) {
+  Color color;
+  switch (states) {
+    case ToastStates.SUCESS:
+      color = HexColor('47b372');
+      break;
+    case ToastStates.DONE:
+      color = HexColor('094cb9');
+      break;
+    case ToastStates.EXCITED:
+      color = HexColor('2d9484');
+      break;
+    case ToastStates.ANGRY:
+      color = HexColor('d56506');
+      break;
+    case ToastStates.NOTBAD:
+      color = HexColor('03989e');
+      break;
+    case ToastStates.EMOJI:
+      color = HexColor('a14242');
+      break;
+    case ToastStates.ERROR:
+      color = HexColor('e13433');
+      break;
+    case ToastStates.WARNING:
+      color = HexColor('4974a5');
+      break;
+    case ToastStates.SAD:
+      color = HexColor('6e7f80');
+      break;
+  }
+  return color;
+}

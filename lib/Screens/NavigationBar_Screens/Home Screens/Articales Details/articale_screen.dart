@@ -8,7 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';import 'package:hexcolor/hexcolor.
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:smart_education/Layout/app_layout.dart';
-import 'package:smart_education/Screens/Onboarding/assigments_screen.dart';
+import 'package:smart_education/Screens/NavigationBar_Screens/Home%20Screens/Articales%20Details/assigments_screen.dart';
 import 'package:smart_education/shared/Components/commponents.dart';
 import 'package:chewie/chewie.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
@@ -576,7 +576,6 @@ class _ArticalScreenState extends State<ArticalScreen> {
                           GestureDetector(
                             onTap: () {
                               navigateTo(context, AssigmentsScreen());
-
                             },
                             child: Column(
                               children: [

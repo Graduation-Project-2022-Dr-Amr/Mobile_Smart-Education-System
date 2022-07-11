@@ -2,21 +2,21 @@
 class LoginModel {
   String? token;
   int? userId;
-  bool? isStudent;
+  String? profile;
 
-  LoginModel({this.token, this.userId, this.isStudent});
+  LoginModel({this.token, this.userId, this.profile});
 
   LoginModel.fromJson(Map<String, dynamic> json) {
     token = json["token"];
     userId = json["user_id"];
-    isStudent = json["is_student"];
+    profile = json["profile"];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  <String, dynamic>{};
+    final Map<String, dynamic> data = <String, dynamic>{};
     data["token"] = token;
     data["user_id"] = userId;
-    data["is_student"] = isStudent;
+    data["profile"] = profile;
     return data;
   }
 }

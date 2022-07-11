@@ -1,6 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_education/Layout/app_layout.dart';
 import 'package:smart_education/Screens/Authentication/Login/login_screen.dart';
 import 'package:smart_education/Screens/Onboarding/onboarding.dart';
@@ -14,27 +16,35 @@ import 'Screens/NavigationBar_Screens/More Screens/todo_part/db/db_helper.dart';
 import 'l10n/l10n.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await DioHelper.init();
   await DbHelper.initDb().then((value) => print("db initialization"));
   await CacheHelper.init();
-  bool? isDark = CacheHelper.getData('isDark');
-  print('Mode dark ==>>> ${isDark}');
-  bool? isRtl = CacheHelper.getData('isRtl');
-  bool? showOnBoard = CacheHelper.getData('ShowOnBoard');
+
   Widget widget;
   TOKEN = CacheHelper.getData('token');
+  bool? showOnBoard = CacheHelper.getData('ShowOnBoard');
 
-  if (showOnBoard == false) {
-    if (TOKEN != null) {
-      widget = AppLayout();
-    } else {
-      widget = LoginScreen();
-    }
-  } else {
-    widget = OnboardingScreen();
+  bool? isDark = CacheHelper.getData('isDark');
+  bool? isRtl = CacheHelper.getData('isRtl');
+
+  if (kDebugMode) {
+    print('Onboarding Status ============>>> $showOnBoard');
+    print('This is TOKEN TOKEN ==========>>> $TOKEN');
+    print('Mode dark ====================>>> $isDark');
+    print('App English ==================>>> $isRtl');
+    print('=============================================================');
   }
+  if (TOKEN != null) {
+    widget = AppLayout();
+  } else if (TOKEN == null && showOnBoard == null) {
+    widget = OnboardingScreen();
+  } else {
+    widget = TOKEN != null ? AppLayout() : LoginScreen();
+  }
+
   runApp(MyApp(
     isDark: isDark,
     isRtl: isRtl,
@@ -53,13 +63,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => Mybloc()..changeMode(fromCache: isDark)
-        ),
+        BlocProvider(
+            create: (context) => Mybloc()..changeMode(fromCache: isDark)),
       ],
       child: BlocConsumer<Mybloc, AppStates>(
           listener: (context, state) {},
           builder: (context, state) {
-            var cubit=Mybloc.get(context);
+            var cubit = Mybloc.get(context);
             return MaterialApp(
               debugShowCheckedModeBanner: false,
               home: startWidget,
@@ -74,7 +84,7 @@ class MyApp extends StatelessWidget {
               theme: lightMode,
               darkTheme: darkMode,
               themeMode: Mybloc.get(context).appMode,
-             // routes: {},
+              // routes: {},
             );
           }),
     );

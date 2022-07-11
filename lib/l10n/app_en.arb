@@ -57,6 +57,9 @@
   "help": "Help",
   "about_us": "  About us",
   "sign_out_n": "Sign out",
-  "search": "Search"
+  "search": "Search",
+  "theme": "Theme",
+  "on": "ON",
+  "off": "OFF"
 
 }

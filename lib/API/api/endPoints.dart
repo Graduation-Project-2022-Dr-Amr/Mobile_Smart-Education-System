@@ -1,10 +1,9 @@
 String? TOKEN = '';
 /*////////////////////=== Auth Api=== /////////////////// */
 const ADMINLOGIN = '/login/';
-const TeacherREGISTER = '/signup/teacher/';
 const LOGOUT = 'logout/';
-const LOGIN = '/login/';
-const StudentREGISTER = '/signup/student/';
+const LOGIN = 'api/app_users/login/';
+const REGISTER = 'api/app_users/signup/';
 /*////////////////////===Course Api ===//////////////////////// */
 const courses = "/courses/";
 const courseDetails = "/course/";

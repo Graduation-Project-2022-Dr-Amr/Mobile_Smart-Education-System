@@ -276,7 +276,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(
             padding: EdgeInsets.only(
                 top: SizeConfig.getProportionateScreenWidth(11),
-                bottom: SizeConfig.getProportionateScreenWidth(4)),
+                bottom: SizeConfig.getProportionateScreenWidth(0)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

@@ -1,7 +1,7 @@
 
 import 'package:smart_education/API/Models/login_model.dart';
 
-import '../../../API/Models/student_register_model.dart';
+import '../../../API/Models/register_model.dart';
 
 abstract class AppStates {}
 
@@ -55,7 +55,7 @@ class LoginErrorState extends AppStates {}
 class SignUpLoadingState extends AppStates {}
 
 class SignUpSuccessState extends AppStates {
-  final StudentRegisterModel registerModel;
+  final RegisterModel registerModel;
 
   SignUpSuccessState(this.registerModel);
 }

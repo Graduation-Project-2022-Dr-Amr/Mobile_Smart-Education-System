@@ -159,8 +159,6 @@ class LoginScreen extends StatelessWidget {
                                     username: userNameController.text,
                                     password: passwordController.text,
                                   );
-                                  TOKEN = CacheHelper.getData('token');
-                                  navigateTo(context, AppLayout());
                                 }
                               },
                             ),

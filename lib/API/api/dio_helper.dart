@@ -11,7 +11,7 @@ class DioHelper {
     }
     dio = Dio(
       BaseOptions(
-        baseUrl: 'http://mohamedameer.pythonanywhere.com/api/',
+        baseUrl: 'http://mohamedameer.pythonanywhere.com/',
         receiveDataWhenStatusError: true,
         connectTimeout: 20 * 1000,
         receiveTimeout: 20 * 1000,
@@ -39,11 +39,14 @@ class DioHelper {
     required String url,
     Map<String, dynamic>? query,
     Map<String, dynamic>? data,
+    String lang = 'en',
     String? token,
   }) async {
     dio.options.headers = {
-      'Content-Type': 'application/json',
-      'Authorization':LOGIN==url ? null :'Token $token'
+      'lang': lang,
+      'Accept': 'application/json',
+      'Authorization': 'Bearer $token',
+      // 'Content-Type': 'application/json',
     };
     return await dio.post(
       url,

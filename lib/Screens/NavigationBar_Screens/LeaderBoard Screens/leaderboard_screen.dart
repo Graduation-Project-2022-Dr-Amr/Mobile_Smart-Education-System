@@ -160,51 +160,47 @@ Widget buildItem(
     index,
     ) =>
     Container(
-        width: SizeConfig.getProportionateScreenWidth(396),
+        width: SizeConfig.getProportionateScreenWidth(400),
         height: SizeConfig.getProportionateScreenHeight(54),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
         ),
-        child: Column(
+        child:  Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
+            CircleAvatar(
+              maxRadius: SizeConfig.getProportionateScreenWidth(26),
+              backgroundColor: HexColor('C4C4C4'),
+            ),
+            SizedBox(width:SizeConfig.getProportionateScreenWidth(16)),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircleAvatar(
-                  maxRadius: SizeConfig.getProportionateScreenWidth(26),
-                  backgroundColor: HexColor('C4C4C4'),
-                ),
-                SizedBox(width:SizeConfig.getProportionateScreenWidth(16)),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      itemData[index]['name'],
-                       style: Theme.of(context).textTheme.headline3!.copyWith(
-                         color: Mybloc.get(context).isDark ? HexColor('#FFFFFF'): HexColor('#4F4F4F'),
-                       ),
-                    ),
-                    Text(
-                      itemData[index]['degree'],
-                      style: Theme.of(context).textTheme.headline3!.copyWith(
-                        color: Mybloc.get(context).isDark ? HexColor('#FFFFFF'): HexColor('#4F4F4F'),
-                      ),
-                    ),
-                  ],
-                ),
-                Spacer(),
                 Text(
-                  itemData[index]['number'],
+                  itemData[index]['name'],
+                  style: Theme.of(context).textTheme.headline3!.copyWith(
+                    color: Mybloc.get(context).isDark ? HexColor('#FFFFFF'): HexColor('#4F4F4F'),
+                  ),
+                ),
+                Text(
+                  itemData[index]['degree'],
                   style: Theme.of(context).textTheme.headline3!.copyWith(
                     color: Mybloc.get(context).isDark ? HexColor('#FFFFFF'): HexColor('#4F4F4F'),
                   ),
                 ),
               ],
             ),
-
+            Spacer(),
+            Text(
+              itemData[index]['number'],
+              style: Theme.of(context).textTheme.headline3!.copyWith(
+                color: Mybloc.get(context).isDark ? HexColor('#FFFFFF'): HexColor('#4F4F4F'),
+              ),
+            ),
           ],
-        ));
+        ),
+    );
 
 List<dynamic> itemData = [
   {'name': 'Devon Lane', 'degree': '12,454', 'number': '1'},

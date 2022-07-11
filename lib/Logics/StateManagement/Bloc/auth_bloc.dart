@@ -1,12 +1,15 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../API/Models/admin_model.dart';
 import '../../../API/Models/login_model.dart';
-import '../../../API/Models/student_register_model.dart';
+import '../../../API/Models/register_model.dart';
 import '../../../API/api/dio_helper.dart';
 import '../../../API/api/endPoints.dart';
+import '../../../shared/Components/commponents.dart';
 import 'bloc_states.dart';
 
 class AuthBloc extends Cubit<AppStates> {
@@ -29,24 +32,25 @@ class AuthBloc extends Cubit<AppStates> {
     emit(SuffixIconState());
     emit(SuffixIconState());
   }
+
   void changeRole() {
     isInstructor = !isInstructor;
     emit(ChangeRoleState());
   }
+
   void changeCheckBox() {
     isChecked = !isChecked;
     emit(ChangeCheckBoxState());
   }
+
 //////////////////////////////////////////////////////////////////////////////
   AdminModel? adminModel;
+
   void getAdminToken() {
     emit(AdminLoadingState());
     DioHelper.postData(
       url: ADMINLOGIN,
-      data:     {
-        "username": "mohamed",
-        "password": "01203"
-      },
+      data: {"username": "mohamed", "password": "01203"},
     ).then((value) {
       adminModel = AdminModel.fromJson(value.data);
       if (kDebugMode) {
@@ -64,37 +68,47 @@ class AuthBloc extends Cubit<AppStates> {
   }
 
   //////////////////////////////////////////////////////////////////////////////
-  StudentRegisterModel? registerModel;
+  RegisterModel? registerModel;
+
   void registerMethod({
     required String username,
     required String email,
     required String password,
-    required String confirm_password,
+    required String password2,
+    required String user_type,
   }) {
-    getAdminToken();
     emit(SignUpLoadingState());
-    print(adminModel!.token);
     DioHelper.postData(
-      url: isInstructor ? TeacherREGISTER : StudentREGISTER,
+      url: REGISTER,
       data: {
-        "username":username,
-        "email":email,
-        "password":password,
-        "password2":confirm_password
+        "username": username,
+        "email": email,
+        "password": password,
+        "password2": password2,
+        "profile": {"user_type": user_type}
       },
-      token: adminModel!.token
     ).then((value) {
-
-      registerModel = StudentRegisterModel.fromJson(value.data);
+      registerModel = RegisterModel.fromJson(value.data);
       if (kDebugMode) {
         print('============User Information=================================');
         print('User Name  is =>> ${registerModel!.user!.username}');
         print('User Email is =>>${registerModel!.user!.email}');
-        print('User Account State  is =>> ${registerModel!.user!.isStudent}');
+        print('User token is =>>${registerModel!.token}');
+        print('User profile is =>>${registerModel!.profile}');
         print('=============================================================');
       }
       emit(SignUpSuccessState(registerModel!));
     }).catchError((error) {
+      if (error is DioError) {
+        if (error.response!.statusCode != 200) {
+          print(error.response!.toString());
+          showMyToast(
+            text:
+            error.response.toString(),
+            state: ToastStates.ERROR,
+          );
+        }
+      }
       emit(SignUpErrorState());
       if (kDebugMode) {
         print('=======================================');
@@ -103,8 +117,10 @@ class AuthBloc extends Cubit<AppStates> {
       }
     });
   }
+
 //////////////////////////////////////////////////////////////////////////////
   LoginModel? loginModel;
+
   void loginMethod({
     required String username,
     required String password,
@@ -123,6 +139,7 @@ class AuthBloc extends Cubit<AppStates> {
         print('User Login Data  =>> ${value.data}');
         print('User Id is =>>${loginModel!.userId}');
         print('User Token is =>>${loginModel!.token}');
+        print('User profile is =>>${loginModel!.profile}');
         print('=====================================================');
       }
       emit(LoginSuccessState(loginModel!));
@@ -135,6 +152,7 @@ class AuthBloc extends Cubit<AppStates> {
       }
     });
   }
+
 //////////////////////////////////////////////////////////////////////////////
   void logOut() {
     emit(LogoutLoadingState());

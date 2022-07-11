@@ -33,25 +33,27 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   bool isLast = false;
   int pageIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     List<BoardingModel> boarding = [
       BoardingModel(
         title: AppLocalizations.of(context)!.best_learning_exp,
-        body: AppLocalizations.of(context)!.no_more_frequent_flaws_no_boundaries_between_the_teacher_and_his_students,
+        body: AppLocalizations.of(context)!
+            .no_more_frequent_flaws_no_boundaries_between_the_teacher_and_his_students,
         image: 'assets/onboarding1.svg',
       ),
       BoardingModel(
         title: AppLocalizations.of(context)!.perfect_community,
-        body:
-        AppLocalizations.of(context)!.you_will_never_walk_alone_is_what_we_worked_for_in_order_to_reduce_the_gap_between_student_and_the_teacher,
+        body: AppLocalizations.of(context)!
+            .you_will_never_walk_alone_is_what_we_worked_for_in_order_to_reduce_the_gap_between_student_and_the_teacher,
         image: 'assets/onboarding2.svg',
       ),
       BoardingModel(
         title: AppLocalizations.of(context)!.join_now,
-        body:
-        AppLocalizations.of(context)!.no_matter_how_complex_your_course_content_is_smart_edu_is_smart_enough_to_keep_students_focused_on_what_they_have_to_do,
+        body: AppLocalizations.of(context)!
+            .no_matter_how_complex_your_course_content_is_smart_edu_is_smart_enough_to_keep_students_focused_on_what_they_have_to_do,
         image: 'assets/onboarding3.svg',
       ),
     ];
@@ -130,6 +132,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   onPressed: pageIndex != 2
                       ? () {
                           if (isLast) {
+                            CacheHelper.saveData(key: 'ShowOnBoard', value: false).then(
+                                  (value) {
+                                if (value) navigateandFinish(context, LoginScreen());
+                              },
+                            );
                             navigateandFinish(context, LoginScreen());
                           } else {
                             boardController.nextPage(
@@ -180,6 +187,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             MaterialStateProperty.all(HexColor('90CAF9')),
                       ),
                       onPressed: () {
+                        CacheHelper.saveData(key: 'ShowOnBoard', value: false).then(
+                              (value) {
+                            if (value) navigateandFinish(context, LoginScreen());
+                          },
+                        );
                         navigateandFinish(context, LoginScreen());
                       },
                     ),
@@ -218,17 +230,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             if (pageIndex == 2)
               TextButton(
                 onPressed: () {
-                  CacheHelper.saveData(key: 'ShowOnBoard', value: false)
-                      .then((value) {
-                    if (value) navigateandFinish(context, LoginScreen());
-                  });
+                  CacheHelper.saveData(key: 'ShowOnBoard', value: false).then(
+                    (value) {
+                      if (value) navigateandFinish(context, LoginScreen());
+                    },
+                  );
                 },
                 child: RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
                     children: <TextSpan>[
                       TextSpan(
-                        text: AppLocalizations.of(context)!.already_have_an_account,
+                        text: AppLocalizations.of(context)!
+                            .already_have_an_account,
                         style: TextStyle(
                           fontSize: 16,
                           fontStyle: FontStyle.normal,

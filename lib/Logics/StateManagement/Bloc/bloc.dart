@@ -1,7 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smart_education/Screens/NavigationBar_Screens/Community%20Screens/community_screen.dart';
 import 'package:smart_education/Screens/NavigationBar_Screens/Courses%20Screens/courses_screen.dart';
@@ -66,18 +67,19 @@ class Mybloc extends Cubit<AppStates> {
     }
     CacheHelper.saveData(key: 'isDark', value: isDark).then((value) {
       if (kDebugMode) {
-        print('cache saved');
+        print('Change Mode Cache Saved');
       }
       if (isDark) {
         if (kDebugMode) {
-          print('dark mode');
+          print('Change Mode is Now Dark mode');
         }
         appMode = ThemeMode.dark;
         darkModeRadio = 'On';
+
         emit(ChangeModeState());
       } else {
         if (kDebugMode) {
-          print('light mode');
+          print('Change Mode is Now light mode');
         }
         appMode = ThemeMode.light;
         darkModeRadio = 'Off';
