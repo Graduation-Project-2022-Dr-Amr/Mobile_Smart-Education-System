@@ -167,7 +167,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
     final newMessage = {
       'sender': {
-        'id': 1,
+        'id': 2,
         'name': 'Hoda',
       },
       'text': _messageController.text,
