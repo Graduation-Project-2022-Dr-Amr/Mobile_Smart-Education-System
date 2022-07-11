@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smart_education/API/Models/user_data_model.dart';
 import '../../../API/Models/admin_model.dart';
 import '../../../API/Models/login_model.dart';
 import '../../../API/Models/register_model.dart';
@@ -103,8 +104,7 @@ class AuthBloc extends Cubit<AppStates> {
         if (error.response!.statusCode != 200) {
           print(error.response!.toString());
           showMyToast(
-            text:
-            error.response.toString(),
+            text: error.response.toString(),
             state: ToastStates.ERROR,
           );
         }
@@ -169,5 +169,32 @@ class AuthBloc extends Cubit<AppStates> {
       emit(LogoutErrorState());
     });
   }
+
+  UserData? userData;
 ////////////////////////////////////////////////////////////////////////////////
+  ///
+  void getUserById({required int id}) {
+    emit(UserDataLoadingState());
+    DioHelper.postData(url: USER_PROFILE + id.toString()).then((value) {
+      userData = UserData.fromJson(value.data);
+      if (kDebugMode) {
+        print('============User Login Data =========================');
+        print('User Login Data  =>> ${value.data}');
+        print('User Id is =>>${userData?.user}');
+        print('User profile is =>>${userData?.picture}');
+        print('=====================================================');
+      }
+      emit(UserDataSuccessState(userData!));
+    }).catchError((error) {
+      emit(LoginErrorState());
+      if (kDebugMode) {
+        print('=====================================================');
+        print('Error in Get Data METHOD method${error.toString()}');
+        print('=====================================================');
+      }
+    });
+  }
 }
+
+//////////////////////////////////////////////////////////////////////////////
+

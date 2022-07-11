@@ -29,10 +29,10 @@ class LoginScreen extends StatelessWidget {
       child: BlocConsumer<AuthBloc, AppStates>(
         listener: (context, state) {
           if (state is LoginSuccessState) {
-            CacheHelper.saveData(
-              key: 'token',
-              value: state.loginUserModel.token,
-            ).then(
+            Future.wait([
+              CacheHelper.saveData(key: 'userId', value: state.loginUserModel.userId),
+              CacheHelper.saveData(key: 'token', value: state.loginUserModel.token)
+            ]).then(
               (value) {
                 TOKEN = state.loginUserModel.token;
                 navigateandFinish(context, AppLayout());
@@ -51,8 +51,7 @@ class LoginScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    SizedBox(
-                        height: SizeConfig.getProportionateScreenHeight(50)),
+                    SizedBox(height: SizeConfig.getProportionateScreenHeight(50)),
                     Center(
                       child: SvgPicture.asset(
                         'assets/images/Logo.svg',
@@ -119,7 +118,7 @@ class LoginScreen extends StatelessWidget {
                           //   height: SizeConfig.getProportionateScreenHeight(23),
                           // ),
                           Text(
-                            AppLocalizations.of(context)!.reset_your_password ,
+                            AppLocalizations.of(context)!.reset_your_password,
                             style: TextStyle(
                               fontSize: 14,
                               fontStyle: FontStyle.normal,
@@ -128,8 +127,7 @@ class LoginScreen extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            height:
-                                SizeConfig.getProportionateScreenHeight(318),
+                            height: SizeConfig.getProportionateScreenHeight(318),
                           ),
                           Container(
                             //56 396
@@ -145,7 +143,7 @@ class LoginScreen extends StatelessWidget {
                             ),
                             child: MaterialButton(
                               child: Text(
-                                AppLocalizations.of(context)!.login ,
+                                AppLocalizations.of(context)!.login,
                                 style: TextStyle(
                                   color: HexColor('FFFFFF'),
                                   fontSize: 18,
@@ -176,7 +174,7 @@ class LoginScreen extends StatelessWidget {
                                 text: TextSpan(
                                   children: <TextSpan>[
                                     TextSpan(
-                                      text:AppLocalizations.of(context)!.dont_have_an_account ,
+                                      text: AppLocalizations.of(context)!.dont_have_an_account,
                                       style: TextStyle(
                                         fontSize: 14,
                                         fontStyle: FontStyle.normal,
@@ -185,7 +183,7 @@ class LoginScreen extends StatelessWidget {
                                       ),
                                     ),
                                     TextSpan(
-                                      text:AppLocalizations.of(context)!.sign_up ,
+                                      text: AppLocalizations.of(context)!.sign_up,
                                       style: TextStyle(
                                         fontSize: 14,
                                         fontStyle: FontStyle.normal,
