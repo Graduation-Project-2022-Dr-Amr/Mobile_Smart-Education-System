@@ -79,6 +79,8 @@ class RecentChats extends StatelessWidget {
                                           CircleAvatar(
                                             radius: 35.0,
                                             backgroundColor: Colors.grey.shade100,
+                                            backgroundImage: NetworkImage(
+                                                'https://static.vecteezy.com/system/resources/previews/005/545/335/original/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg'),
                                           ),
                                           SizedBox(width: 10.0),
                                           Column(
