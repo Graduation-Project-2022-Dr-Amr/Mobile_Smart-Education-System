@@ -50,8 +50,7 @@ class SignUpScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                        height: SizeConfig.getProportionateScreenHeight(50)),
+                    SizedBox(height: SizeConfig.getProportionateScreenHeight(50)),
                     Center(
                       child: SvgPicture.asset(
                         'assets/images/Logo.svg',
@@ -64,8 +63,7 @@ class SignUpScreen extends StatelessWidget {
                       height: SizeConfig.getProportionateScreenHeight(40.7),
                     ),
                     Text(
-                      AppLocalizations.of(context)!
-                          .to_get_started_please_create_a_new_account,
+                      AppLocalizations.of(context)!.to_get_started_please_create_a_new_account,
                       textScaleFactor: 1.0,
                       style: TextStyle(
                         fontSize: 18,
@@ -95,15 +93,13 @@ class SignUpScreen extends StatelessWidget {
                             //   return null;
                             // },
                             keyboardType: TextInputType.name,
-                            hint: AppLocalizations.of(context)!
-                                .enter_your_full_name,
+                            hint: AppLocalizations.of(context)!.enter_your_full_name,
                             fieldKey: "name",
                           ),
                           // SizedBox(
                           //   height: SizeConfig.getProportionateScreenHeight(24),
                           // ),
-                          buildColumn(
-                              text: AppLocalizations.of(context)!.email),
+                          buildColumn(text: AppLocalizations.of(context)!.email),
                           InputFieldWidget(
                             controller: emailController,
                             // onSubmit: (value) {
@@ -115,15 +111,13 @@ class SignUpScreen extends StatelessWidget {
                             //   return null;
                             // },
                             keyboardType: TextInputType.emailAddress,
-                            hint:
-                                AppLocalizations.of(context)!.enter_your_email,
+                            hint: AppLocalizations.of(context)!.enter_your_email,
                             fieldKey: "email",
                           ),
                           // SizedBox(
                           //   height: SizeConfig.getProportionateScreenHeight(24),
                           // ),
-                          buildColumn(
-                              text: AppLocalizations.of(context)!.password),
+                          buildColumn(text: AppLocalizations.of(context)!.password),
                           InputFieldWidget(
                               controller: passwordController,
                               // onSubmit: (value) {
@@ -133,8 +127,7 @@ class SignUpScreen extends StatelessWidget {
                               //   return null;
                               // },
                               keyboardType: TextInputType.text,
-                              hint: AppLocalizations.of(context)!
-                                  .enter_your_password,
+                              hint: AppLocalizations.of(context)!.enter_your_password,
                               fieldKey: "password",
                               suffix: AuthBloc.get(context).suffixIcon,
                               suffixPressed: () {
@@ -143,9 +136,7 @@ class SignUpScreen extends StatelessWidget {
                           SizedBox(
                             height: SizeConfig.getProportionateScreenHeight(24),
                           ),
-                          buildColumn(
-                              text: AppLocalizations.of(context)!
-                                  .confirm_password),
+                          buildColumn(text: AppLocalizations.of(context)!.confirm_password),
                           InputFieldWidget(
                               controller: passwordConfirmController,
                               // onSubmit: (value) {
@@ -155,8 +146,7 @@ class SignUpScreen extends StatelessWidget {
                               //   return null;
                               // },
                               keyboardType: TextInputType.text,
-                              hint: AppLocalizations.of(context)!
-                                  .enter_your_password,
+                              hint: AppLocalizations.of(context)!.enter_your_password,
                               fieldKey: "password",
                               suffix: AuthBloc.get(context).suffixIcon,
                               suffixPressed: () {
@@ -166,8 +156,7 @@ class SignUpScreen extends StatelessWidget {
                             height: SizeConfig.getProportionateScreenHeight(8),
                           ),
                           Text(
-                            AppLocalizations.of(context)!
-                                .your_password_should_be_8_letters_or_more,
+                            AppLocalizations.of(context)!.your_password_should_be_8_letters_or_more,
                             textScaleFactor: 1.0,
                             style: TextStyle(
                               fontSize: 12,
@@ -179,48 +168,47 @@ class SignUpScreen extends StatelessWidget {
                           SizedBox(
                             height: SizeConfig.getProportionateScreenHeight(24),
                           ),
-                          Text(
-                            AppLocalizations.of(context)!
-                                .please_choose_your_role,
-                            textScaleFactor: 1.0,
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: HexColor('0053CB'),
-                              fontStyle: FontStyle.normal,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          SizedBox(
-                            height: SizeConfig.getProportionateScreenHeight(8),
-                          ),
-                          Row(
-                            children: [
-                              buildExpanded(
-                                context: context,
-                                role: AppLocalizations.of(context)!.instructor,
-                                isInstructor:
-                                    AuthBloc.get(context).isInstructor,
-                              ),
-                              SizedBox(
-                                width:
-                                    SizeConfig.getProportionateScreenWidth(16),
-                              ),
-                              buildExpanded(
-                                context: context,
-                                role: AppLocalizations.of(context)!.student,
-                                isInstructor:
-                                    !AuthBloc.get(context).isInstructor,
-                              ),
-                            ],
-                          ),
+                          // Text(
+                          //   AppLocalizations.of(context)!
+                          //       .please_choose_your_role,
+                          //   textScaleFactor: 1.0,
+                          //   style: TextStyle(
+                          //     fontSize: 14,
+                          //     color: HexColor('0053CB'),
+                          //     fontStyle: FontStyle.normal,
+                          //     fontWeight: FontWeight.w500,
+                          //   ),
+                          // ),
+                          // SizedBox(
+                          //   height: SizeConfig.getProportionateScreenHeight(8),
+                          // ),
+                          // Row(
+                          //   children: [
+                          //     buildExpanded(
+                          //       context: context,
+                          //       role: AppLocalizations.of(context)!.instructor,
+                          //       isInstructor:
+                          //           AuthBloc.get(context).isInstructor,
+                          //     ),
+                          //     SizedBox(
+                          //       width:
+                          //           SizeConfig.getProportionateScreenWidth(16),
+                          //     ),
+                          //     buildExpanded(
+                          //       context: context,
+                          //       role: AppLocalizations.of(context)!.student,
+                          //       isInstructor:
+                          //           !AuthBloc.get(context).isInstructor,
+                          //     ),
+                          //   ],
+                          // ),
                           SizedBox(
                             height: SizeConfig.getProportionateScreenHeight(24),
                           ),
                           Row(
                             children: [
                               SizedBox(
-                                height:
-                                    SizeConfig.getProportionateScreenHeight(24),
+                                height: SizeConfig.getProportionateScreenHeight(24),
                                 child: Checkbox(
                                   value: AuthBloc.get(context).isChecked,
                                   onChanged: (value) {
@@ -240,8 +228,7 @@ class SignUpScreen extends StatelessWidget {
                                 text: TextSpan(
                                   children: <TextSpan>[
                                     TextSpan(
-                                      text: AppLocalizations.of(context)!
-                                          .you_have_read_and_agree_our,
+                                      text: AppLocalizations.of(context)!.you_have_read_and_agree_our,
                                       style: TextStyle(
                                         fontSize: 14,
                                         fontStyle: FontStyle.normal,
@@ -250,8 +237,7 @@ class SignUpScreen extends StatelessWidget {
                                       ),
                                     ),
                                     TextSpan(
-                                      text: AppLocalizations.of(context)!
-                                          .privacy_policy,
+                                      text: AppLocalizations.of(context)!.privacy_policy,
                                       style: TextStyle(
                                         fontSize: 10,
                                         fontStyle: FontStyle.normal,
@@ -275,14 +261,11 @@ class SignUpScreen extends StatelessWidget {
                             ),
                             child: ElevatedButton(
                               style: ButtonStyle(
-                                  backgroundColor: MaterialStateProperty.all(
-                                      HexColor("0D47A1")),
+                                  backgroundColor: MaterialStateProperty.all(HexColor("0D47A1")),
                                   elevation: MaterialStateProperty.all(4),
-                                  shadowColor: MaterialStateProperty.all(
-                                      HexColor("0053CB").withOpacity(0.25))),
+                                  shadowColor: MaterialStateProperty.all(HexColor("0053CB").withOpacity(0.25))),
                               child: Text(
-                                AppLocalizations.of(context)!
-                                    .create_a_new_account,
+                                AppLocalizations.of(context)!.create_a_new_account,
                                 textScaleFactor: 1.0,
                                 style: TextStyle(
                                   color: HexColor('FFFFFF'),
@@ -296,17 +279,13 @@ class SignUpScreen extends StatelessWidget {
                                     nameController.text.trim().isEmpty ||
                                     nameController.text.trim().length < 3 ||
                                     !AuthBloc.get(context).isChecked ||
-                                    passwordController.text ==
-                                        passwordConfirmController.text) {
+                                    passwordController.text == passwordConfirmController.text) {
                                   AuthBloc.get(context).registerMethod(
                                     username: nameController.text,
                                     email: emailController.text,
                                     password: passwordController.text,
                                     password2: passwordConfirmController.text,
-                                    user_type:
-                                        !AuthBloc.get(context).isInstructor
-                                            ? "student"
-                                            : "teacher",
+                                    user_type: "student",
                                   );
                                 }
                               },
