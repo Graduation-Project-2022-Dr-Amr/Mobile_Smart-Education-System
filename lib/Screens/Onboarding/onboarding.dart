@@ -40,21 +40,20 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     List<BoardingModel> boarding = [
       BoardingModel(
         title: AppLocalizations.of(context)!.best_learning_exp,
-        body: AppLocalizations.of(context)!
-            .no_more_frequent_flaws_no_boundaries_between_the_teacher_and_his_students,
-        image: 'assets/onboarding1.svg',
+        body: AppLocalizations.of(context)!.no_more_frequent_flaws_no_boundaries_between_the_teacher_and_his_students,
+        image: 'assets/images/onboarding1.svg',
       ),
       BoardingModel(
         title: AppLocalizations.of(context)!.perfect_community,
         body: AppLocalizations.of(context)!
             .you_will_never_walk_alone_is_what_we_worked_for_in_order_to_reduce_the_gap_between_student_and_the_teacher,
-        image: 'assets/onboarding2.svg',
+        image: 'assets/images/onboarding2.svg',
       ),
       BoardingModel(
         title: AppLocalizations.of(context)!.join_now,
         body: AppLocalizations.of(context)!
             .no_matter_how_complex_your_course_content_is_smart_edu_is_smart_enough_to_keep_students_focused_on_what_they_have_to_do,
-        image: 'assets/onboarding3.svg',
+        image: 'assets/images/onboarding3.svg',
       ),
     ];
     return Scaffold(
@@ -93,8 +92,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               children: [
                 TextButton(
                   style: ButtonStyle(
-                    foregroundColor: MaterialStateProperty.all(
-                        HexColor(pageIndex != 0 ? '0053CB' : 'e3f2fd')),
+                    foregroundColor: MaterialStateProperty.all(HexColor(pageIndex != 0 ? '0053CB' : 'e3f2fd')),
                   ),
                   onPressed: pageIndex != 0
                       ? () {
@@ -126,14 +124,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 Spacer(),
                 TextButton(
                   style: ButtonStyle(
-                    foregroundColor: MaterialStateProperty.all(
-                        HexColor(pageIndex != 2 ? '0053CB' : 'e3f2fd')),
+                    foregroundColor: MaterialStateProperty.all(HexColor(pageIndex != 2 ? '0053CB' : 'e3f2fd')),
                   ),
                   onPressed: pageIndex != 2
                       ? () {
                           if (isLast) {
                             CacheHelper.saveData(key: 'ShowOnBoard', value: false).then(
-                                  (value) {
+                              (value) {
                                 if (value) navigateandFinish(context, LoginScreen());
                               },
                             );
@@ -183,12 +180,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ],
                       ),
                       style: ButtonStyle(
-                        foregroundColor:
-                            MaterialStateProperty.all(HexColor('90CAF9')),
+                        foregroundColor: MaterialStateProperty.all(HexColor('90CAF9')),
                       ),
                       onPressed: () {
                         CacheHelper.saveData(key: 'ShowOnBoard', value: false).then(
-                              (value) {
+                          (value) {
                             if (value) navigateandFinish(context, LoginScreen());
                           },
                         );
@@ -207,8 +203,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       SizeConfig.getProportionateScreenHeight(56),
                     ),
                   ),
-                  backgroundColor:
-                      MaterialStateProperty.all(HexColor('0053CB')),
+                  backgroundColor: MaterialStateProperty.all(HexColor('0053CB')),
                 ),
                 child: Text(
                   AppLocalizations.of(context)!.join_now_create_a_new_account,
@@ -221,8 +216,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                 ),
                 onPressed: () {
-                  CacheHelper.saveData(key: 'ShowOnBoard', value: false)
-                      .then((value) {
+                  CacheHelper.saveData(key: 'ShowOnBoard', value: false).then((value) {
                     if (value) navigateandFinish(context, SignUpScreen());
                   });
                 },
@@ -241,8 +235,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   text: TextSpan(
                     children: <TextSpan>[
                       TextSpan(
-                        text: AppLocalizations.of(context)!
-                            .already_have_an_account,
+                        text: AppLocalizations.of(context)!.already_have_an_account,
                         style: TextStyle(
                           fontSize: 16,
                           fontStyle: FontStyle.normal,
@@ -302,8 +295,7 @@ Widget buildBoarding(BoardingModel model) => Column(
           height: SizeConfig.getProportionateScreenHeight(24),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal: SizeConfig.getProportionateScreenWidth(16)),
+          padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(16)),
           child: Text(
             model.body,
             textScaleFactor: 1.0,

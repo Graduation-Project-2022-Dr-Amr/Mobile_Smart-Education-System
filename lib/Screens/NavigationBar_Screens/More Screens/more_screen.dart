@@ -77,132 +77,131 @@ class MoreScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-
                       ],
                     ),
                     SizedBox(
                       height: SizeConfig.getProportionateScreenHeight(58),
                     ),
-                    ExpansionWidget(
-                      titleBuilder: (double animationValue, _, bool isExpand,
-                          toogleFunction) {
-                        return InkWell(
-                          onTap: () => toogleFunction(animated: true),
-                          child: Container(
-                            width: 318,
-                            height: 55,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: Mybloc.get(context).isDark
-                                  ? HexColor('FFFFFF')
-                                  : HexColor('333739'),
-                              border: Border.all(color: cubit.borderColor),
-                            ),
-                            child: Row(
-                              children: [
-                                CircleAvatar(
-                                  child: Icon(
-                                    Icons.dark_mode_outlined,
-                                    color: Colors.grey[600],
-                                    size: 27,
-                                  ),
-                                  backgroundColor: Colors.grey[400],
-                                ),
-                                SizedBox(width: 10),
-                                Text(
-                                  AppLocalizations.of(context)!.theme,
+                    // ExpansionWidget(
+                    //   titleBuilder: (double animationValue, _, bool isExpand,
+                    //       toogleFunction) {
+                    //     return InkWell(
+                    //       onTap: () => toogleFunction(animated: true),
+                    //       child: Container(
+                    //         width: 318,
+                    //         height: 55,
+                    //         decoration: BoxDecoration(
+                    //           borderRadius: BorderRadius.circular(15),
+                    //           color: Mybloc.get(context).isDark
+                    //               ? HexColor('FFFFFF')
+                    //               : HexColor('333739'),
+                    //           border: Border.all(color: cubit.borderColor),
+                    //         ),
+                    //         child: Row(
+                    //           children: [
+                    //             CircleAvatar(
+                    //               child: Icon(
+                    //                 Icons.dark_mode_outlined,
+                    //                 color: Colors.grey[600],
+                    //                 size: 27,
+                    //               ),
+                    //               backgroundColor: Colors.grey[400],
+                    //             ),
+                    //             SizedBox(width: 10),
+                    //             Text(
+                    //               AppLocalizations.of(context)!.theme,
 
-                                  style: Theme.of(context).textTheme.headline3,
-                                ),
-                                Spacer(),
-                                Transform.rotate(
-                                  child: Icon(
-                                    Icons.arrow_forward_ios_sharp,
-                                    color: Mybloc.get(context).isDark
-                                        ? HexColor('333739')
-                                        : HexColor('FFFFFF'),
-                                  ),
-                                  angle: math.pi * animationValue / 0.666,
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
-                      },
-                      content: Column(
-                        children: [
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Container(
-                            width: 318,
-                            height: 55,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: Mybloc.get(context).isDark
-                                  ? HexColor('FFFFFF')
-                                  : HexColor('333739'),
-                              border: Border.all(color: cubit.borderColor),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Radio(
-                                  toggleable: true,
-                                  value: 'On',
-                                  groupValue: cubit.darkModeRadio,
-                                  activeColor: Colors.red,
-                                  onChanged: (value) {
-                                    cubit.changeActiveRadio(value);
-                                    Mybloc.get(context).changeMode();
-                                  },
-                                ),
-                                Text(
-                                  AppLocalizations.of(context)!.on,
+                    //               style: Theme.of(context).textTheme.headline3,
+                    //             ),
+                    //             Spacer(),
+                    //             Transform.rotate(
+                    //               child: Icon(
+                    //                 Icons.arrow_forward_ios_sharp,
+                    //                 color: Mybloc.get(context).isDark
+                    //                     ? HexColor('333739')
+                    //                     : HexColor('FFFFFF'),
+                    //               ),
+                    //               angle: math.pi * animationValue / 0.666,
+                    //             ),
+                    //           ],
+                    //         ),
+                    //       ),
+                    //     );
+                    //   },
+                    //   content: Column(
+                    //     children: [
+                    //       SizedBox(
+                    //         height: 20,
+                    //       ),
+                    //       Container(
+                    //         width: 318,
+                    //         height: 55,
+                    //         decoration: BoxDecoration(
+                    //           borderRadius: BorderRadius.circular(15),
+                    //           color: Mybloc.get(context).isDark
+                    //               ? HexColor('FFFFFF')
+                    //               : HexColor('333739'),
+                    //           border: Border.all(color: cubit.borderColor),
+                    //         ),
+                    //         child: Row(
+                    //           mainAxisAlignment: MainAxisAlignment.start,
+                    //           children: [
+                    //             Radio(
+                    //               toggleable: true,
+                    //               value: 'On',
+                    //               groupValue: cubit.darkModeRadio,
+                    //               activeColor: Colors.red,
+                    //               onChanged: (value) {
+                    //                 cubit.changeActiveRadio(value);
+                    //                 Mybloc.get(context).changeMode();
+                    //               },
+                    //             ),
+                    //             Text(
+                    //               AppLocalizations.of(context)!.on,
 
-                                  style: Theme.of(context).textTheme.headline3,
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            height: 14,
-                          ),
-                          Container(
-                            width: 318,
-                            height: 55,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: Mybloc.get(context).isDark
-                                  ? HexColor('FFFFFF')
-                                  : HexColor('333739'),
-                              border: Border.all(color: cubit.borderColor),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Radio(
-                                  toggleable: true,
-                                  value: 'Off',
-                                  groupValue: cubit.darkModeRadio,
-                                  activeColor: Colors.red,
-                                  onChanged: (value) {
-                                    cubit.changeActiveRadio(value);
-                                    Mybloc.get(context).changeMode();
+                    //               style: Theme.of(context).textTheme.headline3,
+                    //             ),
+                    //           ],
+                    //         ),
+                    //       ),
+                    //       SizedBox(
+                    //         height: 14,
+                    //       ),
+                    //       Container(
+                    //         width: 318,
+                    //         height: 55,
+                    //         decoration: BoxDecoration(
+                    //           borderRadius: BorderRadius.circular(15),
+                    //           color: Mybloc.get(context).isDark
+                    //               ? HexColor('FFFFFF')
+                    //               : HexColor('333739'),
+                    //           border: Border.all(color: cubit.borderColor),
+                    //         ),
+                    //         child: Row(
+                    //           mainAxisAlignment: MainAxisAlignment.start,
+                    //           children: [
+                    //             Radio(
+                    //               toggleable: true,
+                    //               value: 'Off',
+                    //               groupValue: cubit.darkModeRadio,
+                    //               activeColor: Colors.red,
+                    //               onChanged: (value) {
+                    //                 cubit.changeActiveRadio(value);
+                    //                 Mybloc.get(context).changeMode();
 
-                                    // cubit.changeMode();
-                                  },
-                                ),
-                                Text(
-                                  AppLocalizations.of(context)!.off,
-                                  style: Theme.of(context).textTheme.headline3,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    //                 // cubit.changeMode();
+                    //               },
+                    //             ),
+                    //             Text(
+                    //               AppLocalizations.of(context)!.off,
+                    //               style: Theme.of(context).textTheme.headline3,
+                    //             ),
+                    //           ],
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -402,8 +401,7 @@ class MoreScreen extends StatelessWidget {
                     ),
 
                     InkWell(
-                      onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => ToDoScreen())),
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ToDoScreen())),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -428,8 +426,7 @@ class MoreScreen extends StatelessWidget {
                       height: SizeConfig.getProportionateScreenHeight(21),
                     ),
                     InkWell(
-                      onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => ToDoScreen())),
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ToDoScreen())),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -454,8 +451,7 @@ class MoreScreen extends StatelessWidget {
                       height: SizeConfig.getProportionateScreenHeight(21),
                     ),
                     InkWell(
-                      onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => ToDoScreen())),
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ToDoScreen())),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -556,8 +552,7 @@ class MoreScreen extends StatelessWidget {
                                 color: Colors.red,
                               ),
                               SizedBox(
-                                width:
-                                    SizeConfig.getProportionateScreenWidth(10),
+                                width: SizeConfig.getProportionateScreenWidth(10),
                               ),
                               Text(
                                 AppLocalizations.of(context)!.sign_out_n,

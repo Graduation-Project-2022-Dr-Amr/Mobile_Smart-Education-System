@@ -55,7 +55,7 @@ void main() async {
   runApp(MyApp(
     isDark: isDark,
     isRtl: isRtl,
-    startWidget: ChatRoomsScreen(),
+    startWidget: widget,
   ));
 }
 
