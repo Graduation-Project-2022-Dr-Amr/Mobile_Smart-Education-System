@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_education/Layout/app_layout.dart';
 import 'package:smart_education/Screens/Authentication/Login/login_screen.dart';
 import 'package:smart_education/Screens/Onboarding/onboarding.dart';
+import 'package:smart_education/Screens/chat_rooms/chat_rooms_screen.dart';
 import 'package:smart_education/shared/Modes/themes.dart';
 
 import 'API/api/cacheHelper.dart';
@@ -54,7 +55,7 @@ void main() async {
   runApp(MyApp(
     isDark: isDark,
     isRtl: isRtl,
-    startWidget: widget,
+    startWidget: ChatRoomsScreen(),
   ));
 }
 

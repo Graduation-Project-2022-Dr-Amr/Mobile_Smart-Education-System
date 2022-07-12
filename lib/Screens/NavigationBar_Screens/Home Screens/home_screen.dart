@@ -8,6 +8,7 @@ import 'package:smart_education/API/Models/course.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/course_bloc.dart';
+import 'package:smart_education/Screens/NavigationBar_Screens/Courses%20Screens/courses_screen.dart';
 import 'package:smart_education/Screens/NavigationBar_Screens/Home%20Screens/Articales%20Details/articale_screen.dart';
 import 'package:smart_education/Screens/course_details_screen.dart';
 import 'package:smart_education/shared/Components/commponents.dart';
@@ -62,7 +63,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     Padding(
                       padding: EdgeInsets.only(right: SizeConfig.getProportionateScreenWidth(16)),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          navigateTo(context, CoursesScreen());
+                        },
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [

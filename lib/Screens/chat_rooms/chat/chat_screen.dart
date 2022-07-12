@@ -50,7 +50,6 @@ class _ChatScreenState extends State<ChatScreen> {
                                 .toList()
                                 .reversed
                                 .toList();
-
                         return messages.isEmpty
                             ? Center(
                                 child: Text('No messages yet, you could be the first one'),
@@ -64,7 +63,7 @@ class _ChatScreenState extends State<ChatScreen> {
                                   final Message message = messages[index];
                                   final bool isMe = message.sender.id == currentUser.id;
 
-                                  if (!isMe) _updateLastMessage();
+                                  // if (!isMe) _updateLastMessage();
 
                                   return _buildMessage(message, isMe);
                                 },
@@ -167,7 +166,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
     final newMessage = {
       'sender': {
-        'id': 2,
+        'id': 1,
         'name': 'Hoda',
       },
       'text': _messageController.text,
@@ -175,19 +174,20 @@ class _ChatScreenState extends State<ChatScreen> {
       'isRead': false,
     };
 
-    final messagesRef = ref.child(_roomName).push();
+    final messagesRef = FirebaseDatabase.instance.ref().child(_roomName).push();
     _resetMessage();
     return messagesRef.set(newMessage);
   }
 
   void _updateLastMessage() async {
-    final chats = await ref.child(_roomName).get();
-    final lastMessage = ref.child(_roomName).child(chats.children.last.key.toString());
+    final chats = await FirebaseDatabase.instance.ref().child(_roomName).child(_roomName).get();
+    final lastMessage =
+        FirebaseDatabase.instance.ref().child(_roomName).child(_roomName).child(chats.children.last.key.toString());
     return lastMessage.update({'isRead': true});
   }
 
   Stream<DatabaseEvent> _getMessages() {
-    return ref.child(_roomName).onValue;
+    return FirebaseDatabase.instance.ref().child(_roomName).orderByChild('time').onValue;
   }
 
   void _resetMessage() {
