@@ -1,0 +1,112 @@
+{
+  "language": "العربية",
+  "helloWorld": "!مرحبا بالعالم",
+  "hello": "{username} مرحبا",
+  "best_learning_exp": "افضل تعليم",
+  "no_more_frequent_flaws_no_boundaries_between_the_teacher_and_his_students": "لا مزيد من العيوب المتكررة.\nلا حدود بين المعلم وطلابه.",
+  "skip":"تخطي",
+  "perfect_community": "مجتمع مثالي",
+  "you_will_never_walk_alone_is_what_we_worked_for_in_order_to_reduce_the_gap_between_student_and_the_teacher": "\"لن تمشي وحدك أبدًا\" هو ما عملنا من أجله لتقليص الفجوة بين الطالب والمعلم.",
+  "join_now": "انضم الان",
+  "no_matter_how_complex_your_course_content_is_smart_edu_is_smart_enough_to_keep_students_focused_on_what_they_have_to_do": "بغض النظر عن مدى تعقيد محتوى الدورة التدريبية، فإن Smart-edu ذكي بما يكفي لإبقاءالطلاب يركزون على ما يتعين عليهم القيام به.",
+  "join_now_create_a_new_account": "انضم الآن - أنشئ حسابًا جديدًا",
+  "already_have_an_account": "هل لديك حساب؟",
+  "login": "تسجيل",
+  "to_get_started_login_to_your_account": "للبدء - قم بتسجيل الدخول إلى حسابك.",
+  "user_name": "اسم االمستخدم",
+  "password": "كلمة المرور",
+  "reset_your_password": "اعد ضبط كلمه السر؟",
+  "dont_have_an_account": "ليس لديك حساب؟",
+  "sign_up": "اشتراك",
+  "to_get_started_please_create_a_new_account": "للبدء - يرجى إنشاء حساب جديد.",
+  "name": "الاسم",
+  "email": "البريد الالكتروني",
+  "confirm_password": "تأكيد كلمة المرور",
+  "your_password_should_be_8_letters_or_more": "يجب أن تتكون كلمة المرور الخاصة بك من 8 أحرف أو أكثر.",
+  "please_choose_your_role": "الرجاء اختيار دورك",
+  "student": "طالب",
+  "instructor": "معلم",
+  "you_have_read_and_agree_our": "لقد قرأت ووافقت علي  ",
+  "privacy_policy": "سياسة الخصوصية",
+  "create_a_new_account": "انشاء حساب جديد",
+  "enter_your_full_name": "أدخل اسمك الكامل",
+  "enter_your_email": "أدخل بريدك الإلكتروني",
+  "enter_your_password": "ادخل كلمة السري",
+  "enter_your_name": "ادخل اسمك",
+  "profile": "الملف الشخصي",
+  "courses": "الدورات",
+  "see_aLL": "اظهار الكل",
+  "recommended": "مُستَحسَن",
+  "based_on_your_recent_performance_in_quizzes_assignments_we_highly_recommend_reviewing_the_materials_below": "بناءً على أدائك الأخير في الاختبارات والمهام - نوصي بشدة بمراجعة المواد أدناه.",
+  "home": "الصفحة الرئيسية",
+  "community": "تواصل اجتماعي",
+  "leaderboard": "المتصدرين",
+  "more": "المزيد",
+  "account": "الحساب",
+  "settings": "الاعدادات",
+  "app_language": "اللغة",
+  "manage": "اداره",
+  "activity": "النشاط",
+  "assignments_quizzes": "الواجبات والاختبارات",
+  "my_to_do": "واجباتي",
+  "resource": "المصادر",
+  "help": "مساعدة",
+  "about_us": "معلومات عنا",
+  "sign_out_n": "تسجيل الخروج",
+  "search": "بحث",
+  "theme": "الثيم",
+  "on": "تشغيل",
+  "off": "تعطيل"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

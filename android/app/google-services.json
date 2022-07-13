@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "148534944195",
+    "project_id": "ses-graduation",
+    "storage_bucket": "ses-graduation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:148534944195:android:748c75a5792bf8db8cdd76",
+        "android_client_info": {
+          "package_name": "com.example.smart_education"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "148534944195-s1nlh3o8t4lihebo0i939djrbb3eb8p5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhYoFHLS560gLBwuD_e6eHsLWnkbMOw2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "148534944195-s1nlh3o8t4lihebo0i939djrbb3eb8p5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "148534944195-co8b28hmmpl3k0dq8o768pum3k633f7q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.smartedu.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:148534944195:android:13ac57fea05c9f028cdd76",
+        "android_client_info": {
+          "package_name": "com.smart_edu.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "148534944195-s1nlh3o8t4lihebo0i939djrbb3eb8p5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhYoFHLS560gLBwuD_e6eHsLWnkbMOw2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "148534944195-s1nlh3o8t4lihebo0i939djrbb3eb8p5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "148534944195-co8b28hmmpl3k0dq8o768pum3k633f7q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.smartedu.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
