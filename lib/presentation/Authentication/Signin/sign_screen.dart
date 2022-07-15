@@ -120,18 +120,13 @@ class SignUpScreen extends StatelessWidget {
                           buildColumn(text: AppLocalizations.of(context)!.password),
                           InputFieldWidget(
                               controller: passwordController,
-                              // onSubmit: (value) {
-                              //   if (value!.isEmpty || value.length < 8) {
-                              //     return 'Password is to short at least 8 !';
-                              //   }
-                              //   return null;
-                              // },
+                              secureTextEntry: !AuthBloc.get(context).showPassword,
                               keyboardType: TextInputType.text,
                               hint: AppLocalizations.of(context)!.enter_your_password,
                               fieldKey: "password",
-                              suffix: AuthBloc.get(context).suffixIcon,
+                              suffix: AuthBloc.get(context).suffixIcon1,
                               suffixPressed: () {
-                                AuthBloc.get(context).changeSuffexIcon();
+                                AuthBloc.get(context).toggleShowPassword1();
                               }),
                           SizedBox(
                             height: SizeConfig.getProportionateScreenHeight(24),
@@ -139,18 +134,13 @@ class SignUpScreen extends StatelessWidget {
                           buildColumn(text: AppLocalizations.of(context)!.confirm_password),
                           InputFieldWidget(
                               controller: passwordConfirmController,
-                              // onSubmit: (value) {
-                              //   if (value!.isEmpty || value.length < 8) {
-                              //     return 'Password is to short at least 8 !';
-                              //   }
-                              //   return null;
-                              // },
+                              secureTextEntry: !AuthBloc.get(context).showPassword2,
                               keyboardType: TextInputType.text,
                               hint: AppLocalizations.of(context)!.enter_your_password,
                               fieldKey: "password",
-                              suffix: AuthBloc.get(context).suffixIcon,
+                              suffix: AuthBloc.get(context).suffixIcon2,
                               suffixPressed: () {
-                                AuthBloc.get(context).changeSuffexIcon();
+                                AuthBloc.get(context).toggleShowPassword2();
                               }),
                           SizedBox(
                             height: SizeConfig.getProportionateScreenHeight(8),

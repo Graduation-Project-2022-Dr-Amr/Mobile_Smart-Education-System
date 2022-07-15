@@ -96,27 +96,16 @@ class LoginScreen extends StatelessWidget {
                             hint: AppLocalizations.of(context)!.enter_your_name,
                             fieldKey: "user name",
                           ),
-                          // SizedBox(
-                          //   height: SizeConfig.getProportionateScreenHeight(24),
-                          // ),
-                          //Password
+
                           buildColumn(text: AppLocalizations.of(context)!.password),
                           InputFieldWidget(
                             controller: passwordController,
-                            // onSubmit: (value) {
-                            //   if (value!.isEmpty || value.length < 8) {
-                            //     return 'Password is to short at least 8 !';
-                            //   }
-                            //   return null;
-                            // },
-                            keyboardType: TextInputType.text,
-
+                            secureTextEntry: true,
+                            keyboardType: TextInputType.visiblePassword,
                             hint: AppLocalizations.of(context)!.enter_your_password,
                             fieldKey: "password",
                           ),
-                          // SizedBox(
-                          //   height: SizeConfig.getProportionateScreenHeight(23),
-                          // ),
+
                           Text(
                             AppLocalizations.of(context)!.reset_your_password,
                             style: TextStyle(

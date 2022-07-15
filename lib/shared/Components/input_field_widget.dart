@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';import 'package:hexcolor/hexcolor.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 
 class InputFieldWidget extends StatelessWidget {
@@ -10,17 +11,19 @@ class InputFieldWidget extends StatelessWidget {
   final TextInputType keyboardType;
   final String hint;
   final String fieldKey;
-  IconData ?suffix;
+  IconData? suffix;
   Function()? suffixPressed;
-  InputFieldWidget({
-    Key? key,
-    required this.controller,
-    required this.keyboardType,
-    required this.hint,
-    required this.fieldKey,
-    this.suffix,
-    this.suffixPressed
-  }) : super(key: key);
+  bool secureTextEntry;
+  InputFieldWidget(
+      {Key? key,
+      required this.controller,
+      required this.keyboardType,
+      required this.hint,
+      required this.fieldKey,
+      this.secureTextEntry = false,
+      this.suffix,
+      this.suffixPressed})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +32,7 @@ class InputFieldWidget extends StatelessWidget {
       child: TextFormField(
         key: Key(fieldKey),
         controller: controller,
-        //validator: (value) => onSubmit(value),
+        obscureText: secureTextEntry,
         keyboardType: keyboardType,
         style: TextStyle(
           fontSize: 16,
@@ -51,11 +54,11 @@ class InputFieldWidget extends StatelessWidget {
           ),
           suffixIcon: suffix != null
               ? IconButton(
-            onPressed: suffixPressed,
-            icon: Icon(
-              suffix,
-            ),
-          )
+                  onPressed: suffixPressed,
+                  icon: Icon(
+                    suffix,
+                  ),
+                )
               : null,
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
