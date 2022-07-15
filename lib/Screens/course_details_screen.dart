@@ -187,10 +187,13 @@ class CourseScreen extends StatelessWidget {
                               ],
                             ),
                             ClipRRect(
-                              child: Image.asset(
-                                'assets/images/course1.png',
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.network(
+                                courseData.picture ?? '',
                                 width: SizeConfig.getProportionateScreenWidth(130),
                                 height: SizeConfig.getProportionateScreenHeight(190),
+                                fit: BoxFit.cover,
+                                errorBuilder: (_, __, ___) => Container(),
                               ),
                             ),
                             SizedBox(
@@ -349,7 +352,7 @@ class CourseScreen extends StatelessWidget {
                                               ),
                                               SizedBox(height: 4),
                                               Text(
-                                                '8',
+                                                '${courseData.modules?.length ?? 1}',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                     color: HexColor('FFFFFF'),

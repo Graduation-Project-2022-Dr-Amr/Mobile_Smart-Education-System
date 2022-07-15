@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: EdgeInsets.only(right: SizeConfig.getProportionateScreenWidth(16)),
                       child: GestureDetector(
                         onTap: () {
-                          navigateTo(context, CoursesScreen());
+                          navigateTo(context, CoursesScreen(showAppBar: true));
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.min,

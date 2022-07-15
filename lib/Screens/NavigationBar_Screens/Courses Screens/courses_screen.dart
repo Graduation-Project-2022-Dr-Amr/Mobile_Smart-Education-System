@@ -12,7 +12,8 @@ import 'package:smart_education/shared/Components/commponents.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 
 class CoursesScreen extends StatefulWidget {
-  const CoursesScreen({Key? key}) : super(key: key);
+  bool showAppBar = false;
+  CoursesScreen({Key? key, this.showAppBar = false}) : super(key: key);
 
   @override
   State<CoursesScreen> createState() => _CoursesScreenState();
@@ -30,6 +31,11 @@ class _CoursesScreenState extends State<CoursesScreen> {
         builder: (context, state) {
           var courseBloc = CourseBloc.get(context);
           return Scaffold(
+            appBar: widget.showAppBar
+                ? AppBar(
+                    title: Text('Courses'),
+                  )
+                : null,
             body: courseBloc.allCourses.isEmpty
                 ? Center(
                     child: Row(
@@ -59,6 +65,9 @@ class _CoursesScreenState extends State<CoursesScreen> {
                                 return 'Enter some words!';
                               }
                               return null;
+                            },
+                            onChanged: (v) {
+                              courseBloc.searchCourses(v);
                             },
                             keyboardType: TextInputType.text,
                             style: TextStyle(fontSize: 20, color: Colors.blue),

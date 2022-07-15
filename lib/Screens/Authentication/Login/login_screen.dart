@@ -87,14 +87,6 @@ class LoginScreen extends StatelessWidget {
                           buildColumn(text: AppLocalizations.of(context)!.user_name),
                           InputFieldWidget(
                             controller: userNameController,
-                            // onSubmit: (value) {
-                            //   if (value!.isEmpty ||
-                            //       !value.contains('@') ||
-                            //       !value.contains('.')) {
-                            //     return 'Enter a valid User Email!';
-                            //   }
-                            //   return null;
-                            // },
                             keyboardType: TextInputType.emailAddress,
                             hint: AppLocalizations.of(context)!.enter_your_name,
                             fieldKey: "user name",
