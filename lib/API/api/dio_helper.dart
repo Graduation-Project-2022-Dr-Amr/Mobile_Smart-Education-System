@@ -25,10 +25,7 @@ class DioHelper {
     String? token,
     Map<String, dynamic>? data,
   }) async {
-    dio.options.headers = {
-      'Content-Type': 'application/json',
-      'Authorization': 'Token $token'
-    };
+    dio.options.headers = {'Content-Type': 'application/json', 'Authorization': 'Token $token'};
     return await dio.get(
       url,
       queryParameters: query,
@@ -56,14 +53,8 @@ class DioHelper {
   }
 
   static Future<Response> putData(
-      {required String url,
-      Map<String, dynamic>? query,
-      Map<String, dynamic>? data,
-      String? token}) async {
-    dio.options.headers = {
-      'Content-Type': 'application/json',
-      'Authorization': 'Token {{admin_token}}'
-    };
+      {required String url, Map<String, dynamic>? query, Map<String, dynamic>? data, String? token}) async {
+    dio.options.headers = {'Content-Type': 'application/json', 'Authorization': 'Token $token'};
     return await dio.put(
       url,
       queryParameters: query,
@@ -76,11 +67,7 @@ class DioHelper {
     String lang = 'en',
     String? token,
   }) async {
-    dio.options.headers = {
-      'lang': lang,
-      'Content-Type': 'application/json',
-      'Authorization': 'Token $token'
-    };
+    dio.options.headers = {'lang': lang, 'Content-Type': 'application/json', 'Authorization': 'Token $token'};
     return await dio.delete(url);
   }
 }
