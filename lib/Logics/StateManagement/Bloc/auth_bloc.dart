@@ -19,18 +19,33 @@ class AuthBloc extends Cubit<AppStates> {
   static AuthBloc get(context) => BlocProvider.of(context);
   bool isInstructor = true;
   bool showPassword = false;
+  bool showPassword2 = false;
 
   bool isChecked = false;
-  IconData suffixIcon = Icons.remove_red_eye_outlined;
+  bool isChecked2 = false;
+  IconData suffixIcon1 = Icons.visibility;
+  IconData suffixIcon2 = Icons.visibility;
 
   void changeSuffexIcon() {
     showPassword = !showPassword;
     if (showPassword) {
-      suffixIcon = Icons.visibility_off;
+      suffixIcon1 = Icons.visibility_off;
     } else {
-      suffixIcon = Icons.visibility;
+      suffixIcon1 = Icons.visibility;
     }
     emit(SuffixIconState());
+    emit(SuffixIconState());
+  }
+
+  void toggleShowPassword1() {
+    showPassword = !showPassword;
+    suffixIcon1 = showPassword ? Icons.visibility_off : Icons.visibility;
+    emit(SuffixIconState());
+  }
+
+  void toggleShowPassword2() {
+    showPassword2 = !showPassword2;
+    suffixIcon2 = showPassword2 ? Icons.visibility_off : Icons.visibility;
     emit(SuffixIconState());
   }
 
