@@ -5,16 +5,20 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
 import 'package:smart_education/API/api/cacheHelper.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
-import 'package:smart_education/Screens/Authentication/Login/login_screen.dart';
-import 'package:smart_education/Screens/Authentication/Profile/profileScreen.dart';
-import 'package:smart_education/Screens/NavigationBar_Screens/More%20Screens/todo_part/view/all_tasks_screen.dart';
 import 'package:smart_education/shared/Components/commponents.dart';
 import 'dart:math' as math;
 
 import 'package:smart_education/shared/constants/size_config.dart';
+
+import '../../Authentication/Login/login_screen.dart';
+import '../../Authentication/Profile/profileScreen.dart';
+import 'grad_project/all_projects_screen.dart';
+import 'todo_part/controller/todo_provider.dart';
+import 'todo_part/view/all_tasks_screen.dart';
 
 class MoreScreen extends StatelessWidget {
   @override
@@ -401,7 +405,7 @@ class MoreScreen extends StatelessWidget {
                     ),
 
                     InkWell(
-                      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ToDoScreen())),
+                      onTap: () => null,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -426,7 +430,7 @@ class MoreScreen extends StatelessWidget {
                       height: SizeConfig.getProportionateScreenHeight(21),
                     ),
                     InkWell(
-                      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ToDoScreen())),
+                      onTap: () => null,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -451,7 +455,7 @@ class MoreScreen extends StatelessWidget {
                       height: SizeConfig.getProportionateScreenHeight(21),
                     ),
                     InkWell(
-                      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ToDoScreen())),
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ChangeNotifierProvider<TodoProvider>(create: (_)=>TodoProvider(),child: ToDoScreen(),))),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -463,6 +467,32 @@ class MoreScreen extends StatelessWidget {
                           ),
                           Text(
                             AppLocalizations.of(context)!.my_to_do,
+                            style: TextStyle(
+                              color: HexColor('4F4F4F'),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: SizeConfig.getProportionateScreenHeight(21),
+                    ),
+                    InkWell(
+                      onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => AllProjectsScreen())),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Icon(
+                            Icons.explore,
+                          ),
+                          SizedBox(
+                            width: SizeConfig.getProportionateScreenWidth(10),
+                          ),
+                          Text(
+                            "Explore old graduation projects",
                             style: TextStyle(
                               color: HexColor('4F4F4F'),
                               fontSize: 16,
