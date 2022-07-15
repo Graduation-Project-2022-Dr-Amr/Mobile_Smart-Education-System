@@ -23,7 +23,7 @@ class CourseBloc extends Cubit<AppStates> {
   List<Course> allCourses = [];
 
   void getAllCourses() {
-    DioHelper.getData(url: courses, token: CacheHelper.getData('token')).then((value) {
+    DioHelper.getData(url: COURSES, token: CacheHelper.getData('token')).then((value) {
       print("this is important course ${value.data} and type ${value.data.runtimeType}");
       allCourses = courseFromJson(value.data);
 

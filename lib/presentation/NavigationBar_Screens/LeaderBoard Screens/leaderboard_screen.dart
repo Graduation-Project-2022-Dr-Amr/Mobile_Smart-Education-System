@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
+import 'package:smart_education/Logics/StateManagement/Bloc/leaderboard_bloc.dart';
 import 'package:smart_education/shared/constants/size_config.dart';
 
 class LeaderBoard extends StatefulWidget {
@@ -22,11 +23,10 @@ class _LeaderBoardState extends State<LeaderBoard> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    print(Mybloc.get(context).isDark);
 
     return BlocProvider(
-      create: (context) => Mybloc(),
-      child: BlocConsumer<Mybloc, AppStates>(
+      create: (context) => LeaderBoardBloc()..getLeaderBoard(),
+      child: BlocConsumer<LeaderBoardBloc, AppStates>(
         listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
