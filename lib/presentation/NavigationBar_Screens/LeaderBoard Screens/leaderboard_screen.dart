@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc.dart';
@@ -23,11 +24,10 @@ class _LeaderBoardState extends State<LeaderBoard> {
     SizeConfig().init(context);
     print(Mybloc.get(context).isDark);
 
-    return BlocProvider(create: (context)=>Mybloc(),
-    child: BlocConsumer<Mybloc,AppStates>(
-        listener: (context, state) {
-
-        },
+    return BlocProvider(
+      create: (context) => Mybloc(),
+      child: BlocConsumer<Mybloc, AppStates>(
+        listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
             body: DefaultTabController(
@@ -35,13 +35,12 @@ class _LeaderBoardState extends State<LeaderBoard> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-
                   SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(16)),
                     child: Text(
                       "leaderboard",
-                    style: Theme.of(context).textTheme.headline3,
+                      style: Theme.of(context).textTheme.headline3,
                     ),
                   ),
                   SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
@@ -50,7 +49,6 @@ class _LeaderBoardState extends State<LeaderBoard> {
                     child: _buildTabs(),
                   ),
                   SizedBox(height: SizeConfig.getProportionateScreenHeight(24)),
-
                   Flexible(
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: SizeConfig.getProportionateScreenWidth(16)),
@@ -62,7 +60,7 @@ class _LeaderBoardState extends State<LeaderBoard> {
             ),
           );
         },
-    ),
+      ),
     );
   }
 
@@ -80,25 +78,19 @@ class _LeaderBoardState extends State<LeaderBoard> {
             return GestureDetector(
               onTap: (() => setState(() => _activeIndex = index)),
               child: Container(
-                margin: EdgeInsets.only(
-                    right: SizeConfig.getProportionateScreenWidth(8)),
+                margin: EdgeInsets.only(right: SizeConfig.getProportionateScreenWidth(8)),
                 alignment: Alignment.center,
                 padding: EdgeInsets.symmetric(
                     horizontal: SizeConfig.getProportionateScreenWidth(24),
                     vertical: SizeConfig.getProportionateScreenHeight(8)),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                      SizeConfig.getProportionateScreenWidth(28)),
-                  color: _activeIndex == index
-                      ? HexColor("2F80ED")
-                      : HexColor("F2F2F2"),
+                  borderRadius: BorderRadius.circular(SizeConfig.getProportionateScreenWidth(28)),
+                  color: _activeIndex == index ? HexColor("2F80ED") : HexColor("F2F2F2"),
                 ),
                 child: Text(
                   _getName(index),
                   style: TextStyle(
-                      color: _activeIndex == index
-                          ? Colors.white
-                          : HexColor("828282"),
+                      color: _activeIndex == index ? Colors.white : HexColor("828282"),
                       fontSize: 16,
                       fontWeight: FontWeight.w700),
                 ),
@@ -156,50 +148,52 @@ bool isRTL(BuildContext context) {
 }
 
 Widget buildItem(
-    context,
-    index,
-    ) =>
+  context,
+  index,
+) =>
     Container(
-        width: SizeConfig.getProportionateScreenWidth(400),
-        height: SizeConfig.getProportionateScreenHeight(54),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child:  Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              maxRadius: SizeConfig.getProportionateScreenWidth(26),
-              backgroundColor: HexColor('C4C4C4'),
-            ),
-            SizedBox(width:SizeConfig.getProportionateScreenWidth(16)),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  itemData[index]['name'],
-                  style: Theme.of(context).textTheme.headline3!.copyWith(
-                    color: Mybloc.get(context).isDark ? HexColor('#FFFFFF'): HexColor('#4F4F4F'),
-                  ),
-                ),
-                Text(
-                  itemData[index]['degree'],
-                  style: Theme.of(context).textTheme.headline3!.copyWith(
-                    color: Mybloc.get(context).isDark ? HexColor('#FFFFFF'): HexColor('#4F4F4F'),
-                  ),
-                ),
-              ],
-            ),
-            Spacer(),
-            Text(
-              itemData[index]['number'],
-              style: Theme.of(context).textTheme.headline3!.copyWith(
-                color: Mybloc.get(context).isDark ? HexColor('#FFFFFF'): HexColor('#4F4F4F'),
+      width: SizeConfig.getProportionateScreenWidth(400),
+      height: SizeConfig.getProportionateScreenHeight(54),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            radius: 35.0,
+            backgroundColor: Colors.grey.shade100,
+            backgroundImage: NetworkImage(
+                'https://static.vecteezy.com/system/resources/previews/005/545/335/original/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg'),
+          ),
+          SizedBox(width: SizeConfig.getProportionateScreenWidth(16)),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                itemData[index]['name'],
+                style: Theme.of(context).textTheme.headline3!.copyWith(
+                      color: Mybloc.get(context).isDark ? HexColor('#FFFFFF') : HexColor('#4F4F4F'),
+                    ),
               ),
-            ),
-          ],
-        ),
+              Text(
+                itemData[index]['degree'],
+                style: Theme.of(context).textTheme.headline3!.copyWith(
+                      color: Mybloc.get(context).isDark ? HexColor('#FFFFFF') : HexColor('#4F4F4F'),
+                    ),
+              ),
+            ],
+          ),
+          Spacer(),
+          Text(
+            itemData[index]['number'],
+            style: Theme.of(context).textTheme.headline3!.copyWith(
+                  color: Mybloc.get(context).isDark ? HexColor('#FFFFFF') : HexColor('#4F4F4F'),
+                ),
+          ),
+        ],
+      ),
     );
 
 List<dynamic> itemData = [

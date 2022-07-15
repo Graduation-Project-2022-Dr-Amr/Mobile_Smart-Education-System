@@ -44,6 +44,14 @@ class CourseBloc extends Cubit<AppStates> {
     });
   }
 
+  searchCourses(String title) {
+    if (allCourses.isNotEmpty) {
+      List<Course> searchedCourses =
+          allCourses.where((element) => element.title!.toLowerCase().contains(title.toLowerCase())).toList();
+      //emit(SearchCourseSuccessState(searchedCourses));
+    }
+  }
+
   List<Chapter> allChapters = [];
   List<Chapter> courseChapters = [];
 

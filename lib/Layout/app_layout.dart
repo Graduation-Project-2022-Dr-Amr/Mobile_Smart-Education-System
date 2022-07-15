@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
+import 'package:smart_education/presentation/NavigationBar_Screens/Notifications/notifications_screen.dart';
+import 'package:smart_education/shared/Components/commponents.dart';
 
 import '../shared/constants/size_config.dart';
 
@@ -13,6 +17,8 @@ class AppLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.white, statusBarIconBrightness: Brightness.dark));
     SizeConfig().init(context);
     return BlocProvider(
       create: (context) => Mybloc(),
@@ -23,37 +29,41 @@ class AppLayout extends StatelessWidget {
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 'assets/images/home.svg',
-                color: Mybloc.get(context).selectedIndex==0 ?Colors.blue:Colors.grey,
+                color: Mybloc.get(context).selectedIndex == 0 ? Colors.blue : Colors.grey,
               ),
               label: AppLocalizations.of(context)!.home,
             ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/images/course.svg',
-                color: Mybloc.get(context).selectedIndex==1 ?Colors.blue:Colors.grey,
+              icon: SvgPicture.asset(
+                'assets/images/course.svg',
+                color: Mybloc.get(context).selectedIndex == 1 ? Colors.blue : Colors.grey,
               ),
               label: AppLocalizations.of(context)!.courses,
             ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/images/chat.svg',
-                color: Mybloc.get(context).selectedIndex==2 ?Colors.blue:Colors.grey,
+              icon: SvgPicture.asset(
+                'assets/images/chat.svg',
+                color: Mybloc.get(context).selectedIndex == 2 ? Colors.blue : Colors.grey,
               ),
               label: AppLocalizations.of(context)!.community,
             ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/images/leader.svg',
-                color: Mybloc.get(context).selectedIndex==3 ?Colors.blue:Colors.grey,
+              icon: SvgPicture.asset(
+                'assets/images/leader.svg',
+                color: Mybloc.get(context).selectedIndex == 3 ? Colors.blue : Colors.grey,
               ),
               label: AppLocalizations.of(context)!.leaderboard,
             ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/images/more.svg',
-                color: Mybloc.get(context).selectedIndex==4 ?Colors.blue:Colors.grey,
+              icon: SvgPicture.asset(
+                'assets/images/more.svg',
+                color: Mybloc.get(context).selectedIndex == 4 ? Colors.blue : Colors.grey,
               ),
               label: AppLocalizations.of(context)!.more,
             ),
           ];
           return Scaffold(
-            appBar:AppBar(
+            appBar: AppBar(
               title: SvgPicture.asset(
                 'assets/images/Logo.svg',
                 width: SizeConfig.getProportionateScreenWidth(113),
@@ -68,27 +78,29 @@ class AppLayout extends StatelessWidget {
               //leading: Container(),
               toolbarHeight: SizeConfig.getProportionateScreenHeight(88),
               actions: [
-                SvgPicture.asset(
-                  'assets/images/notification on.svg',
-                  semanticsLabel: 'vector',
-                  width: SizeConfig.getProportionateScreenWidth(24),
-                  height: SizeConfig.getProportionateScreenWidth(24),
+                InkWell(
+                  onTap: () => navigateTo(context, NotificationsScreen()),
+                  child: SvgPicture.asset(
+                    'assets/images/notification on.svg',
+                    semanticsLabel: 'vector',
+                    width: SizeConfig.getProportionateScreenWidth(24),
+                    height: SizeConfig.getProportionateScreenWidth(24),
+                  ),
                 ),
                 SizedBox(width: SizeConfig.getProportionateScreenWidth(8)),
                 CircleAvatar(
                   maxRadius: SizeConfig.getProportionateScreenWidth(16),
                   minRadius: SizeConfig.getProportionateScreenWidth(16),
-                  child:Text("N",style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white
-                  ),),
+                  child: Text(
+                    "N",
+                    style: TextStyle(fontSize: 14, color: Colors.white),
+                  ),
                   backgroundColor: HexColor("0053CB"),
                 ),
                 SizedBox(width: SizeConfig.getProportionateScreenWidth(16)),
               ],
             ),
-            body:
-            Mybloc.get(context).screens[Mybloc.get(context).selectedIndex],
+            body: Mybloc.get(context).screens[Mybloc.get(context).selectedIndex],
             bottomNavigationBar: BottomNavigationBar(
               unselectedFontSize: 12,
               selectedFontSize: 12,
@@ -99,7 +111,7 @@ class AppLayout extends StatelessWidget {
               selectedItemColor: HexColor('2F80ED'),
               unselectedItemColor: HexColor('BDBDBD'),
               type: BottomNavigationBarType.fixed,
-              items: bottomItemsEnglish,//Mybloc.get(context).bottomItemsEnglish,
+              items: bottomItemsEnglish, //Mybloc.get(context).bottomItemsEnglish,
             ),
           );
         },
@@ -118,8 +130,7 @@ void show(BuildContext ctx) {
       },
       child: Container(
         decoration: BoxDecoration(
-            color: HexColor('0053CB'),
-            borderRadius: BorderRadius.vertical(top: Radius.circular(24.5221))),
+            color: HexColor('0053CB'), borderRadius: BorderRadius.vertical(top: Radius.circular(24.5221))),
         height: MediaQuery.of(ctx).size.height * 0.1090712742980562,
         alignment: Alignment.center,
         child: Column(
@@ -139,8 +150,7 @@ void show(BuildContext ctx) {
               height: 2,
               color: HexColor('C4E2FC'),
             ),
-            SizedBox(
-                height: MediaQuery.of(ctx).size.height * 0.0259179265658747),
+            SizedBox(height: MediaQuery.of(ctx).size.height * 0.0259179265658747),
             Text(
               'CONTINUE STUDYING',
               style: TextStyle(

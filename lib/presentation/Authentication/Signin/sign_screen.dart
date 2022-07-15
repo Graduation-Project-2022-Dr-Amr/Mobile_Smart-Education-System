@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:smart_education/Layout/app_layout.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/auth_bloc.dart';
 import 'package:smart_education/Logics/StateManagement/Bloc/bloc_states.dart';
 import 'package:smart_education/shared/Components/commponents.dart';
@@ -35,7 +36,7 @@ class SignUpScreen extends StatelessWidget {
               value: state.registerModel.token,
             ).then((value) {
               TOKEN = state.registerModel.token;
-              navigateandFinish(context, SearchScreen());
+              navigateandFinish(context, AppLayout());
             });
           }
         },

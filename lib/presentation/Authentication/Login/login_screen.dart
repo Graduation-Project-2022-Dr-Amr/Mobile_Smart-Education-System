@@ -38,6 +38,9 @@ class LoginScreen extends StatelessWidget {
                 navigateandFinish(context, AppLayout());
               },
             );
+          } else if (state is LoginErrorState) {
+            showMyToast(
+                text: 'Username/Email not matching with password, please try again. ', state: ToastStates.ERROR);
           }
         },
         builder: (context, state) {
@@ -84,14 +87,6 @@ class LoginScreen extends StatelessWidget {
                           buildColumn(text: AppLocalizations.of(context)!.user_name),
                           InputFieldWidget(
                             controller: userNameController,
-                            // onSubmit: (value) {
-                            //   if (value!.isEmpty ||
-                            //       !value.contains('@') ||
-                            //       !value.contains('.')) {
-                            //     return 'Enter a valid User Email!';
-                            //   }
-                            //   return null;
-                            // },
                             keyboardType: TextInputType.emailAddress,
                             hint: AppLocalizations.of(context)!.enter_your_name,
                             fieldKey: "user name",
@@ -198,26 +193,6 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  // TODO: reminder to be moved to Bloc repository.
-  // void _onLogin(BuildContext context) async {
-  //   final loginData = LoginData(emailController.text, passwordController.text);
-  //   try {
-  //     final response = await api.login(loginData);
-  //     print(response.toString());
-  //     ScaffoldMessenger.of(context).showSnackBar(
-  //       SnackBar(
-  //         content: Text(response.toString()),
-  //         duration: Duration(seconds: 2),
-  //       ),
-  //     );
-  //     navigateTo(context, SearchScreen());
-  //
-  //   } catch (err) {
-  //     print(err);
-  //   }
-  //
-  // }
-
   Column buildColumn({required String text}) {
     return Column(
       children: [
@@ -227,7 +202,6 @@ class LoginScreen extends StatelessWidget {
           style: TextStyle(
             color: HexColor('0053CB'),
             fontSize: 14,
-            //height:0.01727861771 ,
             fontStyle: FontStyle.normal,
             fontWeight: FontWeight.w500,
           ),
