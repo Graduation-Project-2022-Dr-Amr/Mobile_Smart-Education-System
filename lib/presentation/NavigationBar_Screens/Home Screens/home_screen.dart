@@ -242,11 +242,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.circular(8),
                     color: Color.fromRGBO(166, 166, 166, 1),
                     image: DecorationImage(
-                      image: NetworkImage(
-                        '${course.picture}',
-                      ),
-                      fit: BoxFit.cover,
-                    ),
+                        image: NetworkImage(
+                          '${course.picture}',
+                        ),
+                        fit: BoxFit.cover,
+                        onError: (_, __) => Image.asset('assets/images/course1.png')),
                   ),
                 ),
               ),

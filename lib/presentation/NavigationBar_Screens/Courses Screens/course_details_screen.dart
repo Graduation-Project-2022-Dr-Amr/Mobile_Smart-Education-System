@@ -209,7 +209,7 @@ class CourseScreen extends StatelessWidget {
                               height: SizeConfig.getProportionateScreenHeight(8),
                             ),
                             Text(
-                              courseData.user != null || true ? coursesData[0]['doctorName'] : "",
+                              courseData.description ?? '',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 12,

@@ -47,9 +47,8 @@ class MoreScreen extends StatelessWidget {
                     Row(
                       children: [
                         CircleAvatar(
-                          backgroundImage: AssetImage(
-                            'assets/images/mahmoud.png',
-                          ),
+                          backgroundImage: NetworkImage(
+                              'https://static.vecteezy.com/system/resources/previews/005/545/335/original/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg'),
                           maxRadius: 26,
                         ),
                         SizedBox(
@@ -59,7 +58,7 @@ class MoreScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Devon Lane',
+                              CacheHelper.getData('userName') ?? '',
                               style: TextStyle(
                                 color: HexColor('4F4F4F'),
                                 fontSize: 16,
@@ -455,7 +454,11 @@ class MoreScreen extends StatelessWidget {
                       height: SizeConfig.getProportionateScreenHeight(21),
                     ),
                     InkWell(
-                      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ChangeNotifierProvider<TodoProvider>(create: (_)=>TodoProvider(),child: ToDoScreen(),))),
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                          builder: (_) => ChangeNotifierProvider<TodoProvider>(
+                                create: (_) => TodoProvider(),
+                                child: ToDoScreen(),
+                              ))),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -480,8 +483,7 @@ class MoreScreen extends StatelessWidget {
                       height: SizeConfig.getProportionateScreenHeight(21),
                     ),
                     InkWell(
-                      onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => AllProjectsScreen())),
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => AllProjectsScreen())),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [

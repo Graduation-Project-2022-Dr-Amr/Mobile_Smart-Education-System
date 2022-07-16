@@ -31,6 +31,7 @@ class LoginScreen extends StatelessWidget {
           if (state is LoginSuccessState) {
             Future.wait([
               CacheHelper.saveData(key: 'userId', value: state.loginUserModel.userId),
+              CacheHelper.saveData(key: 'userName', value: userNameController.text),
               CacheHelper.saveData(key: 'token', value: state.loginUserModel.token)
             ]).then(
               (value) {

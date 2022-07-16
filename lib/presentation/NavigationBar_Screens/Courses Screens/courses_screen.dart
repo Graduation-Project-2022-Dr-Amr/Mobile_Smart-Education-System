@@ -225,7 +225,7 @@ Widget testCourseItem({context, index, required List<Course> allCourses}) => Ges
                     ),
                     SizedBox(height: SizeConfig.getProportionateScreenHeight(8)),
                     Text(
-                      allCourses[index].university != null || true ? coursesData[index]['doctorName'] : "",
+                      allCourses[index].description ?? "",
                       textScaleFactor: 1.0,
                       textAlign: TextAlign.center,
                       style: TextStyle(

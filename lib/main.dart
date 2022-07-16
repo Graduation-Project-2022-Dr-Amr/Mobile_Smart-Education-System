@@ -52,7 +52,7 @@ void main() async {
   }
 
   runApp(MyApp(
-    isDark: isDark,
+    isDark: false,
     isRtl: isRtl,
     startWidget: widget,
   ));
